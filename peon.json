@@ -1,0 +1,33 @@
+{
+  "watch":{
+    "init": true,
+    "server": true
+  },
+  "init":{
+    "copy": {
+      "libs":{
+        "flatten": true,
+        "src":[
+          "hammer.js/hammer.js"
+        ],
+        "cwd":"bower_components",
+        "dest":"/src/scripts/libs/"
+      },
+      "css":{
+        "flatten": true,
+        "src":[
+          "angular-material/angular-material.css"
+        ],
+        "cwd":"bower_components",
+        "dest":"/src/styles/"
+      }
+    }
+  },
+  "build":{
+    "clean": "build",
+    "render":{
+      "cwd": "src",
+      "dest": "build"
+    }
+  }
+}

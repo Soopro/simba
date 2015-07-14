@@ -1,0 +1,19 @@
+{
+  "name": "simba",
+  "version": "0.0.1",
+  "description": "Soopro official website theme.",
+  "private": false,
+  "authors": ["Redy"],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "hammer.js": "~2.0.4"
+  }
+}
