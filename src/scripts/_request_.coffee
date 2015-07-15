@@ -27,7 +27,7 @@ Promise.prototype.finally = (callback) ->
     constructor.resolve(callback()).then ->
       throw reason
       return
-  
+
 $.request = (opts) ->
   if not opts
     throw new Error("Request Options is required");

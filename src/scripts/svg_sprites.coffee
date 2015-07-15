@@ -16,7 +16,65 @@ window.svgSprites = ->
   sprites = {}
   load_stack = []
   self = @
+  
+  request = (opts) ->
+    if not opts
+      throw new Error("Request Options is required");
+  
+    req_method = (opts.method or "GET").toUpperCase()
+    req_url = opts.url
+    req_async = opts.async or true
+    req_user = opts.user or ''
+    req_password = opts.password or ''
+    req_args = opts.param
+    req_data = opts.data or {}
+    req_contentType = opts.contentType or ''
+      
+    if not req_url
+      throw new Error("Request URL is required");
+  
+    req_uri = req_url;
+    if req_args && (method is 'POST' or method is 'PUT')
+      if req_uri.indexOf('?') > -1
+        req_uri+= '&';
+      else
+        req_uri+= '?';
+    
+      argcount = 0;
+      for key in args
+        if args.hasOwnProperty(key)
+          if argcount > 0
+            req_uri += '&'
+          req_uri+=encodeURIComponent(key)+'='+encodeURIComponent(args[key])
+          argcount++
 
+    success_callback = opts.success
+    error_callback = opts.error
+    complete_callback = opts.complete
+
+    xmlhttp = new XMLHttpRequest()
+    xmlhttp.onreadystatechange = ->
+      if xmlhttp.readyState == XMLHttpRequest.DONE
+        if xmlhttp.status == 200
+          if typeof(success_callback) is 'function'
+            success_callback(xmlhttp.response, xmlhttp.status)
+        else
+          if typeof(error_callback) is 'function'
+            error_callback(xmlhttp.response, xmlhttp.status)
+        if typeof(complete_callback) is 'function'
+          complete_callback(xmlhttp.response, xmlhttp.status)
+      return
+
+    xmlhttp.open(req_method, req_url, req_async, req_user, req_password)
+    if req_method in ['POST', 'PUT']
+      switch req_contentType
+        when 'json'
+          xmlhttp.setRequestHeader("Content-Type", 'application/json;charset=UTF-8')
+          xmlhttp.send(JSON.stringify(req_data))
+    else
+      xmlhttp.send()
+
+  
   remove_load = (str)->
     idx = load_stack.indexOf(str)
     if idx > -1
