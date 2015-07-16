@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Soopro official website theme.",
   "private": false,
-  "authors": ["Redy"],
+  "authors": [
+    "Redy"
+  ],
   "main": "index.html",
   "license": "MIT",
   "ignore": [
@@ -14,6 +16,9 @@
     "tests"
   ],
   "dependencies": {
-    "hammer.js": "~2.0.4"
+    "hammer.js": "~2.0.4",
+    "svg-sprites-render": "~0.0.3",
+    "zepto": "~1.1.6",
+    "normalize-css": "~3.0.3"
   }
 }

@@ -12,6 +12,4 @@
 $(document).ready ->
   svgSet = new svgSprites()
   svgSet.load('../styles/sprites.svg', 'base')
-  svgSet.load('../styles/sprites.svg', 'base2')
-  svgSet.load('../styles/sprites.svg', 'base3')
   svgSet.render()

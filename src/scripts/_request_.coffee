@@ -12,8 +12,6 @@
 if not window
   throw new Error("For web browser only!!");
 
-if not window.$
-  window.$ ={}
 
 Promise.prototype.finally = (callback) ->
   Promise.all([@]).then (values) ->
@@ -28,7 +26,7 @@ Promise.prototype.finally = (callback) ->
       throw reason
       return
 
-$.request = (opts) ->
+request = (opts) ->
   if not opts
     throw new Error("Request Options is required");
   
@@ -82,25 +80,30 @@ $.request = (opts) ->
       return
 
     xmlhttp.open(req_method, req_url, req_async, req_user, req_password)
-    if req_method in ['POST', 'PUT']
-      xmlhttp.setRequestHeader("Content-Type", req_content_type)
-      xmlhttp.send(JSON.stringify(req_data))
+    switch req_contentType
+      when 'form'
+        xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+        if req_method in ['POST', 'PUT']
+          send_data = new FormData(req_data)
+        # must be FormData()
+      when 'file'
+        xmlhttp.setRequestHeader('Content-Type', req_tile.type)
+        if req_method in ['POST', 'PUT']
+          formData = new FormData();
+          formData.append('file', req_file);
+          send_data = formData
+      when 'json'
+        xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+        if req_method in ['POST', 'PUT']
+          send_data = JSON.stringify(req_data)
+      else
+        xmlhttp.setRequestHeader("Accept", "text/xml")
+        if req_method in ['POST', 'PUT']
+          send_data = ''
+
+    if send_data
+      xmlhttp.send(send_data)
     else
       xmlhttp.send()
-  
+
   return promise
-
-
-svg = document.createElement("svg");
-
-promise = $.request
-  url: '../styles/sprites.svg'
-
-promise
-.then (data) ->
-  console.log "tutututut"
-.finally ->
-  console.log "xxxx"
-.catch (error) ->
-  console.log error
-

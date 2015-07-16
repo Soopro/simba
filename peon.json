@@ -9,7 +9,9 @@
         "flatten": true,
         "src":[
           "hammer.js/hammer.js",
-          "zepto/zepto.js"
+          "zepto/zepto.js",
+          "svg-sprites-render/svg-sprites-render.js"
+          
         ],
         "cwd":"bower_components",
         "dest":"/src/scripts/libs/"
@@ -17,7 +19,7 @@
       "css":{
         "flatten": true,
         "src":[
-          "angular-material/angular-material.css"
+          "normalize-css/normalize.css"
         ],
         "cwd":"bower_components",
         "dest":"/src/styles/"

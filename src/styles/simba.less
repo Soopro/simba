@@ -11,21 +11,36 @@ Version: 2.5
 @import "_variables_.less";
 @import "_mixins_.less";
 
-
 /* Genearl
 /* ----------------------------------------------- */
 
 html,
 body {
+  position: relative;
 	margin: 0;
 	padding: 0;
 	height: 100%;
+  background: @view-bg-color;
+  box-sizing: border-box;
 }
 
 #wrapper {
-	min-height: 100%;
 	position: relative;
-  background-color: #f6f6f4;
+}
+
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+a,
+a:link,
+a:visited {
+  color: @primary-color;
+  text-decoration: underline;
 }
 
 /* Typography
@@ -71,14 +86,20 @@ p{
   color: #8b0;
 }
 
+.bullet:before {
+  content: "•";
+  color: #8b0;
+  padding: 0 5px;
+}
 
 /* Grids
 /* ----------------------------------------------- */
 
 /* Header */
 .page-header {
+  &:extend(.clearfix all);
   min-height: 50px;
-  padding-top: 40px;
+  padding: 50px;
   @media (max-width:767px) {
     padding-top: 5px;
   }
@@ -86,10 +107,10 @@ p{
 
 /* Footer */
 .page-footer {
+  &:extend(.clearfix all);
   position: relative;
-  padding: 0 15px;
-  max-height: 100px;
-  box-sizing: border-box;
+  padding: 50px;
+  max-height: 50px;
 }
 
 /* Elements
@@ -97,50 +118,66 @@ p{
 
 /* Logo */
 #logo {
-  display: block;
-  width: 120px;
-  height: 50px;
-  text-indent: -9990em;
-  background: transparent url("sprites.svg") no-repeat 0 0;
-  background-size: 100%;
+  .svgWrap(120px, 50px, @primary-color);
+  float: left;
+}
+
+/* Menu */
+#menu {
+  .svgWrap(36px, 36px, #333);
+  float: right;
 }
 
 /* Copyright */
 #copyright {
+  float: right;
+  text-align: right;
   font-size: 12px;
-  text-align: center;
-  & a{
-    text-decoration: none;
-  }
-  & .footer-link:before,
-  & .footer-link:last-of-type:after{
-    content: "/";
-    color: #999;
-    padding: 0 5px;
-  }
 }
 
-
-/* Languages */
-.languages {
-  display: inline-block;
+#channel {
+  float: left;
   font-size: 12px;
-  text-align: center;
-  padding: 15px;
-  & > a{
-    padding-right: 10px;
+  & .links{
+    display: inline-block;
+    & .link {
+      display: inline;
+      &:not(:last-child):after{
+        content: "/";
+        color: @primary-color;
+        padding: 0 5px 0 10px;
+      }
+      & a,
+      & a:link,
+      & a:visited {
+        color: @dark-color;
+        text-decoration: none;
+      }
+      & a:hover {
+        text-decoration: underline;
+        color: @primary-color;
+      }
+    }
   }
-  & .active {
-    color: #999;
-    pointer-events: none;
+  .languages {
+    display: inline-block;
+    font-size: 12px;
+    text-align: center;
+    padding-left: 15px;
+    & > a{
+      &:extend(.bullet all);
+      padding-right: 10px;
+      text-decoration: none;
+    }
+    & .active {
+      color: #999;
+      pointer-events: none;
+    }
   }
 }
 
-.bullet:before {
-  content: "•";
-  color: #8b0;
-  padding: 0 5px;
-}
+
+
 
 
 
