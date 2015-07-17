@@ -12,7 +12,7 @@
 .transition(@arguments){
   -webkit-transition: @arguments;
      -moz-transition: @arguments;
-      -ms-transition:@arguments;
+      -ms-transition: @arguments;
        -o-transition: @arguments;
           transition: @arguments;
 }
@@ -28,12 +28,10 @@
 /* Svg */
 .svgWrap(@width, @height, @color){
   display: block;
-  width: @width;
-  height: @height;
   overflow: hidden;
   & svg {
-    width: 100%;
-    height: 100%;
+    width: @width;
+    height: @height;
     fill: @color;
   }
 }

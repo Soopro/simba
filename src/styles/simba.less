@@ -14,6 +14,12 @@ Version: 2.5
 /* Genearl
 /* ----------------------------------------------- */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html,
 body {
   position: relative;
@@ -21,7 +27,7 @@ body {
 	padding: 0;
 	height: 100%;
   background: @view-bg-color;
-  box-sizing: border-box;
+  overflow: hidden;
 }
 
 #wrapper {
@@ -41,6 +47,12 @@ a:link,
 a:visited {
   color: @primary-color;
   text-decoration: underline;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: 0;
 }
 
 /* Typography
@@ -92,51 +104,105 @@ p{
   padding: 0 5px;
 }
 
-/* Grids
+/* Blocks
 /* ----------------------------------------------- */
+@pages-transition: all @duration/2 ease-in-out;
 
 /* Header */
-.page-header {
-  &:extend(.clearfix all);
+#header {
+  .flex-display();
+  .flex-direction(row);
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  width: 100%;
   min-height: 50px;
-  padding: 50px;
+  padding: 30px;
   @media (max-width:767px) {
     padding-top: 5px;
+  }
+  & #logo svg,
+  & #menu svg {
+    .transition(@pages-transition);
   }
 }
 
 /* Footer */
-.page-footer {
-  &:extend(.clearfix all);
-  position: relative;
-  padding: 50px;
-  max-height: 50px;
+#footer {
+  .transition(@pages-transition);
+  .flex-display();
+  .flex-direction(row);
+  position: absolute;
+  z-index: 999;
+  bottom: 0;
+  width: 100%;
+  min-height: 50px;
+  padding: 30px;
+  opacity: 0;
+  &.show{
+    opacity: 1;
+  }
+}
+
+#pages {
+  .transition(@pages-transition);
+  &.zoom {
+    .transform(scale(0.4));
+    & > section {
+      box-shadow: 0 8px 10px -5px rgba(0,0,0,.14),
+                  0 16px 24px 2px rgba(0,0,0,.098),
+                  0 6px 30px 5px rgba(0,0,0,.084);
+    }
+  }
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 9;
+  
+  & > section {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    .transition(@pages-transition);
+    background-color: lighten(@view-bg-color, 50%);
+  }
 }
 
 /* Elements
 /* ----------------------------------------------- */
+@major-transition: all @duration*3 ease-in-out;
 
 /* Logo */
 #logo {
   .svgWrap(120px, 50px, @primary-color);
-  float: left;
+  .flex(1);
+  font-size: 0;
+  .light & svg{
+    fill: @light-color;
+  }
 }
 
 /* Menu */
 #menu {
   .svgWrap(36px, 36px, #333);
-  float: right;
+  min-width: 50px;
+  &:hover svg{
+    fill: @primary-color;
+  }
+  .light & svg{
+    fill: @light-color;
+  }
 }
 
 /* Copyright */
 #copyright {
-  float: right;
   text-align: right;
   font-size: 12px;
 }
 
 #channel {
-  float: left;
+  .flex(1);
   font-size: 12px;
   & .links{
     display: inline-block;
@@ -168,6 +234,9 @@ p{
       &:extend(.bullet all);
       padding-right: 10px;
       text-decoration: none;
+      &:hover {
+        color: @gray-color;
+      }
     }
     & .active {
       color: #999;
@@ -176,17 +245,9 @@ p{
   }
 }
 
-
-
-
-
-
-
-/* Blocks
+/* SECTION=Home
 /* ----------------------------------------------- */
-
-
-
-/* Animation
-/* ----------------------------------------------- */
-
+.home {
+  background-image: url('cover.jpg');
+  background-size: cover;
+}
