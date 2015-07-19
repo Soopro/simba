@@ -57,9 +57,11 @@ button {
 
 /* Typography
 /* ----------------------------------------------- */
-body,h1,h2,h3,h4,h5,h6,p {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 200;
+body,h1,h2,h3,h4,h5,h6,p,label {
+  font-family: RobotoDraft, Roboto,
+               "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 400;
+  color: @dark-color;
 }
 
 h1, h2 {
@@ -104,6 +106,21 @@ p{
   padding: 0 5px;
 }
 
+svg {
+  fill: @light-color;
+}
+
+.show {
+  opacity: 1;
+}
+.hide {
+  opacity: 0;
+  &,
+  & * {
+    pointer-events: none !important;
+  }
+}
+
 /* Blocks
 /* ----------------------------------------------- */
 @pages-transition: all @duration/2 ease-in-out;
@@ -121,10 +138,6 @@ p{
   @media (max-width:767px) {
     padding-top: 5px;
   }
-  & #logo svg,
-  & #menu svg {
-    .transition(@pages-transition);
-  }
 }
 
 /* Footer */
@@ -138,10 +151,6 @@ p{
   width: 100%;
   min-height: 50px;
   padding: 30px;
-  opacity: 0;
-  &.show{
-    opacity: 1;
-  }
 }
 
 #pages {
@@ -149,9 +158,12 @@ p{
   &.zoom {
     .transform(scale(0.4));
     & > section {
-      box-shadow: 0 8px 10px -5px rgba(0,0,0,.14),
-                  0 16px 24px 2px rgba(0,0,0,.098),
-                  0 6px 30px 5px rgba(0,0,0,.084);
+      padding: 10px;
+      & > div {
+        box-shadow: 0 8px 10px -5px rgba(0,0,0,.14),
+                    0 16px 24px 2px rgba(0,0,0,.098),
+                    0 6px 30px 5px rgba(0,0,0,.084);
+      }
     }
   }
   width: 100%;
@@ -160,38 +172,84 @@ p{
   z-index: 9;
   
   & > section {
+    .transition(@pages-transition);
     position: absolute;
     display: block;
     width: 100%;
     height: 100%;
-    .transition(@pages-transition);
-    background-color: lighten(@view-bg-color, 50%);
+    
+    & > label {
+      position: absolute;
+      display: block;
+      bottom: -96px;
+      width: 100%;
+      font-weight: 600;
+      font-size: 48px;
+      text-align: center;
+    }
+    & > div {
+      .transition(@pages-transition);
+      width: 100%;
+      height: 100%;
+      background-color: lighten(@view-bg-color, 50%);
+    }
+  }
+}
+
+#controller {
+  .transition(@pages-transition);
+  .flex-display();
+  .flex-direction(row);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 990;
+  padding: 30px;
+  pointer-events: none;
+  
+  & button {
+    .svgWrap(48px, 48px, @light-color);
+    pointer-events: auto;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  & .gap {
+    .flex(1);
   }
 }
 
 /* Elements
 /* ----------------------------------------------- */
-@major-transition: all @duration*3 ease-in-out;
 
 /* Logo */
 #logo {
-  .svgWrap(120px, 50px, @primary-color);
+  .svgWrap(120px, 50px, @light-color);
   .flex(1);
   font-size: 0;
-  .light & svg{
-    fill: @light-color;
+  .dark & svg {
+    fill: @primary-color;
+  }
+  & svg {
+    .transition(all @duration/3 ease-in-out);
   }
 }
 
 /* Menu */
 #menu {
-  .svgWrap(36px, 36px, #333);
+  .svgWrap(36px, 36px, @light-color);
   min-width: 50px;
-  &:hover svg{
+  #header:not(.dark) &:hover svg{
+    opacity: 0.6;
+  }
+  .dark &:hover svg{
     fill: @primary-color;
   }
-  .light & svg{
-    fill: @light-color;
+  .dark & svg{
+    fill: @dark-color;
+  }
+  & svg {
+    .transition(all @duration/3 ease-in-out);
   }
 }
 
@@ -247,7 +305,7 @@ p{
 
 /* SECTION=Home
 /* ----------------------------------------------- */
-.home {
+.home > div{
   background-image: url('cover.jpg');
   background-size: cover;
 }
