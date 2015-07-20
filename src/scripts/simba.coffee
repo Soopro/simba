@@ -20,7 +20,7 @@ $(document).ready ->
     self = @
     @menuOn = false
     @show = ->
-      if currPage.attr('dark') or self.menuOn
+      if currPage.attr('dark') isnt null and not self.menuOn
         $('#header').addClass('dark')
       else
         $('#header').removeClass('dark')
@@ -51,12 +51,20 @@ $(document).ready ->
         btn_prev.removeClass('hide')
       else
         btn_prev.addClass('hide')
-      if currPageIndex < totalPages
+      if currPageIndex < totalPages-1
         btn_next.removeClass('hide')
       else
         btn_next.addClass('hide')
+      
+      if currPage.attr('dark') isnt null and not self.isHide 
+        btn_next.addClass('dark')
+        btn_prev.addClass('dark')
+      else
+        btn_next.removeClass('dark')
+        btn_prev.removeClass('dark')
+        
     @next = ->
-      if currPageIndex >= totalPages
+      if currPageIndex >= totalPages-1
         return
       pageSlide(currPageIndex+=1)
       self.show()
@@ -77,7 +85,7 @@ $(document).ready ->
     return @
   
   # pages
-  pages = $('#pages > section')
+  pages = $('#pages > section:not([disabled])')
   for page in pages
     $(page).append('<label>'+page.title+'</label>')
   

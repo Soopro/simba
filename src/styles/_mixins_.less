@@ -43,8 +43,10 @@
           flex: @argment;
 }
 .flex-display(){
-  display: flex;
   display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 .flex-direction(@argment){
   -webkit-flex-direction: @argment;
@@ -53,9 +55,40 @@
 }
 .flex-align-items(@argment){
   -webkit-align-items: @argment;
+       -ms-flex-align: @argment;
           align-items: @argment;
 }
 .flex-justify-content(@argment){
   -webkit-justify-content: @argment;
+            -ms-flex-pack: @argment;
           justify-content: @argment;
+}
+.flex-wrap(@argment){
+  -webkit-flex-wrap: @argment;
+      -ms-flex-wrap: @argment;
+          flex-wrap: @argment;
+}
+
+/* select */
+.select(@argment){
+  cursor: default;
+  -webkit-user-select: @argment;
+     -moz-user-select: @argment;
+      -ms-user-select: @argment;
+          user-select: @argment;
+}
+
+/* 3d */
+.perspective3d(@argment){
+  -webkit-perspective: @argment;
+     -moz-perspective: @argment;
+          perspective: @argment;
+          
+  // -webkit-perspective-origin: 50% 50%;
+  //         perspective-origin: 50% 50%;
+  // -webkit-transform-style: preserve-3d;
+  //         transform-style: preserve-3d;
+          
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
