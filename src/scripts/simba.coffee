@@ -33,7 +33,6 @@ $(document).ready ->
     @menuStatus = 0
     
     @menu = (type)->
-      console.log type
       svg = $('#menu').find('svg')
       if self.menuStatus isnt 0
         self.menuStatus = 0
@@ -44,7 +43,6 @@ $(document).ready ->
         new_sprite = svg.data(type)
         old_sprite = svg.attr('svg-sprite') or ''
         svg.data('last', old_sprite)
-        console.log self.menuStatus, old_sprite
 
       svg.attr('svg-sprite', new_sprite)
       svgSet.render(svg)
