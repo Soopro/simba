@@ -8,6 +8,16 @@
 # Date:     3 July 2015
 # Version: 2.5
 # -------------------------------
+duplicateElements = ->
+  elements = $('[duplicate]')
+  for el in elements
+    times = parseInt($(el).attr('duplicate'))
+    curr = 0
+    parent = $(el).parent()
+    while curr < times-1
+      parent.append($(el).clone())
+      curr++
+    
 
 $(document).ready ->
   # svg sprites
@@ -15,12 +25,32 @@ $(document).ready ->
   svgSet.load('../styles/sprites.svg', 'base')
   svgSet.render()
   
+  duplicateElements()
+  
   # header
   PrimaryHeader = ->
     self = @
-    @menuOn = false
+    @menuStatus = 0
+    
+    @menu = (type)->
+      console.log type
+      svg = $('#menu').find('svg')
+      if self.menuStatus isnt 0
+        self.menuStatus = 0
+        new_sprite = svg.data('last')
+        svg.data('last', '')
+      else
+        self.menuStatus = if type is 'close' then 1 else 2
+        new_sprite = svg.data(type)
+        old_sprite = svg.attr('svg-sprite') or ''
+        svg.data('last', old_sprite)
+        console.log self.menuStatus, old_sprite
+
+      svg.attr('svg-sprite', new_sprite)
+      svgSet.render(svg)
+      
     @show = ->
-      if currPage.attr('dark') isnt null and not self.menuOn
+      if currPage.attr('dark') isnt null and self.menuStatus isnt 1
         $('#header').addClass('dark')
       else
         $('#header').removeClass('dark')
@@ -114,21 +144,25 @@ $(document).ready ->
   
   # buttons
   $('#menu').on 'click', (e)->
-    headerCtrl.menuOn = not headerCtrl.menuOn
-    
-    svg = $(this).find('svg')
-    new_sprite = svg.data('toggled')
-    old_sprite = svg.attr('svg-sprite')
-    svg.attr('svg-sprite', new_sprite)
-    svg.data('toggled', old_sprite)
-    svgSet.render(svg)
-    
-    $('#pages').toggleClass('zoom')
+    headerCtrl.menu('close')
+
+    $('#pages').toggleClass('zoom').removeClass('out')
     $('#footer').toggleClass('hide')
 
     paginatorCtrl.toggle()
     headerCtrl.show()
     return
+  
+  $('.detail').on 'click', (e)->
+    headerCtrl.menu('collapse')
+    
+    $('#pages').toggleClass('zoom').toggleClass('out')
+    $('#footer').addClass('hide')
+
+    paginatorCtrl.toggle()
+    headerCtrl.show()
+    return
+  
   # start
   pageSlide()
   

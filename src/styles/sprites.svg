@@ -1,4 +1,4 @@
-<svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
 <symbol id="ico-logo" viewBox="0 0 2731 1024">
 	<title>logo</title>
@@ -30,7 +30,13 @@
 </symbol>
 <symbol id="ico-menu" viewBox="0 0 1024 1024">
 	<title>menu</title>
-	<path class="path1" d="M64 832h896v-99.563h-896v99.563zM64 583.104h896v-99.563h-896v99.563zM64 234.667v99.563h896v-99.563h-896z"></path>
+	<path class="path1" d="M42.667 128v128h938.667v-128h-938.667z"></path>
+	<path class="path2" d="M42.667 768v128h938.667v-128h-938.667z"></path>
+	<path class="path3" d="M42.667 448v128h938.667v-128h-938.667z"></path>
+</symbol>
+<symbol id="ico-collapse" viewBox="0 0 1024 1024">
+	<title>collapse</title>
+	<path class="path1" d="M576.299 960v-649.707l230.528 230.528 90.987-90.987-385.813-385.835-385.813 385.813 90.987 90.987 230.528-230.528v649.728h128.597z"></path>
 </symbol>
 </defs>
 </svg>

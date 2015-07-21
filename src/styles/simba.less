@@ -91,8 +91,11 @@ svg {
   }
 }
 
-figure img {
-  max-width: 100%;
+figure {
+  margin: 0;
+  & img {
+    max-width: 100%;
+  }
 }
 
 .unselectable {
@@ -160,7 +163,6 @@ article {
       color: @gray-color;
     }
   }
-  
 }
 
 
@@ -216,12 +218,23 @@ body {
   .perspective3d(1200px);
 }
 
+/* Pages */
 #pages {
   .transition(@pages-transition);
   &.zoom {
     .select(none);
-    .transform(scale(0.4));
-    // .transform(translate3d(0, 0, -2000px););
+    .transform(scale(0.35, 0.35));
+    // .transform(translate3d(0, 0, -2000px));
+    // use translate3d will cause text blurry (bad as unreadable)
+    // so use scale may bit slow but text is clean to read. 
+    // sometime scale will show string line brink on chrome, just change size of scale will fix.
+    &.out{
+      .transform(scale(0.25));
+      // .transform(translate3d(0, 0, -4500px));
+      // no text readable needed, feel free use translate3d, but looks slow than scale.
+      opacity: 0;
+    }
+    
     & > section {
       padding: 10px;
       & > div {
@@ -250,6 +263,7 @@ body {
     
     & > div {
       .transition(@pages-transition);
+      overflow: hidden;
       width: 100%;
       height: 100%;
       padding: 30px;
@@ -316,6 +330,12 @@ body {
 
 }
 
+/* Detail */
+#detail {
+  .transition(@pages-transition);
+  background-color: @dark-color !important;
+}
+
 /* Elements
 /* ----------------------------------------------- */
 
@@ -334,7 +354,7 @@ body {
 
 /* Menu */
 #menu {
-  .svgWrap(36px, 36px, @dark-color);
+  .svgWrap(32px, 32px, @dark-color);
   min-width: 50px;
   #header.dark &:hover svg{
     opacity: 0.6;
@@ -410,5 +430,21 @@ body {
     a {
       font-weight: 600;
     }
+  }
+}
+
+.gallery > div {
+  background-color: @dark-color !important;
+  & h2 {
+    text-align: center;
+    font-size: 36px;
+  }
+  & .album {
+    width: 80%;
+    & > figure {
+        float: left;
+        width: 16.66%;
+    }
+    &:extend(.clearfix all);
   }
 }
