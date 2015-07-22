@@ -12,9 +12,13 @@
     <section class="gallery" title="Themes" dark>
       <div layout="column" layout-align="center center">
         <h2>Themes</h2>
-        <div class="album">
-          <figure duplicate="18" class="detail">
+        <div class="gallery-inner">
+          <figure duplicate="18" class="btn-slider">
             <img src="uploads/bird.jpg" title="Bird" />
+            <div rel="slides">
+              <img src="uploads/car2.jpg" title="Car" />
+              <img src="uploads/car2.jpg" title="Car" />
+            </div>
           </figure>
         </div>
       </div>
@@ -95,8 +99,20 @@
     </section>
   </div>
   <!-- Detail -->
-  <div id="detail">
+  <div id="detail" class="hide" layout="column" layout-align="center center">
     
+  </div>
+  <!-- Slider -->
+  <div id="slider" class="hide" layout="row" layout-align="center center">
+    <button type="button" class="prev">
+      <svg svg-sprite="base:ico-arr_left"></svg>
+    </button>
+    <div class="slider-inner" flex layout="column" layout-align="center center">
+      <div class="slides"></div>
+    </div>
+    <button type="button" class="next">
+      <svg type="button" svg-sprite="base:ico-arr_right"></svg>
+    </button>
   </div>
   <!-- Footer -->
   {% include "_g_footer_.html" %}
