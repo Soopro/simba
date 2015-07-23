@@ -16,23 +16,29 @@
        -o-transition: @arguments;
           transition: @arguments;
 }
-.keyframes(@name; @frames) {
+.keyframes(@name; @frames){
   @-webkit-keyframes @name { @frames(); }
 	   @-moz-keyframes @name { @frames(); }
       @-ms-keyframes @name { @frames(); }
        @-o-keyframes @name { @frames(); }
 	        @keyframes @name { @frames(); }
 }
-
+.animixin(@arguments){
+	-webkit-animation: @arguments;
+	   -moz-animation: @arguments;
+       -o-animation: @arguments;
+	        animation: @arguments;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
 
 /* Svg */
-.svgWrap(@width, @height, @color){
+.svgWrap(@width, @height){
   display: block;
   overflow: hidden;
   & svg {
     width: @width;
     height: @height;
-    fill: @color;
   }
 }
 

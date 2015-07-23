@@ -35,6 +35,7 @@ $(document).ready ->
     
     @menu = (type)->
       svg = $('#menu').find('svg')
+      logo = $('#logo').find('svg')
       if viewStatus isnt 0
         viewStatus = 0
         new_sprite = svg.data('last')
@@ -47,6 +48,11 @@ $(document).ready ->
 
       svg.attr('svg-sprite', new_sprite)
       svgSet.render(svg)
+
+      if viewStatus is 2
+        logo.addClass('hide')
+      else
+        logo.removeClass('hide')
       
     @show = ->
       if currPage.attr('dark') isnt null and viewStatus isnt 1
@@ -60,15 +66,13 @@ $(document).ready ->
   Detail = ->
     self = @
     detail = $('#detail')
-    
-    @dark = ->
+
+    @show = (content)->
       if currPage.attr('dark') isnt null
         detail.addClass('dark')
       else
         detail.removeClass('dark')
-      
-    @show = (content)->
-      self.dark()
+        
       detail.html(content)
       detail.removeClass('hide')
     
@@ -86,19 +90,29 @@ $(document).ready ->
   # sliderCtrl
   Slider = ->
     self = @
+    top_margin = 30
     slider = $('#slider')
     slide_room = $('#slider .slides')
     slider_inner = $('#slider .slider-inner')
-    window.addEventListener 'resize', (e)->
-      self.resize()
-      return
     
-    @resize = ->
-      for el in slide_room.children('.current')
+    slideIndex = 0
+    totalSlides = 0
+    
+    btn_next = $('#slider .btn-next')
+    btn_prev = $('#slider .btn-prev')
+  
+    btn_next.on 'click', (e)->
+      self.next()
+  
+    btn_prev.on 'click', (e)->
+      self.prev()
+    
+    @resize = (e)->
+      for el in slide_room.children()
         el.style.maxHeight = ''
         el.style.maxWidth = ''
         
-        _h = slider_inner.height()
+        _h = slider_inner.height()-top_margin;
         _w = slider_inner.width()
         if _w > _h
           p = _h / _w
@@ -109,24 +123,48 @@ $(document).ready ->
           el.style.maxHeight = (_h * p)+"px"
           el.style.maxWidth = _w+"px"
 
+    @slide = (index)->
+      elements = slide_room.children()
+      current = slide_room.find('.current')
+      if current and elements.length > 0
+        current.removeClass('current')
+      $(elements[index]).addClass('current')
+      return
     
-    @dark = ->
+    @next = ->
+      if slideIndex >= totalSlides-1
+        slideIndex = 0
+      else
+        slideIndex+=1
+      self.slide(slideIndex)
+      
+    @prev = ->
+      if slideIndex <= 0
+        slideIndex = totalSlides-1
+      else
+        slideIndex-=1
+      self.slide(slideIndex)
+      
+    @show = (elements)->
       if currPage.attr('dark') isnt null
         slider.addClass('dark')
       else
         slider.removeClass('dark')
       
-    @show = (elements)->
-      self.dark()
-      $(elements[0]).addClass('current')
-      slider.removeClass('hide')
-      slide_room.html(elements)
-      self.resize()
+      elements = elements.clone()
+      slide_room.append(elements)
       
+      $(elements[0]).addClass('current')
+      slideIndex = 0
+      totalSlides = elements.length
+      self.resize()
+      slider.removeClass('hide')
+      window.addEventListener 'resize', self.resize
     
     @hide = ->
-      slide_room.html('')
+      slide_room.children().remove()
       slider.addClass('hide')
+      window.removeEventListener 'resize', self.resize
       
     @toggle = ->
       if slider.hasClass('hide')
@@ -140,6 +178,7 @@ $(document).ready ->
   # paginatorCtrl
   Paginator = ->
     self = @
+    ctrl = $('#controller')
     btn_next = $('#controller .btn-next')
     btn_prev = $('#controller .btn-prev')
   
@@ -168,11 +207,9 @@ $(document).ready ->
         btn_next.addClass('hide')
       
       if currPage.attr('dark') isnt null and not self.isHide 
-        btn_next.addClass('dark')
-        btn_prev.addClass('dark')
+        ctrl.addClass('dark')
       else
-        btn_next.removeClass('dark')
-        btn_prev.removeClass('dark')
+        ctrl.removeClass('dark')
         
     @next = ->
       if currPageIndex >= totalPages-1
@@ -277,7 +314,6 @@ $(document).ready ->
     $('#footer').addClass('hide')
 
     slides = $(this).find('[rel="slides"]')
-
     if not slides
       return
 

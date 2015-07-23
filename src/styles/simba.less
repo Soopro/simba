@@ -55,19 +55,6 @@ a {
     text-decoration: none;
   }
 }
-.btn-primary {
-  &,
-  &:link,
-  &:visited {
-    color: @primary-color;
-    text-decoration: none;
-  }
-  &:hover {
-    color: @primary-color;
-    text-decoration: none;
-  }
-}
-
 
 button {
   background: none;
@@ -75,10 +62,6 @@ button {
   outline: 0;
 }
 
-
-svg {
-  fill: @light-color;
-}
 
 .show {
   opacity: 1;
@@ -104,6 +87,37 @@ figure {
 
 [rel='detail'] {
   display: none;
+}
+
+.btn-primary {
+  &,
+  &:link,
+  &:visited {
+    .transition(all @duration/3 ease-in-out);
+    color: @dark-color;
+    text-decoration: none;
+    & svg {
+      .transition(all @duration/3 ease-in-out);
+      fill: @dark-color;
+    }
+  }
+  &:hover {
+    color: @primary-color;
+    text-decoration: none;
+    & svg {
+      fill: @primary-color;
+    }
+  }
+  .dark & {
+    color: @light-color !important;
+    & svg {
+      fill: @light-color !important;
+    }
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  pointer-events: auto;
 }
 
 /* Typography
@@ -133,12 +147,14 @@ h2 {
 }
 h3 {
   margin-top: 0;
+  margin-bottom: 0.6em;
   font-size: 24px;
   font-weight: 400;
 }
 h4 {
   margin-top: 0;
-  font-size: 24px;
+  margin-bottom: 0.6em;
+  font-size: 18px;
   font-weight: 400;
 }
 
@@ -277,6 +293,9 @@ body {
     &[dark]{
       & .btn-primary {
         color: @light-color;
+        & svg {
+          fill: @light-color !important;
+        }
         &:hover {
           opacity: 0.6;
         }
@@ -313,20 +332,10 @@ body {
   padding: 30px;
   pointer-events: none;
   
-  & button {
-    .svgWrap(48px, 48px, @dark-color);
+  & > button {
+    .svgWrap(48px, 48px);
     width: 48px;
     height: 48px;
-    pointer-events: auto;
-    &:hover svg{
-      opacity: 0.6;
-    }
-    &.dark svg{
-      fill: @light-color;
-    }
-    & svg {
-      .transition(all @duration/3 ease-in-out);
-    }
   }
 
 }
@@ -376,8 +385,7 @@ body {
   &.dark {
     color: @light-color;
     background-color: @dark-color;
-    & h2,
-    & h3 {
+    & * {
       color: @light-color;
     }
   }
@@ -385,17 +393,10 @@ body {
     top: 100%;
   }
   
-  & .prev,
-  & .next {
-    .svgWrap(48px, 48px, @dark-color);
-  }
-  &.dark {
-    & .prev,
-    & .next {
-      & svg {
-        fill: @light-color;
-      }
-    }
+  & > button {
+    .svgWrap(48px, 48px);
+    width: 48px;
+    height: 48px;
   }
   
   & > div {
@@ -412,6 +413,14 @@ body {
       opacity: 0;
     }
     & > .current {
+      .keyframes(
+        @name: slideFade;
+        @frames: {
+          0%   {opacity: 0;}
+          100% {opacity: 1;}
+        }
+      );
+      .animixin(slideFade @duration/2 ease-in-out);
       display: initial;
       opacity: 1;
     }
@@ -423,9 +432,11 @@ body {
 
 /* Logo */
 #logo {
-  .svgWrap(120px, 50px, @primary-color);
-
+  .svgWrap(120px, 50px);
   font-size: 0;
+  & svg {
+    fill: @primary-color;
+  }
   .dark & svg {
     fill: @light-color;
   }
@@ -436,18 +447,8 @@ body {
 
 /* Menu */
 #menu {
-  .svgWrap(32px, 32px, @dark-color);
+  .svgWrap(32px, 32px);
   min-width: 50px;
-  #header.dark &:hover svg{
-    opacity: 0.6;
-  }
-  .dark & svg,
-  .dark &:hover svg{
-    fill: @light-color;
-  }
-  & svg {
-    .transition(all @duration/3 ease-in-out);
-  }
 }
 
 /* Copyright */
@@ -510,9 +511,7 @@ body {
 
   & .actions {
     padding-bottom: 30px;
-    a {
-      font-weight: 600;
-    }
+    font-weight: 600;
   }
 }
 
