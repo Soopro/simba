@@ -8,23 +8,6 @@
   {% include "_g_controller_.html" %}
   <!-- Pages -->
   <div id="pages">
-    <!-- Gallery -->
-    <section class="gallery" title="Themes" dark>
-      <div layout="column" layout-align="center center">
-        <h2>Themes</h2>
-        <div class="gallery-inner">
-          <figure duplicate="18" class="btn-slider">
-            <img src="uploads/bird.jpg" title="Bird" />
-            <div rel="slides">
-              <img src="uploads/car2.jpg" title="Car" />
-              <img src="uploads/bird.jpg" title="Car" />
-              <img src="uploads/clothes.jpg" title="Car" />
-              <img src="uploads/flower.jpg" title="Car" />
-            </div>
-          </figure>
-        </div>
-      </div>
-    </section>
     <!-- Cover -->
     <section class="cover" title="Home" dark>
       <div layout="column" layout-align="center center">
@@ -33,9 +16,9 @@
           <span class="swapper">Websites.</span>
         </h1>
         <div class="actions text-center">
-          <a href="#" target="_blank" class="btn-primary">Login</a>
+          <a href="#" target="_blank">Login</a>
           <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-          <a href="#" target="_blank" class="btn-primary">Free Register</a>
+          <a href="#" target="_blank">Free Register</a>
         </div>
       </div>
     </section>
@@ -95,9 +78,56 @@
         </article>
       </div>
     </section>
+    <!-- Gallery -->
+    <section class="gallery" title="Themes" dark>
+      <div layout="column" layout-align="center center">
+        <header>
+          <h2>Themes</h2>
+        </header>
+        <div class="gallery-inner">
+          <figure duplicate="18" class="open-slider">
+            <img src="uploads/bird.jpg" title="Bird" />
+            <div rel="slides">
+              <img src="uploads/car2.jpg" title="Car" />
+              <img src="uploads/bird.jpg" title="Car" />
+              <img src="uploads/clothes.jpg" title="Car" />
+              <img src="uploads/flower.jpg" title="Car" />
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
     <!-- Contact -->
-    <section class="contact" title="Contact">
-      <div></div>
+    <section class="contact" title="Contact" dark>
+      <div layout="row" layout-align="center center">
+        <article flex="50">
+          <header>
+            <h2>Contact</h2>
+          </header>
+          <p>
+            Aenean commodo ligula eget dolor. Aenean massa.
+            Cum sociis natoque penatibus et magnis dis parturient montes, 
+            nascetur ridiculus mus.
+          </p>
+          <div class="info">
+            <p>
+              <i class="ico">
+                <svg svg-sprite="base:ico-email"></svg>
+              </i>
+              <a href="#" class="btn-primary">Support@Soopro.com</a>
+            </p>
+            <p>
+              <i class="ico">
+                <svg svg-sprite="base:ico-qq"></svg>
+              </i>
+              <a href="qq:2069879008" class="btn-primary">2069879008</a>
+            </p>
+          </div>
+        </article>
+        <aside flex="20">
+          <img src="styles/qr.png" title="qr" />
+        </aside>
+      </div>
     </section>
   </div>
   <!-- Detail -->
@@ -106,14 +136,14 @@
   </div>
   <!-- Slider -->
   <div id="slider" class="hide" layout="row" layout-align="center center">
-    <button type="button" class="btn-primary btn-prev">
+    <button type="button" class="btn-prev">
       <svg svg-sprite="base:ico-arr_left"></svg>
     </button>
     <div class="slider-inner" flex layout="column" layout-align="center center">
       <h3>test</h3>
       <div class="slides"></div>
     </div>
-    <button type="button" class="btn-primary btn-next">
+    <button type="button" class="btn-next">
       <svg type="button" svg-sprite="base:ico-arr_right"></svg>
     </button>
   </div>

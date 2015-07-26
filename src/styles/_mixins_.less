@@ -41,6 +41,19 @@
     height: @height;
   }
 }
+.darkBtn(){
+  .dark &,
+  [dark] & {
+    color: @light-color !important;
+    & svg {
+      fill: @light-color !important;
+    }
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  pointer-events: auto;
+}
 
 /* Flexbox */
 .flex(@argment){

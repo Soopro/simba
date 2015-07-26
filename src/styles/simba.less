@@ -47,6 +47,7 @@ a {
   &,
   &:link,
   &:visited {
+    .transition(all @duration/3 ease-in-out);
     color: @primary-color;
     text-decoration: underline;
   }
@@ -54,14 +55,41 @@ a {
     color: @gray-color;
     text-decoration: none;
   }
+  .darkBtn();
 }
 
 button {
+  .transition(all @duration/3 ease-in-out);
   background: none;
   border: none;
   outline: 0;
+  color: @dark-color;
+  & svg {
+    .transition(all @duration/3 ease-in-out);
+    fill: @dark-color;
+  }
+  &:hover {
+    color: @primary-color;
+    & svg {
+      fill: @primary-color;
+    }
+  }
+  .darkBtn();
 }
 
+svg {
+  width: 24px;
+  height: 24px;
+}
+
+[class^="ico-"],
+[class*=" ico-"],
+.ico, [ico], {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
 
 .show {
   opacity: 1;
@@ -93,33 +121,45 @@ figure {
   &,
   &:link,
   &:visited {
-    .transition(all @duration/3 ease-in-out);
-    color: @dark-color;
-    text-decoration: none;
+    color: @primary-color !important;
+    text-decoration: none !important;
     & svg {
-      .transition(all @duration/3 ease-in-out);
       fill: @dark-color;
     }
   }
   &:hover {
-    color: @primary-color;
-    text-decoration: none;
-    & svg {
-      fill: @primary-color;
-    }
+    opacity: 0.6;
   }
-  .dark & {
-    color: @light-color !important;
-    & svg {
-      fill: @light-color !important;
-    }
-    &:hover {
-      opacity: 0.6;
-    }
-  }
-  pointer-events: auto;
 }
 
+.bg-block {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  &.center {
+    background-position: center center;
+  }
+  &.bottom {
+    background-position: bottom center;
+  }
+  &.top {
+    background-position: top center;
+  }
+}
+.info {
+  margin-top: 30px;
+  font-size: 14px;
+  .ico {
+    margin-right: 5px;
+  }
+  & a,
+  & a:link,
+  & a:visited {
+    text-decoration: none;
+  }
+}
 /* Typography
 /* ----------------------------------------------- */
 body,h1,h2,h3,h4,h5,h6,p,label {
@@ -170,10 +210,13 @@ h4 {
   }
 }
 
-p{
+p {
   font-size: 16px;
   line-height: 1.4em;
   margin: 15px 0;
+  & * {
+    vertical-align: middle;
+  }
 }
 
 article {
@@ -242,7 +285,9 @@ body {
   .transition(@pages-transition);
   
   &.zoom {
-    .select(none);
+    & * {
+      .select(none);
+    } 
     .transform(scale(0.35, 0.35));
     // .transform(translate3d(0, 0, -2000px));
     // use translate3d will cause text blurry (bad as unreadable)
@@ -258,8 +303,13 @@ body {
     & > section {
       padding: 10px;
       & > div {
-        pointer-events: none;
         .md-shadow();
+      }
+      &:hover {
+        cursor: pointer;
+      }
+      & * {
+        pointer-events: none;
       }
     }
   }
@@ -288,17 +338,14 @@ body {
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
+      & img {
+        max-width: 100%;
+      }
     }
     
     &[dark]{
-      & .btn-primary {
-        color: @light-color;
-        & svg {
-          fill: @light-color !important;
-        }
-        &:hover {
-          opacity: 0.6;
-        }
+      & svg {
+        fill: @light-color !important;
       }
       & *:not(label) {
         color: @light-color;
@@ -317,6 +364,9 @@ body {
     }
     
     & article p {
+      max-width: 80%;
+    }
+    & article.wide p {
       max-width: 480px;
     }
   }
@@ -390,7 +440,7 @@ body {
     }
   }
   &.hide {
-    top: 100%;
+    .transform(translateY(100%));
   }
   
   & > button {
@@ -502,16 +552,21 @@ body {
   }
 }
 
+
+
 /* Sections
 /* ----------------------------------------------- */
 
-.cover > div{
+.cover > div {
   // background-color: @primary-color !important;
   background-image: url('cover.jpg');
 
   & .actions {
     padding-bottom: 30px;
     font-weight: 600;
+    & a{
+      text-decoration: none !important;
+    }
   }
 }
 
@@ -532,5 +587,9 @@ body {
     }
     &:extend(.clearfix all);
   }
+}
+
+.contact > div {
+  background-image: url('contact.jpg');
 }
 

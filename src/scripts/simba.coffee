@@ -22,7 +22,7 @@ duplicateElements = ->
 $(document).ready ->
   # svg sprites
   svgSet = new svgSprites()
-  svgSet.load('../styles/sprites.svg', 'base')
+  svgSet.load('../styles/svgdefs.svg', 'base')
   svgSet.render()
   
   duplicateElements()
@@ -250,15 +250,18 @@ $(document).ready ->
   page_slide = (curr)->
     if not curr
       curr = 0
+    currPageIndex = curr
+
     for page in pages
-      idx = pages.indexOf(page)
+      idx = $(page).index()
       if idx == curr
         currPage = $(page)
       pos_left = 100*(idx-curr)
       $(page).css
         left: pos_left+'%'
+
     headerCtrl.show()
-  
+
   
   headerCtrl = new PrimaryHeader()
   paginatorCtrl = new Paginator()
@@ -269,6 +272,18 @@ $(document).ready ->
   # ---------------------------------->
 
   # buttons
+  pages.on 'click', (e)->
+    next_page = e.currentTarget
+    if viewStatus isnt 1 or not next_page
+      return
+    index = $(next_page).index()
+    if index is currPageIndex
+      $('#menu').trigger('click')
+    else
+      currPageIndex = index
+      page_slide(currPageIndex)
+    return
+  
   $('#menu').on 'click', (e)->
     headerCtrl.menu('close')
 
@@ -285,7 +300,8 @@ $(document).ready ->
     headerCtrl.show()
     return
   
-  $('.detail').on 'click', (e)->
+  # open detail
+  $('.open-detail').on 'click', (e)->
     headerCtrl.menu('collapse')
     
     $('#pages').toggleClass('zoom').toggleClass('out')
@@ -307,7 +323,8 @@ $(document).ready ->
     headerCtrl.show()
     return
   
-  $('.btn-slider').on 'click', (e)->
+  # open slider
+  $('.open-slider').on 'click', (e)->
     headerCtrl.menu('collapse')
     
     $('#pages').toggleClass('zoom').toggleClass('out')
