@@ -398,19 +398,17 @@ $(document).ready ->
     return false
 
   
-  # common actions
+  # cmd actions
   # ---------------------------------->
-  common =
+  cmd =
     prev: ->
-      if viewStatus is 2
-        sliderCtrl.next()
-      else
-        paginatorCtrl.prev()
+      paginatorCtrl.prev()
     next: ->
-      if viewStatus is 2
-        sliderCtrl.next()
-      else
-        paginatorCtrl.next()
+      paginatorCtrl.next()
+    slide_prev: ->
+      sliderCtrl.prev()
+    slide_next: ->
+      sliderCtrl.next()
     enter: ->
       $('#menu').trigger('click')
     esc: ->
@@ -427,13 +425,19 @@ $(document).ready ->
   # ---------------------------------->
   $(document).on 'keydown', (e)->
     if e.keyCode in [37, 38]
-      common.prev()
+      if viewStatus isnt 2
+        cmd.prev()
+      else
+        cmd.slide_prev()
     else if e.keyCode in [39, 40]
-      common.next()
+      if viewStatus isnt 2
+        cmd.next()
+      else
+        cmd.slide_next()
     else if e.keyCode in [13, 32]
-      common.enter()
+      cmd.enter()
     else if e.keyCode is 27
-      common.esc()
+      cmd.esc()
   
   # hammer
   # ---------------------------------->
@@ -451,23 +455,23 @@ $(document).ready ->
   mc_detail.get('swipe').set direction: Hammer.DIRECTION_ALL
   
   # listeners
-  mc.on 'swipeleft swiperight', (e) ->
-    if viewStatus isnt 2
-      return
-    switch e.type
-      when 'swipeleft' then common.next()
-      when 'swiperight' then common.prev()
-    return
+  # mc.on 'swipeleft swiperight', (e) ->
+  #   if viewStatus isnt 2
+  #     return
+  #   switch e.type
+  #     when 'swipeleft' then cmd.next()
+  #     when 'swiperight' then cmd.prev()
+  #   return
 
-  is_touch_slide = (target)->
+  is_pan = (target)->
     # prevent element don't want pan to slide
-    for item in $('[no-pan-slide]')
+    for item in $('[no-pan]')
       if $.contains(item, target)
         return false
     return true
         
   mc.on 'panleft panright', (e) ->
-    if viewStatus is 2
+    if viewStatus is 2 and is_pan(e.target)
       return
     
     if viewStatus is 0
@@ -491,7 +495,7 @@ $(document).ready ->
     return
 
   mc.on 'panend', (e) ->
-    if viewStatus is 2
+    if viewStatus is 2 and is_pan(e.target)
       return
     currPageIndex = currDisplayIndex
     page_slide(currPageIndex)
@@ -511,11 +515,23 @@ $(document).ready ->
       page_slide(currPageIndex)
   
   mc_slider.on 'swipedown', (e) ->
-    common.esc()
+    if viewStatus isnt 2
+      return
+    cmd.esc()
+  
+  mc_slider.on 'swipeleft swiperight', (e) ->
+    if viewStatus isnt 2
+      return
+    switch e.type
+      when 'swipeleft' then cmd.slide_next()
+      when 'swiperight' then cmd.slide_prev()
+    return
   
   mc_detail.on 'swipedown', (e) ->
-    common.esc()
-  
+    if viewStatus isnt 2
+      return
+    cmd.esc()
+
   
   # start
   page_slide()
