@@ -463,15 +463,15 @@ $(document).ready ->
   #     when 'swiperight' then cmd.prev()
   #   return
 
-  is_pan = (target)->
+  isTouchPan = (target)->
     # prevent element don't want pan to slide
-    for item in $('[no-pan]')
+    for item in $('[no-touch-pan]')
       if $.contains(item, target)
         return false
     return true
         
   mc.on 'panleft panright', (e) ->
-    if viewStatus is 2 and is_pan(e.target)
+    if viewStatus is 2 and isTouchPan(e.target)
       return
     
     if viewStatus is 0
@@ -495,7 +495,7 @@ $(document).ready ->
     return
 
   mc.on 'panend', (e) ->
-    if viewStatus is 2 and is_pan(e.target)
+    if viewStatus is 2 and isTouchPan(e.target)
       return
     currPageIndex = currDisplayIndex
     page_slide(currPageIndex)
