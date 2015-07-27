@@ -28,6 +28,7 @@ $(document).ready ->
   duplicateElements()
   
   viewStatus = 0
+  touchStatus = 0
   
   # header
   PrimaryHeader = ->
@@ -58,7 +59,7 @@ $(document).ready ->
           logo.removeClass('hide')
       
     @show = ->
-      if currPage.attr('dark') isnt null and viewStatus isnt 1
+      if currDisplayPage.attr('dark') isnt null and viewStatus isnt 1
         $('#header').addClass('dark')
       else
         $('#header').removeClass('dark')
@@ -203,16 +204,17 @@ $(document).ready ->
         btn_prev.addClass('hide')
         btn_next.addClass('hide')
         return
-      if currPageIndex > 0
+      if currDisplayIndex > 0
         btn_prev.removeClass('hide')
       else
         btn_prev.addClass('hide')
-      if currPageIndex < totalPages-1
+        
+      if currDisplayIndex < totalPages-1
         btn_next.removeClass('hide')
       else
         btn_next.addClass('hide')
       
-      if currPage.attr('dark') isnt null
+      if currDisplayPage.attr('dark') isnt null
         ctrl.addClass('dark')
       else
         ctrl.removeClass('dark')
@@ -250,23 +252,65 @@ $(document).ready ->
   else
     currPage = null
   currPageIndex = 0
+  currDisplayIndex = 0
+  currDisplayPage = currPage
   
+  window.addEventListener 'resize', (e)->
+    page_slide(currPageIndex)
+    
   page_slide = (curr)->
     if not curr
       curr = 0
-    currPageIndex = curr
-
+    screenWidth = $(document).width()
+    currDisplayIndex = curr
+    
     for page in pages
       idx = $(page).index()
       if idx == curr
-        currPage = $(page)
-      pos_left = 100*(idx-curr)
+        currDisplayPage = currPage = $(page)
+
+      pos_left = screenWidth*(idx-curr)
       $(page).css
-        left: pos_left+'%'
+        left: pos_left+'px'
 
     headerCtrl.show()
     paginatorCtrl.show()
+  
+  
+  page_move = (mv, curr)->
+    pages.addClass('on-moving')
+    # If not addClass/removeClass the animation will turn to very strange.
+    # only happend on chrome for now.
+    # Seems the css transition is conflict, or juse my chorme go stupid.
+    # I really don't know why. 
+    # It's OK if removeClass right after addClass,
+    # I put remove at last just looks like make sense...
+    # the problem may be cause pan event cycle.
+    
+    if not mv
+      return
+    if viewStatus is 0
+      recoup = 2
+    else if viewStatus is 1
+      recoup = 4
+      
+    screenWidth = $(document).width()
+    last_left = null
+    for page in pages
+      idx = $(page).index()
+      
+      pos_left = Math.round(screenWidth*idx+mv*recoup - (screenWidth*curr))
+      $(page).css
+        left: pos_left+'px'
 
+      if not last_left or Math.abs(pos_left) < Math.abs(last_left)
+        last_left = pos_left
+        currDisplayIndex = idx
+        currDisplayPage = $(page)
+
+    pages.removeClass('on-moving')
+    headerCtrl.show()
+    paginatorCtrl.show()
   
   headerCtrl = new PrimaryHeader()
   paginatorCtrl = new Paginator()
@@ -277,18 +321,15 @@ $(document).ready ->
   # ---------------------------------->
 
   # buttons
-  pages.on 'click', (e)->
-    next_page = e.currentTarget
-    if viewStatus isnt 1 or not next_page
-      return
-    index = $(next_page).index()
-    if index is currPageIndex
-      $('#menu').trigger('click')
-    else
-      currPageIndex = index
-      page_slide(currPageIndex)
-    return
-  
+  # pages.on 'click', (e)->
+  #   next_page = e.currentTarget
+  #   if viewStatus isnt 1 or not next_page
+  #     return
+  #   index = $(next_page).index()
+  #   if index isnt currPageIndex
+  #     currPageIndex = index
+  #     page_slide(currPageIndex)
+
 
   $('#menu').on 'click', (e)->
     headerCtrl.menu('close')
@@ -343,7 +384,8 @@ $(document).ready ->
     sliderCtrl.show(slides.children())
     paginatorCtrl.hide()
     headerCtrl.show()
-    return
+    e.stopPropagation()
+    return false
 
   
   # common actions
@@ -402,17 +444,44 @@ $(document).ready ->
   #     when 'swiperight' then common.prev()
   #   return
   #
-  mc.on 'panend', (e) ->
-    if viewStatus is 2
+  is_touch_slide = (target)->
+    # prevent element don't want pan to slide
+    for item in $('[no-pan-slide]')
+      if $.contains(item, target)
+        return false
+    return true
+        
+  mc.on 'panleft panright', (e) ->
+    if viewStatus is 2 or not is_touch_slide(e.target)
       return
-    screenWidth = $(document).width()
-    mv = currPageIndex + Math.ceil((-e.deltaX / screenWidth)*(totalPages-1))
-    if mv < 0
-      mv = 0
-    else if mv > totalPages - 1
-      mv = totalPages - 1
-    page_slide(mv) 
+    move_to = e.deltaX
+    
+    if currPageIndex <= 0
+      move_to = Math.min(move_to, 100)
+    else if currPageIndex >= totalPages-1
+      move_to = Math.max(move_to, -100)
+    page_move(move_to, currPageIndex)
     return
+
+  mc.on 'panend', (e) ->
+    if viewStatus is 2 or not is_touch_slide(e.target)
+      return
+    currPageIndex = currDisplayIndex
+    page_slide(currPageIndex)
+    return
+
+  mc.on 'tap pressup', (e)->
+    if e.target not in pages
+      return
+    next_page = e.target
+    if viewStatus isnt 1 or not next_page
+      return
+    index = $(next_page).index()
+    if index is currPageIndex
+      $('#menu').trigger('click')
+    else
+      currPageIndex = index
+      page_slide(currPageIndex)
   
   mc_slider.on 'swipedown', (e) ->
     common.esc()
