@@ -187,9 +187,6 @@ $(document).ready ->
     btn_next = $('#controller .btn-next')
     btn_prev = $('#controller .btn-prev')
     
-    btn_next.attr('tabIndex', -1)
-    btn_prev.attr('tabIndex', -1)
-    
     btn_next.on 'click', (e)->
       self.next()
       this.blur()
