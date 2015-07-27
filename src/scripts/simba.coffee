@@ -106,9 +106,11 @@ $(document).ready ->
     btn_prev = $('#slider .btn-prev')
   
     btn_next.on 'click', (e)->
+      this.blur()
       self.next()
   
     btn_prev.on 'click', (e)->
+      this.blur()
       self.prev()
     
     @resize = (e)->
@@ -136,6 +138,8 @@ $(document).ready ->
       return
     
     @next = ->
+      if viewStatus isnt 2
+        return
       if slideIndex >= totalSlides-1
         slideIndex = 0
       else
@@ -143,6 +147,8 @@ $(document).ready ->
       self.slide(slideIndex)
       
     @prev = ->
+      if viewStatus isnt 2
+        return
       if slideIndex <= 0
         slideIndex = totalSlides-1
       else
@@ -222,11 +228,15 @@ $(document).ready ->
         ctrl.removeClass('dark')
         
     @next = ->
+      if viewStatus is 2
+        return
       if currPageIndex >= totalPages-1
         return
       page_slide(currPageIndex+=1)
       
     @prev = ->
+      if viewStatus is 2
+        return
       if currPageIndex <= 0
         return
       page_slide(currPageIndex-=1)
@@ -392,9 +402,15 @@ $(document).ready ->
   # ---------------------------------->
   common =
     prev: ->
-      paginatorCtrl.prev()
+      if viewStatus is 2
+        sliderCtrl.next()
+      else
+        paginatorCtrl.prev()
     next: ->
-      paginatorCtrl.next()
+      if viewStatus is 2
+        sliderCtrl.next()
+      else
+        paginatorCtrl.next()
     enter: ->
       $('#menu').trigger('click')
     esc: ->
@@ -435,14 +451,14 @@ $(document).ready ->
   mc_detail.get('swipe').set direction: Hammer.DIRECTION_ALL
   
   # listeners
-  # mc.on 'swipeleft swiperight', (e) ->
-  #   if viewStatus isnt 0
-  #     return
-  #   switch e.type
-  #     when 'swipeleft' then common.next()
-  #     when 'swiperight' then common.prev()
-  #   return
-  #
+  mc.on 'swipeleft swiperight', (e) ->
+    if viewStatus isnt 2
+      return
+    switch e.type
+      when 'swipeleft' then common.next()
+      when 'swiperight' then common.prev()
+    return
+
   is_touch_slide = (target)->
     # prevent element don't want pan to slide
     for item in $('[no-pan-slide]')
