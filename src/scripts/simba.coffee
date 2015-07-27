@@ -77,16 +77,16 @@ $(document).ready ->
         detail.removeClass('dark')
         
       detail.html(content)
-      detail.removeClass('hide')
+      detail.addClass('open')
     
     @hide = ->
-      detail.addClass('hide')
+      detail.removeClass('open')
       
     @toggle = ->
-      if detail.hasClass('hide')
-        self.show()
-      else
+      if detail.hasClass('open')
         self.hide()
+      else
+        self.show()
 
     return @
     
@@ -155,25 +155,26 @@ $(document).ready ->
         slider.removeClass('dark')
       
       elements = elements.clone()
+      slide_room.children().remove()
       slide_room.append(elements)
       
       $(elements[0]).addClass('current')
       slideIndex = 0
       totalSlides = elements.length
       self.resize()
-      slider.removeClass('hide')
+      slider.addClass('open')
       window.addEventListener 'resize', self.resize
     
     @hide = ->
-      slide_room.children().remove()
-      slider.addClass('hide')
+      # slide_room.children().remove()
+      slider.removeClass('open')
       window.removeEventListener 'resize', self.resize
       
     @toggle = ->
-      if slider.hasClass('hide')
-        self.show()
-      else
+      if slider.hasClass('open')
         self.hide()
+      else
+        self.show()
 
     return @
   
@@ -220,13 +221,11 @@ $(document).ready ->
       if currPageIndex >= totalPages-1
         return
       page_slide(currPageIndex+=1)
-      self.show()
       
     @prev = ->
       if currPageIndex <= 0
         return
       page_slide(currPageIndex-=1)
-      self.show()
       
     @toggle = ->
       if btn_next.hasClass('hide') or btn_prev.hasClass('hide')
@@ -266,6 +265,7 @@ $(document).ready ->
         left: pos_left+'%'
 
     headerCtrl.show()
+    paginatorCtrl.show()
 
   
   headerCtrl = new PrimaryHeader()
@@ -386,16 +386,32 @@ $(document).ready ->
   touch_detail = document.getElementById('detail')
   
   mc = new Hammer(touch_pages)
+  
   mc_slider = new Hammer(touch_slider)
-  mc_slider.get('pan').set direction: Hammer.DIRECTION_ALL
+  mc_slider.get('swipe').set direction: Hammer.DIRECTION_ALL
+  
   mc_detail = new Hammer(touch_detail)
-  mc_detail.get('pan').set direction: Hammer.DIRECTION_ALL
+  mc_detail.get('swipe').set direction: Hammer.DIRECTION_ALL
   
   # listeners
-  mc.on 'swipeleft swiperight', (e) ->
-    switch e.type
-      when 'swipeleft' then common.next()
-      when 'swiperight' then common.prev()
+  # mc.on 'swipeleft swiperight', (e) ->
+  #   if viewStatus isnt 0
+  #     return
+  #   switch e.type
+  #     when 'swipeleft' then common.next()
+  #     when 'swiperight' then common.prev()
+  #   return
+  #
+  mc.on 'panend', (e) ->
+    if viewStatus is 2
+      return
+    screenWidth = $(document).width()
+    mv = currPageIndex + Math.ceil((-e.deltaX / screenWidth)*(totalPages-1))
+    if mv < 0
+      mv = 0
+    else if mv > totalPages - 1
+      mv = totalPages - 1
+    page_slide(mv) 
     return
   
   mc_slider.on 'swipedown', (e) ->
