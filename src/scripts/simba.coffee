@@ -186,12 +186,17 @@ $(document).ready ->
     ctrl = $('#controller')
     btn_next = $('#controller .btn-next')
     btn_prev = $('#controller .btn-prev')
-  
+    
+    btn_next.attr('tabIndex', -1)
+    btn_prev.attr('tabIndex', -1)
+    
     btn_next.on 'click', (e)->
       self.next()
+      this.blur()
   
     btn_prev.on 'click', (e)->
       self.prev()
+      this.blur()
   
     @isHide = false
   
@@ -223,6 +228,7 @@ $(document).ready ->
       if currPageIndex >= totalPages-1
         return
       page_slide(currPageIndex+=1)
+      console.log "page:", currPageIndex
       
     @prev = ->
       if currPageIndex <= 0
@@ -289,17 +295,13 @@ $(document).ready ->
     
     if not mv
       return
-    if viewStatus is 0
-      recoup = 2
-    else if viewStatus is 1
-      recoup = 4
       
     screenWidth = $(document).width()
     last_left = null
     for page in pages
       idx = $(page).index()
       
-      pos_left = Math.round(screenWidth*idx+mv*recoup - (screenWidth*curr))
+      pos_left = Math.round(screenWidth*idx+mv - (screenWidth*curr))
       $(page).css
         left: pos_left+'px'
 
@@ -332,6 +334,8 @@ $(document).ready ->
 
 
   $('#menu').on 'click', (e)->
+    this.blur()
+
     headerCtrl.menu('close')
 
     $('#pages').toggleClass('zoom').removeClass('out')
@@ -410,7 +414,6 @@ $(document).ready ->
   # keyboard
   # ---------------------------------->
   $(document).on 'keydown', (e)->
-    # left and up
     if e.keyCode in [37, 38]
       common.prev()
     else if e.keyCode in [39, 40]
@@ -452,19 +455,31 @@ $(document).ready ->
     return true
         
   mc.on 'panleft panright', (e) ->
-    if viewStatus is 2 or not is_touch_slide(e.target)
+    if viewStatus is 2
       return
-    move_to = e.deltaX
     
-    if currPageIndex <= 0
-      move_to = Math.min(move_to, 100)
-    else if currPageIndex >= totalPages-1
-      move_to = Math.max(move_to, -100)
+    if viewStatus is 0
+      recoup = 2
+    else if viewStatus is 1
+      recoup = 4
+    
+    move_to = e.deltaX*recoup
+      
+    screenWidth = $(document).width()
+    if move_to >= 0
+      _left = currPageIndex * screenWidth + Math.ceil(screenWidth / 10)
+      if move_to > _left
+        move_to = _left
+    else
+      _right = (currPageIndex - totalPages + 1) * screenWidth - Math.ceil(screenWidth / 10)
+      if move_to < _right
+        move_to = _right
+
     page_move(move_to, currPageIndex)
     return
 
   mc.on 'panend', (e) ->
-    if viewStatus is 2 or not is_touch_slide(e.target)
+    if viewStatus is 2
       return
     currPageIndex = currDisplayIndex
     page_slide(currPageIndex)
