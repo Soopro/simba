@@ -225,7 +225,6 @@ $(document).ready ->
       if currPageIndex >= totalPages-1
         return
       page_slide(currPageIndex+=1)
-      console.log "page:", currPageIndex
       
     @prev = ->
       if currPageIndex <= 0

@@ -255,7 +255,7 @@ article {
 
 /* Blocks
 /* ----------------------------------------------- */
-@base-transition: all @duration/2 ease-in-out;
+@base-transition: all @duration/2 ease-out;
 
 /* Header */
 #header {
@@ -328,7 +328,7 @@ body {
       display: none;
     }
     &:not([disabled]) {
-      .transition(all @duration/3 ease-out);
+      .transition(@base-transition);
     }
     position: absolute;
     display: block;
