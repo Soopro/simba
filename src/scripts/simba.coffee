@@ -32,27 +32,30 @@ $(document).ready ->
   # header
   PrimaryHeader = ->
     self = @
-    
+    svg = $('#menu').find('svg')
+    logo = $('#logo').find('svg')
+
     @menu = (type)->
-      svg = $('#menu').find('svg')
-      logo = $('#logo').find('svg')
-      if viewStatus isnt 0
+      if viewStatus isnt 0 or not type
         viewStatus = 0
         new_sprite = svg.data('last')
-        svg.data('last', '')
+        if new_sprite
+          svg.data('last', '')
+      
+          svg.attr('svg-sprite', new_sprite)
+          svgSet.render(svg)
+        logo.removeClass('hide')
       else
         viewStatus = if type is 'close' then 1 else 2
         new_sprite = svg.data(type)
         old_sprite = svg.attr('svg-sprite') or ''
         svg.data('last', old_sprite)
-
-      svg.attr('svg-sprite', new_sprite)
-      svgSet.render(svg)
-
-      if viewStatus is 2
-        logo.addClass('hide')
-      else
-        logo.removeClass('hide')
+        svg.attr('svg-sprite', new_sprite)
+        svgSet.render(svg)
+        if viewStatus is 2
+          logo.addClass('hide')
+        else
+          logo.removeClass('hide')
       
     @show = ->
       if currPage.attr('dark') isnt null and viewStatus isnt 1
@@ -191,12 +194,14 @@ $(document).ready ->
     @isHide = false
   
     @hide = ->
-      self.isHide = true
       btn_next.addClass('hide')
       btn_prev.addClass('hide')
 
     @show = ->
-      self.isHide = false
+      if viewStatus isnt 0
+        btn_prev.addClass('hide')
+        btn_next.addClass('hide')
+        return
       if currPageIndex > 0
         btn_prev.removeClass('hide')
       else
@@ -206,7 +211,7 @@ $(document).ready ->
       else
         btn_next.addClass('hide')
       
-      if currPage.attr('dark') isnt null and not self.isHide 
+      if currPage.attr('dark') isnt null
         ctrl.addClass('dark')
       else
         ctrl.removeClass('dark')
@@ -224,7 +229,7 @@ $(document).ready ->
       self.show()
       
     @toggle = ->
-      if self.isHide
+      if btn_next.hasClass('hide') or btn_prev.hasClass('hide')
         self.show()
       else
         self.hide()
@@ -284,6 +289,7 @@ $(document).ready ->
       page_slide(currPageIndex)
     return
   
+
   $('#menu').on 'click', (e)->
     headerCtrl.menu('close')
 
@@ -296,8 +302,8 @@ $(document).ready ->
     else
       $('#footer').addClass('hide')
 
-    paginatorCtrl.toggle()
     headerCtrl.show()
+    paginatorCtrl.toggle()
     return
   
   # open detail
@@ -338,6 +344,66 @@ $(document).ready ->
     paginatorCtrl.hide()
     headerCtrl.show()
     return
+
+  
+  # common actions
+  # ---------------------------------->
+  common =
+    prev: ->
+      paginatorCtrl.prev()
+    next: ->
+      paginatorCtrl.next()
+    enter: ->
+      $('#menu').trigger('click')
+    esc: ->
+      headerCtrl.menu()
+
+      $('#pages').removeClass('zoom').removeClass('out')
+      detailCtrl.hide()
+      sliderCtrl.hide()
+      $('#footer').addClass('hide')
+      paginatorCtrl.show()
+      headerCtrl.show()
+    
+  # keyboard
+  # ---------------------------------->
+  $(document).on 'keydown', (e)->
+    # left and up
+    if e.keyCode in [37, 38]
+      common.prev()
+    else if e.keyCode in [39, 40]
+      common.next()
+    else if e.keyCode in [13, 32]
+      common.enter()
+    else if e.keyCode is 27
+      common.esc()
+  
+  # hammer
+  # ---------------------------------->
+  
+  touch_pages = document.getElementById('screen')
+  touch_slider = document.getElementById('slider')
+  touch_detail = document.getElementById('detail')
+  
+  mc = new Hammer(touch_pages)
+  mc_slider = new Hammer(touch_slider)
+  mc_slider.get('pan').set direction: Hammer.DIRECTION_ALL
+  mc_detail = new Hammer(touch_detail)
+  mc_detail.get('pan').set direction: Hammer.DIRECTION_ALL
+  
+  # listeners
+  mc.on 'swipeleft swiperight', (e) ->
+    switch e.type
+      when 'swipeleft' then common.next()
+      when 'swiperight' then common.prev()
+    return
+  
+  mc_slider.on 'swipedown', (e) ->
+    common.esc()
+  
+  mc_detail.on 'swipedown', (e) ->
+    common.esc()
+  
   
   # start
   page_slide()
