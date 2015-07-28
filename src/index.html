@@ -11,22 +11,28 @@
     <!-- Cover -->
     <section class="cover" title="Home" dark>
       <div layout="column" layout-align="center center">
-        <h1 class="text-center">
-          This is a<br>Content Service Cloud,<br>you can create<br>
-          <span class="swapper">Websites.</span>
-        </h1>
-        <div class="actions text-center">
-          <a href="#" target="_blank">Login</a>
-          <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-          <a href="#" target="_blank">Free Register</a>
-        </div>
+        <article class="text-center">
+          <header>
+            <h1>
+              This is a<br>Content Service Cloud,<br>you can create<br>
+              <span class="swapper">Websites.</span>
+            </h1>
+          </header>
+          <div class="actions">
+            <a href="#" target="_blank">Login</a>
+            <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+            <a href="#" target="_blank">Free Register</a>
+          </div>
+        </article>
       </div>
     </section>
     <!-- Page -->
     <section class="page" title="Website">
-      <div layout="row" layout-align="end center"
-      style="background-image:url('styles/feature_website.jpg');">
-        <article flex="50">
+      <div layout-gt-sm="row" layout-align="center center">
+        <div flex="40">
+          <img src="styles/feature_website.jpg" alt="Website" />
+        </div>
+        <article flex="40">
           <header>
             <h2>Manage websites<br>for desktop and mobile</h2>
           </header>
@@ -40,13 +46,13 @@
     </section>
     <!-- Page -->
     <section class="page" title="Wechat">
-      <div layout="row" layout-align="start center" 
-      style="background-image:url('styles/feature_wechat.jpg');">
-        <article flex="50" class="text-right" layout="column" layout-align="center end">
+      <div layout-gt-sm="row" layout-align="center center">
+        <div flex="40" flex-order="2">
+          <img src="styles/feature_wechat.jpg" alt="WebChat" />
+        </div>
+        <article flex="40" class="text-right">
           <header>
-            <h2>
-              Conduct Social Promotion<br>with WeChat Channel
-            </h2>
+            <h2>Social promotion<br>with WeChat</h2>
           </header>
           <p>
             Aenean commodo ligula eget dolor. Aenean massa.
@@ -58,9 +64,11 @@
     </section>
     <!-- Page -->
     <section class="page" title="Membership">
-      <div layout="row" layout-align="end center"
-      style="background-image:url('styles/feature_membership.jpg');">
-        <article flex="50">
+      <div layout-gt-sm="row" layout-align="center center">
+        <div flex="40">
+          <img src="styles/feature_membership.jpg" alt="Membership" />
+        </div>
+        <article flex="40">
           <header>
             <h2>Manage Membership</h2>
           </header>
@@ -70,10 +78,6 @@
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
             Aenean commodo ligula eget dolor. Aenean massa.
-          </p>
-          <p>
-            Cum sociis natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus.
           </p>
         </article>
       </div>
@@ -87,7 +91,7 @@
         <div class="gallery-inner">
           <figure duplicate="18" class="btn open-slider">
             <img src="uploads/bird.jpg" title="Bird" />
-            <div rel="slides">
+            <div rel="slides" title="Bird">
               <img src="uploads/car2.jpg" title="Car" />
               <img src="uploads/bird.jpg" title="Car" />
               <img src="uploads/clothes.jpg" title="Car" />
@@ -99,8 +103,8 @@
     </section>
     <!-- Contact -->
     <section class="contact" title="Contact" dark>
-      <div layout="row" layout-align="center center">
-        <article flex="50">
+      <div layout-gt-sm="row" layout-align="center center">
+        <article flex="35">
           <header>
             <h2>Contact</h2>
           </header>
@@ -124,7 +128,7 @@
             </p>
           </div>
         </article>
-        <aside flex="20">
+        <aside flex="30" class="text-center">
           <img src="styles/qr.png" title="qr" />
         </aside>
       </div>
@@ -140,7 +144,7 @@
       <svg svg-sprite="base:ico-arr_left"></svg>
     </button>
     <div class="slider-inner" flex layout="column" layout-align="center center">
-      <h3>test</h3>
+      <h3 class='title'></h3>
       <div class="slides"></div>
     </div>
     <button type="button" class="btn-next">

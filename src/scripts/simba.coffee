@@ -96,6 +96,7 @@ $(document).ready ->
     self = @
     top_margin = 30
     slider = $('#slider')
+    slide_title = $('#slider .title')
     slide_room = $('#slider .slides')
     slider_inner = $('#slider .slider-inner')
     
@@ -155,11 +156,13 @@ $(document).ready ->
         slideIndex-=1
       self.slide(slideIndex)
       
-    @show = (elements)->
+    @show = (elements, title)->
       if currPage.attr('dark') isnt null
         slider.addClass('dark')
       else
         slider.removeClass('dark')
+      
+      slide_title.html(title or '')
       
       elements = elements.clone()
       slide_room.children().remove()
@@ -267,8 +270,18 @@ $(document).ready ->
   currDisplayIndex = 0
   currDisplayPage = currPage
   
+  stopPagesAnim = ->
+    pages.addClass('no-transition')
+    timer = window.setTimeout ->
+      pages.removeClass('no-transition')
+      window.clearTimeout(timer)
+    , 10
+  
   window.addEventListener 'resize', (e)->
+    stopPagesAnim()
     page_slide(currPageIndex)
+    
+    
     
   page_slide = (curr)->
     if not curr
@@ -388,10 +401,11 @@ $(document).ready ->
     $('#footer').addClass('hide')
 
     slides = $(this).find('[rel="slides"]')
+    title = slides.attr('title')
     if not slides
       return
 
-    sliderCtrl.show(slides.children())
+    sliderCtrl.show(slides.children(), title)
     paginatorCtrl.hide()
     headerCtrl.show()
     e.stopPropagation()
@@ -534,5 +548,6 @@ $(document).ready ->
 
   
   # start
+  stopPagesAnim()
   page_slide()
   

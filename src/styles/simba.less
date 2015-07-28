@@ -92,10 +92,10 @@ svg {
 }
 
 .show {
-  opacity: 1;
+  opacity: 1 !important;
 }
 .hide {
-  opacity: 0;
+  opacity: 0 !important;
   &,
   & * {
     pointer-events: none !important;
@@ -111,6 +111,10 @@ figure {
 
 .unselectable {
   .select(none);
+}
+
+.no-transition{
+  .transition(none) !important;
 }
 
 [rel='detail'] {
@@ -137,24 +141,11 @@ figure {
   }
 }
 
-.bg-block {
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-
-  &.center {
-    background-position: center center;
-  }
-  &.bottom {
-    background-position: bottom center;
-  }
-  &.top {
-    background-position: top center;
-  }
-}
 .info {
-  margin-top: 30px;
+  padding-top: 32px;
+  @media (max-width: @screen-tablet) {
+    padding-top: 0;
+  }
   font-size: 14px;
   .ico {
     margin-right: 5px;
@@ -175,52 +166,58 @@ body,h1,h2,h3,h4,h5,h6,p,label {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2 {
-  font-weight: 200;
-  margin-bottom: 0.6em;
-}
-
 h1 {
   margin-top: 0;
+  margin-bottom: 0.6em;
   text-transform: uppercase;
   font-size: 6vw;
+  font-weight: 200;
   line-height: 1.1em;
+  @media (max-width: @screen-phone) {
+    font-size: 24px;
+  }
 }
 h2 {
   margin-top: 0;
+  margin-bottom: 0.6em;
   font-size: 3.5vw;
+  font-weight: 200;
+  @media (max-width: @screen-tablet) {
+    font-size: 4.5vw;
+  }
 }
 h3 {
   margin-top: 0;
   margin-bottom: 0.6em;
   font-size: 24px;
   font-weight: 400;
+  @media (max-width: @screen-tablet) {
+    font-size: 20px;
+  }
 }
 h4 {
   margin-top: 0;
   margin-bottom: 0.6em;
   font-size: 18px;
   font-weight: 400;
-}
-
-@media (max-width:767px) {
-  h1 {
-    font-size: 36px;
-  }
-  h2 {
-    font-size: 26px;
-  }
-  h3 {
-    font-size: 18px;
+  @media (max-width: @screen-tablet) {
+    font-size: 14px;
   }
 }
 
 p {
   font-size: 16px;
   line-height: 1.4em;
-  margin: 15px 0;
+  margin: 16px 0;
   & * {
     vertical-align: middle;
+  }
+  @media (max-width: @screen-tablet) {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  @media (max-width: @screen-phone) {
+    font-size: 12px;
   }
 }
 
@@ -264,9 +261,9 @@ article {
   top: 0;
   width: 100%;
   min-height: 50px;
-  padding: 30px;
-  @media (max-width:767px) {
-    padding-top: 5px;
+  padding: 32px;
+  @media (max-width: @screen-tablet) {
+    padding: 16px;
   }
 }
 
@@ -274,11 +271,14 @@ article {
 #footer {
   .transition(@base-transition);
   position: absolute;
-  z-index: 999;
+  z-index: 9;
   bottom: 0;
   width: 100%;
   min-height: 50px;
-  padding: 30px;
+  padding: 32px;
+  @media (max-width: @screen-tablet) {
+    padding: 16px;
+  }
 }
 
 body {
@@ -321,13 +321,13 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: 9;
+  z-index: 90;
   
   & > section {
     &[disabled]{
       display: none;
     }
-    &:not([disabled]) {
+    &:not([disabled]){
       .transition(@base-transition);
     }
     position: absolute;
@@ -340,13 +340,17 @@ body {
       overflow: hidden;
       width: 100%;
       height: 100%;
-      padding: 30px;
+      padding: 32px;
       background-color: lighten(@view-bg-color, 50%);
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
       & img {
         max-width: 100%;
+      }
+      @media (max-width: @screen-tablet) {
+        padding: 16px;
+        padding-top: 32px;
       }
     }
     
@@ -369,12 +373,8 @@ body {
       text-align: center;
       color: @dark-color;
     }
-    
-    & article p {
-      max-width: 80%;
-    }
-    & article.wide p {
-      max-width: 480px;
+    & article {
+      padding: 16px;
     }
   }
 }
@@ -386,15 +386,24 @@ body {
   width: 100%;
   height: 100%;
   z-index: 990;
-  padding: 30px;
+  padding: 32px;
   pointer-events: none;
   
   & > button {
     .svgWrap(48px, 48px);
     width: 48px;
     height: 48px;
+    @media (max-width: @screen-tablet) {
+      .svgWrap(36px, 36px);
+      width: 36px;
+      height: 36px;
+    }
   }
-
+  
+  @media (max-width: @screen-tablet) {
+    padding: 16px;
+    padding-top: 32px;
+  }
 }
 
 /* Detail */
@@ -406,7 +415,7 @@ body {
   height: 100%;
   top: 0;
   overflow: hidden;
-  padding: 30px;
+  padding: 32px;
   min-height: 480px;
   background-color: @view-bg-color;
   img {
@@ -433,9 +442,15 @@ body {
   height: 100%;
   top: 0;
   overflow: hidden;
-  padding: 30px;
+  padding: 32px;
   text-align: center;
   background-color: @view-bg-color;
+  
+  @media (max-width: @screen-tablet) {
+    padding: 16px;
+    padding-top: 32px;
+  }
+  
   img {
     max-width: 100%;
   }
@@ -454,6 +469,11 @@ body {
     .svgWrap(48px, 48px);
     width: 48px;
     height: 48px;
+    @media (max-width: @screen-tablet) {
+      .svgWrap(36px, 36px);
+      width: 36px;
+      height: 36px;
+    }
   }
   
   & > div {
@@ -500,12 +520,21 @@ body {
   & svg {
     .transition(all @duration/3 ease-in-out);
   }
+  @media (max-width: @screen-tablet) {
+    .svgWrap(120px*0.8, 50px*0.8);
+  }
 }
 
 /* Menu */
 #menu {
   .svgWrap(32px, 32px);
-  min-width: 50px;
+  width: 48px;
+  height: 48px;
+  @media (max-width: @screen-tablet) {
+    .svgWrap(24px, 24px);
+    width: 36px;
+    height: 36px;
+  }
 }
 
 /* Copyright */
@@ -543,7 +572,7 @@ body {
     display: inline-block;
     font-size: 12px;
     text-align: center;
-    padding-left: 15px;
+    padding-left: 16px;
     & > a{
       &:extend(.bullet all);
       padding-right: 10px;
@@ -565,11 +594,9 @@ body {
 /* ----------------------------------------------- */
 
 .cover > div {
-  // background-color: @primary-color !important;
   background-image: url('cover.jpg');
-
   & .actions {
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     font-weight: 600;
     & a{
       text-decoration: none !important;
@@ -579,18 +606,44 @@ body {
 
 .gallery > div {
   background-color: @dark-color !important;
-  & h2 {
-    text-align: center;
-    font-size: 36px;
-  }
+
   & .gallery-inner {
-    width: 80%;
+    width: 75%;
+    padding: 16px;
+    max-height: 100%;
+    @media (min-width: @screen-phone-max) {
+      width: 80%;
+    }
+    
     & > figure {
       float: left;
-      width: 16.66%;
       & [rel='slides'] {
         display: none;
-      }  
+      }
+      
+      width: 33.33%;
+      &:nth-child(6) ~ figure {
+        display: none;
+      }
+      @media (max-width: @screen-phone) and (min-height: @screen-phone-max){
+        width: 50%;
+      }
+
+      @media (min-width: @screen-tablet-max) {
+        width: 25%;
+        &:nth-child(1) ~ figure {
+          display: block;
+        }
+        &:nth-child(8) ~ figure {
+          display: none;
+        }
+      }
+      @media (min-width: @screen-desktop-max) {
+        width: 16.66%;
+        &:nth-child(1) ~ figure {
+          display: block;
+        }
+      }
     }
     &:extend(.clearfix all);
   }
