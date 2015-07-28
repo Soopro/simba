@@ -275,7 +275,7 @@ $(document).ready ->
     timer = window.setTimeout ->
       pages.removeClass('no-transition')
       window.clearTimeout(timer)
-    , 10
+    , 50
   
   window.addEventListener 'resize', (e)->
     stopPagesAnim()
