@@ -19,6 +19,7 @@ Version: 2.5
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  .select(none);
 }
 
 html,
@@ -102,6 +103,10 @@ svg {
   }
 }
 
+img {
+  pointer-events: none !important;
+}
+
 figure {
   margin: 0;
   & img {
@@ -141,21 +146,10 @@ figure {
   }
 }
 
-.info {
-  padding-top: 32px;
-  @media (max-width: @screen-tablet) {
-    padding-top: 0;
-  }
-  font-size: 14px;
-  .ico {
-    margin-right: 5px;
-  }
-  & a,
-  & a:link,
-  & a:visited {
-    text-decoration: none;
-  }
+.no-overflow {
+  overflow: hidden;
 }
+
 /* Typography
 /* ----------------------------------------------- */
 body,h1,h2,h3,h4,h5,h6,p,label {
@@ -588,7 +582,21 @@ body {
   }
 }
 
-
+.info {
+  padding-top: 32px;
+  @media (max-width: @screen-tablet) {
+    padding-top: 0;
+  }
+  font-size: 14px;
+  .ico {
+    margin-right: 5px;
+  }
+  & a,
+  & a:link,
+  & a:visited {
+    text-decoration: none;
+  }
+}
 
 /* Sections
 /* ----------------------------------------------- */
