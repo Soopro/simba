@@ -105,7 +105,9 @@ $(document).ready ->
     
     btn_next = $('#slider .btn-next')
     btn_prev = $('#slider .btn-prev')
-  
+    
+    @isHide = false
+    
     btn_next.on 'click', (e)->
       this.blur()
       self.next()
@@ -139,7 +141,7 @@ $(document).ready ->
       return
     
     @next = ->
-      if viewStatus isnt 2
+      if viewStatus isnt 2 or self.isHide
         return
       if slideIndex >= totalSlides-1
         slideIndex = 0
@@ -148,7 +150,7 @@ $(document).ready ->
       self.slide(slideIndex)
       
     @prev = ->
-      if viewStatus isnt 2
+      if viewStatus isnt 2 or self.isHide
         return
       if slideIndex <= 0
         slideIndex = totalSlides-1
@@ -452,6 +454,31 @@ $(document).ready ->
       cmd.enter()
     else if e.keyCode is 27
       cmd.esc()
+  
+  # wheel
+  # ---------------------------------->
+  wheeltimer = null
+  $(document).on 'wheel', (e)->
+    move_to = Math.round(e.deltaY / 5)
+    if move_to is 0
+      return
+
+    if wheeltimer
+      window.clearTimeout(wheeltimer)
+    wheeltimer = window.setTimeout ->
+      if viewStatus is 2
+        if move_to > 0
+          cmd.slide_next()
+        else
+          cmd.slide_prev()
+      else
+        if move_to > 0
+          cmd.next()
+        else
+          cmd.prev()
+    , 60
+    
+    
   
   # hammer
   # ---------------------------------->
