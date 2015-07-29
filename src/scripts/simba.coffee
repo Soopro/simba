@@ -572,9 +572,33 @@ $(document).ready ->
     if viewStatus isnt 2
       return
     cmd.esc()
-
+  
   
   # start
   stopPagesAnim()
   page_slide()
+  
+  
+  # swapper
+  invl_id = window.setInterval (e)->
+    swapper = $('#swapper > *')
+    idx = 0
+    for swap in swapper
+      if $(swap).hasClass('onswap')
+        idx = $(swap).index()
+        break
+    
+    curr = swapper[idx]
+    $(curr).removeClass('onswap')
+    
+    if idx >= swapper.length-1
+      idx = 0
+    else
+      idx++
+    
+    next = swapper[idx]
+    $(next).addClass('onswap')
+
+  , 3000
+  
   

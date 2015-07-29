@@ -152,6 +152,7 @@ figure {
   overflow: hidden;
 }
 
+
 /* Typography
 /* ----------------------------------------------- */
 body,h1,h2,h3,h4,h5,h6,p,label {
@@ -610,6 +611,25 @@ body {
   & a:link,
   & a:visited {
     text-decoration: none;
+  }
+}
+
+#swapper {
+  .keyframes(
+    @name: slideFade;
+    @frames: {
+      0%   {opacity: 0;}
+      100% {opacity: 1;}
+    }
+  );
+  & * {
+    display: none;
+    opacity: 0;
+  }
+  & .onswap {
+    display: initial;
+    opacity: 1;
+    .animixin(slideFade @duration ease-in-out);
   }
 }
 
