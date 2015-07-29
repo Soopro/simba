@@ -109,6 +109,7 @@ img {
 
 figure {
   margin: 0;
+  overflow: hidden;
   & img {
     max-width: 100%;
   }
@@ -168,7 +169,7 @@ h1 {
   font-weight: 200;
   line-height: 1.1em;
   @media (max-width: @screen-phone) {
-    font-size: 24px;
+    font-size: 32px;
   }
 }
 h2 {
@@ -178,6 +179,9 @@ h2 {
   font-weight: 200;
   @media (max-width: @screen-tablet) {
     font-size: 4.5vw;
+  }
+  @media (max-width: @screen-phone) {
+    font-size: 28px;
   }
 }
 h3 {
@@ -209,9 +213,6 @@ p {
   @media (max-width: @screen-tablet) {
     font-size: 14px;
     margin: 10px 0;
-  }
-  @media (max-width: @screen-phone) {
-    font-size: 12px;
   }
 }
 
@@ -341,10 +342,17 @@ body {
       background-size: cover;
       & img {
         max-width: 100%;
+        max-height: 100%;
       }
       @media (max-width: @screen-tablet) {
-        padding: 16px;
-        padding-top: 32px;
+        padding: 32px 16px;
+      }
+      @media (max-width: @screen-phone) {
+        padding: 32px 16px;
+        & > figure {
+          height: 40%;
+          text-align: center;
+        }
       }
     }
     
@@ -354,6 +362,9 @@ body {
       }
       & *:not(label) {
         color: @light-color;
+      }
+      & > div {
+        background-color: @dark-color;
       }
     }
     
@@ -368,7 +379,10 @@ body {
       color: @dark-color;
     }
     & article {
-      padding: 16px;
+      padding: 8px;
+      @media (max-width: @screen-phone) {
+        text-align: center !important;
+      }
     }
   }
 }
@@ -614,14 +628,19 @@ body {
 
 .gallery > div {
   background-color: @dark-color !important;
-
+  & header {
+    & h2,
+    & h3,
+    & h4, {
+      margin-bottom: 0;
+    }
+  }
+  
   & .gallery-inner {
-    width: 75%;
+    width: 70%;
     padding: 16px;
     max-height: 100%;
-    @media (min-width: @screen-phone-max) and (min-height: @screen-phone-max){
-      width: 80%;
-    }
+    
     
     & > figure {
       float: left;
@@ -629,29 +648,30 @@ body {
         display: none;
       }
       
-      width: 33.33%;
-      &:nth-child(6) ~ figure {
-        display: none;
-      }
-      @media (max-width: @screen-phone) and (min-height: @screen-phone-max){
-        width: 50%;
+      width: 16.66%;
+      @media (max-width: @screen-phone) and (min-height: @screen-phone-v-max) {
+        width: 33.33%;
       }
 
-      @media (min-width: @screen-tablet-max) {
-        width: 25%;
-        &:nth-child(1) ~ figure {
-          display: block;
-        }
-        &:nth-child(8) ~ figure {
-          display: none;
-        }
-      }
-      @media (min-width: @screen-desktop-max) {
-        width: 16.66%;
-        &:nth-child(1) ~ figure {
-          display: block;
-        }
-      }
+      // &:nth-child(6) ~ figure {
+      //   display: none;
+      // }
+      //
+      // @media (min-width: @screen-tablet-max) {
+      //   width: 25%;
+      //   &:nth-child(1) ~ figure {
+      //     display: block;
+      //   }
+      //   &:nth-child(8) ~ figure {
+      //     display: none;
+      //   }
+      // }
+      // @media (min-width: @screen-desktop-max) {
+      //   width: 16.66%;
+      //   &:nth-child(1) ~ figure {
+      //     display: block;
+      //   }
+      // }
     }
     &:extend(.clearfix all);
   }
@@ -659,5 +679,10 @@ body {
 
 .contact > div {
   background-image: url('contact.jpg');
+  & .qr {
+    overflow: hidden;
+    @media (max-width: @screen-phone-v) and (max-height: @screen-phone){
+      display: none;
+    }
+  }
 }
-

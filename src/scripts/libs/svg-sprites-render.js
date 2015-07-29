@@ -139,7 +139,8 @@
           svg.setAttribute('viewBox', group[id].view);
         } else {
           console.error("SVG Sprite '" + target + "' not found:");
-          console.error(sprites, group, id);
+          console.log(gp, id);
+          console.log(sprites, group);
         }
       }
     };
