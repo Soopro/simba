@@ -175,7 +175,7 @@ h1 {
 h2 {
   margin-top: 0;
   margin-bottom: 0.6em;
-  font-size: 3.5vw;
+  font-size: 4.5vw;
   font-weight: 200;
   @media (max-width: @screen-tablet) {
     font-size: 4.5vw;
@@ -637,20 +637,24 @@ body {
   }
   
   & .gallery-inner {
-    width: 70%;
+    width: 80%;
     padding: 16px;
     max-height: 100%;
     
-    
     & > figure {
-      float: left;
       & [rel='slides'] {
         display: none;
       }
-      
+      float: left;
       width: 16.66%;
-      @media (max-width: @screen-phone) and (min-height: @screen-phone-v-max) {
+      padding: 6px;
+      
+      @media (max-width: @screen-phone-v) {
+        padding: 3px;
+      }
+      @media (max-width: @screen-phone-v) and (min-height: @screen-phone-v-max) {
         width: 33.33%;
+        padding: 3px;
       }
 
       // &:nth-child(6) ~ figure {
