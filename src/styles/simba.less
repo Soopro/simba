@@ -649,6 +649,7 @@ body {
 
 .gallery > div {
   background-color: @dark-color !important;
+  background-image: url('themes.jpg');
   & header {
     & h2,
     & h3,
@@ -666,16 +667,20 @@ body {
       & [rel='slides'] {
         display: none;
       }
-      float: left;
-      width: 16.66%;
-      padding: 6px;
-      
-      @media (max-width: @screen-phone-v) {
-        padding: 3px;
+      img {
+        .transform(none);
       }
+      float: left;
+      width: 16.6%;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      
+      // @media (max-width: @screen-phone-v) {
+      //
+      // }
       @media (max-width: @screen-phone-v) and (min-height: @screen-phone-v-max) {
         width: 33.33%;
-        padding: 3px;
       }
 
       // &:nth-child(6) ~ figure {
