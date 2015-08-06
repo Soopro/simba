@@ -134,7 +134,7 @@
           ref = group[id].children;
           for (j = 0, len1 = ref.length; j < len1; j++) {
             child = ref[j];
-            svg.appendChild(child);
+            svg.appendChild(child.cloneNode(true));
           }
           svg.setAttribute('viewBox', group[id].view);
         } else {
@@ -149,7 +149,7 @@
         svg_name = svg_url.replace(/^.*[\\\/]/, '');
       }
       load_stack.push(svg_url);
-      console.log("SVG Sprite load " + svg_url + " [" + svg_name + "]");
+      console.log("SVG Sprites load " + svg_url + " [" + svg_name + "]");
       request({
         type: 'GET',
         url: svg_url,

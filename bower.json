@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "hammer.js": "~2.0.4",
-    "svg-sprites-render": "~0.0.3",
+    "svg-sprites-render": "~0.0.8",
     "zepto": "~1.1.6",
     "normalize-css": "~3.0.3"
   }

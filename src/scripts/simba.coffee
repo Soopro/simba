@@ -601,4 +601,9 @@ $(document).ready ->
 
   , 3000
   
+  # loading
+  loading_id = window.setTimeout (e)->
+    $('#loader').addClass('hide')
+    window.clearTimeout(loading_id)
+  , 1200
   
