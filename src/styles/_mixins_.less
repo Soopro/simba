@@ -102,13 +102,21 @@
      -moz-perspective: @argment;
           perspective: @argment;
           
-  // -webkit-perspective-origin: 50% 50%;
-  //         perspective-origin: 50% 50%;
-  // -webkit-transform-style: preserve-3d;
-  //         transform-style: preserve-3d;
+  -webkit-perspective-origin: 50% 50%;
+          perspective-origin: 50% 50%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
           
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+}
+/* Image */
+.image-rendering(){
+  image-rendering: -moz-crisp-edges;         /* Firefox */
+  image-rendering:   -o-crisp-edges;         /* Opera */
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+  -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
 }
 
 /* Shadow */

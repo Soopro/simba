@@ -105,7 +105,6 @@ svg {
 
 img {
   pointer-events: none !important;
-  // .transform(translate3d(0, 0, 0));
 }
 
 figure {
@@ -114,7 +113,7 @@ figure {
   & img {
     max-width: 100%;
   }
-  
+  .transform(translate3d(0, 0, 0));
 }
 
 .unselectable {
@@ -161,7 +160,7 @@ body,h1,h2,h3,h4,h5,h6,p,label {
                Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   color: @dark-color;
-  font-smoothing: always;
+  // font-smoothing: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -180,7 +179,7 @@ h1 {
 h2 {
   margin-top: 0;
   margin-bottom: 0.6em;
-  font-size: 4.5vw;
+  font-size: 4.3vw;
   font-weight: 200;
   @media (max-width: @screen-tablet) {
     font-size: 4.5vw;
@@ -293,14 +292,13 @@ article {
     & * {
       .select(none);
     }
-    .transform(scale(0.35, 0.35));
-
+    .transform(scale(0.4, 0.4));
     // .transform(translate3d(0, 0, -2500px));
     // use translate3d will cause text blurry (bad as unreadable)
     // so use scale may bit slow but text is clean to read. 
     // sometime scale will show string line brink on chrome, just change size of scale will fix.
     &.out{
-      .transform(scale(0.18));
+      .transform(scale(0.2));
       // .transform(translate3d(0, 0, -4500px));
       // no text readable needed, feel free use translate3d, but looks slow than scale.
       opacity: 0;
@@ -671,9 +669,9 @@ article {
       & [rel='slides'] {
         display: none;
       }
-      // img {
-      //   .transform(none);
-      // }
+      & img {
+        .transform(none);
+      }
       float: left;
       width: 16.6%;
       padding: 0;
