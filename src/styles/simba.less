@@ -155,7 +155,7 @@ figure {
 
 /* Typography
 /* ----------------------------------------------- */
-body,h1,h2,h3,h4,h5,h6,p,label {
+body,h1,h2,h3,h4,h5,h6,p,label,a{
   font-family: RobotoDraft, Roboto, "Helvetica Neue", Helvetica,
                Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
@@ -554,6 +554,9 @@ article {
   text-align: right;
   font-size: 12px;
   font-weight: 400;
+  &.dark{
+    color: @light-color;
+  }
 }
 
 #channel {
@@ -612,6 +615,14 @@ article {
   & a,
   & a:link,
   & a:visited {
+    text-decoration: none;
+  }
+}
+
+.goback {
+  padding: 16px 0 32px 0;
+  & a {
+    font-weight: 600;
     text-decoration: none;
   }
 }
@@ -716,5 +727,11 @@ article {
     @media (max-width: @screen-phone){
       display: none;
     }
+  }
+}
+
+.error-404 {
+  & #logo {
+    padding-bottom: 32px;
   }
 }
