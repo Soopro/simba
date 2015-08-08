@@ -1,0 +1,22 @@
+{% if site_meta.register %}
+<!-- Register -->
+<section class="container register">
+  <div class="input-group">
+    <input type="email" id ="input-register" data-url="{{site_meta.register.url}}" 
+    class="form-control input-lg" placeholder="{{site_meta.register.text}}" />
+    <span class="input-group-btn">
+      <button class="btn input-lg btn-primary register-btn"
+      data-target="{{site_meta.register.target}}"
+      data-register="{{site_meta.register.url}}">
+        {{site_meta.register.title | striptags}}
+      </button>
+    </span>
+  </div>
+  {% if site_meta.login %}
+  <p class="text-center">
+    {{site_meta.login.text}}
+    <a href="{{site_meta.login.url}}" target="{{site_meta.login.target}}">{{site_meta.login.title}}</a>
+  </p>
+  {% endif %}
+</section>
+{% endif %}

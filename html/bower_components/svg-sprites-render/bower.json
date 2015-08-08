@@ -1,0 +1,22 @@
+{
+  "name": "svg-sprite-render",
+  "version": "0.0.8",
+  "homepage": "https://github.com/Soopro/svg-sprites-render",
+  "authors": [
+    "Redy <redy@soopro.com>"
+  ],
+  "description": "Load svg file and place into html <svg>.",
+  "keywords": [
+    "svg",
+    "sprites"
+  ],
+  "dependencies": {},
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,31 @@
+<!-- Footer -->
+<footer class="pirmary-footer">
+  <div id="copyright">
+    {{site_meta.copyright}}
+    {% for item in menu["doc"] %}
+    <a href="{{item.url}}" class="footer-link {{'active' if item.url | url(false) == meta.url }}">
+      {{item.title}}
+    </a>
+    {% endfor %}
+    
+    {% if translates %}
+    <!-- Language -->
+    <div class="languages">
+		{% for trans in translates %}
+			{% if lang in trans.code %}
+			  {% set lang_active = "active" %}
+      {% else %}
+        {% set lang_active = "" %}
+			{% endif %}
+      <a href="{{trans.url}}" class="bullet {{lang_active}}">{{trans.name}}</a>
+		{% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</footer>
+<!-- JavaScript -->
+<script src="{{theme_url}}libs/jquery/jquery-2.1.1.min.js"></script>
+<script src="{{theme_url}}libs/magnific/jquery.magnific-popup.min.js"></script>
+<!-- <script src="{{theme_url}}libs/chocolat/jquery.chocolat.js"></script> -->
+<script src="{{theme_url}}js/functions.js"></script>
+{{sa.code}}

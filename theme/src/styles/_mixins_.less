@@ -1,0 +1,127 @@
+/* Global mixins
+----------------------------------------------- */
+
+/* Animation */
+.transform(@arguments){
+  -webkit-transform: @arguments;
+     -moz-transform: @arguments;
+      -ms-transform: @arguments;
+       -o-transform: @arguments;
+          transform: @arguments;
+}
+.transition(@arguments){
+  -webkit-transition: @arguments;
+     -moz-transition: @arguments;
+      -ms-transition: @arguments;
+       -o-transition: @arguments;
+          transition: @arguments;
+}
+.keyframes(@name; @frames){
+  @-webkit-keyframes @name { @frames(); }
+	   @-moz-keyframes @name { @frames(); }
+      @-ms-keyframes @name { @frames(); }
+       @-o-keyframes @name { @frames(); }
+	        @keyframes @name { @frames(); }
+}
+.animixin(@arguments){
+	-webkit-animation: @arguments;
+	   -moz-animation: @arguments;
+       -o-animation: @arguments;
+	        animation: @arguments;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+/* Svg */
+.svgWrap(@width, @height){
+  display: block;
+  overflow: hidden;
+  & svg {
+    width: @width;
+    height: @height;
+  }
+}
+.darkBtn(){
+  .dark &,
+  [dark] & {
+    color: @light-color !important;
+    & svg {
+      fill: @light-color !important;
+    }
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  pointer-events: auto;
+}
+
+/* Flexbox */
+.flex(@argment){
+  -webkit-flex: @argment;
+      -ms-flex: @argment;
+          flex: @argment;
+}
+.flex-display(){
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.flex-direction(@argment){
+  -webkit-flex-direction: @argment;
+      -ms-flex-direction: @argment;
+          flex-direction: @argment;
+}
+.flex-align-items(@argment){
+  -webkit-align-items: @argment;
+       -ms-flex-align: @argment;
+          align-items: @argment;
+}
+.flex-justify-content(@argment){
+  -webkit-justify-content: @argment;
+            -ms-flex-pack: @argment;
+          justify-content: @argment;
+}
+.flex-wrap(@argment){
+  -webkit-flex-wrap: @argment;
+      -ms-flex-wrap: @argment;
+          flex-wrap: @argment;
+}
+
+/* select */
+.select(@argment){
+  -webkit-user-select: @argment;
+     -moz-user-select: @argment;
+      -ms-user-select: @argment;
+          user-select: @argment;
+}
+
+/* 3d */
+.perspective3d(@argment){
+  -webkit-perspective: @argment;
+     -moz-perspective: @argment;
+          perspective: @argment;
+          
+  -webkit-perspective-origin: 50% 50%;
+          perspective-origin: 50% 50%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+/* Image */
+.image-rendering(){
+  image-rendering: -moz-crisp-edges;         /* Firefox */
+  image-rendering:   -o-crisp-edges;         /* Opera */
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+  -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+}
+
+/* Shadow */
+.md-shadow(){
+  box-shadow: 0 8px 10px -5px rgba(0,0,0,.14),
+              0 16px 24px 2px rgba(0,0,0,.098),
+              0 6px 30px 5px rgba(0,0,0,.084);
+}

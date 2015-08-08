@@ -1,0 +1,50 @@
+<head>
+<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=yes">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% if meta.description %}
+<meta name="description" content="{{ meta.description }}">
+{% endif %}{% if meta.robots %}
+<meta name="robots" content="{{ meta.robots }}">
+{% endif %}
+<meta name="author" content="redy">
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" 
+href="{{ theme_url }}ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="{{ theme_url }}ico/favicon.png">
+
+<title>
+  {{ site_meta.title }}{% if meta.title %} | {{ meta.title }}{% endif %}
+</title>
+<!-- Webfonts -->
+<link href='{{ theme_url }}font/webfonts.css' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap core CSS -->
+<link href="{{ theme_url }}lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Lightbox CSS -->
+<link href="{{ theme_url }}lib/lightbox/css/lightbox.css" rel="stylesheet">
+
+<!-- Styles-->
+<link href="{{ theme_url }}css/codes/autumn.css" rel="stylesheet">
+<link href="{{ theme_url }}css/style.css" rel="stylesheet">
+<link href="{{ theme_url }}css/{{lang}}.css" rel="stylesheet">
+
+  
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="{{ theme_url }}lib/html5shiv/html5shiv.js"></script>
+<script src="{{ theme_url }}lib/respond/respond.min.js"></script>
+<![endif]-->
+
+<!-- Javascript -->
+<script src="{{ theme_url }}lib/jquery/jquery-1.10.2.min.js"></script>
+<script src="{{ theme_url }}lib/lightbox/js/lightbox-2.6.min.js"></script>
+<script src="{{ theme_url }}js/function.js"></script>
+
+{{site_meta.analytics}}
+{{site_meta.seo}}
+{{sa}}
+</head>

@@ -1,0 +1,17 @@
+{% if feature %}
+<section class="feature col2-feature">
+  <div class="container">
+    <header>
+      <h2>{{feature.title}}</h2>
+    </header>
+    <div class="feature-content clearfix">
+      <div class="feature-text">
+        {{feature.content}}
+      </div>
+      <div class="feature-img">
+        <img src="{{feature.featured_img.src or theme_url+'imgs/default_600x300.png'}}" alt="{{feature.title}}">
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}

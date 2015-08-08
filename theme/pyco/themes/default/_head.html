@@ -1,0 +1,33 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if site_meta.description %}
+  <meta name="description" content="{{site_meta.description}}">
+  {% endif %}
+  {% if site_meta.author %}
+  <meta name="author" content="{{site_meta.author}}">
+  {% endif %}
+  {% if meta.template == 'error_404' %}
+  <meta name="robots" content="noindex，nofollow">
+  {% endif %}
+  {% if site_meta.title %}
+    {% set site_title = site_meta.title +' | ' %}
+  {% endif %}
+  
+  <title>
+    {{ site_title }}{{ meta.title }}
+  </title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="{{theme_url}}css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="{{theme_url}}css/clean-blog.min.css" rel="stylesheet">
+  <link href="{{theme_url}}css/sup-custom.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+      <script src="{{theme_url}}js/html5shiv.js"></script>
+      <script src="{{theme_url}}js/respond.min.js"></script>
+  <![endif]-->
+	{{analytics}}
+</head>

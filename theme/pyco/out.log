@@ -1,0 +1,248 @@
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:235]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+127.0.0.1 - - [21/Oct/2014 10:15:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2014 10:15:22] "GET /statics/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [21/Oct/2014 10:15:22] "GET /uploads/works/anv/anv_1_s.jpg HTTP/1.1" 304 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:235]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+127.0.0.1 - - [21/Oct/2014 10:15:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2014 10:15:23] "GET /statics/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [21/Oct/2014 10:15:23] "GET /uploads/works/anv/anv_1_s.jpg HTTP/1.1" 304 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:235]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+127.0.0.1 - - [21/Oct/2014 10:15:25] "GET /about HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2014 10:15:25] "GET /statics/css/code.css HTTP/1.1" 304 -
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader
+127.0.0.1 - - [21/Oct/2014 10:19:44] "GET /uploads/works/anv/anv_1_s.jpg HTTP/1.1" 304 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:235]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+127.0.0.1 - - [21/Oct/2014 10:20:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2014 10:20:24] "GET /statics/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [21/Oct/2014 10:20:24] "GET /uploads/works/anv/anv_1_s.jpg HTTP/1.1" 304 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:235]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+127.0.0.1 - - [21/Oct/2014 10:20:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2014 10:20:25] "GET /statics/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [21/Oct/2014 10:20:25] "GET /uploads/works/anv/anv_1_s.jpg HTTP/1.1" 304 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:235]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+127.0.0.1 - - [21/Oct/2014 10:20:26] "GET /test HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2014 10:20:26] "GET /statics/css/code.css HTTP/1.1" 304 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:235]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+127.0.0.1 - - [21/Oct/2014 10:20:37] "GET /test HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2014 10:20:37] "GET /statics/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [21/Oct/2014 10:20:37] "GET /statics/css/code.css HTTP/1.1" 304 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:235]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+127.0.0.1 - - [21/Oct/2014 15:04:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2014 15:04:25] "GET /statics/css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2014 15:04:25] "GET /uploads/works/anv/anv_1_s.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2014 15:04:25] "GET /statics/font/fontawesome-webfont.woff HTTP/1.1" 200 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:235]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+127.0.0.1 - - [21/Oct/2014 15:04:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2014 15:04:27] "GET /statics/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [21/Oct/2014 15:04:27] "GET /uploads/works/anv/anv_1_s.jpg HTTP/1.1" 304 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:235]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+127.0.0.1 - - [21/Oct/2014 15:04:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2014 15:04:53] "GET /statics/css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2014 15:04:53] "GET /uploads/works/anv/anv_1_s.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Oct/2014 15:04:53] "GET /statics/font/fontawesome-webfont.woff HTTP/1.1" 200 -
+ * Detected change in 'pyco.py', reloading
+ * Restarting with reloader
+  File "pyco.py", line 401
+    app.debug = 
+               ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "pyco.py", line 409, in <module>
+    if opt.debug:
+AttributeError: OptionParser instance has no attribute 'debug'
+ * Running on http://127.0.0.1:5000/
+127.0.0.1 - - [21/Oct/2014 15:30:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2014 15:30:38] "GET /statics/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [21/Oct/2014 15:30:38] "GET /uploads/works/anv/anv_1_s.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Oct/2014 17:08:29] "GET / HTTP/1.1" 579 -
+ * Running on http://127.0.0.1:5000/
+127.0.0.1 - - [26/Oct/2014 14:05:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [26/Oct/2014 14:05:41] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Oct/2014 14:05:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [26/Oct/2014 14:05:41] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Oct/2014 14:05:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [26/Oct/2014 14:05:43] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Oct/2014 14:06:01] "GET / HTTP/1.1" 200 -
+ * Running on http://127.0.0.1:5500/
+  File "pyco.py", line 479
+    return 'fuck'
+SyntaxError: 'return' outside function
+ * Running on http://127.0.0.1:5500/
+ * Restarting with reloader
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:503]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+ERROR in pyco [pyco.py:515]:
+NameError("global name 'config' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "pyco.py", line 505, in before_request
+    current_app.template_folder = os.path.join(THEMES_DIR,config.get("THEME_NAME"))
+NameError: global name 'config' is not defined
+
+--------------------------------------------------------------------------------
+127.0.0.1 - - [06/Nov/2014 03:37:14] "GET / HTTP/1.1" 579 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:503]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+ERROR in pyco [pyco.py:515]:
+NameError("global name 'config' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "pyco.py", line 505, in before_request
+    current_app.template_folder = os.path.join(THEMES_DIR,config.get("THEME_NAME"))
+NameError: global name 'config' is not defined
+
+--------------------------------------------------------------------------------
+127.0.0.1 - - [06/Nov/2014 03:37:14] "GET /favicon.ico HTTP/1.1" 579 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:503]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+ERROR in pyco [pyco.py:515]:
+NameError("global name 'config' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "pyco.py", line 505, in before_request
+    current_app.template_folder = os.path.join(THEMES_DIR,config.get("THEME_NAME"))
+NameError: global name 'config' is not defined
+
+--------------------------------------------------------------------------------
+127.0.0.1 - - [06/Nov/2014 03:37:14] "GET / HTTP/1.1" 579 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:503]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+ERROR in pyco [pyco.py:515]:
+NameError("global name 'config' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "pyco.py", line 505, in before_request
+    current_app.template_folder = os.path.join(THEMES_DIR,config.get("THEME_NAME"))
+NameError: global name 'config' is not defined
+
+--------------------------------------------------------------------------------
+127.0.0.1 - - [06/Nov/2014 03:37:14] "GET /favicon.ico HTTP/1.1" 579 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:503]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+ERROR in pyco [pyco.py:515]:
+NameError("global name 'config' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "pyco.py", line 505, in before_request
+    current_app.template_folder = os.path.join(THEMES_DIR,config.get("THEME_NAME"))
+NameError: global name 'config' is not defined
+
+--------------------------------------------------------------------------------
+127.0.0.1 - - [06/Nov/2014 03:37:15] "GET / HTTP/1.1" 579 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:503]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+ERROR in pyco [pyco.py:515]:
+NameError("global name 'config' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "pyco.py", line 505, in before_request
+    current_app.template_folder = os.path.join(THEMES_DIR,config.get("THEME_NAME"))
+NameError: global name 'config' is not defined
+
+--------------------------------------------------------------------------------
+127.0.0.1 - - [06/Nov/2014 03:37:15] "GET /favicon.ico HTTP/1.1" 579 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:503]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+ERROR in pyco [pyco.py:515]:
+NameError("global name 'config' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "pyco.py", line 505, in before_request
+    current_app.template_folder = os.path.join(THEMES_DIR,config.get("THEME_NAME"))
+NameError: global name 'config' is not defined
+
+--------------------------------------------------------------------------------
+127.0.0.1 - - [06/Nov/2014 03:37:15] "GET / HTTP/1.1" 579 -
+--------------------------------------------------------------------------------
+DEBUG in pyco [pyco.py:503]:
+Pyco is running in DEBUG mode !!! Jinja2 template folder is about to reload.
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+ERROR in pyco [pyco.py:515]:
+NameError("global name 'config' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/Flask-0.10.1-py2.7.egg/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "pyco.py", line 505, in before_request
+    current_app.template_folder = os.path.join(THEMES_DIR,config.get("THEME_NAME"))
+NameError: global name 'config' is not defined
+
+--------------------------------------------------------------------------------
+127.0.0.1 - - [06/Nov/2014 03:37:15] "GET /favicon.ico HTTP/1.1" 579 -

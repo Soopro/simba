@@ -1,0 +1,11 @@
+<!-- taxonomy -->
+{% set terms = saltshaker(pages,[meta.taxonomy]) if meta.taxonomy %}
+{% set raw_pages = terms if terms else pages %}
+{% set term_pages = [] %}
+{% for post in raw_pages if terms and (args.t == post[meta.taxonomy] or not args.t)%}
+	{% do term_pages.append(post) %}
+{% endfor %}
+
+<!-- paged pages -->
+{% set paged = args.paged|int if args.paged and args.paged|int > 0 else 1 %}
+{% set perpage = theme_meta.options.perpage|int if theme_meta.options.perpage else 12 %}

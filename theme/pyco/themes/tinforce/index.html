@@ -1,0 +1,45 @@
+{% import "g" as g with context %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+{% include "_head.html" %}
+<body>
+	<div id="wrapper">
+    <!-- Header -->
+		{% include "_header.html" %}
+		<!-- #Header -->
+		<!-- Tagline -->
+		<div class="container">
+			<section class="jumbotron">
+				<h1>{{meta.tagline}}</h1>
+			</section>
+		</div>
+		<!-- #Tagline -->
+		<!-- Contents -->
+		<div class="container">
+			<section class="row works-list">
+				{% for work in pages %}
+					{% if work.type == "works" and work.title and work.featured_img %}
+						<figure class="col-md-3 col-sm-6">
+                <a href="{{work.url}}">
+							    <figcaption>{{work.title}}</figcaption>
+							    <img src="{{ work.featured_img | thumbnail }}" title="{{work.title}}" alt="{{work.title}}" />
+                </a>
+						</figure>
+					{% endif %}
+				{% endfor %}
+			</section>
+			<section class="row">
+				<div class="col-md-3 pull-right more">
+					<a class="btn-more" href="#more" ontouchstart="btn-more-on">
+                        {{_('More')}}
+                    </a>
+				</div>
+			</section>
+		</div>
+		<!-- #Contents -->
+		<!-- Footer -->
+		{% include "_footer.html" %}
+		<!-- #Footer -->
+	</div>
+</body>
+</html>

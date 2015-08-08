@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "_g_head_.html" %}
+<body>
+  <!-- Pages -->
+  <div id="pages">
+    <!-- 404 -->
+    <section class="error-404" title="404 Error" dark>
+      <div layout="column" layout-align="center center">
+        <div id="logo">
+          <svg svg-sprite="base:ico-logo"></svg>
+        </div>
+        <article class="text-center">
+          <header>
+            <h2>Error 404 Not found</h2>
+          </header>
+          <p>
+            Aenean commodo ligula eget dolor. Aenean massa.
+            Cum sociis natoque penatibus et.
+          </p>
+        </article>
+        <div class="goback">
+          <a href="#">Go Back</a>
+        </div>
+        <div id="copyright">
+          2015 © Soopro Co., Ltd.
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Javascripts -->
+  <script src="scripts/libs/svg-sprites-render.js"></script>
+  <script>
+    svgSet = new svgSprites()
+    svgSet.load('../styles/svgdefs.svg', 'base')
+    svgSet.render()
+  </script>
+</body>
+</html>

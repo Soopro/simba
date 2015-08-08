@@ -1,0 +1,47 @@
+{% import "g" as g with context %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% include '_head.html' %}
+
+<body>
+  <!-- Navigation -->
+  {% include '_header.html' %}
+
+  <!-- Page Header -->
+  <!-- Set your background image for this header on the line below. -->
+  {% set default_kv = theme_url + '/img/home-bg.jpg' %}
+  <header class="intro-header" 
+  style="background-image: url('{{meta.kv or default_kv}}')">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 
+        col-md-10 col-md-offset-1">
+          <div class="page-heading">
+            <h1>{{meta.title}}</h1>
+            <h2 class="subheading">{{meta.description}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 
+        col-md-10 col-md-offset-1">
+          {{content}}
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+<!-- Footer -->
+{% include '_footer.html'%}
+</body>
+
+</html>
