@@ -6,7 +6,6 @@
 #
 # Author:   redy
 # Date:     3 July 2015
-# Version: 2.5
 # -------------------------------
 duplicateElements = ->
   elements = $('[duplicate]')
@@ -429,7 +428,6 @@ $(document).ready ->
       $('#menu').trigger('click')
     esc: ->
       headerCtrl.menu()
-
       $('#pages').removeClass('zoom').removeClass('out')
       detailCtrl.hide()
       sliderCtrl.hide()
@@ -564,7 +562,7 @@ $(document).ready ->
     if viewStatus isnt 2
       return
     switch e.type
-      when 'swipeleft' then cmd.slide_next()
+      when 'swipeleft' then cmd.slide_next() 
       when 'swiperight' then cmd.slide_prev()
     return
   
@@ -572,6 +570,52 @@ $(document).ready ->
     if viewStatus isnt 2
       return
     cmd.esc()
+  
+  # leap motion
+  leapLoopClock = 0
+  CD_TIMER = 30
+  leapController = Leap.loop
+    enableGestures: true
+  , (frame) ->
+    if leapLoopClock > 0
+      leapLoopClock--
+      return
+    if frame.valid and frame.gestures.length > 0
+      gesture = frame.gestures[frame.gestures.length-1]
+      switch gesture.type
+        when 'circle'
+          cmd.esc()
+          leapLoopClock = CD_TIMER
+          break
+        # when 'keyTap'
+        #   cmd.enter()
+        #   leapLoopClock = CD_TIMER
+        #   break
+        # when 'screenTap'
+        #   console.log 'Screen Tap Gesture'
+        #   break
+        when 'swipe'
+          isHorizontal = Math.abs(gesture.direction[0]) > Math.abs(gesture.direction[1])
+          #Classify as right-left or up-down
+          if isHorizontal
+            if gesture.direction[0] > 0
+              swipeDirection = 'right'
+              cmd.prev()
+            else
+              swipeDirection = 'left'
+              cmd.next()            
+          else
+            #vertical
+            if gesture.direction[1] > 0
+              swipeDirection = 'up'
+              cmd.esc()
+            else
+              swipeDirection = 'down'
+              cmd.enter()
+          console.log 'Swipe Gesture', swipeDirection
+          leapLoopClock = CD_TIMER
+          break
+    return
   
   
   # start

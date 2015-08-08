@@ -86,20 +86,24 @@ request = (opts) ->
         if req_method in ['POST', 'PUT']
           send_data = new FormData(req_data)
         # must be FormData()
+        break
       when 'file'
         xmlhttp.setRequestHeader('Content-Type', req_tile.type)
         if req_method in ['POST', 'PUT']
           formData = new FormData();
           formData.append('file', req_file);
           send_data = formData
+        break
       when 'json'
         xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
         if req_method in ['POST', 'PUT']
           send_data = JSON.stringify(req_data)
+        break
       else
         xmlhttp.setRequestHeader("Accept", "text/xml")
         if req_method in ['POST', 'PUT']
           send_data = ''
+        break
 
     if send_data
       xmlhttp.send(send_data)

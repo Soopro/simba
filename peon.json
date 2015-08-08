@@ -10,8 +10,8 @@
         "src":[
           "hammer.js/hammer.js",
           "zepto/zepto.js",
-          "svg-sprites-render/svg-sprites-render.js"
-          
+          "svg-sprites-render/svg-sprites-render.js",
+          "leapjs/leap-0.6.4.js"
         ],
         "cwd":"bower_components",
         "dest":"/src/scripts/libs/"
@@ -32,5 +32,72 @@
       "cwd": "src",
       "dest": "build"
     }
-  }
+  },
+  "release":[
+    {
+      "clean": "dist",
+      "copy":{
+        "dist":{
+          "src": [
+            "**/*",
+            "!uploads/*",
+            "!**/_*",
+            "!_*"
+          ],
+          "cwd": "build",
+          "dest": "dist"
+        },
+        "assets":{
+          "flatten": true,
+          "src": [
+            "**/*.ttf",
+            "**/*.woff*",
+            "**/*.png",
+            "**/*.jpg",
+            "**/*.svg",
+            "!uploads/*"
+          ],
+          "cwd": "build",
+          "dest": "dist"
+        }
+        
+      },
+      "compress": {
+        "process_html":{
+          "type": "process_html",
+          "cwd": "dist",
+          "src": "*.html"
+        }
+      },
+      "replace": {
+        "src": "*.min.*",
+        "cwd": "dist",
+        "replacements": [
+          {
+            "pattern": "../styles/svgdefs.svg",
+            "replace": "svgdefs.svg"
+          }
+        ]
+      },
+      "scrap": {
+        "src":[
+          "*",
+          "!*.html",
+          "!*.min.*",
+          "!*.png",
+          "!*.jpg",
+          "!*.svg",
+          "!*.ttf",
+          "!*.woff*"
+        ],
+        "cwd":"dist"
+      },
+      "rev":{
+        "src":"*.html",
+        "cwd":"dist",
+        "find":"?md5=null",
+        "pattern":"null"
+      }
+    }
+  ]
 }
