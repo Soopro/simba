@@ -20,4 +20,6 @@
     </div>
   </div>
 </section>
+{% else %}
+  <script>window.location.replace('{{base_url}}/error_404');</script>
 {% endif %}
