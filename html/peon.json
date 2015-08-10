@@ -27,77 +27,10 @@
     }
   },
   "build":{
-    "clean": "build",
     "render":{
       "cwd": "src",
-      "dest": "build"
+      "dest": "build",
+      "clean": true
     }
-  },
-  "release":[
-    {
-      "clean": "dist",
-      "copy":{
-        "dist":{
-          "src": [
-            "**/*",
-            "!uploads/*",
-            "!**/_*",
-            "!_*"
-          ],
-          "cwd": "build",
-          "dest": "dist"
-        },
-        "assets":{
-          "flatten": true,
-          "src": [
-            "**/*.ttf",
-            "**/*.woff*",
-            "**/*.png",
-            "**/*.jpg",
-            "**/*.svg",
-            "!uploads/*"
-          ],
-          "cwd": "build",
-          "dest": "dist"
-        }
-        
-      },
-      "compress": {
-        "process_html":{
-          "type": "process_html",
-          "cwd": "dist",
-          "src": "*.html"
-        }
-      },
-      "replace": {
-        "src": "*.min.*",
-        "cwd": "dist",
-        "replacements": [
-          {
-            "pattern": "../styles/svgdefs.svg",
-            "replace": "svgdefs.svg"
-          }
-        ]
-      },
-      "scrap": {
-        "src":[
-          "*",
-          "!*.html",
-          "!*.min.*",
-          "!*.png",
-          "!*.jpg",
-          "!*.svg",
-          "!*.ttf",
-          "!*.woff*"
-        ],
-        "cwd":"dist"
-      },
-      "rev":{
-        "src":"*.html",
-        "cwd":"dist",
-        "find":"?md5=null",
-        "pattern":"null"
-      }
-    }
-  ]
+  }
 }

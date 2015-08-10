@@ -1,52 +1,24 @@
 {
   "watch":{
     "src": "src",
-    "dest": "pyco/themes/dev"
+    "dest": "pyco/themes/dev",
+    "init": true,
+    "server": true,
+    "pyco": "pyco",
+    "skip_includes": "html"
   },
-  "init":{
-    "copy": {
-      "libs":{
-        "flatten": true,
-        "src":[
-          "hammer.js/hammer.js",
-          "zepto/zepto.js",
-          "svg-sprites-render/svg-sprites-render.js",
-          "leapjs/leap-0.6.4.js"
-        ],
-        "cwd":"bower_components",
-        "dest":"/src/scripts/libs/"
-      },
-      "css":{
-        "flatten": true,
-        "src":[
-          "normalize-css/normalize.css"
-        ],
-        "cwd":"bower_components",
-        "dest":"/src/styles/"
-      }
-    }
-  },
-  "build":{
-    "clean": "build",
+
+  "release":{
+    "clean": ["build", "dist"],
     "render":{
       "cwd": "src",
       "dest": "build",
-      "clean": true,
-    }
-  },
-  "release": {
-    "clean": ["dist", "build"],
-    "render":{
-      "cwd": "src",
-      "dest": "build"
+      "skip_includes":["html"]
     },
     "copy":{
-      "dist":{
+      "scripts":{
         "src": [
-          "**/*",
-          "!uploads/*",
-          "!**/_*",
-          "!_*"
+          "**/*"
         ],
         "cwd": "build",
         "dest": "dist"
@@ -64,7 +36,6 @@
         "cwd": "build",
         "dest": "dist"
       }
-      
     },
     "compress": {
       "process_html":{
