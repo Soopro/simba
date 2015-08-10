@@ -21,7 +21,12 @@ duplicateElements = ->
 $(document).ready ->
   # svg sprites
   svgSet = new svgSprites()
-  svgSet.load('../styles/svgdefs.svg', 'base')
+  svgURLs = $('[svg-sprites-loader]')
+  for spr in svgURLs
+    url = $(spr).data('url')
+    group = $(spr).data('name')
+    if typeof url is 'string' and typeof group is 'string'
+      svgSet.load(url, group)
   svgSet.render()
   
   duplicateElements()

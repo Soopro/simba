@@ -146,25 +146,11 @@
     </section>
   </div>
   <!-- Detail -->
-  <div id="detail" layout="column" layout-align="center center">
-    
-  </div>
+  {% include "_g_model_detail_.html" %}
   <!-- Slider -->
-  <div id="slider" layout="row" layout-align="center center">
-    <button type="button" class="btn-prev">
-      <svg svg-sprite="base:ico-arr_left"></svg>
-    </button>
-    <div class="slider-inner" flex layout="column" layout-align="center center">
-      <h3 class='title'></h3>
-      <div class="slides"></div>
-    </div>
-    <button type="button" class="btn-next">
-      <svg type="button" svg-sprite="base:ico-arr_right"></svg>
-    </button>
-  </div>
+  {% include "_g_model_slider_.html" %}
   <!-- Footer -->
   {% include "_g_footer_.html" %}
-  
   <!-- Javascripts -->
   {% include "_g_js_.html" %}
 </body>

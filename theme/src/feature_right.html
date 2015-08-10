@@ -1,0 +1,17 @@
+{% if page %}
+<section class="page" title="{{page.title}}">
+  <div layout-gt-sm="row" layout-sm="column" layout-align="center center">
+    {% if page.featured_img %}
+    <figure flex="40" flex-order-gt-sm="2">
+      <img src="{{page.featured_img.src}}" alt="{{page.featured_img.title}}" />
+    </figure>
+    {% endif %}
+    <article flex="40" class="text-right">
+      <header>
+        <h2>{{page.title}}</h2>
+      </header>
+      {{page.content}}
+    </article>
+  </div>
+</section>
+{% endif %}

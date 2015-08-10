@@ -1,6 +1,6 @@
 {
   "watch":{
-    "init": true,
+    "clean": true,
     "server": true
   },
   "init":{

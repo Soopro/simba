@@ -495,7 +495,18 @@ article {
     height: 100%;
     overflow: hidden;
   }
-  
+  & header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 32px;
+    & .title {
+      padding: 8px;
+    }
+    @media (max-width: @screen-tablet) {
+      padding: 16px;
+    }
+  }
   & .slides {
     font-size: 0;
     .md-shadow();
@@ -688,6 +699,7 @@ article {
     padding-bottom: 10px;
     font-weight: 600;
     & a{
+      font-weight: 600;
       text-decoration: none !important;
     }
   }
@@ -699,7 +711,7 @@ article {
   & header {
     & h2,
     & h3,
-    & h4, {
+    & h4 {
       margin-bottom: 0;
     }
   }
@@ -718,7 +730,7 @@ article {
       }
       float: left;
       width: 16.6%;
-      padding: 0;
+      padding: 2px;
       margin: 0;
       border: 0;
       

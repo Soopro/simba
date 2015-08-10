@@ -1,0 +1,23 @@
+{% if page %}
+<section class="gallery" title="{{page.title}}" dark>
+  <div layout="column" layout-align="center center">
+    <header>
+      <h2>{{page.title}}</h2>
+    </header>
+    <div class="gallery-inner">
+      {% for theme in pages | type('_theme') %}
+      <figure class="btn open-slider">
+        {% if theme.featured_img %}
+        <img src="{{theme.featured_img.src | thumbnail }}" title="{{theme.featured_img.title}}" />
+        {% endif %}
+        <div rel="slides" title="{{theme.title}}">
+          {% for item in theme.gallery %}
+          <img src="{{item.src}}" title="{{item.title}}" />
+          {% endfor %}
+        </div>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

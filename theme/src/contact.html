@@ -1,0 +1,35 @@
+{% if page %}
+<section class="contact" title="Contact" dark>
+  <div layout-gt-sm="row" layout-sm="column" layout-align="center center">
+    <article flex="35">
+      <header>
+        <h2>{{page.title}}</h2>
+      </header>
+      {{page.content}}
+      <div class="info">
+        {% if page.email %}
+        <p>
+          <i class="ico">
+            <svg svg-sprite="base:ico-email"></svg>
+          </i>
+          <a href="mailto:{{page.email}}" class="btn-primary">{{page.email}}</a>
+        </p>
+        {% endif %}
+        {% if page.qq %}
+        <p>
+          <i class="ico">
+            <svg svg-sprite="base:ico-qq"></svg>
+          </i>
+          <a href="qq:{{page.qq}}" class="btn-primary">{{page.qq}}</a>
+        </p>
+        {% endif %}
+      </div>
+    </article>
+    <aside flex="35" class="text-center no-overflow">
+      {% if page.qr %}
+      <img src="{{page.qr.src}}" title="{{page.qr.title}}" class="{{page.qr.css}}"/>
+      {% endif %}
+    </aside>
+  </div>
+</section>
+{% endif %}

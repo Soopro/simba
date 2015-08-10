@@ -2,12 +2,59 @@
   "watch":{
     "src": "src",
     "dest": "pyco/themes/dev",
-    "init": true,
+    "clean": true,
     "server": true,
     "pyco": "pyco",
     "skip_includes": "html"
   },
-
+  "packing":{
+    "zip":{
+      "cwd":"themes/dev",
+      "file":"soopro.zip",
+      "include_hidden":false,
+      "include_peon_config":false,
+      "excludes":[]
+    },
+    "upload":{
+      "cwd":"themes/dev",
+      "file":"soopro.zip",
+      "headers":{
+        "SecretKey":"59dd52dbc3d0442e9874c990f5ffce54"
+      },
+      "url":"http://api.sup.farm/ws/soopro/develop_theme",
+      "data":null,
+      "params":null
+    }
+  },
+  "transport":{
+    "upload":{
+      "cwd":"content",
+      "replace": [
+        {
+          "pattern":"/$uploads/", 
+          "replacement":"http://static.sup.farm/apps/redy/soopro/uploads/"
+        }
+      ],
+      "headers":{
+        "content-type": "application/json",
+        "SecretKey":"59dd52dbc3d0442e9874c990f5ffce54"
+      },
+      "url":"http://api.sup.farm/ws/soopro/develop_sync_sitedata"
+    },
+    "download":{
+      "dest":"content",
+      "replace": [
+        {
+          "pattern":"http://static.sup.farm/apps/redy/soopro/uploads/", 
+          "replacement":"/$uploads/"
+        }
+      ],
+      "headers":{
+        "SecretKey":"59dd52dbc3d0442e9874c990f5ffce54"
+      },
+      "url":"http://api.sup.farm/ws/soopro/develop_sync_sitedata"
+    }
+  },
   "release":{
     "clean": ["build", "dist"],
     "render":{
