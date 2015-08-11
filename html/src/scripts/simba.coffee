@@ -21,7 +21,12 @@ duplicateElements = ->
 $(document).ready ->
   # svg sprites
   svgSet = new svgSprites()
-  svgSet.load('../styles/svgdefs.svg', 'base')
+  svgURLs = $('[svg-sprites-loader]')
+  for spr in svgURLs
+    url = $(spr).data('url')
+    group = $(spr).data('name')
+    if typeof url is 'string' and typeof group is 'string'
+      svgSet.load(url, group)
   svgSet.render()
   
   duplicateElements()
@@ -236,14 +241,14 @@ $(document).ready ->
         return
       if currPageIndex >= totalPages-1
         return
-      page_slide(currPageIndex+=1)
+      page_slide(currPageIndex+1)
       
     @prev = ->
       if viewStatus is 2
         return
       if currPageIndex <= 0
         return
-      page_slide(currPageIndex-=1)
+      page_slide(currPageIndex-1)
       
     @toggle = ->
       if btn_next.hasClass('hide') or btn_prev.hasClass('hide')
@@ -271,6 +276,18 @@ $(document).ready ->
   currDisplayIndex = 0
   currDisplayPage = currPage
   
+  init = ->
+    stopPagesAnim()
+    hash = window.location.hash
+    if hash
+      anchor = hash.replace('#/', '')
+      for page in pages
+        if $(page).attr('parallax-anchor') == anchor
+          page_slide($(page).index())
+          return
+
+    page_slide(currPageIndex)
+  
   stopPagesAnim = ->
     pages.addClass('no-transition')
     timer = window.setTimeout ->
@@ -281,19 +298,30 @@ $(document).ready ->
   window.addEventListener 'resize', (e)->
     stopPagesAnim()
     page_slide(currPageIndex)
-    
-    
-    
+
+
+  page_open = ->
+    headerCtrl.menu()
+    $('#pages').removeClass('zoom').removeClass('out')
+    detailCtrl.hide()
+    sliderCtrl.hide()
+    $('#footer').addClass('hide')
+    paginatorCtrl.show()
+    headerCtrl.show()  
+  
+  
   page_slide = (curr)->
     if not curr
       curr = 0
+
     screenWidth = $(document).width()
-    currDisplayIndex = curr
+    currPageIndex = currDisplayIndex = curr
     
     for page in pages
       idx = $(page).index()
       if idx == curr
         currDisplayPage = currPage = $(page)
+        anchor = $(page).attr('parallax-anchor') or idx
 
       pos_left = screenWidth*(idx-curr)
       $(page).css
@@ -301,6 +329,10 @@ $(document).ready ->
 
     headerCtrl.show()
     paginatorCtrl.show()
+    if anchor is 0
+      location.hash = ''
+    else
+      location.hash = "#/" + anchor
   
   
   page_move = (mv, curr)->
@@ -349,13 +381,28 @@ $(document).ready ->
   #     return
   #   index = $(next_page).index()
   #   if index isnt currPageIndex
-  #     currPageIndex = index
-  #     page_slide(currPageIndex)
+  #     page_slide(index)
 
-
+  $('[rel="parallax-anchor"]').on 'click', (e)->
+    element = $(e.currentTarget or e.target)
+    anchor = element.attr('href').split("#", 2)[1]
+    for page in pages
+      if $(page).attr('parallax-anchor') == anchor
+        idx = $(page).index()
+        break
+    next_idx = idx or 0
+    if currPageIndex == next_idx
+      page_open()
+    else
+      page_slide(next_idx)
+      timer = window.setTimeout ->
+        page_open()
+        window.clearTimeout(timer)
+      , 600
+      return false
+    
   $('#menu').on 'click', (e)->
     this.blur()
-
     headerCtrl.menu('close')
 
     $('#pages').toggleClass('zoom').removeClass('out')
@@ -427,13 +474,7 @@ $(document).ready ->
     enter: ->
       $('#menu').trigger('click')
     esc: ->
-      headerCtrl.menu()
-      $('#pages').removeClass('zoom').removeClass('out')
-      detailCtrl.hide()
-      sliderCtrl.hide()
-      $('#footer').addClass('hide')
-      paginatorCtrl.show()
-      headerCtrl.show()
+      page_open()
     
   # keyboard
   # ---------------------------------->
@@ -536,8 +577,7 @@ $(document).ready ->
   mc.on 'panend', (e) ->
     if viewStatus is 2 and isTouchPan(e.target)
       return
-    currPageIndex = currDisplayIndex
-    page_slide(currPageIndex)
+    page_slide(currDisplayIndex)
     return
 
   mc.on 'tap pressup', (e)->
@@ -546,12 +586,11 @@ $(document).ready ->
     next_page = e.target
     if viewStatus isnt 1 or not next_page
       return
-    index = $(next_page).index()
-    if index is currPageIndex
+    next_idx = $(next_page).index()
+    if next_idx == currPageIndex
       $('#menu').trigger('click')
     else
-      currPageIndex = index
-      page_slide(currPageIndex)
+      page_slide(next_idx)
   
   mc_slider.on 'swipedown', (e) ->
     if viewStatus isnt 2
@@ -619,9 +658,7 @@ $(document).ready ->
   
   
   # start
-  stopPagesAnim()
-  page_slide()
-  
+  init()
   
   # swapper
   invl_id = window.setInterval (e)->
