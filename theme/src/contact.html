@@ -12,7 +12,9 @@
           <i class="ico">
             <svg svg-sprite="base:ico-email"></svg>
           </i>
-          <a href="mailto:{{page.email}}" class="btn-primary">{{page.email}}</a>
+          <a href="mailto:{{page.email.link}}" class="btn-primary">
+            {{page.email.title}}
+          </a>
         </p>
         {% endif %}
         {% if page.qq %}
@@ -20,7 +22,9 @@
           <i class="ico">
             <svg svg-sprite="base:ico-qq"></svg>
           </i>
-          <a href="qq:{{page.qq}}" class="btn-primary">{{page.qq}}</a>
+          <a href="qq:{{page.qq.link}}" class="btn-primary">
+            {{page.qq.title}}
+          </a>
         </p>
         {% endif %}
       </div>
