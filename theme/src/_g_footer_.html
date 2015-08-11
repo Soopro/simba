@@ -1,13 +1,20 @@
 <footer id="footer" class="hide" layout="row" layout-align="space-between">
   <div id="channel">
     <div class="links">
-      <div class="link"><a href="#index" rel="parallax-anchor">Login</a></div>
-      <div class="link"><a href="#index" rel="parallax-anchor">Register</a></div>
-      <div class="link"><a href="#contact" rel="parallax-anchor">Contact</a></div>
+      {% for item in menu.primary %}
+      <div class="link">
+        <a href="{{ item.url }}" rel="parallax-anchor">{{ item.title }}</a>
+      </div>
+      {% endfor %}
     </div>
     <div class="languages">
-      <a href="#">English</a>
-      <a href="#">中文</a>
+			{% for trans in translates %}
+				{% if lang in trans.code %}
+				<a href="{{trans.url}}" class="active">{{trans.name}}</a>
+				{% else %}
+				<a href="{{trans.url}}">{{trans.name}}</a>
+				{% endif %}
+			{% endfor %}
     </div>
   </div>
   <div id="copyright">

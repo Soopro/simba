@@ -386,6 +386,8 @@ $(document).ready ->
   $('[rel="parallax-anchor"]').on 'click', (e)->
     element = $(e.currentTarget or e.target)
     anchor = element.attr('href').split("#", 2)[1]
+    if not anchor
+      return
     for page in pages
       if $(page).attr('parallax-anchor') == anchor
         idx = $(page).index()
