@@ -1,6 +1,6 @@
 {
 	"version":"3.0.0",
-  "alias":"soopro",
+  "alias":"simba",
 	"title":"Soopro official theme",
   "capability":["ws"],
 	"thumbnail":"thumbnail.png",
