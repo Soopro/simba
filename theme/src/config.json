@@ -14,24 +14,16 @@
 	
   "templates":{
     "index":"Homepage",
-    "page":"Page",
-    "features":"Feature page",
-    "themes":"Themes page",
-    "feature":"Feature Part #1",
-    "feature_2col":"Feature 2 column",
-    "feature_top_text":"Feature top text",
-    "feature":"Feature",
-    "theme":"Theme",
-    "error_browser":"Bad browser",
+    "page":"Static Page",
+    "feature_left":"Feature left",
+    "feature_right":"Feature right",
+    "themes":"Themes",
     "error_404":"404"
   },
   
-  "menus":[
-    {"alias":"doc", "title":"Docs"}
-  ],
+  "menus":[],
   
   "content_types":[
-    {"alias":"_feature", "title":"Features"},
     {"alias":"_theme", "title":"Themes"}
   ],
   

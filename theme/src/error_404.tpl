@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" modern-browser>
-{% include "_g_head_.html" %}
-<body svg-sprites-loader 
- data-url="{{ site_meta.svg_sprites or theme_url+'/styles/svgdefs.svg' }}"
+<div svg-sprites-loader 
+ data-url="{{ site_meta.svg_sprites || theme_url+'/styles/svgdefs.svg' }}"
  data-name="base">
   <!-- Pages -->
   <div id="pages">
@@ -28,7 +25,5 @@
     </section>
   </div>
   <!-- Javascripts -->
-  <script src="http://libs.soopro.com/browser/browser.js"></script>
-  <script src="http://libs.sup.farm/svg-sprites-render.js"></script>
-</body>
-</html>
+</div>
+{% include "_tpl_common_.tpl" %}

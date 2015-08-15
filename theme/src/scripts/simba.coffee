@@ -7,30 +7,8 @@
 # Author:   redy
 # Date:     3 July 2015
 # -------------------------------
-duplicateElements = ->
-  elements = $('[duplicate]')
-  for el in elements
-    times = parseInt($(el).attr('duplicate'))
-    curr = 0
-    parent = $(el).parent()
-    while curr < times-1
-      parent.append($(el).clone())
-      curr++
-    
-
 $(document).ready ->
-  # svg sprites
-  svgSet = new svgSprites()
-  svgURLs = $('[svg-sprites-loader]')
-  for spr in svgURLs
-    url = $(spr).data('url')
-    group = $(spr).data('name')
-    if typeof url is 'string' and typeof group is 'string'
-      svgSet.load(url, group)
-  svgSet.render()
-  
-  duplicateElements()
-  
+
   viewStatus = 0
   touchStatus = 0
   
