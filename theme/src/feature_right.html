@@ -3,7 +3,9 @@
   <div layout-gt-sm="row" layout-sm="column" layout-align="center center">
     {% if page.featured_img %}
     <figure flex="40" flex-order-gt-sm="2">
-      <img src="{{page.featured_img.src}}" alt="{{page.featured_img.title}}" />
+      <img src="{{page.featured_img.src or g.default_img_480x480}}"
+       alt="{{page.featured_img.title}}" 
+       class="{{page.featured_img.css or ''}}"/>
     </figure>
     {% endif %}
     <article flex="40" class="text-right">

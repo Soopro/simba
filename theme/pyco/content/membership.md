@@ -12,6 +12,5 @@ Featured_img:
   Activities <span>+</span> Broadcasting <span>+</span> Newsletters
 </h4>
 <p>
-  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-  Aenean commodo ligula eget dolor. Aenean massa.
+  Help you manage the user information, reservation, newsletter, enrollment, social media connection and many many more.
 </p>

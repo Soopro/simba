@@ -9,7 +9,6 @@ Featured_img:
   src: /$uploads/feature_website.jpg
 */
 <p>
-  Aenean commodo ligula eget dolor. Aenean massa.
-  Cum sociis natoque penatibus et.
+  Brand new responsive templates perfectly match desktop, tablet and mobile phone screens. Our canvas editor helps to manage contents intuitively.
 </p>
 

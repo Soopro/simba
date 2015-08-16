@@ -10,13 +10,14 @@ qq:
 email:
   title: Support@Soopro.com
   link: support@soopro.com
-qr:
+Featured_img:
   title: 'QR'
   src: /$uploads/qr.png
 */
 
 <p>
-  Aenean commodo ligula eget dolor. Aenean massa.
-  Cum sociis natoque penatibus et magnis dis parturient montes, 
-  nascetur ridiculus mus.
+  If you want to learn more about our products or to become our partner, please contact us.
+</p>
+<p>
+  You can scan QR code on the right to subscribe to our WeChat public, or be contact directly via email and QQ.
 </p>

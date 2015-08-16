@@ -1,6 +1,12 @@
 {% if g %}
 <section class="contact" parallax-anchor="{{page.alias}}" title="Contact" dark>
-  <div layout-gt-sm="row" layout-sm="column" layout-align="center center">
+  {% if page.background %}
+  {% set contactbg='style="background-image:url('+page.background.src+')"'%}
+  {% else %}
+  {% set contactbg=''%}
+  {% endif %}
+  <div layout-gt-sm="row" layout-sm="column" layout-align="center center" 
+   {{contactbg}}>
     <article flex-gt-sm="35">
       <header>
         <h2>{{page.title}}</h2>
@@ -30,9 +36,10 @@
       </div>
     </article>
     <aside flex-gt-sm="35" flex-sm="45" class="text-center no-overflow">
-      {% if page.qr %}
-      <img src="{{page.qr.src}}" title="{{page.qr.title}}"
-       class="qr {{page.qr.css}}"/>
+      {% if page.featured_img %}
+      <img src="{{page.featured_img.src}}"
+       title="{{page.featured_img.title}}"
+       class="{{page.featured_img.css or ''}}"/>
       {% endif %}
     </aside>
   </div>
