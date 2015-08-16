@@ -34,28 +34,36 @@ $(document).ready ->
     self = @
     svg = $('#menu').find('svg')
     logo = $('#logo').find('svg')
-
+    btn_menu = $('#menu').find('.btn-menu')
+    btn_close = $('#menu').find('.btn-close')
+    btn_collapse = $('#menu').find('.btn-collapse')
+    btn_collapse.hide()
+    btn_close.hide()
+    
     @menu = (type)->
       if viewStatus isnt 0 or not type
         viewStatus = 0
-        new_sprite = svg.data('last')
-        if new_sprite
-          svg.data('last', '')
+      else if type is 'close'
+        viewStatus = 1
+      else if type is 'collapse'
+        viewStatus = 2
       
-          svg.attr('svg-sprite', new_sprite)
-          svgSet.render(svg)
-        logo.removeClass('hide')
-      else
-        viewStatus = if type is 'close' then 1 else 2
-        new_sprite = svg.data(type)
-        old_sprite = svg.attr('svg-sprite') or ''
-        svg.data('last', old_sprite)
-        svg.attr('svg-sprite', new_sprite)
-        svgSet.render(svg)
-        if viewStatus is 2
+      switch viewStatus
+        when 2
           logo.addClass('hide')
-        else
+          btn_menu.hide()
+          btn_collapse.show()
+          btn_close.hide()
+        when 1
           logo.removeClass('hide')
+          btn_menu.hide()
+          btn_collapse.hide()
+          btn_close.show()
+        when 0
+          logo.removeClass('hide')
+          btn_menu.show()
+          btn_collapse.hide()
+          btn_close.hide()
       
     @show = ->
       if currDisplayPage.attr('dark') isnt null and viewStatus isnt 1

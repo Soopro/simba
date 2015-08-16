@@ -1,5 +1,10 @@
 <svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
+<symbol id="ico-collapse" viewBox="0 0 1024 1024">
+	<title>collapse</title>
+	<path class="path1" d="M447.701 64v500.373l-230.528-230.528-90.987 90.987 385.813 385.835 385.813-385.813-90.987-90.987-230.528 230.507v-500.373h-128.597z"></path>
+	<path class="path2" d="M853.333 832h-682.667v128.597h682.667v-128.597z"></path>
+</symbol>
 <symbol id="ico-loading" viewBox="0 0 1024 1024">
 	<title>loading</title>
 	<path class="path1" d="M512 916.011c-222.763 0-404.011-181.248-404.011-404.011h108.949c0 162.688 132.373 295.061 295.061 295.061s295.061-132.373 295.061-295.061c0-162.688-132.373-295.061-295.061-295.061v-108.949c222.763 0 404.011 181.227 404.011 404.011s-181.248 404.011-404.011 404.011z"></path>
@@ -23,10 +28,6 @@
 <symbol id="ico-close" viewBox="0 0 1024 1024">
 	<title>close</title>
 	<path class="path1" d="M958.080 156.288l-90.368-90.368-356.672 356.672-356.672-356.672-90.368 90.368 356.672 356.672-356.672 356.672 90.368 90.368 356.672-356.672 356.672 356.672 90.368-90.368-356.672-356.672 356.672-356.672z"></path>
-</symbol>
-<symbol id="ico-collapse" viewBox="0 0 1024 1024">
-	<title>collapse</title>
-	<path class="path1" d="M576.299 960v-649.707l230.528 230.528 90.987-90.987-385.813-385.835-385.813 385.813 90.987 90.987 230.528-230.528v649.728h128.597z"></path>
 </symbol>
 <symbol id="ico-email" viewBox="0 0 1024 1024">
 	<title>email</title>

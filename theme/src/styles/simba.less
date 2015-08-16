@@ -477,6 +477,10 @@ article {
   }
   &:not(.open) {
     .transform(translateY(100%));
+    & .slides img {
+      // hide image for for better performance.
+      display: none;
+    }
   }
   
   & > button {
@@ -722,6 +726,7 @@ article {
     max-height: 100%;
     
     & > figure {
+      font-size: 0;
       & [rel='slides'] {
         display: none;
       }
