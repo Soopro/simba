@@ -3,7 +3,7 @@ Date: '2014-01-01'
 Priority: 10
 Template: feature_left
 Title: Membership
-Tagline: Better customer relationship
+Tagline: One-stop solution for membership
 Featured_img:
   title: 'Membership'
   src: /$uploads/feature_membership.jpg

@@ -3,7 +3,7 @@ Date: '2014-01-01'
 Priority: 30
 Template: feature_left
 Title: Website
-Tagline: Responsive design for Website
+Tagline: Wonderful website for all screens
 Featured_img:
   title: 'Website'
   src: /$uploads/feature_website.jpg

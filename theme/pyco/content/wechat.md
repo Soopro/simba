@@ -3,7 +3,7 @@ Date: '2014-01-01'
 Priority: 20
 Template: feature_left
 Title: Website
-Tagline: Social promotion on WeChat
+Tagline: WeChat social media promotion
 Featured_img:
   title: 'WeChat'
   src: /$uploads/feature_wechat.jpg

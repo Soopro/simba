@@ -1,7 +1,7 @@
 {% if g %}
 <section class="contact" parallax-anchor="{{page.alias}}" title="Contact" dark>
   <div layout-gt-sm="row" layout-sm="column" layout-align="center center">
-    <article flex="35">
+    <article flex-gt-sm="35">
       <header>
         <h2>{{page.title}}</h2>
       </header>
@@ -29,9 +29,10 @@
         {% endif %}
       </div>
     </article>
-    <aside flex="35" class="text-center no-overflow">
+    <aside flex-gt-sm="35" flex-sm="45" class="text-center no-overflow">
       {% if page.qr %}
-      <img src="{{page.qr.src}}" title="{{page.qr.title}}" class="{{page.qr.css}}"/>
+      <img src="{{page.qr.src}}" title="{{page.qr.title}}"
+       class="qr {{page.qr.css}}"/>
       {% endif %}
     </aside>
   </div>
