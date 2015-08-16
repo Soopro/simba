@@ -1,0 +1,49 @@
+{
+  "content_types": {
+    "_theme": "Themes"
+  },
+  "meta": {
+    "author": "redy",
+    "copyright": "2015 © Soopro Co., Ltd.",
+    "description": "A multi-functional online marketing toolkit which combines Website, WeChat, Alipay, Broadcasting of member activities and advertisment ...",
+    "license": "#license",
+    "locale": "zh_CN",
+    "title": "Soopro",
+    "translates": {
+      "en_US": {
+        "name": "English",
+        "url": "http://docs.sup.farm/terms_en_us"
+      },
+      "zh_CN": {
+        "name": "汉语",
+        "url": "http://docs.sup.farm/terms_zh_cn"
+      }
+    }
+  },
+  "terms": {},
+  "menus": {
+    "primary": [
+      {
+        "alias": "login",
+        "meta": {},
+        "nodes": [],
+        "title": "Login",
+        "url": "/login"
+      },
+      {
+        "alias": "register",
+        "meta": {},
+        "nodes": [],
+        "title": "Register",
+        "url": "/register"
+      },
+      {
+        "alias": "contact",
+        "meta": {},
+        "nodes": [],
+        "title": "Contact",
+        "url": "#contact"
+      }
+    ]
+  }
+}

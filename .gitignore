@@ -1,6 +1,7 @@
+.*
 dist
 build
 release
-pyco
 uploads
-!content
+theme/pyco/*
+!theme/pyco/content
