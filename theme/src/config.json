@@ -20,6 +20,66 @@
     "themes":"Themes",
     "error_404":"404"
   },
+  "canvas_mode": false,
+  
+  "form_view":{
+    "index": [
+      {
+        "name": "Subtitle",
+        "model": "subtitle",
+        "type": "input"
+      },
+      {
+        "name": "Featured Image",
+        "model": "featured_image",
+        "type": "media"
+      }
+    ],
+    "page": [
+      {
+        "name": "Subtitle",
+        "model": "subtitle",
+        "type": "input",
+        "max": 200
+      },
+      {
+        "name": "Desc",
+        "model": "desc",
+        "type": "textarea",
+        "max": 200
+      },
+      {
+        "name": "Featured Image",
+        "model": "featured_image",
+        "type": "media"
+      },
+      {
+        "name": "Background",
+        "model": "background",
+        "type": "bg"
+      },
+      {
+        "name": "Content",
+        "model": "content",
+        "type": "saw"
+      },
+      {
+        "name": "Gallery",
+        "model": "gallery",
+        "type": "gallery"
+      },
+      {
+        "name": "Script",
+        "model": "youku",
+        "type": "script"
+      },
+      {
+        "name": "Button",
+        "model": "xxx",
+        "type": "button"
+      }
+    ]
+  },
   
   "menus":[],
   

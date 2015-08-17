@@ -1,21 +1,23 @@
-{% if g %}
-<section class="page" parallax-anchor="{{page.alias}}" title="{{page.title}}">
-  <div layout-gt-sm="row" layout-sm="column" layout-align="center center">
-    {% if page.featured_img %}
-    <figure flex="40">
-      <img src="{{page.featured_img.src or g.default_img_480x480 }}"
-       alt="{{page.featured_img.title}}" 
-       class="{{page.featured_img.css or ''}}" />
-    </figure>
-    {% endif %}
-    <article flex="40">
-      <header>
-        <h2>{{page.tagline}}</h2>
-      </header>
-      {{page.content}}
-    </article>
-  </div>
-</section>
+{% if g and page %}
+  <section class="page {{bgclass}}"
+   parallax-anchor="{{page.alias}}" title="{{page.title}}">
+    <div layout-gt-sm="row" layout-sm="column" 
+     layout-align="center center" {{bgstyle}}>
+      {% if page.featured_img %}
+      <figure flex="40">
+        <img src="{{page.featured_img.src or g.default_img_480x480 }}"
+         alt="{{page.featured_img.title}}" 
+         class="{{page.featured_img.class or ''}}" />
+      </figure>
+      {% endif %}
+      <article flex="40">
+        <header>
+          <h2>{{page.tagline}}</h2>
+        </header>
+        {{page.content}}
+      </article>
+    </div>
+  </section>
 {% else %}
   <script>window.location.replace('{{base_url}}/error_404');</script>
 {% endif %}

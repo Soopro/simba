@@ -49,7 +49,7 @@ $(document).ready ->
           btn_close.hide()
       
     @show = ->
-      if currDisplayPage.attr('dark') isnt null and viewStatus isnt 1
+      if currDisplayPage.hasClass('dark') and viewStatus isnt 1
         $('#header').addClass('dark')
       else
         $('#header').removeClass('dark')
@@ -62,7 +62,7 @@ $(document).ready ->
     detail = $('#detail')
 
     @show = (content)->
-      if currPage.attr('dark') isnt null
+      if currPage.hasClass('dark')
         detail.addClass('dark')
       else
         detail.removeClass('dark')
@@ -149,7 +149,7 @@ $(document).ready ->
       self.slide(slideIndex)
       
     @show = (elements, title)->
-      if currPage.attr('dark') isnt null
+      if currPage.hasClass('dark')
         slider.addClass('dark')
       else
         slider.removeClass('dark')
@@ -217,7 +217,7 @@ $(document).ready ->
       else
         btn_next.addClass('hide')
       
-      if currDisplayPage.attr('dark') isnt null
+      if currDisplayPage.hasClass('dark')
         ctrl.addClass('dark')
       else
         ctrl.removeClass('dark')

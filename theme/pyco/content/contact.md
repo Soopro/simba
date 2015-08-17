@@ -13,6 +13,9 @@ email:
 Featured_img:
   title: 'QR'
   src: /$uploads/qr.png
+Background:
+  src: /$uploads/contact.jpg
+  class: 'dark'
 */
 
 <p>

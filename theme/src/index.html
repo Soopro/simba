@@ -1,4 +1,11 @@
 {% import "g" as g with context %}
+{% if meta.background %}
+{% set coverbgstyle = 'style="background-image:url('+meta.background.src+')"'%}
+{% set coverbgclass = meta.background.class %}
+{% else %}
+{% set coverbgstyle = ''%}
+{% set coverbgclass = '' %}
+{% endif %}
 <!DOCTYPE html>
 <html lang="en" modern-browser>
 {% include "_g_head_.html" %}
@@ -21,13 +28,15 @@
   <!-- Pages -->
   <div id="pages">
     <!-- Cover -->
-    <section class="cover" title="{{meta.title}}" dark>
-      <div layout="column" layout-align="center center">
+    <section class="cover {{coverbgclass}}" title="{{meta.title}}">
+      <div layout="column" layout-align="center center" {{coverbgstyle}}>
         <article class="text-center">
           <header>
             <h1>
               {{meta.tagline}}
-              {{meta.swapper}}
+              <div id="swapper">
+                {{meta.swapper}}
+              </div>
             </h1>
           </header>
           <div class="actions">
@@ -48,9 +57,16 @@
     </section>
     <!-- Page -->
     {% for page in pages | type('page') if not page.is_front %}
+      {% if page.background %}
+      {% set bgstyle = 'style="background-image:url('+
+                       page.background.src+')"'%}
+      {% set bgclass = page.background.class %}
+      {% else %}
+      {% set bgstyle = ''%}
+      {% set bgclass = '' %}
+      {% endif %}
       {% include page.template+'.html' %}
     {% endfor %}
-    <!-- Contact -->
   </div>
   <!-- Detail -->
   {% include "_g_model_detail_.html" %}

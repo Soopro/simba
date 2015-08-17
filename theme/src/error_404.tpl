@@ -1,22 +1,22 @@
-<div svg-sprites-loader 
- data-url="{{ site_meta.svg_sprites || theme_url+'/styles/svgdefs.svg' }}"
- data-name="base">
+<div>
   <!-- Pages -->
   <div id="pages">
     <!-- 404 -->
-    <section class="error-404" title="404 Error" dark>
+    <section class="error-404 {{page.background.class}}">
       <div layout="column" layout-align="center center">
         <div id="logo">
-          <svg svg-sprite="base:ico-logo"></svg>
+          <img ng-if="site_meta.logo" ng-src="{{site_meta.logo}}"
+           alt="{{site_meta.title}}"/>
+          <svg ng-if="!site_meta.logo" svg-sprite="base:ico-logo"></svg>
         </div>
         <article class="text-center">
           <header>
-            <h2>{{meta.title}}</h2>
+            <h2 sup-editor-meta ng-model="meta.title">Error 404</h2>
           </header>
-          {{content}}
+          <div sup-angular-wysiwyg ng-model="content">x_x</div>
         </article>
         <div class="goback">
-          <a href="{{base_url}}">{{_('Go Back')}}</a>
+          <a href="#">{{_('Go Back')}}</a>
         </div>
         <div id="copyright">
           {{site_meta.copyright}}

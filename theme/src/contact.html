@@ -1,12 +1,8 @@
 {% if g %}
-<section class="contact" parallax-anchor="{{page.alias}}" title="Contact" dark>
-  {% if page.background %}
-  {% set contactbg='style="background-image:url('+page.background.src+')"'%}
-  {% else %}
-  {% set contactbg=''%}
-  {% endif %}
-  <div layout-gt-sm="row" layout-sm="column" layout-align="center center" 
-   {{contactbg}}>
+<section class="contact {{bgclass}}" 
+ parallax-anchor="{{page.alias}}" title="Contact">
+  <div layout-gt-sm="row" layout-sm="column"
+   layout-align="center center" {{bgstyle}}>
     <article flex-gt-sm="35">
       <header>
         <h2>{{page.title}}</h2>
@@ -39,7 +35,7 @@
       {% if page.featured_img %}
       <img src="{{page.featured_img.src}}"
        title="{{page.featured_img.title}}"
-       class="{{page.featured_img.css or ''}}"/>
+       class="{{page.featured_img.class or ''}}"/>
       {% endif %}
     </aside>
   </div>

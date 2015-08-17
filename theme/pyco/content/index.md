@@ -4,12 +4,13 @@ Status: 1
 Template: index
 Title: Home
 Tagline: This is a<br>Content Service Cloud,<br>you can create
+Background:
+  src: /$uploads/cover.jpg
+  class: 'dark'
 Swapper:
-  <div id="swapper">
-    <b class="onswap">Websites.</b>
-    <b>WeChat Buzz.</b>
-    <b>Web Apps.</b>
-  </div>
+  <b class="onswap">Websites.</b>
+  <b>WeChat Buzz.</b>
+  <b>Web Apps.</b>
 login:
   title: Login
   link: '#'
