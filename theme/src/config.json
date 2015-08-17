@@ -20,7 +20,7 @@
     "themes":"Themes",
     "error_404":"404"
   },
-  "canvas_mode": false,
+  "canvas_mode": true,
   
   "form_view":{
     "index": [
