@@ -11,8 +11,16 @@
 
 #: index.html:15
 msgid "Loading..."
-msgstr "载入中..."
+msgstr ""
 
 #: error_404.html:
 msgid "Go Back"
-msgstr "返回"
+msgstr ""
+
+#: *:
+msgid "Tagline"
+msgstr ""
+
+#: *:
+msgid "Button Text"
+msgstr ""

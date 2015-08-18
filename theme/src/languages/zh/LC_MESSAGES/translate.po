@@ -18,3 +18,11 @@ msgstr "载入中..."
 #: error_404.html:
 msgid "Go Back"
 msgstr "返回"
+
+#: *:
+msgid "Tagline"
+msgstr "标语"
+
+#: *:
+msgid "Button Text"
+msgstr "按钮文字"

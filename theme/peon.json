@@ -19,7 +19,7 @@
       "cwd":"pyco/themes/dev",
       "file":"simba.zip",
       "headers":{
-        "SecretKey":"1d02aa814dc64db3a6494624ca35a03a"
+        "SecretKey":"redy-54f10629469448f080bcff175120d332"
       },
       "url":"http://localhost:5000/ws/soopro/develop_theme",
       "data":null,
@@ -31,13 +31,13 @@
       "cwd":"content",
       "replace": [
         {
-          "pattern":"/$uploads/", 
+          "pattern":"/$uploads/",
           "replacement":"http://localhost:5050/site/redy/soopro/"
         }
       ],
       "headers":{
         "content-type": "application/json",
-        "SecretKey":"1d02aa814dc64db3a6494624ca35a03a"
+        "SecretKey":"redy-54f10629469448f080bcff175120d332"
       },
       "url":"http://localhost:5000/ws/soopro/develop_sync_sitedata"
     },
@@ -50,7 +50,7 @@
         }
       ],
       "headers":{
-        "SecretKey":"1d02aa814dc64db3a6494624ca35a03a"
+        "SecretKey":"redy-54f10629469448f080bcff175120d332"
       },
       "url":"http://localhost:5000/ws/soopro/develop_sync_sitedata"
     }
