@@ -12,13 +12,13 @@
       <article class="text-center" stop-hit>
         <header>
           <h1>
-            <span sup-editor-meta ng-model="meta.tagline">
-             {{_('Tagline')}}
-            </span>
-            <div></div>
+            <span sup-editor-meta
+             ng-model="meta.tagline">{{_('Tagline')}}</span>
             <span id="swapper" sup-editor-widget-script
+             ng-init="meta.swapper = 
+             meta.swapper ? meta.swapper : '<b>'+_('Swap Text')+'</b>'"
              ng-model="meta.swapper" 
-             ng-bind-html="meta.swapper || '['+_('Swapper')+']'">
+             ng-bind-html="meta.swapper">
             </span>
           </h1>
         </header>

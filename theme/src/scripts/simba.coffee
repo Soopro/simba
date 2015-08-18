@@ -550,12 +550,13 @@ $(document).ready ->
     move_to = e.deltaX*recoup
       
     screenWidth = $(document).width()
+    _screen_w_10 = Math.ceil(screenWidth / 10)
     if move_to >= 0
-      _left = currPageIndex * screenWidth + Math.ceil(screenWidth / 10)
+      _left = currPageIndex * screenWidth + _screen_w_10
       if move_to > _left
         move_to = _left
     else
-      _right = (currPageIndex - totalPages + 1) * screenWidth - Math.ceil(screenWidth / 10)
+      _right = (currPageIndex - totalPages + 1) * screenWidth - _screen_w_10
       if move_to < _right
         move_to = _right
 
@@ -622,7 +623,10 @@ $(document).ready ->
         #   console.log 'Screen Tap Gesture'
         #   break
         when 'swipe'
-          isHorizontal = Math.abs(gesture.direction[0]) > Math.abs(gesture.direction[1])
+          d_0 = Math.abs(gesture.direction[0])
+          d_1 = Math.abs(gesture.direction[1])
+
+          isHorizontal = d_0 > d_1
           #Classify as right-left or up-down
           if isHorizontal
             if gesture.direction[0] > 0
@@ -649,24 +653,12 @@ $(document).ready ->
   init()
   
   # swapper
+ 
   invl_id = window.setInterval (e)->
-    swapper = $('#swapper > *')
-    idx = 0
-    for swap in swapper
-      if $(swap).hasClass('onswap')
-        idx = $(swap).index()
-        break
-    
-    curr = swapper[idx]
-    $(curr).removeClass('onswap')
-    
-    if idx >= swapper.length-1
-      idx = 0
-    else
-      idx++
-    
-    next = swapper[idx]
-    $(next).addClass('onswap')
+    swappers = $('#swapper > *')
+    if swappers.length <= 0
+      return
+    $('#swapper').append(swappers[0])
 
   , 3000
   

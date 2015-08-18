@@ -110,6 +110,7 @@ img {
 figure {
   margin: 0;
   overflow: hidden;
+  text-align: center;
   & img {
     max-width: 100%;
   }
@@ -646,6 +647,7 @@ article {
 }
 
 #swapper {
+  display: block;
   .keyframes(
     @name: slideFade;
     @frames: {
@@ -657,7 +659,7 @@ article {
     display: none;
     opacity: 0;
   }
-  & .onswap {
+  & *:first-child {
     display: initial;
     opacity: 1;
     .animixin(slideFade @duration ease-in-out);

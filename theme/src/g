@@ -2,7 +2,7 @@
 {% set default_touch_icon = theme_url+
    '/styles/apple-touch-icon-144-precomposed.png' %}
 {% set default_favicon_icon = theme_url+'/styles/favicon.png' %}
-{% set default_img_480x480 = theme_url+ '/styles/default_480x480.png' %}
+{% set default_img_480x480 = theme_url+ '/styles/default_img_360x360.png' %}
 
 {% set opts = theme_meta.options %}
 {% set paged = args.paged|int if args.paged and args.paged|int > 0 else 1 %}

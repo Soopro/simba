@@ -8,7 +8,7 @@ Background:
   src: /$uploads/cover.jpg
   class: 'dark'
 Swapper:
-  <b class="onswap">Websites.</b>
+  <b>Websites.</b>
   <b>WeChat Buzz.</b>
   <b>Web Apps.</b>
 login:

@@ -1,0 +1,20 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Simba Theme\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: redy <redy.ru@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"X-Generator: Poedit 1.7.4\n"
+
+#: *.tpl:
+msgid "$_SWAPTEXT"
+msgstr "<b>Swap Text</b>"
+
+#: *.tpl:
+msgid "$_CONTENT"
+msgstr "<p>This section is the default rich text content, you can re-fill their own needs. After entering rich text edit mode, an input toolbar will appear (it is usually at top of the screen or above the rich text field), using the toolbar to insert, replace or remove images and links.</p>"

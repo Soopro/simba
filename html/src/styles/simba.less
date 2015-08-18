@@ -110,6 +110,7 @@ img {
 figure {
   margin: 0;
   overflow: hidden;
+  text-align: center;
   & img {
     max-width: 100%;
   }
@@ -362,7 +363,8 @@ article {
       }
     }
     
-    &[dark]{
+    &.dark,
+    &[dark] {
       & svg {
         fill: @light-color !important;
       }
@@ -645,6 +647,7 @@ article {
 }
 
 #swapper {
+  display: block;
   .keyframes(
     @name: slideFade;
     @frames: {
@@ -656,7 +659,7 @@ article {
     display: none;
     opacity: 0;
   }
-  & .onswap {
+  & *:first-child {
     display: initial;
     opacity: 1;
     .animixin(slideFade @duration ease-in-out);
@@ -696,89 +699,105 @@ article {
 
 /* Sections
 /* ----------------------------------------------- */
-
-.cover > div {
-  background-image: url('cover.jpg');
-  & .actions {
-    padding-bottom: 10px;
-    font-weight: 600;
-    & a{
+.page {
+  &.dark > div {
+    background-color: @dark-color;
+  }
+}
+.cover {
+  &.dark > div {
+    background-color: @dark-color;
+  }
+  & > div {
+    & .actions {
+      padding-bottom: 10px;
       font-weight: 600;
-      text-decoration: none !important;
+      & a {
+        font-weight: 600;
+        text-decoration: none !important;
+      }
+    }
+  }
+} 
+
+.gallery {
+  &.dark > div {
+    background-color: @dark-color;
+  }
+  & > div {
+    & header {
+      & h2,
+      & h3,
+      & h4 {
+        margin-bottom: 0;
+      }
+    }
+  
+    & .gallery-inner {
+      width: 80%;
+      padding: 16px;
+      max-height: 100%;
+    
+      & > figure {
+        font-size: 0;
+        & [rel='slides'] {
+          display: none;
+        }
+        & img {
+          .transform(none);
+        }
+        float: left;
+        width: 16.6%;
+        padding: 2px;
+        margin: 0;
+        border: 0;
+      
+        // @media (max-width: @screen-phone-v) {
+        //
+        // }
+        @media (max-width: @screen-phone-v) and (min-height: @screen-phone-v-max) {
+          width: 33.33%;
+        }
+
+        // &:nth-child(6) ~ figure {
+        //   display: none;
+        // }
+        //
+        // @media (min-width: @screen-tablet-max) {
+        //   width: 25%;
+        //   &:nth-child(1) ~ figure {
+        //     display: block;
+        //   }
+        //   &:nth-child(8) ~ figure {
+        //     display: none;
+        //   }
+        // }
+        // @media (min-width: @screen-desktop-max) {
+        //   width: 16.66%;
+        //   &:nth-child(1) ~ figure {
+        //     display: block;
+        //   }
+        // }
+      }
+      &:extend(.clearfix all);
     }
   }
 }
 
-.gallery > div {
-  background-color: @dark-color !important;
-  background-image: url('themes.jpg');
-  & header {
-    & h2,
-    & h3,
-    & h4 {
-      margin-bottom: 0;
-    }
+.contact {
+  &.dark > div {
+    background-color: @dark-color;
   }
-  
-  & .gallery-inner {
-    width: 80%;
-    padding: 16px;
-    max-height: 100%;
-    
-    & > figure {
-      font-size: 0;
-      & [rel='slides'] {
+  & > div {
+    & aside {
+      overflow: hidden;
+      @media (max-width: @screen-phone) and (max-height: @screen-phone){
         display: none;
       }
-      & img {
-        .transform(none);
-      }
-      float: left;
-      width: 16.6%;
-      padding: 2px;
-      margin: 0;
-      border: 0;
-      
-      // @media (max-width: @screen-phone-v) {
-      //
-      // }
-      @media (max-width: @screen-phone-v) and (min-height: @screen-phone-v-max) {
-        width: 33.33%;
-      }
-
-      // &:nth-child(6) ~ figure {
-      //   display: none;
-      // }
-      //
-      // @media (min-width: @screen-tablet-max) {
-      //   width: 25%;
-      //   &:nth-child(1) ~ figure {
-      //     display: block;
-      //   }
-      //   &:nth-child(8) ~ figure {
-      //     display: none;
-      //   }
-      // }
-      // @media (min-width: @screen-desktop-max) {
-      //   width: 16.66%;
-      //   &:nth-child(1) ~ figure {
-      //     display: block;
-      //   }
-      // }
-    }
-    &:extend(.clearfix all);
-  }
-}
-
-.contact > div {
-  background-image: url('contact.jpg');
-  & .qr {
-    overflow: hidden;
-    @media (max-width: @screen-phone){
-      display: none;
     }
   }
 }
+
 
 .error-404 {
   & #logo {

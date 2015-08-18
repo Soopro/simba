@@ -12,15 +12,16 @@
      sup-editor-widget-bg ng-model="meta.background" sup-is-wide>
       <figure flex="40">
         <img sup-editor-media ng-model="meta.featured_img"
-         ng-src="{{meta.featured_img.src || g.default_img_480x480 }}"
+         ng-src="{{meta.featured_img.src || g.default_img_360x360 }}"
          alt="{{meta.featured_img.title}}" 
          class="{{meta.featured_img.class || ''}}" />
       </figure>
-      <article flex="40">
+      <article flex="40" stop-hit>
         <header>
           <h2 sup-editor-meta ng-model="meta.tagline">{{_('Tagline')}}</h2>
         </header>
-        <div sup-angular-wysiwyg ng-model="content">x_x</div>
+        <div ng-init="content = content ? content : _('$_CONTENT')"
+         sup-angular-wysiwyg ng-model="content"></div>
       </article>
     </div>
   </section>

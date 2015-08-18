@@ -1,7 +1,7 @@
 /*
 Date: '2014-01-01'
 Priority: 20
-Template: feature_left
+Template: feature_right
 Title: Website
 Tagline: WeChat public social marketing
 Featured_img:
