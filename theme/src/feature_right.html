@@ -1,4 +1,4 @@
-{% if g %}
+{% if g and page %}
 <section class="page {{bgclass}}" 
  parallax-anchor="{{page.alias}}" title="{{page.title}}">
   <div layout-gt-sm="row" layout-sm="column" 
@@ -19,5 +19,5 @@
   </div>
 </section>
 {% else %}
-  <script>window.location.replace('{{base_url}}/error_404');</script>
+  <script>window.location.replace('{{base_url}}/#/{{meta.alias}}');</script>
 {% endif %}

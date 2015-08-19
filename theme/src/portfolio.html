@@ -1,4 +1,4 @@
-{% if g %}
+{% if g and page %}
 <section class="gallery {{bgclass}}"
  parallax-anchor="{{page.alias}}" title="{{page.title}}">
   <div layout="column" layout-align="center center" {{bgstyle}}>
@@ -6,14 +6,14 @@
       <h2>{{page.title}}</h2>
     </header>
     <div class="gallery-inner">
-      {% for theme in pages | type('_theme') %}
+      {% for works in pages | type('_works') %}
       <figure class="btn open-slider">
-        {% if theme.featured_img %}
-        <img src="{{theme.featured_img.src | thumbnail }}"
-         title="{{theme.featured_img.title}}" />
+        {% if works.featured_img %}
+        <img src="{{works.featured_img.src | thumbnail}}"
+         title="{{works.featured_img.title}}" />
         {% endif %}
-        <div rel="slides" title="{{theme.title}}">
-          {% for item in theme.gallery %}
+        <div rel="slides" title="{{works.title}}">
+          {% for item in works.gallery %}
           <img src="{{item.src}}" title="{{item.title}}" />
           {% endfor %}
         </div>
@@ -23,5 +23,5 @@
   </div>
 </section>
 {% else %}
-  <script>window.location.replace('{{base_url}}/error_404');</script>
+  <script>window.location.replace('{{base_url}}/#/{{meta.alias}}');</script>
 {% endif %}

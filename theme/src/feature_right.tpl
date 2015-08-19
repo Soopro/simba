@@ -5,20 +5,21 @@
 <!-- Pages -->
 <div id="pages">
   <!-- Page -->
-  <section class="page {{meta.background.class}}" title="{{meta.title}}">
+  <section class="page {{meta.background.class}}" sup-editor-widget-bg
+   ng-model="meta.background">
     <div layout-gt-sm="row" layout-sm="column" layout-align="center center"
      ng-style="{'background-image': meta.background.src ?
-     'url('+meta.background.src+')':'initial'}" 
-     sup-editor-widget-bg ng-model="meta.background" sup-is-wide>
-      <figure flex="40" flex-order-gt-sm="2">
-        <img sup-editor-media ng-model="meta.featured_img"
-         ng-src="{{meta.featured_img.src || g.default_img_360x360 }}"
+     'url('+meta.background.src+')':'initial'}">
+      <figure flex="40" flex-order-gt-sm="2"
+       sup-editor-media ng-model="meta.featured_img">
+        <img ng-src="{{meta.featured_img.src || g.default_img_360x360 }}"
          alt="{{meta.featured_img.title}}" 
          class="{{meta.featured_img.class || ''}}" />
       </figure>
-      <article flex="40" class="text-right" stop-hit>
+      <article flex="40" class="text-right">
         <header>
-          <h2 sup-editor-meta ng-model="meta.tagline">{{_('Tagline')}}</h2>
+          <h2 ng-init="meta.tagline=meta.tagline?meta.tagline:_('Tagline')"
+           sup-editor-meta ng-model="meta.tagline"></h2>
         </header>
         <div ng-init="content = content ? content : _('$_CONTENT')"
          sup-angular-wysiwyg ng-model="content"></div>

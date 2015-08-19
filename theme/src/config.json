@@ -16,26 +16,19 @@
   "templates":{
     "index":"Homepage",
     "page":"Static Page",
-    "feature_left":"Feature left",
-    "feature_right":"Feature right",
-    "themes":"Themes",
-    "error_404":"404"
+    "feature_left":"Feature Page #1",
+    "feature_right":"Feature Page #2",
+    "portfolio":"Portfolio Page",
+    "contact":"Contact Page",
+    "sub_works":"Works Page",
+    "error_404":"Error 404 Page"
   },
+  
+  "hide_fields": ["taxonomy", "tag", "parent"],
+  
   "canvas_mode": true,
   
   "form_view":{
-    "index": [
-      {
-        "name": "Subtitle",
-        "model": "subtitle",
-        "type": "input"
-      },
-      {
-        "name": "Featured Image",
-        "model": "featured_image",
-        "type": "media"
-      }
-    ],
     "page": [
       {
         "name": "Subtitle",
@@ -85,7 +78,7 @@
   "menus":[],
   
   "content_types":[
-    {"alias":"_theme", "title":"Themes"}
+    {"alias":"_works", "title":"Works"}
   ],
   
 	"options":{
@@ -93,7 +86,7 @@
 		"excerpt_length":162,
 		"excerpt_ellipsis":"&hellip;",
 		"date_format": "%B %d, %Y",
-		"perpage":12,
+		"perpage":18,
     "markdown":false
 	}
 }

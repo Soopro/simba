@@ -8,28 +8,6 @@
         <h2>{{page.title}}</h2>
       </header>
       {{page.content}}
-      <div class="info">
-        {% if page.email %}
-        <p>
-          <i class="ico">
-            <svg svg-sprite="base:ico-email"></svg>
-          </i>
-          <a href="{{page.email.link}}" class="btn-primary">
-            {{page.email.title}}
-          </a>
-        </p>
-        {% endif %}
-        {% if page.im %}
-        <p>
-          <i class="ico">
-            <svg svg-sprite="base:ico-im"></svg>
-          </i>
-          <a href="{{page.im.link}}" class="btn-primary">
-            {{page.im.title}}
-          </a>
-        </p>
-        {% endif %}
-      </div>
     </article>
     <aside flex-gt-sm="35" flex-sm="45" class="text-center">
       {% if page.featured_img %}

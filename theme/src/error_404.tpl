@@ -2,8 +2,11 @@
   <!-- Pages -->
   <div id="pages">
     <!-- 404 -->
-    <section class="error-404 {{page.background.class}}">
-      <div layout="column" layout-align="center center">
+    <section class="error-404 {{meta.background.class}}"
+     sup-editor-widget-bg ng-model="meta.background">
+      <div layout="column" layout-align="center center"
+       ng-style="{'background-image': meta.background.src ?
+       'url('+meta.background.src+')':'initial'}">
         <div id="logo">
           <img ng-if="site_meta.logo" ng-src="{{site_meta.logo}}"
            alt="{{site_meta.title}}"/>
@@ -11,9 +14,11 @@
         </div>
         <article class="text-center">
           <header>
-            <h2 sup-editor-meta ng-model="meta.title">Error 404</h2>
+            <h2 ng-init="meta.title=meta.title?meta.title:_('Error 404')"
+             sup-editor-meta ng-model="meta.title"></h2>
           </header>
-          <div sup-angular-wysiwyg ng-model="content">x_x</div>
+          <div ng-init="content = content ? content : _('$_ERROR404')"
+           sup-angular-wysiwyg ng-model="content"></div>
         </article>
         <div class="goback">
           <a href="#">{{_('Go Back')}}</a>

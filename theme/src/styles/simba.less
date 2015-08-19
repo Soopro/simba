@@ -109,10 +109,10 @@ img {
 
 figure {
   margin: 0;
-  overflow: hidden;
   text-align: center;
   & img {
     max-width: 100%;
+    max-height: 100%;
   }
   .transform(translate3d(0, 0, 0));
 }
@@ -148,11 +148,14 @@ figure {
     opacity: 0.6;
   }
 }
-
+.no-scroll,
 .no-overflow {
   overflow: hidden;
 }
 
+.inline-block {
+  display: inline-block;
+}
 
 /* Typography
 /* ----------------------------------------------- */
@@ -588,7 +591,7 @@ article {
       &:not(:last-child):after{
         content: "/";
         color: @primary-color;
-        padding: 0 5px 0 10px;
+        padding: 0 5px;
       }
       & a,
       & a:link,
@@ -790,7 +793,10 @@ article {
   }
   & > div {
     & aside {
-      overflow: hidden;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
       @media (max-width: @screen-phone) and (max-height: @screen-phone){
         display: none;
       }
@@ -802,5 +808,8 @@ article {
 .error-404 {
   & #logo {
     padding-bottom: 32px;
+  }
+  & article {
+    max-width: 600px;
   }
 }

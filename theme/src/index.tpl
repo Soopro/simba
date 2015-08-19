@@ -4,22 +4,22 @@
 <!-- Pages -->
 <div id="pages">
   <!-- Cover -->
-  <section class="cover {{meta.background.class}}" title="{{meta.title}}">
+  <section class="cover {{meta.background.class}}" sup-editor-widget-bg
+   ng-model="meta.background">
     <div layout="column" layout-align="center center"
      ng-style="{'background-image': meta.background.src ?
-     'url('+meta.background.src+')':'initial'}" 
-     sup-editor-widget-bg ng-model="meta.background" sup-is-wide>
-      <article class="text-center" stop-hit>
+     'url('+meta.background.src+')':'initial'}">
+      <article class="text-center">
         <header>
           <h1>
-            <span sup-editor-meta
-             ng-model="meta.tagline">{{_('Tagline')}}</span>
-            <span id="swapper" sup-editor-widget-script
+            <div ng-init="meta.tagline=meta.tagline?meta.tagline:_('Tagline')"
+             sup-editor-meta ng-model="meta.tagline"></div>
+            <div id="swapper" sup-editor-widget-script
              ng-init="meta.swapper = 
              meta.swapper ? meta.swapper : '<b>'+_('Swap Text')+'</b>'"
              ng-model="meta.swapper" 
              ng-bind-html="meta.swapper">
-            </span>
+            </div>
           </h1>
         </header>
         <div class="actions">
