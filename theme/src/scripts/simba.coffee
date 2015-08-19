@@ -88,7 +88,6 @@ $(document).ready ->
     slider = $('#slider')
     slide_title = $('#slider .title')
     slide_room = $('#slider .slides')
-    slider_inner = $('#slider .slider-inner')
     
     slideIndex = 0
     totalSlides = 0
@@ -105,22 +104,7 @@ $(document).ready ->
     btn_prev.on 'click', (e)->
       this.blur()
       self.prev()
-    
-    @resize = (e)->
-      for el in slide_room.children()
-        el.style.maxHeight = ''
-        el.style.maxWidth = ''
-        
-        _h = slider_inner.height()-top_margin;
-        _w = slider_inner.width()
-        if _w > _h
-          p = _h / _w
-          el.style.maxHeight = _h+"px"
-          el.style.maxWidth = (_w * p)+"px"
-        else
-          p = _w / _h
-          el.style.maxHeight = (_h * p)+"px"
-          el.style.maxWidth = _w+"px"
+
 
     @slide = (index)->
       elements = slide_room.children()
@@ -163,7 +147,7 @@ $(document).ready ->
       $(elements[0]).addClass('current')
       slideIndex = 0
       totalSlides = elements.length
-      self.resize()
+
       slider.addClass('open')
       window.addEventListener 'resize', self.resize
     

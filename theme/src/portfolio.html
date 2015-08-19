@@ -1,12 +1,12 @@
 {% if g and page %}
-<section class="gallery {{bgclass}}"
+<section class="portfolio {{bgclass}}"
  parallax-anchor="{{page.alias}}" title="{{page.title}}">
   <div layout="column" layout-align="center center" {{bgstyle}}>
     <header>
       <h2>{{page.title}}</h2>
     </header>
-    <div class="gallery-inner">
-      {% for works in pages | type('_works') %}
+    <div class="portfolio-inner">
+      {% for works in pages | type('_works', g.perpage) %}
       <figure class="btn open-slider">
         {% if works.featured_img %}
         <img src="{{works.featured_img.src | thumbnail}}"

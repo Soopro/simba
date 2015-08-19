@@ -1,7 +1,7 @@
 /*
 Priority: 5
 Status: 1
-Template: gallery
+Template: portfolio
 Title: Themes
 Tagline: Themes
 Background:
