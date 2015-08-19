@@ -18,10 +18,10 @@
        length="{{g.perpage}}"
        sortby="{{g.sortby}}"
        ng-model="query.works">
-        <figure class="btn open-slider" ng-repeat="item in query.works"
-         sup-editor-open file="item">
-          <img ng-src="{{(item.featured_img.src | thumbnail) ||
-           item.gallery[0].src}}"/>
+        <figure class="btn open-slider" ng-repeat="works in query.works"
+         sup-editor-open file="works">
+          <img ng-src="{{(works.featured_img.src | thumbnail) ||
+           works.gallery[0].src}}"/>
         </figure>
       </div>
     </div>
