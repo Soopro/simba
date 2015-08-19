@@ -19,8 +19,7 @@
          sup-angular-wysiwyg ng-model="content"></div>
       </article>
       <aside flex-gt-sm="35" flex-sm="45" class="text-center">
-        <div class="inline-block" 
-         sup-editor-media ng-model="meta.featured_img">
+        <div sup-editor-media ng-model="meta.featured_img">
           <img ng-src="{{meta.featured_img.src || g.default_img_240x240}}"
            class="{{meta.featured_img.class || ''}}"/>
         </div>

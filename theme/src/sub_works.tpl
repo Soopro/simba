@@ -9,11 +9,10 @@
     <svg svg-sprite="base:ico-arr_left"></svg>
   </button>
   <div class="slider-inner" flex layout="column" layout-align="center center">
-    <div class="slides">
+    <div class="slides" sup-editor-widget-gallery  sup-primary="bottom right"
+     ng-model="meta.gallery">
       <img class="current" 
-       ng-src="{{meta.gallery[0].src || g.default_img_360x360}}" 
-       sup-editor-widget-gallery sup-is-wide
-       ng-model="meta.gallery"/>
+       ng-src="{{meta.gallery[0].src || g.default_img_360x360}}"/>
     </div>
   </div>
   <button type="button" class="btn-next">

@@ -10,11 +10,11 @@
     <div layout-gt-sm="row" layout-sm="column" layout-align="center center"
      ng-style="{'background-image': meta.background.src ?
      'url('+meta.background.src+')':'initial'}">
-      <figure flex="40" flex-order-gt-sm="2"
-       sup-editor-media ng-model="meta.featured_img">
-        <img ng-src="{{meta.featured_img.src || g.default_img_360x360 }}"
-         alt="{{meta.featured_img.title}}" 
-         class="{{meta.featured_img.class || ''}}" />
+      <figure flex="40" flex-order-gt-sm="2">
+        <div sup-editor-media ng-model="meta.featured_img">
+          <img ng-src="{{meta.featured_img.src || g.default_img_360x360 }}"
+           class="{{meta.featured_img.class || ''}}" />
+        </div>
       </figure>
       <article flex="40" class="text-right">
         <header>
