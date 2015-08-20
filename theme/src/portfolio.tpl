@@ -15,8 +15,8 @@
       </header>
       <div class="portfolio-inner" sup-editor-content-query
        fields="{type:'_works'}"
-       length="{{g.perpage}}"
-       sortby="{{g.sortby}}"
+       length="g.perpage"
+       sortby="g.sortby"
        ng-model="query.works">
         <figure class="btn open-slider" ng-repeat="works in query.works"
          sup-editor-open file="works">

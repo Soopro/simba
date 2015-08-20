@@ -82,7 +82,7 @@
   ],
   
 	"options":{
-		"sortby":"date",
+		"sortby":["updated", "date"],
 		"excerpt_length":162,
 		"excerpt_ellipsis":"&hellip;",
 		"date_format": "%B %d, %Y",
