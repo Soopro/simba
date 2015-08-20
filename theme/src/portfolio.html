@@ -17,7 +17,7 @@
          title="{{works.featured_img.title}}" />
         <div rel="slides" title="{{works.title}}">
           {% for item in works.gallery %}
-          <img src="{{item.src | thumbnail}}"
+          <img src="{{item.src}}"
            title="{{item.title}}" />
           {% endfor %}
         </div>
