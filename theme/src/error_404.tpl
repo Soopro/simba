@@ -14,10 +14,10 @@
         </div>
         <article class="text-center">
           <header>
-            <h2 ng-init="meta.title=meta.title?meta.title:_('Error 404')"
+            <h2 default="{{_('Error 404')}}"
              sup-editor-meta ng-model="meta.title"></h2>
           </header>
-          <div ng-init="content = content ? content : _('$_ERROR404')"
+          <div default="{{_('$_ERROR404')}}"
            sup-angular-wysiwyg ng-model="content"></div>
         </article>
         <div class="goback">

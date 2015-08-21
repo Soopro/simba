@@ -12,10 +12,10 @@
      'url('+meta.background.src+')':'initial'}">
       <article flex-gt-sm="35">
         <header>
-          <h2 ng-init="meta.title=meta.title?meta.title:_('Title')"
+          <h2 default="{{_('Title')}}"
            sup-editor-meta ng-model="meta.title"></h2>
         </header>
-        <div ng-init="content = content ? content : _('$_CONTENT')"
+        <div default="{{_('$_CONTENT')}}"
          sup-angular-wysiwyg ng-model="content"></div>
         <div class="info">
           <p>

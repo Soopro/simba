@@ -2,7 +2,7 @@
 <!-- Slide -->
 <div id="slider" class="open dark" layout="row" layout-align="center center">
   <header>
-    <h3 class='title' ng-init="meta.title=meta.title?meta.title:_('Title')"
+    <h3 class='title' default="{{_('Title')}}"
      sup-editor-meta ng-model="meta.title"></h3>
   </header>
   <button type="button" class="btn-prev">

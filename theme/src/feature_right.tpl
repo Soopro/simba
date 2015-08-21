@@ -18,10 +18,10 @@
       </figure>
       <article flex="40" class="text-right">
         <header>
-          <h2 ng-init="meta.tagline=meta.tagline?meta.tagline:_('Tagline')"
+          <h2 default="{{_('Tagline')}}"
            sup-editor-meta ng-model="meta.tagline"></h2>
         </header>
-        <div ng-init="content = content ? content : _('$_CONTENT')"
+        <div default="{{_('$_CONTENT')}}"
          sup-angular-wysiwyg ng-model="content"></div>
       </article>
     </div>

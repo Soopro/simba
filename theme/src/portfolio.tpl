@@ -10,7 +10,7 @@
      ng-style="{'background-image': meta.background.src ?
      'url('+meta.background.src+')':'initial'}">
       <header>
-        <h2 ng-init="meta.title=meta.title?meta.title:_('Title')"
+        <h2 default="{{_('Title')}}"
          sup-editor-meta ng-model="meta.title"></h2>
       </header>
       <div class="portfolio-inner" sup-editor-content-query
