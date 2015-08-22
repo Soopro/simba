@@ -24,56 +24,9 @@
     "error_404":"Error 404 Page"
   },
   
-  "hide_fields": ["taxonomy", "tag", "parent"],
+  "hide_property": ["taxonomy", "tag", "parent"],
   
   "canvas_mode": true,
-  
-  "form_view":{
-    "page": [
-      {
-        "name": "Subtitle",
-        "model": "subtitle",
-        "type": "input",
-        "max": 200
-      },
-      {
-        "name": "Desc",
-        "model": "desc",
-        "type": "textarea",
-        "max": 200
-      },
-      {
-        "name": "Featured Image",
-        "model": "featured_image",
-        "type": "media"
-      },
-      {
-        "name": "Background",
-        "model": "background",
-        "type": "bg"
-      },
-      {
-        "name": "Content",
-        "model": "content",
-        "type": "saw"
-      },
-      {
-        "name": "Gallery",
-        "model": "gallery",
-        "type": "gallery"
-      },
-      {
-        "name": "Script",
-        "model": "youku",
-        "type": "script"
-      },
-      {
-        "name": "Button",
-        "model": "xxx",
-        "type": "button"
-      }
-    ]
-  },
   
   "menus":[],
   
