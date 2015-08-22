@@ -4,7 +4,7 @@
   "textdomain":"translate",
 	"title":"Soopro official theme",
   "capability":["ws"],
-	"thumbnail":"thumbnail.png",
+	"thumbnail":"soopro.png",
 	"previews":[
     "previews_1.jpg",
     "previews_2.jpg",
