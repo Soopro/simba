@@ -28,7 +28,7 @@
   },
   "transport":{
     "upload":{
-      "cwd":"content",
+      "cwd":"pyco/content",
       "replace": [
         {
           "pattern":"/$uploads/",
@@ -42,7 +42,7 @@
       "url":"http://localhost:5000/ws/soopro/develop_sync_sitedata"
     },
     "download":{
-      "dest":"content",
+      "dest":"pyco/content",
       "replace": [
         {
           "pattern":"http://localhost:5050/site/redy/soopro/", 
