@@ -2,6 +2,7 @@
 	"version":"3.0.0",
   "alias":"simba",
   "textdomain":"translate",
+  "license": "MIT",
 	"title":"Soopro official theme",
   "capability":["ws"],
 	"thumbnail":"soopro.png",
