@@ -1,7 +1,8 @@
+bower_components
+peon.json
 .*
 dist
 build
 release
 uploads
-theme/pyco/*
-!theme/pyco/content
+theme/pyco
