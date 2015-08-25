@@ -29,7 +29,9 @@
   
   "canvas_mode": true,
   
-  "menus":[],
+  "menus":[
+    {"alias":"secondary", "title":"Secondary Menu"}
+  ],
   
   "content_types":[
     {"alias":"_works", "title":"Works"}

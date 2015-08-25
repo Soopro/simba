@@ -22,27 +22,27 @@
   },
   "terms": {},
   "menus": {
-    "primary": [
+    "secondary": [
       {
         "alias": "login",
         "meta": {},
         "nodes": [],
         "title": "Login",
-        "url": "/login"
+        "link": "/login"
       },
       {
         "alias": "register",
         "meta": {},
         "nodes": [],
         "title": "Register",
-        "url": "/register"
+        "link": "/register"
       },
       {
         "alias": "contact",
         "meta": {},
         "nodes": [],
         "title": "Contact",
-        "url": "#contact"
+        "link": "#contact"
       }
     ]
   }

@@ -1,9 +1,10 @@
 <footer id="footer" class="hide" layout="row" layout-align="space-between">
   <div id="channel">
     <div class="links">
-      {% for item in menu.primary %}
+      {% for item in menu.secondary %}
       <div class="link">
-        <a href="{{ item.url }}" rel="parallax-anchor">{{ item.title }}</a>
+        <a href="{{ item.link | url }}" 
+         rel="parallax-anchor">{{ item.title }}</a>
       </div>
       {% endfor %}
     </div>
