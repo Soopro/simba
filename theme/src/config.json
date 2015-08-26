@@ -27,7 +27,7 @@
   
   "hide_property": ["taxonomy", "tag", "parent"],
   
-  "canvas_mode": true,
+  "mode": 1,
   
   "menus":[
     {"alias":"secondary", "title":"Secondary Menu"}
