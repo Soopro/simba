@@ -10,20 +10,22 @@
   "packing":{
     "zip":{
       "cwd":"pyco/themes/dev",
+      "dest":".",
       "file":"simba.zip",
       "include_hidden":false,
       "include_peon_config":false,
       "excludes":[]
     },
     "upload":{
-      "cwd":"pyco/themes/dev",
+      "cwd":".",
       "file":"simba.zip",
       "headers":{
         "SecretKey":"<key>"
       },
       "url":"<api>/<app_type>/<app_alias>/develop_theme",
       "data":null,
-      "params":null
+      "params":null,
+      "delete":true
     }
   },
   "transport":{
