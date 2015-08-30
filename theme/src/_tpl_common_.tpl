@@ -3,14 +3,14 @@
  data-name="base"></div>
 
 <sup-set ng-model="g.default_img_360x360"
-         value="theme_url+'/styles/default_img_360x360.png'"></sup-set>
+         value="{{theme_url+'/styles/default_img_360x360.png'}}"></sup-set>
 <sup-set ng-model="g.default_img_240x240"
-         value="theme_url+'/styles/default_img_240x240.png'"></sup-set>
+         value="{{theme_url+'/styles/default_img_240x240.png'}}"></sup-set>
          
 <sup-set ng-model="g.perpage"
-         value="theme_meta.options.perpage"></sup-set>
+         value="{{theme_meta.options.perpage}}"></sup-set>
 <sup-set ng-model="g.sortby"
-         value="theme_meta.options.sortby"></sup-set>
+         value="{{theme_meta.options.sortby}}"></sup-set>
          
 
 <link ng-href="{{theme_url}}/styles/normalize.css" rel="stylesheet">
