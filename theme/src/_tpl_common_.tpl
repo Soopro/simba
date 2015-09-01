@@ -12,8 +12,8 @@
 <sup-set ng-model="g.sortby"
          value="{{theme_meta.options.sortby}}"></sup-set>
          
-<!-- build:replace -->
-<!-- <link ng-href="{{theme_url}}/simba.min.css?md5=null"> -->
+<!-- build:replace css-->
+<!-- <link ng-href="{{theme_url}}/simba.min.css?md5=null" rel="stylesheet"> -->
 <link ng-href="{{theme_url}}/styles/normalize.css" rel="stylesheet">
 <link ng-href="{{theme_url}}/styles/fonts/roboto-fonts.css" rel="stylesheet">
 <link ng-href="{{theme_url}}/styles/simba.css" rel="stylesheet">
