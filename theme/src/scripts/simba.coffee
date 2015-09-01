@@ -586,9 +586,8 @@ $(document).ready ->
   # leap motion
   leapLoopClock = 0
   CD_TIMER = 30
-  leapController = Leap.loop
-    enableGestures: true
-  , (frame) ->
+
+  run_leap = (frame) ->
     if leapLoopClock > 0
       leapLoopClock--
       return
@@ -632,7 +631,31 @@ $(document).ready ->
           break
     return
   
-  
+  leap_pwd = "LEAP"
+  leap_stack = []
+  $(document).on 'keypress', (e)->
+    switch e.keyCode
+      when 76
+        leap_stack.push('L')
+        break
+      when 69
+        leap_stack.push('E')
+        break
+      when 65
+        leap_stack.push('A')
+        break
+      when 80
+        leap_stack.push('P')
+        break
+      else
+        leap_stack=[]
+    
+    if leap_stack.join('') == leap_pwd
+      console.info "Leap motion has launched!"
+      leapLoop = Leap.loop
+        enableGestures: true
+        , run_leap
+   
   # start
   init()
   
