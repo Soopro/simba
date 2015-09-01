@@ -28,7 +28,9 @@ $(document).ready ->
             console.log 'Screen Tap Gesture'
             break
           when 'swipe'
-            isHorizontal = Math.abs(gesture.direction[0]) > Math.abs(gesture.direction[1])
+            gesture_d0 = Math.abs(gesture.direction[0])
+            gesture_d1 = Math.abs(gesture.direction[1])
+            isHorizontal =  gesture_d0 > gesture_d1
             #Classify as right-left or up-down
             if isHorizontal
               if gesture.direction[0] > 0

@@ -1,3 +1,5 @@
+{% include "_tpl_common_.tpl" %}
+
 <div>
   <!-- Pages -->
   <div id="pages">
@@ -31,4 +33,3 @@
   </div>
   <!-- Javascripts -->
 </div>
-{% include "_tpl_common_.tpl" %}
