@@ -144,6 +144,10 @@ $(document).ready ->
       slide_room.children().remove()
       slide_room.append(elements)
       
+      for child in slide_room.children()
+        _src = $(child).data('src')
+        $(child).attr('src', _src) 
+      
       $(elements[0]).addClass('current')
       slideIndex = 0
       totalSlides = elements.length
