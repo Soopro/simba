@@ -15,7 +15,7 @@
           <h2 default="{{_('Title')}}"
            sup-editor-meta ng-model="meta.title"></h2>
         </header>
-        <div default="{{_('$_CONTENT')}}"
+        <div class="content" default="{{_('$_CONTENT')}}"
          sup-angular-wysiwyg ng-model="content"></div>
         <div class="info">
           <p>

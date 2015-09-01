@@ -186,6 +186,9 @@ h2 {
     font-size: 4.5vw;
   }
   @media (max-width: @screen-phone) {
+    font-size: 36px;
+  }
+  @media (max-height: @screen-phone-v) {
     font-size: 28px;
   }
 }
@@ -217,6 +220,10 @@ p {
   }
   @media (max-width: @screen-tablet) {
     font-size: 14px;
+    margin: 10px 0;
+  }
+  @media (max-width: @screen-phone) {
+    padding: 0 24px;
     margin: 10px 0;
   }
 }
@@ -360,6 +367,9 @@ article {
           height: 40%;
           text-align: center;
         }
+      }
+      @media (max-width: @screen-phone) and (max-height: @screen-phone-v) {
+        padding: 32px;
       }
     }
     
@@ -781,6 +791,9 @@ article {
         margin: 0;
         border: 0;
         
+        @media (max-width: @screen-phone) and (max-height: @screen-phone-v){
+          width: 16.6%;
+        }
         @media (max-width: @screen-phone-v) and (min-height: @screen-phone-v-max) {
           width: 33.3%;
         }
@@ -828,7 +841,17 @@ article {
         max-width: 100%;
         max-height: 100%;
       }
-      @media (max-width: @screen-phone) and (max-height: @screen-phone){
+    }
+    @media (max-width: @screen-phone) and (max-height: @screen-phone){
+      & article {
+        min-height: 60%;
+      }
+      & aside {
+        display: none;
+      }
+    }
+    @media (max-width: @screen-phone) and (max-height: @screen-phone-v){
+      & article .content{
         display: none;
       }
     }
