@@ -275,7 +275,7 @@ article {
   bottom: 0;
   width: 100%;
   min-height: 50px;
-  padding: 32px;
+  padding: 24px;
   @media (max-width: @screen-tablet) {
     padding: 16px;
   }
@@ -574,15 +574,24 @@ article {
 
 /* Copyright */
 #copyright {
+  padding: 8px;
   text-align: right;
   font-size: 12px;
   font-weight: 400;
+  & a {
+    color: inherit;
+    text-decoration: none;
+  }
   &.dark{
     color: @light-color;
+    & a {
+      color: @light-color;
+    }
   }
 }
 
 #channel {
+  padding: 8px;
   font-size: 12px;
   font-weight: 400;
   & .links{

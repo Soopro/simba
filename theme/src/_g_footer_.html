@@ -1,6 +1,7 @@
 <footer id="footer" class="hide" layout-gt-md="row"
  layout-align="space-between">
-  <div id="channel">
+  <div id="channel" layout="row" 
+   layout-align="center" layout-align-gt-md="start">
     <div class="links">
       {% for item in menu.secondary %}
       <div class="link">
@@ -19,7 +20,8 @@
 			{% endfor %}
     </div>
   </div>
-  <div id="copyright">
+  <div id="copyright" layout="row"
+   layout-align="center" layout-align-gt-md="start">
      {{site_meta.copyright}} {{site_meta.license}}
   </div>
 </footer>
