@@ -359,9 +359,15 @@ $(document).ready ->
 
   $('[rel="parallax-anchor"]').on 'click', (e)->
     element = $(e.currentTarget or e.target)
-    anchor = element.attr('href').split("#", 2)[1]
-    if not anchor
+    link_path = element.attr('href').split("#", 2)
+    loc_path = location.href.split("#", 2)
+    target_href = link_path[0]
+    curr_href = loc_path[0]
+    anchor = link_path[1]
+
+    if not anchor or target_href != curr_href
       return
+
     for page in pages
       if $(page).attr('parallax-anchor') == anchor
         idx = $(page).index()
@@ -376,7 +382,8 @@ $(document).ready ->
         window.clearTimeout(timer)
       , 600
       return false
-    
+
+
   $('#menu').on 'click', (e)->
     this.blur()
     headerCtrl.menu('close')
@@ -393,7 +400,8 @@ $(document).ready ->
     headerCtrl.show()
     paginatorCtrl.toggle()
     return
-  
+
+
   # open detail
   $('.open-detail').on 'click', (e)->
     headerCtrl.menu('collapse')
@@ -416,7 +424,8 @@ $(document).ready ->
     paginatorCtrl.hide()
     headerCtrl.show()
     return
-  
+
+
   # open slider
   $('.open-slider').on 'click', (e)->
     headerCtrl.menu('collapse')
