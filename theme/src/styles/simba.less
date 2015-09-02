@@ -231,8 +231,14 @@ p {
 article {
   & h4 {
     color: @primary-color;
-    & mark {
+  }
+  & h1,
+  & h2,
+  & h3,
+  & h4 {
+    mark {
       color: @gray-color;
+      background: none;
     }
   }
 }
