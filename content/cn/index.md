@@ -13,9 +13,9 @@ Background:
   class: 'dark'
 login:
   title: 登录
-  link: 'http://d.soopro.com/#/login'
+  link: 'http://d.soopro.com/#/login?lang=zh_CN'
 register:
   title: 免费注册
-  link: 'http://d.soopro.com/#/register'
+  link: 'http://d.soopro.com/#/register?lang=zh_CN'
 
 */

@@ -13,9 +13,9 @@ Background:
   class: 'dark'
 login:
   title: Login
-  link: 'http://d.soopro.com/#/login'
+  link: 'http://d.soopro.com/#/login?lang=en_US'
 register:
   title: Free Register
-  link: 'http://d.soopro.com/#/register'
+  link: 'http://d.soopro.com/#/register?lang=en_US'
 
 */

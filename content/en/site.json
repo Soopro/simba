@@ -28,14 +28,14 @@
         "meta": {},
         "nodes": [],
         "title": "Login",
-        "link": "http://d.soopro.com/#/login"
+        "link": "http://d.soopro.com/#/login?lang=en_US"
       },
       {
         "alias": "register",
         "meta": {},
         "nodes": [],
         "title": "Register",
-        "link": "http://d.soopro.com/#/register"
+        "link": "http://d.soopro.com/#/register?lang=en_US"
       },
       {
         "alias": "contact",

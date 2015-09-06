@@ -28,14 +28,14 @@
         "meta": {},
         "nodes": [],
         "title": "登录",
-        "link": "http://d.soopro.com/#/login"
+        "link": "http://d.soopro.com/#/login?lang=zh_CN"
       },
       {
         "alias": "register",
         "meta": {},
         "nodes": [],
         "title": "注册",
-        "link": "http://d.soopro.com/#/register"
+        "link": "http://d.soopro.com/#/register?lang=zh_CN"
       },
       {
         "alias": "contact",
