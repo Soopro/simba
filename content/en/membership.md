@@ -9,7 +9,7 @@ Featured_img:
   src: /$uploads/feature_membership.jpg
 */
 <h4>
-  Activities <span>+</span> Broadcasting <span>+</span> Newsletters
+  Activities <mark>+</mark> Broadcasting <mark>+</mark> Newsletters
 </h4>
 <p>
   Help you manage the user information, reservation, newsletter, enrollment, social media connection and many many more.

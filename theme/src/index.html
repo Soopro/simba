@@ -7,7 +7,7 @@
 {% set coverbgclass = '' %}
 {% endif %}
 <!DOCTYPE html>
-<html lang="en" modern-browser>
+<html lang="{{lang}}" modern-browser>
 {% include "_g_head_.html" %}
 <body id="screen"
  svg-sprites-loader 
@@ -41,13 +41,15 @@
           </header>
           <div class="actions">
             {% if meta.login %}
-            <a href="{{meta.login.link}}" target="{{meta.login.target}}">
+            <a href="{{meta.login.link | url}}" 
+             target="{{meta.login.target}}">
               {{meta.login.title}}
             </a>
             {% endif %}
             {% if meta.register %}
             <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-            <a href="{{meta.register.link}}" target="{{meta.register.target}}">
+            <a href="{{meta.register.link | url}}"
+             target="{{meta.register.target}}">
               {{meta.register.title}}
             </a>
             {% endif %}

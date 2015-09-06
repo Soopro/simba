@@ -9,6 +9,5 @@ Featured_img:
   src: /$uploads/feature_website.jpg
 */
 <p>
-  Brand new responsive templates perfectly match desktop, tablet and mobile phone screens. Our canvas editor helps to manage contents intuitively.
+  Brand new responsive templates perfectly match any screen. Amazing canvas editor helps to manage contents intuitively.
 </p>
-

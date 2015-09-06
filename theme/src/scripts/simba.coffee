@@ -669,17 +669,15 @@ $(document).ready ->
         enableGestures: true
         , run_leap
    
-  # start
+  # start  
   init()
   
   # swapper
- 
   invl_id = window.setInterval (e)->
     swappers = $('#swapper > *')
     if swappers.length <= 0
       return
     $('#swapper').append(swappers[0])
-
   , 3000
   
   # loading

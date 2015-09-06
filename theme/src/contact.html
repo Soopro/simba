@@ -1,6 +1,6 @@
 {% if g and page %}
 <section class="contact {{bgclass}}" 
- parallax-anchor="{{page.alias}}" title="Contact">
+ parallax-anchor="{{page.alias}}" title="{{page.title}}">
   <div layout-gt-sm="row" layout-sm="column"
    layout-align="center center" {{bgstyle}}>
     <article flex-gt-sm="35">
@@ -16,7 +16,7 @@
           <i class="ico">
             <svg svg-sprite="base:ico-email"></svg>
           </i>
-          <a href="{{page.email.link}}" class="btn-primary">
+          <a href="{{page.email.link | url}}" class="btn-primary">
             {{page.email.title}}
           </a>
         </p>
@@ -26,7 +26,7 @@
           <i class="ico">
             <svg svg-sprite="base:ico-im"></svg>
           </i>
-          <a href="{{page.im.link}}" class="btn-primary">
+          <a href="{{page.im.link | url}}" class="btn-primary">
             {{page.im.title}}
           </a>
         </p>
