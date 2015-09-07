@@ -339,16 +339,18 @@ $(document).ready ->
   
   # hanlders
   # ---------------------------------->
-
-  pages.on 'click', (e)->
-    next_page = e.currentTarget
-    if viewStatus isnt 1 or not next_page
-      return
-    next_idx = $(next_page).index()
-    if next_idx == currPageIndex
-      $('#menu').trigger('click')
-    else
-      page_slide(next_idx)
+  
+  # remove it, shouldn't trigger zoom if only dragging current page. 
+  #
+  # pages.on 'click', (e)->
+  #   next_page = e.currentTarget
+  #   if viewStatus isnt 1 or not next_page
+  #     return
+  #   next_idx = $(next_page).index()
+  #   if next_idx == currPageIndex
+  #     $('#menu').trigger('click')
+  #   else
+  #     page_slide(next_idx)
 
 
   $('[rel="parallax-anchor"]').on 'click', (e)->
@@ -534,7 +536,8 @@ $(document).ready ->
     #     if $.contains(item, target)
     #       return false
     #   return true
-        
+
+
     mc.on 'panleft panright', (e) ->
       if viewStatus is 2 # and isTouchPan(e.target)
         return
@@ -560,28 +563,32 @@ $(document).ready ->
       page_move(move_to, currPageIndex)
       return
 
+
     mc.on 'panend', (e) ->
       if viewStatus is 2 # and isTouchPan(e.target)
         return
       page_slide(currDisplayIndex)
       return
 
-    # mc.on 'tap pressup', (e)->
-    #   if e.target not in pages
-    #     return
-    #   next_page = e.target
-    #   if viewStatus isnt 1 or not next_page
-    #     return
-    #   next_idx = $(next_page).index()
-    #   if next_idx == currPageIndex
-    #     $('#menu').trigger('click')
-    #   else
-    #     page_slide(next_idx)
+
+    mc.on 'tap pressup', (e)->
+      if e.target not in pages
+        return
+      next_page = e.target
+      if viewStatus isnt 1 or not next_page
+        return
+      next_idx = $(next_page).index()
+      if next_idx == currPageIndex
+        $('#menu').trigger('click')
+      else
+        page_slide(next_idx)
+  
   
     mc_slider.on 'swipedown', (e) ->
       if viewStatus isnt 2
         return
       cmd.esc()
+  
   
     mc_slider.on 'swipeleft swiperight', (e) ->
       if viewStatus isnt 2
@@ -590,12 +597,14 @@ $(document).ready ->
         when 'swipeleft' then cmd.slide_next() 
         when 'swiperight' then cmd.slide_prev()
       return
-  
+
+
     mc_detail.on 'swipedown', (e) ->
       if viewStatus isnt 2
         return
       cmd.esc()
-  
+
+
   # leap motion
   # ---------------------------------->
   loadLeap = ->
@@ -677,6 +686,8 @@ $(document).ready ->
   # swapper
   loadSwappers = ->
     invl_id = window.setInterval (e)->
+      if viewStatus isnt 0
+        return
       swappers = currPage.find('[swapper] > *')
       if not swappers or swappers.length <= 0
         return

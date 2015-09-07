@@ -1,5 +1,3 @@
-{% set version = theme_meta.version %}
-
 {% set default_touch_icon = theme_url+'/styles/touicon.png' %}
 {% set default_favicon_icon = theme_url+'/styles/favicon.png' %}
 
