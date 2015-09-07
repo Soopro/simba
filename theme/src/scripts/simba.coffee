@@ -195,6 +195,7 @@ $(document).ready ->
         btn_prev.addClass('hide')
         btn_next.addClass('hide')
         return
+
       if currDisplayIndex > 0
         btn_prev.removeClass('hide')
       else
@@ -249,18 +250,6 @@ $(document).ready ->
   currPageIndex = 0
   currDisplayIndex = 0
   currDisplayPage = currPage
-  
-  init = ->
-    stopPagesAnim()
-    hash = window.location.hash
-    if hash
-      anchor = hash.replace('#/', '')
-      for page in pages
-        if $(page).attr('parallax-anchor') == anchor
-          page_slide($(page).index())
-          return
-
-    page_slide(currPageIndex)
   
   stopPagesAnim = ->
     pages.addClass('no-transition')
@@ -339,7 +328,10 @@ $(document).ready ->
     pages.removeClass('on-moving')
     headerCtrl.show()
     paginatorCtrl.show()
-  
+    
+    return
+
+
   headerCtrl = new PrimaryHeader()
   paginatorCtrl = new Paginator()
   detailCtrl = new Detail()
@@ -348,14 +340,16 @@ $(document).ready ->
   # hanlders
   # ---------------------------------->
 
-  # buttons
-  # pages.on 'click', (e)->
-  #   next_page = e.currentTarget
-  #   if viewStatus isnt 1 or not next_page
-  #     return
-  #   index = $(next_page).index()
-  #   if index isnt currPageIndex
-  #     page_slide(index)
+  pages.on 'click', (e)->
+    next_page = e.currentTarget
+    if viewStatus isnt 1 or not next_page
+      return
+    next_idx = $(next_page).index()
+    if next_idx == currPageIndex
+      $('#menu').trigger('click')
+    else
+      page_slide(next_idx)
+
 
   $('[rel="parallax-anchor"]').on 'click', (e)->
     element = $(e.currentTarget or e.target)
@@ -386,9 +380,13 @@ $(document).ready ->
 
   $('#menu').on 'click', (e)->
     this.blur()
+
+    # $('#pages').toggleClass('zoom').removeClass('out')
+    if viewStatus isnt 2
+      $('#pages').toggleClass('zoom')
+
     headerCtrl.menu('close')
 
-    $('#pages').toggleClass('zoom').removeClass('out')
     detailCtrl.hide()
     sliderCtrl.hide()
     
@@ -406,7 +404,7 @@ $(document).ready ->
   $('.open-detail').on 'click', (e)->
     headerCtrl.menu('collapse')
     
-    $('#pages').toggleClass('zoom').toggleClass('out')
+    # $('#pages').toggleClass('zoom').toggleClass('out')
     $('#footer').addClass('hide')
     
     detail_id = $(this).data('detail')
@@ -430,8 +428,8 @@ $(document).ready ->
   $('.open-slider').on 'click', (e)->
     headerCtrl.menu('collapse')
     
-    $('#pages').toggleClass('zoom').toggleClass('out')
-    $('#footer').addClass('hide')
+    # $('#pages').toggleClass('zoom').toggleClass('out')
+    # $('#footer').addClass('hide')
 
     slides = $(this).find('[rel="slides"]')
     title = slides.attr('title')
@@ -506,182 +504,209 @@ $(document).ready ->
   
   # hammer
   # ---------------------------------->
+  loadHammer = ->
+    if typeof(Hammer) isnt 'function'
+      return
+    touch_pages = document.getElementById('screen')
+    touch_slider = document.getElementById('slider')
+    touch_detail = document.getElementById('detail')
   
-  touch_pages = document.getElementById('screen')
-  touch_slider = document.getElementById('slider')
-  touch_detail = document.getElementById('detail')
+    mc = new Hammer(touch_pages)
   
-  mc = new Hammer(touch_pages)
+    mc_slider = new Hammer(touch_slider)
+    mc_slider.get('swipe').set direction: Hammer.DIRECTION_ALL
   
-  mc_slider = new Hammer(touch_slider)
-  mc_slider.get('swipe').set direction: Hammer.DIRECTION_ALL
+    mc_detail = new Hammer(touch_detail)
+    mc_detail.get('swipe').set direction: Hammer.DIRECTION_ALL
   
-  mc_detail = new Hammer(touch_detail)
-  mc_detail.get('swipe').set direction: Hammer.DIRECTION_ALL
-  
-  # listeners
-  # mc.on 'swipeleft swiperight', (e) ->
-  #   if viewStatus isnt 2
-  #     return
-  #   switch e.type
-  #     when 'swipeleft' then cmd.next()
-  #     when 'swiperight' then cmd.prev()
-  #   return
+    # listeners
+    # mc.on 'swipeleft swiperight', (e) ->
+    #   if viewStatus isnt 2
+    #     return
+    #   switch e.type
+    #     when 'swipeleft' then cmd.next()
+    #     when 'swiperight' then cmd.prev()
+    #   return
 
-  isTouchPan = (target)->
-    # prevent element don't want pan to slide
-    for item in $('[no-touch-pan]')
-      if $.contains(item, target)
-        return false
-    return true
+    # isTouchPan = (target)->
+    #   # prevent element don't want pan to slide
+    #   for item in $('[no-touch-pan]')
+    #     if $.contains(item, target)
+    #       return false
+    #   return true
         
-  mc.on 'panleft panright', (e) ->
-    if viewStatus is 2 and isTouchPan(e.target)
-      return
+    mc.on 'panleft panright', (e) ->
+      if viewStatus is 2 # and isTouchPan(e.target)
+        return
     
-    if viewStatus is 0
-      recoup = 2
-    else if viewStatus is 1
-      recoup = 4
+      if viewStatus is 0
+        recoup = 2
+      else if viewStatus is 1
+        recoup = 4
     
-    move_to = e.deltaX*recoup
+      move_to = e.deltaX*recoup
       
-    screenWidth = $(document).width()
-    _screen_w_10 = Math.ceil(screenWidth / 10)
-    if move_to >= 0
-      _left = currPageIndex * screenWidth + _screen_w_10
-      if move_to > _left
-        move_to = _left
-    else
-      _right = (currPageIndex - totalPages + 1) * screenWidth - _screen_w_10
-      if move_to < _right
-        move_to = _right
+      screenWidth = $(document).width()
+      _screen_w_10 = Math.ceil(screenWidth / 10)
+      if move_to >= 0
+        _left = currPageIndex * screenWidth + _screen_w_10
+        if move_to > _left
+          move_to = _left
+      else
+        _right = (currPageIndex - totalPages + 1) * screenWidth - _screen_w_10
+        if move_to < _right
+          move_to = _right
 
-    page_move(move_to, currPageIndex)
-    return
+      page_move(move_to, currPageIndex)
+      return
 
-  mc.on 'panend', (e) ->
-    if viewStatus is 2 and isTouchPan(e.target)
+    mc.on 'panend', (e) ->
+      if viewStatus is 2 # and isTouchPan(e.target)
+        return
+      page_slide(currDisplayIndex)
       return
-    page_slide(currDisplayIndex)
-    return
 
-  mc.on 'tap pressup', (e)->
-    if e.target not in pages
-      return
-    next_page = e.target
-    if viewStatus isnt 1 or not next_page
-      return
-    next_idx = $(next_page).index()
-    if next_idx == currPageIndex
-      $('#menu').trigger('click')
-    else
-      page_slide(next_idx)
+    # mc.on 'tap pressup', (e)->
+    #   if e.target not in pages
+    #     return
+    #   next_page = e.target
+    #   if viewStatus isnt 1 or not next_page
+    #     return
+    #   next_idx = $(next_page).index()
+    #   if next_idx == currPageIndex
+    #     $('#menu').trigger('click')
+    #   else
+    #     page_slide(next_idx)
   
-  mc_slider.on 'swipedown', (e) ->
-    if viewStatus isnt 2
-      return
-    cmd.esc()
+    mc_slider.on 'swipedown', (e) ->
+      if viewStatus isnt 2
+        return
+      cmd.esc()
   
-  mc_slider.on 'swipeleft swiperight', (e) ->
-    if viewStatus isnt 2
+    mc_slider.on 'swipeleft swiperight', (e) ->
+      if viewStatus isnt 2
+        return
+      switch e.type
+        when 'swipeleft' then cmd.slide_next() 
+        when 'swiperight' then cmd.slide_prev()
       return
-    switch e.type
-      when 'swipeleft' then cmd.slide_next() 
-      when 'swiperight' then cmd.slide_prev()
-    return
   
-  mc_detail.on 'swipedown', (e) ->
-    if viewStatus isnt 2
-      return
-    cmd.esc()
+    mc_detail.on 'swipedown', (e) ->
+      if viewStatus isnt 2
+        return
+      cmd.esc()
   
   # leap motion
-  leapLoopClock = 0
-  CD_TIMER = 30
-
-  run_leap = (frame) ->
-    if leapLoopClock > 0
-      leapLoopClock--
+  # ---------------------------------->
+  loadLeap = ->
+    if typeof(Leap) isnt 'function'
       return
-    if frame.valid and frame.gestures.length > 0
-      gesture = frame.gestures[frame.gestures.length-1]
-      switch gesture.type
-        when 'circle'
-          cmd.esc()
-          leapLoopClock = CD_TIMER
-          break
-        # when 'keyTap'
-        #   cmd.enter()
-        #   leapLoopClock = CD_TIMER
-        #   break
-        # when 'screenTap'
-        #   console.log 'Screen Tap Gesture'
-        #   break
-        when 'swipe'
-          d_0 = Math.abs(gesture.direction[0])
-          d_1 = Math.abs(gesture.direction[1])
 
-          isHorizontal = d_0 > d_1
-          #Classify as right-left or up-down
-          if isHorizontal
-            if gesture.direction[0] > 0
-              swipeDirection = 'right'
-              cmd.prev()
+    leapLoopClock = 0
+    CD_TIMER = 30
+
+    run_leap = (frame) ->
+      if leapLoopClock > 0
+        leapLoopClock--
+        return
+      if frame.valid and frame.gestures.length > 0
+        gesture = frame.gestures[frame.gestures.length-1]
+        switch gesture.type
+          when 'circle'
+            cmd.esc()
+            leapLoopClock = CD_TIMER
+            break
+          # when 'keyTap'
+          #   cmd.enter()
+          #   leapLoopClock = CD_TIMER
+          #   break
+          # when 'screenTap'
+          #   console.log 'Screen Tap Gesture'
+          #   break
+          when 'swipe'
+            d_0 = Math.abs(gesture.direction[0])
+            d_1 = Math.abs(gesture.direction[1])
+
+            isHorizontal = d_0 > d_1
+            #Classify as right-left or up-down
+            if isHorizontal
+              if gesture.direction[0] > 0
+                swipeDirection = 'right'
+                cmd.prev()
+              else
+                swipeDirection = 'left'
+                cmd.next()            
             else
-              swipeDirection = 'left'
-              cmd.next()            
-          else
-            #vertical
-            if gesture.direction[1] > 0
-              swipeDirection = 'up'
-              cmd.esc()
-            else
-              swipeDirection = 'down'
-              cmd.enter()
-          console.log 'Swipe Gesture', swipeDirection
-          leapLoopClock = CD_TIMER
-          break
-    return
+              #vertical
+              if gesture.direction[1] > 0
+                swipeDirection = 'up'
+                cmd.esc()
+              else
+                swipeDirection = 'down'
+                cmd.enter()
+            console.log 'Swipe Gesture', swipeDirection
+            leapLoopClock = CD_TIMER
+            break
+      return
   
-  leap_pwd = "LEAP"
-  leap_stack = []
-  $(document).on 'keypress', (e)->
-    switch e.keyCode
-      when 76
-        leap_stack.push('L')
-        break
-      when 69
-        leap_stack.push('E')
-        break
-      when 65
-        leap_stack.push('A')
-        break
-      when 80
-        leap_stack.push('P')
-        break
-      else
-        leap_stack=[]
+    leap_pwd = "LEAP"
+    leap_stack = []
+    $(document).on 'keypress', (e)->
+      switch e.keyCode
+        when 76
+          leap_stack.push('L')
+          break
+        when 69
+          leap_stack.push('E')
+          break
+        when 65
+          leap_stack.push('A')
+          break
+        when 80
+          leap_stack.push('P')
+          break
+        else
+          leap_stack=[]
     
-    if leap_stack.join('') == leap_pwd
-      console.info "Leap motion has launched!"
-      leapLoop = Leap.loop
-        enableGestures: true
-        , run_leap
+      if leap_stack.join('') == leap_pwd
+        console.info "Leap motion has launched!"
+        leapLoop = Leap.loop
+          enableGestures: true
+          , run_leap
    
+  # swapper
+  loadSwappers = ->
+    invl_id = window.setInterval (e)->
+      swappers = currPage.find('[swapper] > *')
+      if not swappers or swappers.length <= 0
+        return
+      $(swappers[0]).parent().append(swappers[0])
+      # the parent is [swapper] self here.
+    , 3000
+  
+  # init
+  init = ->
+    loadHammer()
+    loadLeap()
+    loadSwappers()
+
+    stopPagesAnim()
+    hash = window.location.hash
+    if hash
+      anchor = hash.replace('#/', '')
+      for page in pages
+        if $(page).attr('parallax-anchor') == anchor
+          currPageIndex = $(page).index()
+    
+    page_slide(currPageIndex)
+  
+  
   # start  
   init()
-  
-  # swapper
-  invl_id = window.setInterval (e)->
-    swappers = $('#swapper > *')
-    if swappers.length <= 0
-      return
-    $('#swapper').append(swappers[0])
-  , 3000
-  
+
   # loading
   loading_id = window.setTimeout (e)->
+    # It's not really a loading, only wait for stage is fully inited.
     $('#loader').addClass('hide')
     window.clearTimeout(loading_id)
   , 1200

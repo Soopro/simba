@@ -14,7 +14,7 @@
           <h1>
             <div default="{{_('Tagline')}}"
              sup-editor-meta ng-model="meta.tagline"></div>
-            <div id="swapper" sup-editor-widget-script
+            <div swapper sup-editor-widget-script
              ng-init="meta.swapper = meta.swapper ? meta.swapper :
                      '<b>'+_('Swap Text')+'</b>'"
              ng-model="meta.swapper" 
