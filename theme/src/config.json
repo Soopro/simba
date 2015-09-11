@@ -26,7 +26,7 @@
     "error_404":"Error 404 Page"
   },
   
-  "hide_property": ["taxonomy", "tag", "parent"],
+  "hide_property": ["taxonomy", "tags", "parent"],
   
   "mode": 1,
   
