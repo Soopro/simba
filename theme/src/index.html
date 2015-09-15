@@ -58,8 +58,7 @@
       </div>
     </section>
     <!-- Page -->
-    {% for page in pages | type('page') 
-     if not page.is_front and page.template != meta.template %}
+    {% for page in pages | type('page') if page.template != meta.template %}
       {% if page.background %}
       {% set bgstyle = 'style="background-image:url('+
                        page.background.src+')"'%}
