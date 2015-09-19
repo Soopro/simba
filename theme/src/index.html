@@ -35,7 +35,9 @@
             <h1>
               {{meta.tagline}}
               <div swapper>
-                {{meta.swapper}}
+                {% for item in meta.swapper %}
+                  <b>{{item.value}}</b>
+                {% endfor %}
               </div>
             </h1>
           </header>

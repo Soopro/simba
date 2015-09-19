@@ -14,11 +14,10 @@
           <h1>
             <div default="{{_('Tagline')}}"
              sup-editor-meta ng-model="meta.tagline"></div>
-            <div swapper sup-editor-widget-script
+            <div swapper sup-editor-widget-collect ng-model="meta.swapper"
              ng-init="meta.swapper = meta.swapper ? meta.swapper :
-                     '<b>'+_('Swap Text')+'</b>'"
-             ng-model="meta.swapper" 
-             ng-bind-html="meta.swapper">
+             [{'name':'0', 'value':_('Swap Text')}]">
+               <b ng-repeat="item in meta.swapper">{{item.value}}</b>
             </div>
           </h1>
         </header>
