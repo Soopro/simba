@@ -1,6 +1,6 @@
 /*
 Date: '2014-01-01'
-Featured_img: 
+Featured_img:
   src: /$uploads/gancce.jpg
 Gallery:
 - src: /$uploads/gancce_home.jpg

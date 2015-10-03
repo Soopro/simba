@@ -1,6 +1,6 @@
 /*
 Date: '2014-01-01'
-Featured_img: 
+Featured_img:
   src: /$uploads/bird.jpg
 Gallery:
 - src: /$uploads/bird_home.jpg

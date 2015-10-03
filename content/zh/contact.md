@@ -15,8 +15,8 @@ Im:
   title: 2069879008
 Priority: 0
 Status: 1
-Tagline: Contact
+Tagline: 联系我们
 Template: contact
-Title: Contact
+Title: 联系我们
 */
-<p>  If you want to learn more about our products or to become our partner, please contact us. You can subscribe to our WeChat public by scan QR code on the right.</p>
+<p>  如果您想了解更多了解我们的产品，或是希望成为我们的合作伙伴，请与我们联系。  您也可以扫描右侧的二维码订阅我们的微信公众频道。</p>

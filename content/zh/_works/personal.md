@@ -1,6 +1,6 @@
 /*
 Date: '2014-01-01'
-Featured_img: 
+Featured_img:
   src: /$uploads/pblog.jpg
 Gallery:
 - src: /$uploads/personal_home.jpg

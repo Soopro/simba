@@ -1,6 +1,6 @@
 /*
 Date: '2014-01-01'
-Featured_img: 
+Featured_img:
   src: /$uploads/chinese.jpg
 Gallery:
 - src: /$uploads/chinese_home.jpg

@@ -1,6 +1,6 @@
 /*
 Date: '2014-01-01'
-Featured_img: 
+Featured_img:
   src: /$uploads/lato.jpg
 Gallery:
 - src: /$uploads/lato_home.jpg
