@@ -404,6 +404,9 @@ article {
       font-size: 48px;
       text-align: center;
       color: @dark-color;
+      @media (max-height: @screen-phone-v-max) {
+        display: none;
+      }
     }
     & article {
       padding: 8px;
@@ -608,6 +611,10 @@ article {
       color: @light-color;
     }
   }
+  @media (max-height: @screen-phone-v-max) {
+    line-height: 1em;
+    padding-bottom: 2px;
+  }
 }
 
 #channel {
@@ -653,6 +660,10 @@ article {
       color: #999;
       pointer-events: none;
     }
+  }
+  @media (max-height: @screen-phone-v-max) {
+    line-height: 1em;
+    padding-bottom: 2px;
   }
 }
 

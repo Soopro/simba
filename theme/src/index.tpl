@@ -15,8 +15,7 @@
             <div default="{{_('Tagline')}}"
              sup-editor-meta ng-model="meta.tagline"></div>
             <div swapper sup-editor-widget-collect ng-model="meta.swapper"
-             ng-init="meta.swapper = meta.swapper ? meta.swapper :
-             [{'name':'0', 'value':_('Swap Text')}]">
+             default="[{'name':'0', 'value':_('Swap Text')}]">
                <b ng-repeat="item in meta.swapper">{{item.value}}</b>
             </div>
           </h1>
