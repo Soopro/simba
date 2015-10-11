@@ -1,4 +1,5 @@
 <head>
+  <title>{{site_meta.title | striptags}}</title>
   <meta name="theme-alias" content="{{theme_meta.alias}}">
   <meta name="theme-version" content="{{theme_meta.version}}">
   <meta http-equiv=Content-Type content="text/html;charset=utf-8">
@@ -20,7 +21,6 @@
    href="{{site_meta.touch_icon or g.default_touch_icon}}">
   <link rel="shortcut icon" 
    href="{{site_meta.favicon_icon or g.default_favicon_icon}}">
-  <title>{{site_meta.title | striptags}}</title>
 
   <!-- Styles -->
   <!-- build:css {{theme_url}}/simba.min.css?md5=null -->
