@@ -14,7 +14,7 @@
          sup-editor-meta ng-model="meta.title"></h2>
       </header>
       <div class="portfolio-inner" sup-editor-content-query
-       fields="{type:'_works'}"
+       fields="{type:'works'}"
        length="g.perpage"
        sortby="g.sortby"
        ng-model="query.works">

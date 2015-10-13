@@ -1,32 +1,35 @@
 /*
 Author: '12323'
 Background:
-  class: dark
+  class: 'dark'
   color: ''
   repeat: ''
-  src: http://static.soopro.com/apps/sup/soopro/uploads/home.jpg
-  thumbnail: http://static.soopro.com/apps/sup/soopro/uploads/thumbnails/home.jpg
+  src: '[%uploads%]/home.jpg'
+  thumbnail: '[%uploads%]/thumbnails/home.jpg'
 Date: '2015-09-06'
 Login:
-  link: http://d.soopro.com/#/login?lang=en_US
+  link: 'http://d.soopro.com/#/login?lang=en_US'
   target: ''
-  title: Login
+  title: 'Login'
 Priority: 0
 Register:
-  link: http://d.soopro.com/#/register?lang=en_US
+  link: 'http://d.soopro.com/#/register?lang=en_US'
   target: ''
-  title: Free Register
+  title: 'Free Register'
 Status: 1
-Swapper: '<b>Websites.</b>
-
-  <b>WeChat Buzz.</b>
-
-  <b>Web Apps.</b>'
-Tagline: This is a<br>Content Service Cloud,<br>you can create
+Swapper:
+- name: '0'
+  value: 'Website'
+- name: '1'
+  value: 'WeChat Buzz'
+- name: '2'
+  value: 'Digital Book'
+- name: '3'
+  value: 'Web App'
+Tagline: 'This is a<br>Content Service Cloud,<br>you can create'
 Tags: []
-Template: index
-Title: Home
-Type: page
-Updated: 1443418558
-Url: http://soopro.com/
+Template: 'index'
+Title: 'Home'
+Updated: 1444312049
+Url: 'http://soopro.com/'
 */

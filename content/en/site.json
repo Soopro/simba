@@ -8,25 +8,31 @@
     "secondary": [
       {
         "alias": "login",
+        "id": "",
         "link": "http://d.soopro.com/#/login?lang=en_US",
         "meta": {},
         "nodes": [],
+        "status": 1,
         "target": "",
         "title": "Login"
       },
       {
         "alias": "register",
+        "id": "",
         "link": "http://d.soopro.com/#/register?lang=en_US",
         "meta": {},
         "nodes": [],
+        "status": 1,
         "target": "",
         "title": "Register"
       },
       {
         "alias": "contact",
-        "link": "#contact",
+        "id": "",
+        "link": "/en/#contact",
         "meta": {},
         "nodes": [],
+        "status": 1,
         "target": "",
         "title": "Contact"
       }
@@ -36,7 +42,7 @@
     "analytics": "",
     "author": "redy",
     "contacts": "",
-    "copyright": "2015 © Soopro Co., Ltd.",
+    "copyright": "2015 © Soopro Co.,Ltd.",
     "description": "A multi-functional online marketing toolkit which combines Website, WeChat, Alipay, Broadcasting of member activities and advertisment ...",
     "keywords": "",
     "license": "<a target='_blank' href='http://www.miitbeian.gov.cn'>沪ICP备14049689号</a>",

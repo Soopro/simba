@@ -1,32 +1,38 @@
 {
   "content_types": {
-    "_works": "主题案例",
-    "page": "Static Pages"
+    "page": "Static Pages",
+    "works": "Themes"
   },
   "menus": {
     "primary": [],
     "secondary": [
       {
         "alias": "login",
+        "id": "",
         "link": "http://d.soopro.com/#/login?lang=zh_CN",
         "meta": {},
         "nodes": [],
+        "status": 1,
         "target": "",
         "title": "登录"
       },
       {
         "alias": "register",
+        "id": "",
         "link": "http://d.soopro.com/#/register?lang=zh_CN",
         "meta": {},
         "nodes": [],
+        "status": 1,
         "target": "",
         "title": "注册"
       },
       {
         "alias": "contact",
-        "link": "#contact",
+        "id": "",
+        "link": "/zh/#contact",
         "meta": {},
         "nodes": [],
+        "status": 1,
         "target": "",
         "title": "联系我们"
       }
