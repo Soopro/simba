@@ -18,12 +18,12 @@
   "templates":{
     "index":"Homepage",
     "page":"Static Page",
-    "feature_left":"Feature Page #1",
-    "feature_right":"Feature Page #2",
-    "portfolio":"Portfolio Page",
-    "contact":"Contact Page",
-    "sub_works":"Works Page",
-    "error_404":"Error 404 Page"
+    "feature_left":"Feature #1",
+    "feature_right":"Feature #2",
+    "portfolio":"Portfolio",
+    "contact":"Contact",
+    "works":"Works",
+    "error_404":"404"
   },
   
   "hide_property": ["taxonomy", "tags", "parent"],
