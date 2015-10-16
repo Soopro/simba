@@ -2,7 +2,7 @@
   <title>{{site_meta.title | striptags}}</title>
   <meta name="theme-alias" content="{{theme_meta.alias}}">
   <meta name="theme-version" content="{{theme_meta.version}}">
-  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <meta name="format-detection" content="telephone=yes">
   <meta name="description" content="{{site_meta.description | striptags}}">
   <meta name="keywords" content="{{site_meta.keywords | striptags}}">
@@ -28,5 +28,9 @@
   <link href="{{theme_url}}/styles/fonts/roboto-fonts.css" rel="stylesheet">
   <link href="{{theme_url}}/styles/simba.css" rel="stylesheet">
   <!-- /build -->
+  
+  {{site_meta.analytics}}
+  {{site_meta.seo}}
   {{sa.code}}
+  {{g.custom_styles}}
 </head>
