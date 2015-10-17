@@ -1,4 +1,4 @@
-{% include "_tpl_common_.tpl" %}
+{% include "_common_.tpl" %}
 <!-- Slide -->
 <div id="slider" class="open dark" layout="row" layout-align="center center">
   <header>

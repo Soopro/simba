@@ -11,7 +11,7 @@
          value="{{theme_meta.options.perpage}}"></sup-set>
 <sup-set ng-model="g.sortby"
          value="{{theme_meta.options.sortby}}"></sup-set>
-         
+
 <!-- build:replace css-->
 <!-- <link ng-href="{{theme_url}}/simba.min.css?md5=null" rel="stylesheet"> -->
 <link ng-href="{{theme_url}}/styles/normalize.css" rel="stylesheet">

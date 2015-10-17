@@ -1,6 +1,6 @@
-{% include "_tpl_common_.tpl" %}
+{% include "_common_.tpl" %}
 <!-- Header -->
-{% include "_tpl_header_.tpl" %}
+{% include "_header_.tpl" %}
 
 <!-- Pages -->
 <div id="pages">

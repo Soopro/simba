@@ -1,4 +1,4 @@
-{% include "_tpl_common_.tpl" %}
+{% include "_common_.tpl" %}
 
 <div>
   <!-- Pages -->

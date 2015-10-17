@@ -8,9 +8,9 @@
 {% endif %}
 <!DOCTYPE html>
 <html lang="{{lang}}" modern-browser>
-{% include "_g_head_.html" %}
+{% include "_head_.html" %}
 <body id="screen"
- svg-sprites-loader 
+ svg-sprites-loader F
  data-url="{{ site_meta.svg_sprites or theme_url+'/styles/svgdefs.svg' }}"
  data-name="base">
   <div id="loader" layout="column" layout-align="center center">
@@ -22,9 +22,9 @@
     </div>
   </div>
   <!-- Header -->
-  {% include "_g_header_.html" %}
+  {% include "_header_.html" %}
   <!-- Controller -->
-  {% include "_g_controller_.html" %}
+  {% include "_controller_.html" %}
   <!-- Pages -->
   <div id="pages">
     <!-- Cover -->
@@ -73,13 +73,13 @@
     {% endfor %}
   </div>
   <!-- Detail -->
-  {% include "_g_model_detail_.html" %}
+  {% include "_model_detail_.html" %}
   <!-- Slider -->
-  {% include "_g_model_slider_.html" %}
+  {% include "_model_slider_.html" %}
   <!-- Footer -->
-  {% include "_g_footer_.html" %}
+  {% include "_footer_.html" %}
   
   <!-- Javascripts -->
-  {% include "_g_js_.html" %}
+  {% include "_js_.html" %}
 </body>
 </html>
