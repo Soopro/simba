@@ -10,6 +10,7 @@
       </div>
       {% endfor %}
     </div>
+    {% if translates %}
     <div class="languages">
 			{% for trans in translates %}
 				{% if lang in trans.code %}
@@ -19,6 +20,7 @@
 				{% endif %}
 			{% endfor %}
     </div>
+    {% endif %}
   </div>
   <div id="copyright" layout="row"
    layout-align="center" layout-align-gt-md="start">
