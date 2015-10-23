@@ -26,17 +26,17 @@
     "error_404":"404"
   },
   
-  "hide_property": ["taxonomy", "tags", "parent"],
+  "hide_properties": ["taxonomy", "tags", "parent"],
   
   "mode": 1,
   
-  "menus":[
-    {"alias":"secondary", "title":"Secondary Menu"}
-  ],
+  "menus":{
+    "secondary": {"title": "Secondary Menu"}
+  },
   
-  "content_types":[
-    {"alias":"works", "title":"Themes", "status": 0}
-  ],
+  "content_types":{
+    "works": {"title": "Themes", "status": 0}
+  },
   
 	"options":{
 		"sortby": "updated",
