@@ -7,8 +7,7 @@
     <section class="error-404 {{meta.background.class}}"
      sup-editor-widget-bg ng-model="meta.background">
       <div layout="column" layout-align="center center"
-       ng-style="{'background-image': meta.background.src ?
-       'url('+meta.background.src+')':'initial'}">
+       style="{{meta.background.style}}">
         <div id="logo">
           <img ng-if="site_meta.logo" ng-src="{{site_meta.logo}}"
            alt="{{site_meta.title}}"/>

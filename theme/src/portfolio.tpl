@@ -7,8 +7,7 @@
   <section class="portfolio {{meta.background.class}}" sup-editor-widget-bg
    ng-model="meta.background">
     <div layout="column" layout-align="center center"
-     ng-style="{'background-image': meta.background.src ?
-     'url('+meta.background.src+')':'initial'}">
+     style="{{meta.background.style}}">
       <header>
         <h2 default="{{_('Title')}}"
          sup-editor-meta ng-model="meta.title"></h2>

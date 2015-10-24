@@ -8,8 +8,7 @@
   <section class="page {{meta.background.class}}" sup-editor-widget-bg
    ng-model="meta.background">
     <div layout-gt-sm="row" layout-sm="column" layout-align="center center"
-     ng-style="{'background-image': meta.background.src ?
-     'url('+meta.background.src+')':'initial'}">
+     style="{{meta.background.style}}">
       <figure flex="40">
         <div sup-editor-media ng-model="meta.featured_img">
           <img ng-src="{{meta.featured_img.src || g.default_img_360x360 }}"
