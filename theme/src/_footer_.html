@@ -5,7 +5,7 @@
     <div class="links">
       {% for item in menu.secondary %}
       <div class="link">
-        <a href="{{ item.url }}" 
+        <a href="{{item.url}}" target="{{item.target}}"
          rel="parallax-anchor">{{ item.title }}</a>
       </div>
       {% endfor %}
@@ -13,11 +13,8 @@
     {% if translates %}
     <div class="languages">
 			{% for trans in translates %}
-				{% if lang in trans.code %}
-				<a href="{{trans.url}}" class="active">{{trans.name}}</a>
-				{% else %}
-				<a href="{{trans.url}}">{{trans.name}}</a>
-				{% endif %}
+        {% set is_active_lang = 'active' if lang in trans.code else '' %}
+				<a href="{{trans.url}}" class="{{is_active_lang}}">{{trans.name}}</a>
 			{% endfor %}
     </div>
     {% endif %}

@@ -20,3 +20,5 @@
 <!-- /build -->
 
 <sup-script path="svg-sprites-render.min.js?md5=null"></sup-script>
+
+<style ng-bind="theme_meta.styles"></style>

@@ -1,11 +1,4 @@
 {% import "g" as g with context %}
-{% if meta.background %}
-{% set coverbgstyle = 'style="background-image:url('+meta.background.src+')"'%}
-{% set coverbgclass = meta.background.class %}
-{% else %}
-{% set coverbgstyle = ''%}
-{% set coverbgclass = '' %}
-{% endif %}
 <!DOCTYPE html>
 <html lang="{{lang}}" modern-browser>
 {% include "_head_.html" %}
@@ -28,8 +21,9 @@
   <!-- Pages -->
   <div id="pages">
     <!-- Cover -->
-    <section class="cover {{coverbgclass}}" title="{{meta.title}}">
-      <div layout="column" layout-align="center center" {{coverbgstyle}}>
+    <section class="cover {{meta.background.class}}" title="{{meta.title}}">
+      <div layout="column" layout-align="center center"
+       style="{{meta.background.style}}">
         <article class="text-center">
           <header>
             <h1>
@@ -61,14 +55,6 @@
     </section>
     <!-- Page -->
     {% for page in pages | type('page') if page.template != meta.template %}
-      {% if page.background %}
-      {% set bgstyle = 'style="background-image:url('+
-                       page.background.src+')"'%}
-      {% set bgclass = page.background.class %}
-      {% else %}
-      {% set bgstyle = ''%}
-      {% set bgclass = '' %}
-      {% endif %}
       {% include page.template+'.html' %}
     {% endfor %}
   </div>

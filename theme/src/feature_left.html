@@ -1,8 +1,8 @@
 {% if g and page %}
-  <section class="page {{bgclass}}"
+  <section class="page {{page.background.class}}"
    parallax-anchor="{{page.alias}}" title="{{page.title}}">
     <div layout-gt-sm="row" layout-sm="column" 
-     layout-align="center center" {{bgstyle}}>
+     layout-align="center center" style="{{page.background.style}}">
       {% if page.featured_img %}
       <figure flex="40">
         <img src="{{page.featured_img.src or g.default_img_360x360 }}"

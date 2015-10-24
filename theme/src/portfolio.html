@@ -1,7 +1,8 @@
 {% if g and page %}
-<section class="portfolio {{bgclass}}"
+<section class="portfolio {{page.background.class}}"
  parallax-anchor="{{page.alias}}" title="{{page.title}}">
-  <div layout="column" layout-align="center center" {{bgstyle}}>
+  <div layout="column" layout-align="center center"
+   style="{{page.background.style}}">
     <header>
       <h2>{{page.title}}</h2>
     </header>
