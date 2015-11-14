@@ -13,8 +13,9 @@
     {% if translates %}
     <div class="languages">
 			{% for trans in translates %}
-        {% set is_active_lang = 'active' if lang in trans.code else '' %}
-				<a href="{{trans.url}}" class="{{is_active_lang}}">{{trans.name}}</a>
+				<a href="{{trans.url}}" class="{{'active' if trans.active}}">
+          {{trans.name}}
+        </a>
 			{% endfor %}
     </div>
     {% endif %}
