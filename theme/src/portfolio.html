@@ -9,8 +9,9 @@
     <div class="portfolio-inner">
 
       {% set portfolio = saltshaker(pages, 
-         [{"type":"works"}, {"featured_img":true}, {"gallery":true}], 
-         g.perpage) %}
+         [{"type":"works"}, "featured_img", "gallery"], 
+         g.perpage) 
+      %}
 
       {% for works in portfolio %}
       <figure class="btn open-slider">

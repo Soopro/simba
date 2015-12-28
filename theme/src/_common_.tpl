@@ -6,11 +6,6 @@
          value="{{theme_url+'/styles/default_img_360x360.png'}}"></sup-set>
 <sup-set ng-model="g.default_img_240x240"
          value="{{theme_url+'/styles/default_img_240x240.png'}}"></sup-set>
-         
-<sup-set ng-model="g.perpage"
-         value="{{theme_meta.options.perpage}}"></sup-set>
-<sup-set ng-model="g.sortby"
-         value="{{theme_meta.options.sortby}}"></sup-set>
 
 <!-- build:replace css-->
 <!-- <link ng-href="{{theme_url}}/simba.min.css?md5=null" rel="stylesheet"> -->

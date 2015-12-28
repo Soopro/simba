@@ -12,11 +12,7 @@
         <h2 default="{{_('Title')}}"
          sup-editor-meta ng-model="meta.title"></h2>
       </header>
-      <div class="portfolio-inner" sup-editor-content-query
-       fields="{type:'works'}"
-       length="g.perpage"
-       sortby="g.sortby"
-       ng-model="query.works">
+      <div class="portfolio-inner" sup-query='works' ng-model="query.works">
         <figure class="btn open-slider" ng-repeat="works in query.works"
          sup-editor-open file="works">
           <img ng-src="{{(works.featured_img.src | thumbnail) ||
