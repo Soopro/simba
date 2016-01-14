@@ -1,0 +1,52 @@
+[
+  {"Language":"zh"},
+  
+  {
+    "msgid": "Loading...",
+    "msgstr": "载入中..."
+  },
+  {
+    "msgid": "Go Back",
+    "msgstr": "返回"
+  },
+  {
+    "msgid": "Tagline",
+    "msgstr": "标语"
+  },
+  {
+    "msgid": "Swap Text",
+    "msgstr": "交替文本"
+  },
+  {
+    "msgid": "Email Address",
+    "msgstr": "电子邮件地址"
+  },
+  {
+    "msgid": "Contact",
+    "msgstr": "联系地址"
+  },
+  {
+    "msgid": "Title",
+    "msgstr": "标题"
+  },
+  {
+    "msgid": "Error 404",
+    "msgstr": "错误 404"
+  },
+  {
+    "msgid": "Instant Messenger ID",
+    "msgstr": "即时通讯号码"
+  },
+  {
+    "msgid": "Button Text",
+    "msgstr": "按钮文字"
+  },
+  {
+    "msgid": "$_CONTENT",
+    "msgstr": "<p>这一段是默认的富文本内容，你可以按照自己的需要重新填写。进入富文本编辑状态以后，将出现一个输入工具条（它通常会在画面顶部或是富文本区域的上方），使用工具条可以插入、更换或者删除图片和链接。</p>"
+  },
+  {
+    "msgid": "$_ERROR404",
+    "msgstr": "<p>没办法找到你要打开的页面，你大概搞错了页面网址，或者是我们的系统挂了。总之，你只能点击下面的按钮返回。</p>"
+  }
+]
