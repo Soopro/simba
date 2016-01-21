@@ -239,6 +239,9 @@ $(document).ready ->
 
   # pages
   pages = $('#pages > section:not([disabled])')
+  if pages.length <= 0
+    return
+
   for page in pages
     $(page).append('<label>'+page.title+'</label>')
   
@@ -250,6 +253,9 @@ $(document).ready ->
   currPageIndex = 0
   currDisplayIndex = 0
   currDisplayPage = currPage
+  
+  if not currPage
+    return
   
   stopPagesAnim = ->
     pages.addClass('no-transition')
