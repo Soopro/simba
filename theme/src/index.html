@@ -39,14 +39,14 @@
             {% if meta.login %}
             <a href="{{meta.login.link | url}}" 
              target="{{meta.login.target}}">
-              {{meta.login.title}}
+              {{meta.login.name}}
             </a>
             {% endif %}
             {% if meta.register %}
             <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
             <a href="{{meta.register.link | url}}"
              target="{{meta.register.target}}">
-              {{meta.register.title}}
+              {{meta.register.name}}
             </a>
             {% endif %}
           </div>

@@ -21,11 +21,11 @@
         </header>
         <div class="actions">
           <a href="#" sup-editor-widget-button ng-model="meta.login">
-            {{meta.login.title || _('Button Text') }}
+            {{meta.login.name || _('Button Text') }}
           </a>
           <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
           <a href="#" sup-editor-widget-button ng-model="meta.register">
-            {{meta.register.title || _('Button Text') }}
+            {{meta.register.name || _('Button Text') }}
           </a>
         </div>
       </article>
