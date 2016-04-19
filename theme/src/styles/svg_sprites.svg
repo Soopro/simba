@@ -1,9 +1,8 @@
 <svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
 <symbol id="ico-collapse" viewBox="0 0 1024 1024">
-	<title>collapse</title>
-	<path class="path1" d="M447.701 64v500.373l-230.528-230.528-90.987 90.987 385.813 385.835 385.813-385.813-90.987-90.987-230.528 230.507v-500.373h-128.597z"></path>
-	<path class="path2" d="M853.333 832h-682.667v128.597h682.667v-128.597z"></path>
+  <title>collapse</title>
+  <path class="path1" d="M512 582.432l364.745-369.775 113.197 113.197-477.939 485.487-477.939-482.971 113.197-113.197 364.745 367.258z"></path>
 </symbol>
 <symbol id="ico-loading" viewBox="0 0 1024 1024">
 	<title>loading</title>

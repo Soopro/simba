@@ -1,5 +1,5 @@
-<div svg-sprites-loader 
- data-url="{{ site_meta.svg_sprites || theme_url+'/styles/svgdefs.svg' }}"
+<div svg-sprites-loader
+ data-url="{{ site_meta.svg_sprites || theme_url+'/styles/svg_sprites.svg' }}"
  data-name="base"></div>
 
 <sup-set ng-model="g.default_img_360x360"

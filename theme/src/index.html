@@ -1,10 +1,11 @@
 {% import "g" as g with context %}
 <!DOCTYPE html>
-<html lang="{{lang}}" modern-browser>
+<html lang="{{lang}}"
+      modern-browser="http://libs.soopro.com/browser-detector/">
 {% include "_head_.html" %}
 <body id="screen"
- svg-sprites-loader F
- data-url="{{ site_meta.svg_sprites or theme_url+'/styles/svgdefs.svg' }}"
+ svg-sprites-loader
+ data-url="{{ site_meta.svg_sprites or theme_url+'/styles/svg_sprites.svg' }}"
  data-name="base">
   <div id="loader" layout="column" layout-align="center center">
     <div>
@@ -37,7 +38,7 @@
           </header>
           <div class="actions">
             {% if meta.login %}
-            <a href="{{meta.login.link | url}}" 
+            <a href="{{meta.login.link | url}}"
              target="{{meta.login.target}}">
               {{meta.login.name}}
             </a>
@@ -64,7 +65,7 @@
   {% include "_model_slider_.html" %}
   <!-- Footer -->
   {% include "_footer_.html" %}
-  
+
   <!-- Javascripts -->
   {% include "_js_.html" %}
 </body>
