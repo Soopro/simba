@@ -56,7 +56,7 @@
     </section>
     <!-- Page -->
     {% for page in pages | type('page') if page.template != meta.template %}
-      {% include page.template+'.html' %}
+      {% include page.template+'.html' ignore missing %}
     {% endfor %}
   </div>
   <!-- Detail -->
