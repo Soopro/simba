@@ -1,12 +1,12 @@
 {
-	"version":"3.2.6",
+	"version":"3.2.7",
   "alias":"simba",
   "author":"Redy",
-  "textdomain":"translate",
   "license": "MIT",
 	"title":"Soopro official theme",
   "capabilities":["ws"],
-	"thumbnail":"soopro.png",
+	"thumbnail":"thumbnail.png",
+  "poster":"poster.jpg",
 	"previews":[
     "previews_1.jpg",
     "previews_2.jpg",
