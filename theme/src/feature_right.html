@@ -1,6 +1,6 @@
 {% if g and page %}
 <section class="page {{page.background.class}}" 
- parallax-anchor="{{page.alias}}" title="{{page.title}}">
+ parallax-anchor="{{page.slug}}" title="{{page.title}}">
   <div layout-gt-sm="row" layout-sm="column" 
    layout-align="center center" style="{{page.background.style}}">
     {% if page.featured_img %}
@@ -19,5 +19,5 @@
   </div>
 </section>
 {% else %}
-  <script>window.location.replace('{{base_url}}/#/{{meta.alias}}');</script>
+  <script>window.location.replace('{{base_url}}/#/{{meta.slug}}');</script>
 {% endif %}

@@ -1,6 +1,6 @@
 {% if g and page %}
 <section class="contact {{page.background.class}}" 
- parallax-anchor="{{page.alias}}" title="Contact">
+ parallax-anchor="{{page.slug}}" title="Contact">
   <div layout-gt-sm="row" layout-sm="column"
    layout-align="center center" style="{{page.background.style}}">
     <article flex-gt-sm="35">
@@ -19,5 +19,5 @@
   </div>
 </section>
 {% else %}
-  {<script>window.location.replace('{{base_url}}/#/{{meta.alias}}');</script>}
+  {<script>window.location.replace('{{base_url}}/#/{{meta.slug}}');</script>}
 {% endif %}

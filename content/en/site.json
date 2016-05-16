@@ -7,7 +7,7 @@
     "primary": [],
     "secondary": [
       {
-        "alias": "login",
+        "key": "login",
         "id": "",
         "link": "http://d.soopro.com/#/login?lang=en_US",
         "meta": {},
@@ -17,7 +17,7 @@
         "title": "Login"
       },
       {
-        "alias": "register",
+        "key": "register",
         "id": "",
         "link": "http://d.soopro.com/#/register?lang=en_US",
         "meta": {},
@@ -27,7 +27,7 @@
         "title": "Register"
       },
       {
-        "alias": "contact",
+        "key": "contact",
         "id": "",
         "link": "/en/#contact",
         "meta": {},
@@ -62,18 +62,5 @@
       }
     }
   },
-  "terms": {
-    "category": [
-      {
-        "alias": "123",
-        "meta": {
-          "description": "123132",
-          "parent": "123",
-          "pic": ""
-        },
-        "priority": 0,
-        "title": "123"
-      }
-    ]
-  }
+  "taxonomies": {}
 }

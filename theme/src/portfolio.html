@@ -1,6 +1,6 @@
 {% if g and page %}
 <section class="portfolio {{page.background.class}}"
- parallax-anchor="{{page.alias}}" title="{{page.title}}">
+ parallax-anchor="{{page.slug}}" title="{{page.title}}">
   <div layout="column" layout-align="center center"
    style="{{page.background.style}}">
     <header>
@@ -29,5 +29,5 @@
   </div>
 </section>
 {% else %}
-  <script>window.location.replace('{{base_url}}/#/{{meta.alias}}');</script>
+  <script>window.location.replace('{{base_url}}/#/{{meta.slug}}');</script>
 {% endif %}
