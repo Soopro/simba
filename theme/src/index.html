@@ -5,7 +5,8 @@
 {% include "_head_.html" %}
 <body id="screen"
  svg-sprites-loader
- data-url="{{ site_meta.svg_sprites or theme_url+'/styles/svg_sprites.svg' }}"
+ data-url="{{ site_meta.svg_sprites or
+              theme_url+'/styles/svg_sprites.svg' }}?{{g.ver}}"
  data-name="base">
   <div id="loader" layout="column" layout-align="center center">
     <div>

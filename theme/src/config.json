@@ -1,5 +1,5 @@
 {
-	"version":"3.3.0",
+	"version":"3.4.0",
   "slug":"simba",
   "author":"Redy",
   "license": "MIT",
@@ -23,12 +23,8 @@
     "portfolio":"Portfolio",
     "contact":"Contact",
     "works":"Works",
-    "error_404":"404"
+    "error-404":"404"
   },
-
-  "hide_properties": ["taxonomy", "tags", "parent"],
-
-  "mode": 1,
 
   "menus":{
     "secondary": {"title": "Secondary Menu"}
@@ -37,7 +33,9 @@
   "content_types":{
     "works": {"title": "Themes", "status": 0}
   },
-
+  "reserved_contents": {
+    "error-404": true
+  },
 	"options":{
 		"sortby": "updated",
 		"excerpt_length":162,
