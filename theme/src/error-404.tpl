@@ -5,7 +5,7 @@
   <div id="pages">
     <!-- 404 -->
     <section class="error-404 {{meta.background.class}}"
-     sup-editor-widget-bg ng-model="meta.background">
+     sup-widget-bg ng-model="meta.background">
       <div layout="column" layout-align="center center"
        style="{{meta.background.style}}">
         <div id="logo">
@@ -16,7 +16,7 @@
         <article class="text-center">
           <header>
             <h2 default="{{_('Error 404')}}"
-             sup-editor-meta ng-model="meta.title"></h2>
+             sup-widget-text ng-model="meta.title"></h2>
           </header>
           <div default="{{_('$_ERROR404')}}"
            sup-angular-wysiwyg ng-model="content"></div>

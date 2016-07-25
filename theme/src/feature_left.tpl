@@ -5,12 +5,12 @@
 <!-- Pages -->
 <div id="pages">
   <!-- Page -->
-  <section class="page {{meta.background.class}}" sup-editor-widget-bg
+  <section class="page {{meta.background.class}}" sup-widget-bg
    ng-model="meta.background">
     <div layout-gt-sm="row" layout-sm="column" layout-align="center center"
      style="{{meta.background.style}}">
       <figure flex="40">
-        <div sup-editor-media ng-model="meta.featured_img">
+        <div sup-widget-media ng-model="meta.featured_img">
           <img ng-src="{{meta.featured_img.src || g.default_img_360x360 }}"
            class="{{meta.featured_img.class || ''}}" />
         </div>
@@ -18,7 +18,7 @@
       <article flex="40">
         <header>
           <h2 default="{{_('Tagline')}}"
-           sup-editor-meta ng-model="meta.tagline"></h2>
+           sup-widget-text ng-model="meta.tagline"></h2>
         </header>
         <div default="{{_('$_CONTENT')}}"
          sup-angular-wysiwyg ng-model="content"></div>

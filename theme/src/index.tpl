@@ -4,7 +4,7 @@
 <!-- Pages -->
 <div id="pages">
   <!-- Cover -->
-  <section class="cover {{meta.background.class}}" sup-editor-widget-bg
+  <section class="cover {{meta.background.class}}" sup-widget-bg
    ng-model="meta.background">
     <div layout="column" layout-align="center center"
      style="{{meta.background.style}}">
@@ -12,19 +12,19 @@
         <header>
           <h1>
             <div default="{{_('Tagline')}}"
-             sup-editor-meta ng-model="meta.tagline"></div>
-            <div swapper sup-editor-widget-collect ng-model="meta.swapper"
+             sup-widget-text ng-model="meta.tagline"></div>
+            <div swapper sup-widget-collect ng-model="meta.swapper"
              default="[{'name':'0', 'value':_('Swap Text')}]">
                <b ng-repeat="item in meta.swapper">{{item.value}}</b>
             </div>
           </h1>
         </header>
         <div class="actions">
-          <a href="#" sup-editor-widget-button ng-model="meta.login">
+          <a href="#" sup-widget-button ng-model="meta.login">
             {{meta.login.name || _('Button Text') }}
           </a>
           <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-          <a href="#" sup-editor-widget-button ng-model="meta.register">
+          <a href="#" sup-widget-button ng-model="meta.register">
             {{meta.register.name || _('Button Text') }}
           </a>
         </div>
