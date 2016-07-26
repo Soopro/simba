@@ -165,7 +165,7 @@ figure {
 /* Typography
 /* ----------------------------------------------- */
 body,h1,h2,h3,h4,h5,h6,p,label{
-  font-family: RobotoDraft, Roboto, 
+  font-family: RobotoDraft, Roboto,
                'Helvetica Neue', Helvetica,
                Arial, 'Lucida Grande', sans-serif;
   font-weight: 300;
@@ -310,7 +310,7 @@ article {
 /* Pages */
 #pages {
   .transition(@base-transition);
-  
+
   &.zoom {
     & * {
       .select(none);
@@ -318,7 +318,7 @@ article {
     .transform(scale(0.4, 0.4));
     // .transform(translate3d(0, 0, -2500px));
     // use translate3d will cause text blurry (bad as unreadable)
-    // so use scale may bit slow but text is clean to read. 
+    // so use scale may bit slow but text is clean to read.
     // sometime scale will show string line brink on chrome, just change size of scale will fix.
 
     // &.out{
@@ -329,7 +329,7 @@ article {
     //     display: none;
     //   }
     // }
-    
+
     & > section {
       padding: 10px;
       & > div {
@@ -347,7 +347,7 @@ article {
   height: 100%;
   position: absolute;
   z-index: 90;
-  
+
   & > section {
     &[disabled]{
       display: none;
@@ -359,7 +359,7 @@ article {
     display: block;
     width: 100%;
     height: 100%;
-    
+
     & > div {
       .transition(@base-transition);
       overflow: hidden;
@@ -388,7 +388,7 @@ article {
         padding: 32px;
       }
     }
-    
+
     &.dark,
     &[dark] {
       & svg {
@@ -401,7 +401,7 @@ article {
         background-color: @dark-color;
       }
     }
-    
+
     & > label {
       position: absolute;
       display: block;
@@ -426,14 +426,14 @@ article {
 
 #controller {
   .transition(@base-transition);
-  
+
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 990;
   padding: 32px;
   pointer-events: none;
-  
+
   & > button {
     .svgWrap(48px, 48px);
     width: 48px;
@@ -444,7 +444,7 @@ article {
       height: 36px;
     }
   }
-  
+
   @media (max-width: @screen-tablet-max) {
     padding: 16px;
     padding-top: 32px;
@@ -490,12 +490,12 @@ article {
   padding: 32px;
   text-align: center;
   background-color: @view-bg-color;
-  
+
   @media (max-width: @screen-tablet-max) {
     padding: 16px;
     padding-top: 32px;
   }
-  
+
   img {
     max-width: 100%;
   }
@@ -513,7 +513,7 @@ article {
       display: none;
     }
   }
-  
+
   & > button {
     .svgWrap(48px, 48px);
     width: 48px;
@@ -524,7 +524,7 @@ article {
       height: 36px;
     }
   }
-  
+
   & > div {
     width: 100%;
     height: 100%;
@@ -698,7 +698,8 @@ article {
   }
 }
 
-[swapper] {
+[swapper],
+.swapper {
   display: block;
   .keyframes(
     @name: slideFade;
@@ -725,14 +726,14 @@ article {
       100% {.transform(rotate(360deg));}
     }
   );
-  
+
   .transition(all @duration/3 ease-in-out);
   position: fixed;
   z-index: 9999;
   width: 100%;
   height: 100%;
   background: @dark-color;
-  
+
   .circle {
     .svgWrap(48px, 48px);
     & svg {
@@ -741,8 +742,8 @@ article {
     }
     padding: 8px;
   }
-  
-  span, 
+
+  span,
   .text {
     font-weight: 500;
     color: @light-color;
@@ -776,7 +777,7 @@ article {
       }
     }
   }
-} 
+}
 
 .portfolio {
   &.dark > div {
@@ -790,7 +791,7 @@ article {
         margin-bottom: 0;
       }
     }
-  
+
     & .portfolio-inner {
       width: 90%;
       padding: 16px;
@@ -810,8 +811,8 @@ article {
       @media (min-width: @screen-desktop){
         width: 80%;
       }
-      
-      
+
+
       & > figure {
         font-size: 0;
         & [rel='slides'] {
@@ -826,7 +827,7 @@ article {
         padding: 2px;
         margin: 0;
         border: 0;
-        
+
         @media (max-width: @screen-phone-max) and (max-height: @screen-phone-v-max){
           width: 16.6%;
         }
@@ -886,7 +887,7 @@ article {
         display: none;
       }
     }
-    @media (max-width: @screen-phone-max) 
+    @media (max-width: @screen-phone-max)
     and (max-height: @screen-phone-v-max){
       & article .content{
         display: none;

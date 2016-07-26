@@ -4,17 +4,22 @@
 <!-- Pages -->
 <div id="pages">
   <!-- Cover -->
-  <section class="cover {{meta.background.class}}" sup-widget-bg
-   ng-model="meta.background">
-    <div layout="column" layout-align="center center"
-     style="{{meta.background.style}}">
+  <section class="cover {{meta.background.class}}"
+           sup-widget-bg
+           ng-model="meta.background">
+    <div layout="column"
+         layout-align="center center"
+         style="{{meta.background.style}}">
       <article class="text-center">
         <header>
           <h1>
-            <div default="{{_('Tagline')}}"
-             sup-widget-text ng-model="meta.tagline"></div>
-            <div swapper sup-widget-collect ng-model="meta.swapper"
-             default="[{'name':'0', 'value':_('Swap Text')}]">
+            <div sup-widget-text
+                 default="{{_('Tagline')}}"
+                 ng-model="meta.tagline"></div>
+            <div class="swapper"
+                 sup-widget-collect
+                 ng-model="meta.swapper"
+                 default="[{'name':'0', 'value':_('Swap Text')}]">
                <b ng-repeat="item in meta.swapper">{{item.value}}</b>
             </div>
           </h1>
