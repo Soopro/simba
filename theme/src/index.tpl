@@ -19,8 +19,8 @@
             <div class="swapper"
                  sup-widget-collect
                  ng-model="meta.swapper"
-                 default="[{'name':'0', 'value':_('Swap Text')}]">
-               <b ng-repeat="item in meta.swapper">{{item.value}}</b>
+                 default="[_('Swap Text')]">
+               <b ng-repeat="text in meta.swapper">{{text}}</b>
             </div>
           </h1>
         </header>
