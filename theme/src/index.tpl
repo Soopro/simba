@@ -20,7 +20,9 @@
                  sup-widget-collect
                  ng-model="meta.swapper"
                  default="[_('Swap Text')]">
-               <b ng-repeat="text in meta.swapper">{{text}}</b>
+               <b ng-repeat="item in meta.swapper">
+                 {{item.text}}
+               </b>
             </div>
           </h1>
         </header>
