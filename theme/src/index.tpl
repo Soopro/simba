@@ -18,8 +18,8 @@
                  ng-model="meta.tagline"></div>
             <div class="swapper"
                  sup-widget-collect
-                 ng-model="meta.swapper"
-                 default="[_('Swap Text')]">
+                 default="{{[_('Swap Text')]}}"
+                 ng-model="meta.swapper">
                <b ng-repeat="item in meta.swapper">
                  {{item.text}}
                </b>
