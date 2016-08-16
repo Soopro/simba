@@ -17,7 +17,7 @@
                  default="{{_('Tagline')}}"
                  ng-model="meta.tagline"></div>
             <div class="swapper"
-                 sup-widget-collect
+                 sup-widget-lines
                  default="{{[_('Swap Text')]}}"
                  ng-model="meta.swapper">
                <b ng-repeat="item in meta.swapper">
