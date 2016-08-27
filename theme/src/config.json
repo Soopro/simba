@@ -1,5 +1,5 @@
 {
-	"version":"3.4.2",
+	"version":"3.5.0",
   "slug":"simba",
   "author":"Redy",
   "license": "MIT",
@@ -37,11 +37,6 @@
     "error-404": true
   },
 	"options":{
-		"sortby": "updated",
-		"excerpt_length":162,
-		"excerpt_ellipsis":"&hellip;",
-		"date_format": "%B %d, %Y",
-		"perpage":12,
-    "markdown":false
+		"perpage": 60,
 	}
 }

@@ -7,13 +7,8 @@
       <h2>{{page.title}}</h2>
     </header>
     <div class="portfolio-inner">
-
-      {% set portfolio = saltshaker(pages, 
-         [{"type":"works"}, "featured_img", "gallery"], 
-         g.perpage) 
-      %}
-
-      {% for works in portfolio %}
+      {% set portfolio = query('works', 0, 60) %}
+      {% for works in portfolio.contents %}
       <figure class="btn open-slider">
         <img src="{{works.featured_img.src | thumbnail}}"
          title="{{works.featured_img.title}}" />
@@ -24,7 +19,7 @@
         </div>
       </figure>
       {% endfor %}
-      
+
     </div>
   </div>
 </section>
