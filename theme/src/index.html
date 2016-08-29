@@ -56,7 +56,7 @@
       </div>
     </section>
     <!-- Page -->
-    {% set pages = query('page', 0, 60).contents %}
+    {% set pages = query('page', 0, 24, with_content=True).contents %}
     {% for page in pages if page.template != meta.template %}
       {% include page.template+'.html' ignore missing %}
     {% endfor %}
