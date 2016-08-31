@@ -21,18 +21,18 @@
             <i class="ico">
               <svg svg-sprite="base:ico-email"></svg>
             </i>
-            <a href="#" class="btn-primary" 
+            <a href="#" class="btn-primary"
              sup-widget-button ng-model="meta.email">
-             {{meta.email.title || _('Email Address') }}
+             {{meta.email.name || _('Email Address') }}
             </a>
           </p>
           <p>
             <i class="ico">
               <svg svg-sprite="base:ico-im"></svg>
             </i>
-            <a href="#" class="btn-primary" 
+            <a href="#" class="btn-primary"
              sup-widget-button ng-model="meta.im">
-             {{meta.im.title || _('Instant Messenger ID') }}
+             {{meta.im.name || _('Instant Messenger ID') }}
             </a>
           </p>
         </div>
