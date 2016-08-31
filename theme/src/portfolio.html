@@ -7,7 +7,7 @@
       <h2>{{page.title}}</h2>
     </header>
     <div class="portfolio-inner">
-      {% set portfolio = query('works', 0, 60) %}
+      {% set portfolio = query('works', 0, 12) %}
       {% for works in portfolio.contents %}
       <figure class="btn open-slider">
         <img src="{{works.featured_img.src | thumbnail}}"

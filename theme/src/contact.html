@@ -1,5 +1,5 @@
 {% if g and page %}
-<section class="contact {{page.background.class}}" 
+<section class="contact {{page.background.class}}"
  parallax-anchor="{{page.slug}}" title="{{page.title}}">
   <div layout-gt-sm="row" layout-sm="column"
    layout-align="center center" style="{{page.background.style}}">
@@ -17,7 +17,7 @@
             <svg svg-sprite="base:ico-email"></svg>
           </i>
           <a href="{{page.email.link | url}}" class="btn-primary">
-            {{page.email.title}}
+            {{page.email.name}}
           </a>
         </p>
         {% endif %}
@@ -27,7 +27,7 @@
             <svg svg-sprite="base:ico-im"></svg>
           </i>
           <a href="{{page.im.link | url}}" class="btn-primary">
-            {{page.im.title}}
+            {{page.im.name}}
           </a>
         </p>
         {% endif %}

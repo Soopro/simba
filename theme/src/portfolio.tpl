@@ -17,6 +17,7 @@
       </header>
       <div class="portfolio-inner"
            sup-query='works'
+           perpage="12"
            ng-model="query.works">
         <figure class="btn open-slider"
                 ng-repeat="works in query.works.contents"
