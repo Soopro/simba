@@ -694,7 +694,7 @@ $(document).ready ->
     invl_id = window.setInterval (e)->
       if viewStatus isnt 0
         return
-      swappers = currPage.find('.swapper > *')
+      swappers = currPage.find('[swapper] > *')
       if not swappers or swappers.length <= 0
         return
       $(swappers[0]).parent().append(swappers[0])
