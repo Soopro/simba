@@ -15,6 +15,7 @@
 <link ng-href="{{theme_url}}/styles/simba.css" rel="stylesheet">
 <!-- /build -->
 
-<sup-script path="svg/svg-sprites-render.min.js?md5=null"></sup-script>
+<sup-script-loader path="svg/svg-sprites-render.min.js?md5=null">
+</sup-script-loader>
 
 <style ng-bind="theme_meta.styles"></style>

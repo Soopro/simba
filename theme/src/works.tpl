@@ -15,7 +15,7 @@
        layout-align="center center"
        flex>
     <div class="slides"
-         sup-widget-collection
+         sup-widget-carousel
          ng-model="meta.gallery">
       <img class="current"
            ng-src="{{meta.gallery[0].src || g.default_img_360x360}}"/>

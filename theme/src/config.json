@@ -1,11 +1,11 @@
 {
-	"version":"3.5.2",
+	"version":"3.5.3",
   "slug":"simba",
   "author":"Redy",
   "license": "MIT",
 	"title":"Soopro official theme",
   "capabilities":["ws"],
-	"thumbnail":"thumbnail.png",
+	"icon":"icon.png",
   "poster":"poster.jpg",
 	"previews":[
     "previews_1.jpg",
@@ -15,16 +15,16 @@
   ],
 	"description":"A simple brand website for Soopro official website.",
 
-  "templates":{
-    "index":"Homepage",
-    "page":"Static Page",
-    "feature_left":"Feature #1",
-    "feature_right":"Feature #2",
-    "portfolio":"Portfolio",
-    "contact":"Contact",
-    "works":"Works",
-    "error-404":"404"
-  },
+  "templates": [
+    "index",
+    "page",
+    "feature_left",
+    "feature_right",
+    "portfolio",
+    "contact",
+    "works",
+    "error-404"
+  ],
 
   "menus":{
     "secondary": {"title": "Secondary Menu"}
