@@ -4,7 +4,8 @@
   "author":"Redy",
   "license": "MIT",
 	"title":"Soopro official theme",
-  "capabilities":["ws"],
+  "type": "ws",
+  "capabilities":[],
 	"icon":"icon.png",
   "poster":"poster.jpg",
 	"previews":[
