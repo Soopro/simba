@@ -5,7 +5,7 @@
   "license": "MIT",
 	"title":"Soopro official theme",
   "type": "ws",
-  "capabilities":[],
+  "capability": 6,
 	"icon":"icon.png",
   "poster":"poster.jpg",
 	"previews":[
