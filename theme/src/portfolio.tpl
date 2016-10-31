@@ -4,12 +4,11 @@
 <!-- Pages -->
 <div id="pages">
   <!-- Cover -->
-  <section class="portfolio {{meta.background.class}}"
-           sup-widget-bg
-           ng-model="meta.background">
+  <section class="portfolio {{meta.bg.class}}">
+    <div sup-widget-bg ng-model="meta.bg"></div>
     <div layout="column"
          layout-align="center center"
-         style="{{meta.background.style}}">
+         style="{{meta.bg.style}}">
       <header>
         <h2 sup-widget-text
             default="{{_('Title')}}"

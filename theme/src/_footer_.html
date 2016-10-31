@@ -1,11 +1,15 @@
 <footer id="footer" class="hide" layout-gt-md="row"
- layout-align="space-between">
-  <div id="channel" layout="row" 
-   layout-align="center" layout-align-gt-md="start">
+        layout-align="space-between">
+  <div id="channel"
+       layout="row"
+       layout-align="center"
+       layout-align-gt-md="start">
     <div class="links">
       {% for item in menu.secondary %}
       <div class="link">
-        <a href="{{item.url}}" target="{{item.target}}" class="{{item.meta.class}}"
+        <a href="{{item.url}}"
+           target="{{item.target}}"
+           class="{{item.meta.class}}"
          rel="parallax-anchor">{{ item.title }}</a>
       </div>
       {% endfor %}

@@ -1,4 +1,4 @@
-<header id="header" class="{{meta.background.class}}"
+<header id="header" class="{{meta.bg.class}}"
  layout="row" layout-align="space-between center">
   <div id="logo">
     <img ng-if="site_meta.logo" ng-src="{{site_meta.logo}}"

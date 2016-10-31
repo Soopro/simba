@@ -5,10 +5,12 @@
 <!-- Pages -->
 <div id="pages">
   <!-- Page -->
-  <section class="contact {{meta.background.class}}" sup-widget-bg
-   ng-model="meta.background">
-    <div layout-gt-sm="row" layout-sm="column" layout-align="center center"
-     style="{{meta.background.style}}">
+  <section class="contact {{meta.bg.class}}">
+    <div sup-widget-bg ng-model="meta.bg"></div>
+    <div layout-gt-sm="row"
+         layout-sm="column"
+         layout-align="center center"
+         style="{{meta.bg.style}}">
       <article flex-gt-sm="35">
         <header>
           <h2 default="{{_('Title')}}"

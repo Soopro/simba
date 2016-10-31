@@ -1,5 +1,5 @@
 {
-	"version":"3.5.3",
+	"version":"3.5.4",
   "slug":"simba",
   "author":"Redy",
   "license": "MIT",
@@ -19,8 +19,8 @@
   "templates": [
     "index",
     "page",
-    "feature_left",
-    "feature_right",
+    "feature-left",
+    "feature-right",
     "portfolio",
     "contact",
     "works",
