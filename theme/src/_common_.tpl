@@ -1,4 +1,4 @@
-<div svg-sprites-loader
+<div svg-sprites-render
  data-url="{{ site_meta.svg_sprites ||
               theme_url+'/styles/svg_sprites.svg' }}?{{theme_meta.version}}"
  data-name="base"></div>
