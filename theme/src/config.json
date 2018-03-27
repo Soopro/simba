@@ -1,5 +1,5 @@
 {
-	"version":"3.5.4",
+	"version":"3.6.0",
   "slug":"simba",
   "author":"Redy",
   "license": "MIT",
@@ -34,7 +34,7 @@
   "content_types":{
     "works": {"title": "Themes", "status": 0}
   },
-  "reserved_contents": {
+  "reserves": {
     "error-404": true
   },
 	"options":{
