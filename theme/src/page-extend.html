@@ -1,5 +1,6 @@
 {% if g and page %}
-<section class="section-detail {{page.bg.class or 'primary'}}"
+<section id="{{page.slug}}"
+         class="segment {{page.bg.class or 'bg-secondary'}}"
          data-image-src="{{page.bg.src or g.service_bg}}"
          data-parallax="scroll"
          data-position="center center">

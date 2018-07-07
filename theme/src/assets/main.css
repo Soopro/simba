@@ -215,14 +215,14 @@ section header .lead {
   font-size: 1rem;
   font-weight: 400;
 }
-.section-detail {
+
+.segment.bg-primary {
   color: #fff;
+  background-color: rgba(120, 144, 155, 0.7)!important;
 }
-.section-detail.primary {
-  background-color: rgba(77, 107, 87, 0.7)
-}
-.section-detail.accent {
-  background-color: rgba(120, 144, 155, 0.7)
+.segment.bg-secondary {
+  color: #fff;
+  background-color: rgba(77, 107, 87, 0.7)!important;
 }
 
 /* language */

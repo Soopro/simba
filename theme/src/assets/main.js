@@ -24,6 +24,13 @@
     toggleAffix(el, $(window), offset);
   });
 
+  $('.start-btn').each(function() {
+    var seg_id = $('.segment').attr('id');
+    if (seg_id) {
+      $(this).attr('href', '#'+seg_id);
+    }
+  });
+
   $('.navbar a, .page-scroll').bind('click', function(event) {
     event.preventDefault();
     var anchor = $(this);
@@ -40,7 +47,7 @@
       pos_top = 0
     }
     $('html, body').stop().animate({
-        scrollTop: pos_top - 50
+        scrollTop: pos_top - 60
     }, 1200, 'easeInOutExpo');
   });
 

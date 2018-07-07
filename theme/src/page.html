@@ -1,5 +1,6 @@
 {% if g and page %}
-<section>
+<section id="{{page.slug}}"
+         class="segment">
   <div class="container">
     <header>
       <h2>{{page.title or _('Title')}}</h2>
