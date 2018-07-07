@@ -13,10 +13,10 @@
     <div class="row">
       {% for item in page.series %}
       <div class="col-lg-3 col-md-6">
-        <div class="px-4">
+        <div class="px-4 series-item">
           <figure class="w-50 py-4">
             <img src="{{theme_url}}/assets/trans.png"
-                 class="rounded-circle thumbnail bg-primary"
+                 class="avatar"
                  style="{{item.src|bg_img}}"
                  alt="{{item.title}}" />
           </figure>
