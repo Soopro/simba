@@ -65,8 +65,8 @@ ol li {
   padding-left: 0;
 }
 
+.icon,
 .avatar,
-.iconset,
 .thumbnail {
   width: 100%;
   height: auto;
@@ -74,8 +74,8 @@ ol li {
   background-repeat: no-repeat;
   background-position: center center;
 }
-.avatar,
-.iconset {
+.icon,
+.avatar {
   border-radius: 50%;
 }
 
@@ -288,21 +288,22 @@ section header .lead {
 .series-item:hover {
   cursor: pointer;
 }
+.series-item .icon,
 .series-item .avatar,
-.series-item .iconset,
 .series-item .thumbnail {
-  transition: all 0.25s ease-in;
+  transition: all 0.25s ease-out;
 }
 
-.series-item .avatar,
-.series-item .iconset {
+.series-item .icon,
+.series-item .avatar {
   background-color: #bac5c8;
 }
 
-.series-item:hover .iconset {
+.series-item:hover .icon {
   background-color: #90ba90;
 }
 .series-item:hover .avatar {
+  transform: scale(1.05);
   filter: grayscale(100%);
   opacity: 0.6;
 }
