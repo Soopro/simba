@@ -1,0 +1,43 @@
+{
+	"version":"3.6.0",
+  "slug":"simba",
+  "author":"Redy",
+  "license": "MIT",
+	"title":"Soopro official theme",
+  "type": "ws",
+  "capability": 6,
+	"icon":"icon.png",
+  "poster":"poster.jpg",
+	"previews":[
+    "preview_1.jpg",
+    "preview_2.jpg",
+    "preview_3.jpg",
+    "preview_4.jpg"
+  ],
+	"description":"A simple brand website for Soopro official website.",
+
+  "templates": [
+    "index",
+    "page",
+    "feature-left",
+    "feature-right",
+    "portfolio",
+    "contact",
+    "works",
+    "error-404"
+  ],
+
+  "menus":{
+    "secondary": {"title": "Secondary Menu"}
+  },
+
+  "content_types":{
+    "works": {"title": "Themes", "status": 0}
+  },
+  "reserves": {
+    "error-404": true
+  },
+	"options":{
+		"perpage": 24
+	}
+}

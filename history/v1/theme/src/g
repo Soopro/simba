@@ -1,0 +1,15 @@
+{% set default_favicon = theme_url+'/styles/favicon.png' %}
+
+{% set default_img_360x360 = theme_url+'/styles/default_img_360x360.png' %}
+
+{% set robots = 'index, follow' if not meta.is_404 else 'noindex, nofollow' %}
+
+{% set ver = theme_meta.version %}
+{% set opts = theme_meta.options %}
+
+{% set paged = args.paged|int if args.paged and args.paged|int > 0 else 1 %}
+{% set perpage = opts.perpage|int if opts.perpage else 12 %}
+
+<!-- custom styles -->
+{% set custom_styles = '<style>'+theme_meta.styles+'</style>'
+   if theme_meta.styles else '' %}

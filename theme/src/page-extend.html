@@ -1,5 +1,8 @@
 {% if g and page %}
-<section>
+<section class="section-detail {{page.bg.class or 'primary'}}"
+         data-image-src="{{page.bg.src or g.service_bg}}"
+         data-parallax="scroll"
+         data-position="center center">
   <div class="container">
     <header>
       <h4>{{page.title or _('Title')}}</h4>

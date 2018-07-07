@@ -1,0 +1,74 @@
+{% import "g" as g with context %}
+<!DOCTYPE html>
+<html lang="{{lang}}"
+      modern-browser="http://libs.soopro.com/browser-detector/">
+{% include "_head_.html" %}
+<body id="screen"
+ svg-sprites-render
+ data-url="{{ site_meta.svg_sprites or
+              theme_url+'/styles/svg_sprites.svg' }}?{{g.ver}}"
+ data-name="base">
+  <div id="loader" layout="column" layout-align="center center">
+    <div>
+      <div class="circle">
+        <svg svg-sprite="base:ico-loading"></svg>
+      </div>
+      <span>{{_('Loading...')}}</span>
+    </div>
+  </div>
+  <!-- Header -->
+  {% include "_header_.html" %}
+  <!-- Controller -->
+  {% include "_controller_.html" %}
+  <!-- Pages -->
+  <div id="pages">
+    <!-- Cover -->
+    <section class="cover {{meta.bg.class}}" title="{{meta.title}}">
+      <div layout="column" layout-align="center center"
+       style="{{meta.bg.style}}">
+        <article class="text-center">
+          <header>
+            <h1>
+              {{meta.tagline}}
+              <div swapper>
+                {% for item in meta.swapper %}
+                  <b>{{item.text}}</b>
+                {% endfor %}
+              </div>
+            </h1>
+          </header>
+          <div class="actions">
+            {% if meta.login %}
+            <a href="{{meta.login.link | url}}"
+             target="{{meta.login.target}}">
+              {{meta.login.name}}
+            </a>
+            {% endif %}
+            {% if meta.register %}
+            <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+            <a href="{{meta.register.link | url}}"
+             target="{{meta.register.target}}">
+              {{meta.register.name}}
+            </a>
+            {% endif %}
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- Page -->
+    {% set pages = query('page', 0, 24, with_content=True).contents %}
+    {% for page in pages if page.template != meta.template %}
+      {% include page.template+'.html' ignore missing %}
+    {% endfor %}
+  </div>
+  <!-- Detail -->
+  {% include "_model_detail_.html" %}
+  <!-- Slider -->
+  {% include "_model_slider_.html" %}
+  <!-- Footer -->
+  {% include "_footer_.html" %}
+
+  <!-- Javascripts -->
+  {% include "_js_.html" %}
+</body>
+</html>

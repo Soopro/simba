@@ -1,0 +1,33 @@
+<head>
+<title>
+  {{ site_meta.title|striptags }} | {{ meta.title|striptags }}
+</title>
+<meta name="description"
+      content="{{(site_meta.description or meta.description)|striptags}}">
+<meta name="author"
+      content="{{meta.author|striptags}}">
+
+<!-- browser support -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="format-detection" content="telephone=yes">
+<meta name="renderer" content="webkit">
+<meta name="robots" content="{{'index, follow' if not meta.is_404 else
+                               'noindex, nofollow'}}">
+
+<!-- favicons -->
+<link sizes="144x144"
+      rel="apple-touch-icon-precomposed"
+      href="{{(site_meta.favicon or g.favicon)|thumbnail('favicon')}}">
+<link rel="shortcut icon"
+      href="{{(site_meta.favicon or g.favicon)|thumbnail('favicon')}}">
+
+{% include '_css.html' %}
+
+<!-- additional -->
+{{site_meta.head_metadata}}
+
+</head>

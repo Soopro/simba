@@ -1,74 +1,39 @@
-{% import "g" as g with context %}
+{% import 'g' as g with context %}
 <!DOCTYPE html>
-<html lang="{{lang}}"
-      modern-browser="http://libs.soopro.com/browser-detector/">
-{% include "_head_.html" %}
-<body id="screen"
- svg-sprites-render
- data-url="{{ site_meta.svg_sprites or
-              theme_url+'/styles/svg_sprites.svg' }}?{{g.ver}}"
- data-name="base">
-  <div id="loader" layout="column" layout-align="center center">
-    <div>
-      <div class="circle">
-        <svg svg-sprite="base:ico-loading"></svg>
-      </div>
-      <span>{{_('Loading...')}}</span>
-    </div>
-  </div>
-  <!-- Header -->
-  {% include "_header_.html" %}
-  <!-- Controller -->
-  {% include "_controller_.html" %}
-  <!-- Pages -->
-  <div id="pages">
-    <!-- Cover -->
-    <section class="cover {{meta.bg.class}}" title="{{meta.title}}">
-      <div layout="column" layout-align="center center"
-       style="{{meta.bg.style}}">
-        <article class="text-center">
-          <header>
-            <h1>
-              {{meta.tagline}}
-              <div swapper>
-                {% for item in meta.swapper %}
-                  <b>{{item.text}}</b>
-                {% endfor %}
-              </div>
-            </h1>
-          </header>
-          <div class="actions">
-            {% if meta.login %}
-            <a href="{{meta.login.link | url}}"
-             target="{{meta.login.target}}">
-              {{meta.login.name}}
-            </a>
-            {% endif %}
-            {% if meta.register %}
-            <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-            <a href="{{meta.register.link | url}}"
-             target="{{meta.register.target}}">
-              {{meta.register.name}}
-            </a>
-            {% endif %}
-          </div>
-        </article>
-      </div>
-    </section>
-    <!-- Page -->
-    {% set pages = query('page', 0, 24, with_content=True).contents %}
-    {% for page in pages if page.template != meta.template %}
-      {% include page.template+'.html' ignore missing %}
-    {% endfor %}
-  </div>
-  <!-- Detail -->
-  {% include "_model_detail_.html" %}
-  <!-- Slider -->
-  {% include "_model_slider_.html" %}
-  <!-- Footer -->
-  {% include "_footer_.html" %}
+<html lang="{{lang}}">
+{% include '_head.html' %}
+<body>
 
-  <!-- Javascripts -->
-  {% include "_js_.html" %}
+{% include '_header.html' %}
+
+<section id="{{meta.slug}}"
+         class="d-flex align-items-center justify-content-center
+                hero parallax {{meta.hero.class}}"
+         data-image-src="{{meta.hero.src or g.hero}}"
+         data-parallax="scroll">
+  <div>
+    <h1>{{meta.title or _('Title')}}</h1>
+    <h3 class="lead">
+      {{meta.description or _('Description text here')}}
+    </h3>
+    <a class="start-btn anim-fade-in-out"
+       href="#">
+      <svg width="48" heigth="48" viewBox="0 0 48 48"><path d="M14,24A10,10,0,1,1,24,34,10.0036,10.0036,0,0,1,14,24Zm10,6a6,6,0,1,0-6-6A6.0048,6.0048,0,0,0,24,30Z"/><path d="M19.41,40,24,44.58,28.59,40,30,41.41l-6,6-6-6Z"/></svg>
+    </a>
+  </div>
+</section>
+
+{% for page in segments() %}
+  {% include page.template+'.html' ignore missing %}
+{% endfor %}
+
+{% include '_footer.html' %}
+
+<!-- js -->
+<script src="{{theme_url}}/assets/jquery.min.js"></script>
+<script src="{{theme_url}}/assets/parallax.min.js"></script>
+<script src="{{theme_url}}/assets/bootstrap.min.js"></script>
+<script src="{{theme_url}}/assets/main.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,35 @@
+{% if g and page %}
+<section id="{{page.slug}}">
+  <div class="container">
+    <header>
+      <h2>{{page.title or _('Title')}}</h2>
+      <h4 class="lead">{{page.description}}</h4>
+    </header>
+    <div class="row">
+      {% for item in page.series %}
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="px-4">
+          <figure class="w-50 py-4 m-auto">
+            <img src="{{theme_url}}/assets/trans.png"
+                 class="rounded-circle thumbnail bg-primary"
+                 style="{{item.src|bg_img}}"
+                 alt="{{item.title}}" />
+          </figure>
+          <h5 class="text-nowrap title">
+            {{item.title or '&nbsp;'}}
+          </h5>
+          <p class="text-nowrap subtitle">
+            {{item.subtitle or '&nbsp;'}}
+          </p>
+          <p class="text-clamp-3">
+            {{item.caption}}
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% elif not meta.is_front %}
+<script>window.location.replace('{{base_url}}/#{{meta.slug}}');</script>
+{% endif %}

@@ -1,0 +1,28 @@
+{% if g and page %}
+<section class="portfolio {{page.bg.class}}"
+ parallax-anchor="{{page.slug}}" title="{{page.title}}">
+  <div layout="column" layout-align="center center"
+   style="{{page.bg.style}}">
+    <header>
+      <h2>{{page.title}}</h2>
+    </header>
+    <div class="portfolio-inner">
+      {% set portfolio = query('works', 0, 12) %}
+      {% for works in portfolio.contents %}
+      <figure class="btn open-slider">
+        <img src="{{works.featured_img.src | thumbnail}}"
+         title="{{works.featured_img.title}}" />
+        <div rel="slides" title="{{works.title}}">
+          {% for item in works.gallery %}
+          <img data-src="{{item.src}}" title="{{item.title}}" />
+          {% endfor %}
+        </div>
+      </figure>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+{% else %}
+  <script>window.location.replace('{{base_url}}/#/{{meta.slug}}');</script>
+{% endif %}

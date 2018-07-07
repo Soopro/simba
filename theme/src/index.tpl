@@ -1,40 +1,69 @@
-{% include "_common_.tpl" %}
-<!-- Header -->
-{% include "_header_.tpl" %}
-<!-- Pages -->
-<div id="pages">
-  <!-- Cover -->
-  <section class="cover {{meta.bg.class}}">
-    <div sup-widget-bg ng-model="meta.bg"></div>
-    <div layout="column"
-         layout-align="center center"
-         style="{{meta.bg.style}}">
-      <article class="text-center">
-        <header>
-          <h1>
-            <div sup-widget-text
-                 default="{{_('Tagline')}}"
-                 ng-model="meta.tagline"></div>
-            <div class="swapper"
-                 sup-widget-lines
-                 default="{{[_('Swap Text')]}}"
-                 ng-model="meta.swapper">
-               <b ng-repeat="item in meta.swapper">
-                 {{item.text}}
-               </b>
-            </div>
-          </h1>
-        </header>
-        <div class="actions">
-          <a href="#" sup-widget-button ng-model="meta.login">
-            {{meta.login.name || _('Button Text') }}
-          </a>
-          <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-          <a href="#" sup-widget-button ng-model="meta.register">
-            {{meta.register.name || _('Button Text') }}
-          </a>
-        </div>
-      </article>
+{% import 'g.tpl' %}
+{% include '_css.tpl' %}
+
+{% include '_header.tpl' %}
+
+<section id="{{meta.slug}}"
+         class="hero {{meta.hero.class}}"
+         style="{{meta.hero.style}}">
+  <div sup-widget-bg ng-model="meta.hero"></div>
+  <div class="header-content">
+    <div class="header-content-inner">
+      <div class="logo"
+           style="{{site_meta.logo|bg_img}}"
+           ng-if="site_meta.logo"></div>
+      <h1>
+        <span sup-widget-text
+              default="{{_('Title')}}"
+              ng-model="meta.title"></span>
+      </h1>
+      <hr class="divider">
+      <p class="lead">
+        <span sup-widget-text
+              default="{{_('Description text here')}}"
+              ng-model="meta.description"></span>
+      </p>
+      <a href="#"
+         class="btn btn-primary btn-xl"
+         sup-widget-link
+         ng-model="meta.entrance">
+         {{meta.entrance.name || _('Learn More')}}</a>
+    </div>
+  </div>
+</section>
+
+<div sup-widget-segments ng-model="segments">
+  <div ng-repeat="page in segments">
+  	<!-- segments -->
+    <div ng-if="page.template == 'page'"
+         sup-ico-inset="top"
+         segment>
+      {% include "_seg/_page.tpl" %}
+    </div>
+    <div ng-if="page.template == 'portfolio'"
+         sup-ico-inset="top"
+         segment>
+      {% include "_seg/_portfolio.tpl" %}
+    </div>
+    <div ng-if="page.template == 'features'"
+         sup-ico-inset="top"
+         segment>
+      {% include "_seg/_features.tpl" %}
+    </div>
+    <div ng-if="page.template == 'services'"
+         sup-ico-inset="top"
+         segment>
+      {% include "_seg/_services.tpl" %}
+    </div>
+  	<!-- #segments -->
+  </div>
+
+  <section class="segment-wrapper">
+    <div class="container">
+      <div segment-create="major"></div>
     </div>
   </section>
+
 </div>
+
+{% include '_footer.tpl' %}
