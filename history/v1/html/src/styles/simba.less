@@ -1,0 +1,807 @@
+/* -----------------------------------------------
+Simba Styles
+Description: A Theme for soopro.com
+http://www.soopro.com
+
+Author:   redy
+Date:     3 July 2015
+Version: 2.5
+----------------------------------------------- */
+
+@import "_variables_.less";
+@import "_mixins_.less";
+@import "_layout_.less";
+
+/* Genearl
+/* ----------------------------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  .select(none);
+}
+
+html,
+body {
+  position: relative;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+  background: @view-bg-color;
+  overflow: hidden;
+}
+
+#wrapper {
+	position: relative;
+}
+
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+a {
+  &,
+  &:link,
+  &:visited {
+    .transition(all @duration/3 ease-in-out);
+    color: @primary-color;
+    text-decoration: underline;
+  }
+  &:hover {
+    color: @gray-color;
+    text-decoration: none;
+  }
+  .darkBtn();
+}
+
+button {
+  .transition(all @duration/3 ease-in-out);
+  background: none;
+  border: none;
+  outline: 0;
+  color: @dark-color;
+  & svg {
+    .transition(all @duration/3 ease-in-out);
+    fill: @dark-color;
+  }
+  &:hover {
+    color: @primary-color;
+    & svg {
+      fill: @primary-color;
+    }
+  }
+  .darkBtn();
+}
+
+svg {
+  width: 24px;
+  height: 24px;
+}
+
+[class^="ico-"],
+[class*=" ico-"],
+.ico, [ico], {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.show {
+  opacity: 1 !important;
+}
+.hide {
+  opacity: 0 !important;
+  &,
+  & * {
+    pointer-events: none !important;
+  }
+}
+
+img {
+  pointer-events: none !important;
+}
+
+figure {
+  margin: 0;
+  overflow: hidden;
+  text-align: center;
+  & img {
+    max-width: 100%;
+  }
+  .transform(translate3d(0, 0, 0));
+}
+
+.unselectable {
+  .select(none);
+}
+
+.no-transition{
+  .transition(none) !important;
+}
+
+[rel='detail'] {
+  display: none;
+}
+
+[class^="btn-"],
+[class*=" btn-"],
+.btn {
+  cursor: pointer;
+}
+.btn-primary {
+  &,
+  &:link,
+  &:visited {
+    color: @primary-color !important;
+    text-decoration: none !important;
+    & svg {
+      fill: @dark-color;
+    }
+  }
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.no-overflow {
+  overflow: hidden;
+}
+
+
+/* Typography
+/* ----------------------------------------------- */
+body,h1,h2,h3,h4,h5,h6,p,label{
+  font-family: RobotoDraft, Roboto, "Helvetica Neue", Helvetica,
+               Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  color: @dark-color;
+  // font-smoothing: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 0.6em;
+  text-transform: uppercase;
+  font-size: 6vw;
+  font-weight: 200;
+  line-height: 1.1em;
+  @media (max-width: @screen-phone) {
+    font-size: 32px;
+  }
+}
+h2 {
+  margin-top: 0;
+  margin-bottom: 0.6em;
+  font-size: 4.3vw;
+  font-weight: 200;
+  @media (max-width: @screen-tablet) {
+    font-size: 4.5vw;
+  }
+  @media (max-width: @screen-phone) {
+    font-size: 28px;
+  }
+}
+h3 {
+  margin-top: 0;
+  margin-bottom: 0.6em;
+  font-size: 24px;
+  font-weight: 400;
+  @media (max-width: @screen-tablet) {
+    font-size: 20px;
+  }
+}
+h4 {
+  margin-top: 0;
+  margin-bottom: 0.6em;
+  font-size: 18px;
+  font-weight: 400;
+  @media (max-width: @screen-tablet) {
+    font-size: 14px;
+  }
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.4em;
+  margin: 16px 0;
+  & * {
+    vertical-align: middle;
+  }
+  @media (max-width: @screen-tablet) {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+}
+
+article {
+  & h4 {
+    color: @primary-color;
+    & span {
+      color: @gray-color;
+    }
+  }
+}
+
+.hl {
+  color: #8b0;
+}
+
+.bullet:before {
+  content: "\2022";
+  color: #8b0;
+  padding: 0 5px;
+}
+
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+/* Blocks
+/* ----------------------------------------------- */
+@base-transition: all @duration/2 ease-out;
+
+/* Header */
+#header {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  min-height: 50px;
+  padding: 32px;
+  @media (max-width: @screen-tablet) {
+    padding: 16px;
+  }
+}
+
+/* Footer */
+#footer {
+  .transition(@base-transition);
+  position: absolute;
+  z-index: 9;
+  bottom: 0;
+  width: 100%;
+  min-height: 50px;
+  padding: 32px;
+  @media (max-width: @screen-tablet) {
+    padding: 16px;
+  }
+}
+
+// body {
+//   .perspective3d(1200px);
+// }
+
+/* Pages */
+#pages {
+  .transition(@base-transition);
+  
+  &.zoom {
+    & * {
+      .select(none);
+    }
+    .transform(scale(0.4, 0.4));
+    // .transform(translate3d(0, 0, -2500px));
+    // use translate3d will cause text blurry (bad as unreadable)
+    // so use scale may bit slow but text is clean to read. 
+    // sometime scale will show string line brink on chrome, just change size of scale will fix.
+    &.out{
+      .transform(scale(0.2));
+      // .transform(translate3d(0, 0, -4500px));
+      // no text readable needed, feel free use translate3d, but looks slow than scale.
+      &.out > section > div > * {
+        display: none;
+      }
+    }
+    
+    & > section {
+      padding: 10px;
+      & > div {
+        .md-shadow();
+      }
+      &:hover {
+        cursor: pointer;
+      }
+      & * {
+        pointer-events: none;
+      }
+    }
+  }
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 90;
+  
+  & > section {
+    &[disabled]{
+      display: none;
+    }
+    &:not([disabled]){
+      .transition(@base-transition);
+    }
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    
+    & > div {
+      .transition(@base-transition);
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      padding: 32px;
+      background-color: lighten(@view-bg-color, 50%);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      & img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      @media (max-width: @screen-tablet) {
+        padding: 32px 16px;
+      }
+      @media (max-width: @screen-phone) {
+        padding: 32px 16px;
+        & > figure {
+          height: 40%;
+          text-align: center;
+        }
+      }
+    }
+    
+    &.dark,
+    &[dark] {
+      & svg {
+        fill: @light-color !important;
+      }
+      & *:not(label) {
+        color: @light-color;
+      }
+      & > div {
+        background-color: @dark-color;
+      }
+    }
+    
+    & > label {
+      position: absolute;
+      display: block;
+      bottom: -96px;
+      width: 100%;
+      font-weight: 600;
+      font-size: 48px;
+      text-align: center;
+      color: @dark-color;
+    }
+    & article {
+      padding: 8px;
+      @media (max-width: @screen-phone) {
+        text-align: center !important;
+      }
+    }
+  }
+}
+
+#controller {
+  .transition(@base-transition);
+  
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 990;
+  padding: 32px;
+  pointer-events: none;
+  
+  & > button {
+    .svgWrap(48px, 48px);
+    width: 48px;
+    height: 48px;
+    @media (max-width: @screen-tablet) {
+      .svgWrap(36px, 36px);
+      width: 36px;
+      height: 36px;
+    }
+  }
+  
+  @media (max-width: @screen-tablet) {
+    padding: 16px;
+    padding-top: 32px;
+  }
+}
+
+/* Detail */
+#detail {
+  .transition(@base-transition);
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow: hidden;
+  padding: 32px;
+  min-height: 480px;
+  background-color: @view-bg-color;
+  img {
+    max-width: 100%;
+  }
+  &.dark {
+    color: @light-color;
+    background-color: @dark-color;
+    & h2,
+    & h3 {
+      color: @light-color;
+    }
+  }
+  &:not(.open) {
+    .transform(translateY(100%));
+  }
+}
+
+#slider {
+  .transition(@base-transition);
+  position: absolute;
+  z-index: 95;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow: hidden;
+  padding: 32px;
+  text-align: center;
+  background-color: @view-bg-color;
+  
+  @media (max-width: @screen-tablet) {
+    padding: 16px;
+    padding-top: 32px;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  &.dark {
+    color: @light-color;
+    background-color: @dark-color;
+    & * {
+      color: @light-color;
+    }
+  }
+  &:not(.open) {
+    .transform(translateY(100%));
+    & .slides img {
+      // hide image for for better performance.
+      display: none;
+    }
+  }
+  
+  & > button {
+    .svgWrap(48px, 48px);
+    width: 48px;
+    height: 48px;
+    @media (max-width: @screen-tablet) {
+      .svgWrap(36px, 36px);
+      width: 36px;
+      height: 36px;
+    }
+  }
+  
+  & > div {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  & header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 32px;
+    & .title {
+      padding: 8px;
+    }
+    @media (max-width: @screen-tablet) {
+      padding: 16px;
+    }
+  }
+  & .slides {
+    font-size: 0;
+    .md-shadow();
+    & > * {
+      display: none;
+      opacity: 0;
+    }
+    & > .current {
+      .keyframes(
+        @name: slideFade;
+        @frames: {
+          0%   {opacity: 0;}
+          100% {opacity: 1;}
+        }
+      );
+      .animixin(slideFade @duration/2 ease-in-out);
+      display: initial;
+      opacity: 1;
+    }
+  }
+}
+
+/* Elements
+/* ----------------------------------------------- */
+
+/* Logo */
+#logo {
+  .svgWrap(120px, 50px);
+  font-size: 0;
+  & svg {
+    fill: @primary-color;
+  }
+  .dark & svg {
+    fill: @light-color;
+  }
+  & svg {
+    .transition(all @duration/3 ease-in-out);
+  }
+  @media (max-width: @screen-tablet) {
+    .svgWrap(120px*0.8, 50px*0.8);
+  }
+}
+
+/* Menu */
+#menu {
+  .svgWrap(32px, 32px);
+  width: 48px;
+  height: 48px;
+  @media (max-width: @screen-tablet) {
+    .svgWrap(24px, 24px);
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Copyright */
+#copyright {
+  text-align: right;
+  font-size: 12px;
+  font-weight: 400;
+  &.dark{
+    color: @light-color;
+  }
+}
+
+#channel {
+  font-size: 12px;
+  font-weight: 400;
+  & .links{
+    display: inline-block;
+    & .link {
+      display: inline;
+      &:not(:last-child):after{
+        content: "/";
+        color: @primary-color;
+        padding: 0 5px 0 10px;
+      }
+      & a,
+      & a:link,
+      & a:visited {
+        color: @dark-color;
+        text-decoration: none;
+      }
+      & a:hover {
+        text-decoration: underline;
+        color: @primary-color;
+      }
+    }
+  }
+  .languages {
+    display: inline-block;
+    font-size: 12px;
+    text-align: center;
+    padding-left: 16px;
+    & > a{
+      &:extend(.bullet all);
+      padding-right: 10px;
+      text-decoration: none;
+      &:hover {
+        color: @gray-color;
+      }
+    }
+    & .active {
+      color: #999;
+      pointer-events: none;
+    }
+  }
+}
+
+.info {
+  padding-top: 32px;
+  @media (max-width: @screen-tablet) {
+    padding-top: 0;
+  }
+  font-size: 14px;
+  .ico {
+    margin-right: 5px;
+  }
+  & a,
+  & a:link,
+  & a:visited {
+    text-decoration: none;
+  }
+}
+
+.goback {
+  padding: 16px 0 32px 0;
+  & a {
+    font-weight: 600;
+    text-decoration: none;
+  }
+}
+
+#swapper {
+  display: block;
+  .keyframes(
+    @name: slideFade;
+    @frames: {
+      0%   {opacity: 0;}
+      100% {opacity: 1;}
+    }
+  );
+  & * {
+    display: none;
+    opacity: 0;
+  }
+  & *:first-child {
+    display: initial;
+    opacity: 1;
+    .animixin(slideFade @duration ease-in-out);
+  }
+}
+
+#loader {
+  .keyframes(
+    @name: Spin;
+    @frames: {
+      100% {.transform(rotate(360deg));}
+    }
+  );
+  
+  .transition(all @duration/3 ease-in-out);
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background: @dark-color;
+  
+  .circle {
+    .svgWrap(48px, 48px);
+    & svg {
+      .animixin(Spin @duration linear infinite);
+      fill: @light-color;
+    }
+    padding: 8px;
+  }
+  
+  span, 
+  .text {
+    font-weight: 600;
+    color: @light-color;
+  }
+}
+
+/* Sections
+/* ----------------------------------------------- */
+.page {
+  &.dark > div {
+    background-color: @dark-color;
+  }
+}
+.cover {
+  &.dark > div {
+    background-color: @dark-color;
+  }
+  & > div {
+    & .actions {
+      padding-bottom: 10px;
+      font-weight: 600;
+      & a {
+        font-weight: 600;
+        text-decoration: none !important;
+      }
+    }
+  }
+} 
+
+.gallery {
+  &.dark > div {
+    background-color: @dark-color;
+  }
+  & > div {
+    & header {
+      & h2,
+      & h3,
+      & h4 {
+        margin-bottom: 0;
+      }
+    }
+  
+    & .gallery-inner {
+      width: 80%;
+      padding: 16px;
+      max-height: 100%;
+    
+      & > figure {
+        font-size: 0;
+        & [rel='slides'] {
+          display: none;
+        }
+        & img {
+          .transform(none);
+        }
+        float: left;
+        width: 16.6%;
+        padding: 2px;
+        margin: 0;
+        border: 0;
+      
+        // @media (max-width: @screen-phone-v) {
+        //
+        // }
+        @media (max-width: @screen-phone-v) and 
+        (min-height: @screen-phone-v-max) {
+          width: 33.33%;
+        }
+
+        // &:nth-child(6) ~ figure {
+        //   display: none;
+        // }
+        //
+        // @media (min-width: @screen-tablet-max) {
+        //   width: 25%;
+        //   &:nth-child(1) ~ figure {
+        //     display: block;
+        //   }
+        //   &:nth-child(8) ~ figure {
+        //     display: none;
+        //   }
+        // }
+        // @media (min-width: @screen-desktop-max) {
+        //   width: 16.66%;
+        //   &:nth-child(1) ~ figure {
+        //     display: block;
+        //   }
+        // }
+      }
+      &:extend(.clearfix all);
+    }
+  }
+}
+
+.contact {
+  &.dark > div {
+    background-color: @dark-color;
+  }
+  & > div {
+    & aside {
+      overflow: hidden;
+      @media (max-width: @screen-phone) and (max-height: @screen-phone){
+        display: none;
+      }
+    }
+  }
+}
+
+
+.error-404 {
+  & #logo {
+    padding-bottom: 32px;
+  }
+}

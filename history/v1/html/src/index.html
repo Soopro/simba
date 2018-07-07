@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" modern-browser>
+{% include "_g_head_.html" %}
+<body id="screen">
+  <div id="loader" layout="column" layout-align="center center">
+    <div>
+      <div class="circle">
+        <svg svg-sprite="base:ico-loading"></svg>
+      </div>
+      <span>Loading...</span>
+    </div>
+  </div>
+  <!-- Header -->
+  {% include "_g_header_.html" %}
+  <!-- Controller -->
+  {% include "_g_controller_.html" %}
+  <!-- Pages -->
+  <div id="pages">
+    <!-- Cover -->
+    <section class="cover" title="Home" dark>
+      <div layout="column" layout-align="center center">
+        <article class="text-center">
+          <header>
+            <h1>
+              This is a<br>Content Service Cloud,<br>you can create
+              <div id="swapper">
+                <b>Websites.</b>
+                <b>WeChat Buzz.</b>
+                <b>Web Apps.</b>
+              </div>
+            </h1>
+          </header>
+          <div class="actions">
+            <a href="#" target="_blank">Login</a>
+            <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+            <a href="#" target="_blank">Free Register</a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- Page -->
+    <section class="page" parallax-anchor='website' title="Website">
+      <div layout-gt-sm="row" layout-sm="column" layout-align="center center">
+        <figure flex="40">
+          <img src="styles/feature_website.jpg" alt="Website" />
+        </figure>
+        <article flex="40">
+          <header>
+            <h2>Responsive design for Website</h2>
+          </header>
+          <p>
+            Aenean commodo ligula eget dolor. Aenean massa.
+            Cum sociis natoque penatibus et.
+          </p>
+        </article>
+      </div>
+    </section>
+    <!-- Page -->
+    <section class="page" parallax-anchor='wechat' title="Wechat">
+      <div layout-gt-sm="row" layout-sm="column" layout-align="center center">
+        <figure flex="40" flex-order-gt-sm="2">
+          <img src="styles/feature_wechat.jpg" alt="WebChat" />
+        </figure>
+        <article flex="40" class="text-right">
+          <header>
+            <h2>Social promotion on WeChat</h2>
+          </header>
+          <p>
+            Aenean commodo ligula eget dolor. Aenean massa.
+            Cum sociis natoque penatibus et magnis dis parturient montes, 
+            nascetur ridiculus mus.
+          </p>
+        </article>
+      </div>
+    </section>
+    <!-- Page -->
+    <section class="page" parallax-anchor='member' title="Membership">
+      <div layout-gt-sm="row" layout-sm="column" layout-align="center center">
+        <figure flex="40">
+          <img src="styles/feature_membership.jpg" alt="Membership" />
+        </figure>
+        <article flex="40">
+          <header>
+            <h2>Better customer relationship</h2>
+          </header>
+          <h4>
+            Activities <span>+</span> Broadcasting <span>+</span> Newsletters
+          </h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+            Aenean commodo ligula eget dolor. Aenean massa.
+          </p>
+        </article>
+      </div>
+    </section>
+    <!-- Gallery -->
+    <section class="gallery" parallax-anchor='themes' title="Themes" dark>
+      <div layout="column" layout-align="center center">
+        <header>
+          <h2>Themes</h2>
+        </header>
+        <div class="gallery-inner">
+          <figure duplicate="12" class="btn open-slider">
+            <img src="uploads/bird.jpg" title="Bird" />
+            <div rel="slides" title="Bird">
+              <img src="uploads/car2.jpg" title="Car" />
+              <img src="uploads/bird.jpg" title="Car" />
+              <img src="uploads/clothes.jpg" title="Car" />
+              <img src="uploads/flower.jpg" title="Car" />
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <!-- Contact -->
+    <section class="contact" parallax-anchor='contact' title="Contact" dark>
+      <div layout-gt-sm="row" layout-sm="column" layout-align="center center">
+        <article flex="35">
+          <header>
+            <h2>Contact</h2>
+          </header>
+          <p>
+            Aenean commodo ligula eget dolor. Aenean massa.
+            Cum sociis natoque penatibus et magnis dis parturient montes, 
+            nascetur ridiculus mus.
+          </p>
+          <div class="info">
+            <p>
+              <i class="ico">
+                <svg svg-sprite="base:ico-email"></svg>
+              </i>
+              <a href="#" class="btn-primary">Support@Soopro.com</a>
+            </p>
+            <p>
+              <i class="ico">
+                <svg svg-sprite="base:ico-qq"></svg>
+              </i>
+              <a href="qq:2069879008" class="btn-primary">2069879008</a>
+            </p>
+          </div>
+        </article>
+        <aside flex="35" class="text-center no-overflow">
+          <img src="styles/qr.png" title="qr" class="qr"/>
+        </aside>
+      </div>
+    </section>
+  </div>
+  <!-- Detail -->
+  {% include "_g_model_detail_.html" %}
+  <!-- Slider -->
+  {% include "_g_model_slider_.html" %}
+  <!-- Footer -->
+  {% include "_g_footer_.html" %}
+  <!-- Javascripts -->
+  {% include "_g_js_.html" %}
+</body>
+</html>
