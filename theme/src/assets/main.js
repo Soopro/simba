@@ -14,9 +14,8 @@
   };
 
   $('[data-toggle="affix"]').each(function() {
-    var el = $(this)
-    var offset = el.attr('offset') || $(window).height() / 2;
-
+    var el = $(this);
+    var offset = el.attr('offset') || 100;
     $(window).on('scroll resize', function() {
         toggleAffix(el, $(this), offset);
     });
@@ -25,28 +24,29 @@
     toggleAffix(el, $(window), offset);
   });
 
+  $('.navbar a, .page-scroll').bind('click', function(event) {
+    event.preventDefault();
+    var anchor = $(this);
+    var scorll_target;
+    try {
+        scorll_target = $(anchor.attr('href'));
+    } catch (e) {
+        scorll_target = []
+    }
+    var pos_top = 0;
+    if (scorll_target.length > 0){
+      pos_top = scorll_target.offset().top
+    } else {
+      pos_top = 0
+    }
+    $('html, body').stop().animate({
+        scrollTop: pos_top - 50
+    }, 1200, 'easeInOutExpo');
+  });
 
-    // jQuery for page scrolling feature - requires jQuery Easing plugin
-    $('a.page-scroll').bind('click', function(event) {
-        var anchor = $(this);
-        try {
-            var scorll_target = $(anchor.attr('href'));
-        } catch (e) {
-            return true;
-        }
-        var pos_top = 0;
-        if (scorll_target.length > 0){
-          pos_top = scorll_target.offset().top
-        }
-        $('html, body').stop().animate({
-            scrollTop: pos_top - 50
-        }, 1250, 'easeInOut');
-        event.preventDefault();
-    });
-
-    // Closes the Responsive Menu on Menu Item Click
-    $('.navbar-collapse ul li a').click(function() {
-        $('.navbar-toggle:visible').click();
-    });
+  // Closes the Responsive Menu on Menu Item Click
+  $('.navbar-collapse ul li a').click(function() {
+    $('.navbar-toggle:visible').click();
+  });
 
 })(jQuery); // End of use strict
