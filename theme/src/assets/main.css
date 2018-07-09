@@ -285,11 +285,17 @@ section header .lead {
 }
 
 /* active items */
+.active-item {
+  display: block;
+  border-radius: 2px;
+  transition: all 0.25s ease-in-out;
+}
 .active-item:hover {
   cursor: pointer;
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25),
+  box-shadow: 6px 6px 12px 2px rgba(0,0,0,0.25);
+/*  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25),
               0px 0px 1px 0px rgba(0, 0, 0, 0.16),
-              0px 1px 0px -1px rgba(0, 0, 0, 0.14);
+              0px 1px 0px -1px rgba(0, 0, 0, 0.14);*/
 }
 .active-item .icon,
 .active-item .avatar,
