@@ -8,7 +8,9 @@
     <div class="row">
       {% for item in page.series %}
       <div class="col-lg-3 col-md-6 text-center">
-        <a class="p-3 active-item">
+        <div class="p-3 active-item open-modal-detail"
+             data-mfp-src="#MODAL-{{page.slug}}"
+             data-effect="mfp-move-horizontal mfp-fullscreen">
           <figure class="w-50 py-4 m-auto">
             <img src="{{theme_url}}/assets/trans.png"
                  class="icon"
@@ -24,12 +26,21 @@
           <p class="text-clamp-3">
             {{item.caption}}
           </p>
-        </a>
+        </div>
       </div>
       {% endfor %}
     </div>
   </div>
 </section>
+
+<div id="MODAL-{{page.slug}}"
+     class="mfp-hide mfp-with-anim modal-paper">
+  <h3 class="headline">{{_('Language')}}</h3>
+  <div class="py-2">
+    <article>
+    </article>
+  </div>
+</div>
 {% elif not meta.is_front %}
 <script>window.location.replace('{{base_url}}/#{{meta.slug}}');</script>
 {% endif %}

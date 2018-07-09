@@ -1,6 +1,29 @@
 (function($) {
   "use strict";
 
+  $('.open-modal').magnificPopup({
+    type: 'inline',
+    showCloseBtn: false,
+    preloader: false,
+    removalDelay: 600,
+    callbacks: {
+      beforeOpen: function() {
+        this.st.mainClass = this.st.el.attr('data-effect');
+      }
+    },
+  });
+
+  $('.open-modal-detail').magnificPopup({
+    tLoading: '...',
+    type: 'inline',
+    removalDelay: 600,
+    callbacks: {
+      beforeOpen: function() {
+        this.st.mainClass = this.st.el.attr('data-effect');
+      }
+    },
+  });
+
   var toggleAffix = function(affixElement, scrollElement, offset) {
 
     var height = affixElement.outerHeight();
@@ -19,7 +42,6 @@
     $(window).on('scroll resize', function() {
         toggleAffix(el, $(this), offset);
     });
-
     // init
     toggleAffix(el, $(window), offset);
   });
@@ -31,8 +53,8 @@
     }
   });
 
-  $('.navbar a, .page-scroll').bind('click', function(event) {
-    event.preventDefault();
+  $('.nav-link, .nav-scroll').bind('click', function(e) {
+    e.preventDefault();
     var anchor = $(this);
     var scorll_target;
     try {
@@ -50,6 +72,7 @@
         scrollTop: pos_top - 60
     }, 1200, 'easeInOutExpo');
   });
+
 
   // Closes the Responsive Menu on Menu Item Click
   $('.navbar-collapse ul li a').click(function() {
