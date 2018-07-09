@@ -103,8 +103,8 @@ ol li {
   display: inline-block;
   color: #78909b;
   background: none;
-  outline: 0!important;
-  border: 0!important;
+  outline: 0 !important;
+  border: 0 !important;
   padding: 0 !important;
 }
 
@@ -160,10 +160,16 @@ ol li {
 /* nav */
 .navbar {
   transition: all 0.15s ease-in-out;
+  background-color: transparent;
 }
 .navbar.affix {
   background-color: rgba(255, 255, 255, 0.95);
 }
+
+@media(min-width:768px) {
+
+}
+
 .navbar .logo {
   width: 80px;
   height: 40px;
@@ -175,8 +181,11 @@ ol li {
   vertical-align: middle;
 }
 .navbar .navbar-toggler {
+  outline: 0 !important;
+}
+.navbar .navbar-toggler:active,
+.navbar .navbar-toggler:focus {
   outline: 0;
-  color: #78909b;
 }
 .navbar .navbar-toggler:hover {
   color: #50ae54;

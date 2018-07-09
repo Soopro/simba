@@ -38,7 +38,7 @@
 
   $('[data-toggle="affix"]').each(function() {
     var el = $(this);
-    var offset = el.attr('offset') || 100;
+    var offset = el.attr('offset') || 60;
     $(window).on('scroll resize', function() {
         toggleAffix(el, $(this), offset);
     });
@@ -71,12 +71,9 @@
     $('html, body').stop().animate({
         scrollTop: pos_top - 60
     }, 1200, 'easeInOutExpo');
+
+    // closes the responsive menu after clicked.
+    $('.navbar-collapse').collapse('hide');
   });
 
-
-  // Closes the Responsive Menu on Menu Item Click
-  $('.navbar-collapse ul li a').click(function() {
-    $('.navbar-toggle:visible').click();
-  });
-
-})(jQuery); // End of use strict
+})(jQuery);
