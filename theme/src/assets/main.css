@@ -434,11 +434,18 @@ section header .lead {
 .modal-paper {
   background: #fff;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   padding: 0;
 }
 
-.modal-paper .modal-paper-inner {
+.modal-paper .modal-paper-body {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.modal-paper .modal-paper-content {
   padding: 24px;
   padding-top: 48px;
 }
@@ -447,7 +454,6 @@ section header .lead {
 
 }
 
-
 .modal-paper .modal-close {
   position: fixed;
   color: #333;
@@ -455,12 +461,14 @@ section header .lead {
   left: 6px;
   width: 48px;
   height: 48px;
+  z-index: 999;
   padding: 12px !important;
 }
 
 
 /* MFP Animation
 /* ----------------------------------------------- */
+
 .mfp-fullscreen .mfp-container {
   padding: 0;
   margin: 0;

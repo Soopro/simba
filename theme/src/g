@@ -1,8 +1,8 @@
 {% set opts = theme_meta.options %}
 
-{% set favicon = theme_url+"/styles/favicon.png" %}
-{% set add_img = theme_url+"/styles/add.png" %}
+{% set favicon = theme_url+"/assets/favicon.png" %}
+{% set add_img = theme_url+"/assets/add.png" %}
 
-{% set default_img = theme_url+"/styles/default.jpg" %}
+{% set default_img = theme_url+"/assets/default.jpg" %}
 {% set hero = theme_url+"/assets/background.jpg" %}
 {% set service_bg = theme_url+"/assets/bg_services.jpg" %}
