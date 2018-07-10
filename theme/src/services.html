@@ -15,7 +15,7 @@
           <figure class="w-50 py-4 m-auto">
             <img class="icon"
                  src="{{theme_url}}/assets/trans.png"
-                 style="{{item.icon.src|bg_img}}"
+                 style="{{item.featured_img.src|bg_img}}"
                  alt="{{item.title}}" />
           </figure>
           <h5 class="text-nowrap title">
@@ -25,7 +25,7 @@
             {{item.subtitle or '&nbsp;'}}
           </p>
           <p class="text-clamp-3">
-            {{item.caption}}
+            {{item.description}}
           </p>
         </div>
       </div>
@@ -43,14 +43,14 @@
                   <figure class="mw-sm">
                     <img class="thumbnail bg-secondary"
                          src="{{theme_url}}/assets/trans.png"
-                         style="{{item.icon.src|bg_img}}"
+                         style="{{item.featured_img.src|bg_img}}"
                          alt="{{item.title}}" />
                   </figure>
                   <header>
                     <h3 class="display-5 text-uppercase">
                       {{item.title or '&nbsp;'}}
                     </h3>
-                    <h5 class="text-secondary">
+                    <h5 class="text-primary">
                       {{item.subtitle or '&nbsp;'}}
                     </h5>
                   </header>
@@ -64,7 +64,9 @@
               </div>
               <div class="col-lg">
                 <div class="p-4 mw-xl">
-                  <img src="{{item.poster}}" />
+                  {% for pic in item.gallery %}
+                  <img src="{{pic.src}}" />
+                  {% endfor %}
                 </div>
               </div>
 

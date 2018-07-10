@@ -92,6 +92,9 @@ embed {
 .avatar {
   border-radius: 50%;
 }
+.thumbnail {
+  border-radius: 0;
+}
 
 .bg-primary {
   background-color: #bac5c8 !important;
@@ -446,7 +449,7 @@ section header .lead {
 
 
 .modal-paper .modal-close {
-  position: absolute;
+  position: fixed;
   color: #333;
   top: 6px;
   left: 6px;

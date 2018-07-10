@@ -17,6 +17,7 @@
   $('.open-modal-detail').magnificPopup({
     type: 'inline',
     showCloseBtn: false,
+    preloader: false,
     removalDelay: 600,
     fixedContentPos: true,
     callbacks: {
