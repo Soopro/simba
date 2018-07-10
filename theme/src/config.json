@@ -18,7 +18,6 @@
     "^team",
     "index"
   ],
-
   "options":{
       "sortby": "+date"
   }

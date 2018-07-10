@@ -41,6 +41,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: inherit;
 }
 
+.display-5 {
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
 ul {
   padding-left: 1em;
 }
@@ -49,6 +55,12 @@ ul li,
 ol li {
   padding: 0.1em;
   font-size: 0.875rem;
+}
+
+img,
+video,
+embed {
+  max-width: 100%;
 }
 
 .no-padding {
@@ -115,6 +127,22 @@ ol li {
 }
 
 
+.mw-xs {
+  max-width: 60px;
+}
+.mw-sm {
+  max-width: 120px;
+}
+.mw-md {
+  max-width: 240px;
+}
+.mw-lg {
+  max-width: 480px;
+}
+.mw-xl {
+  max-width: 720px;
+}
+
 /* typegraph */
 .title {
   text-transform: uppercase;
@@ -165,11 +193,9 @@ ol li {
 .navbar.affix {
   background-color: rgba(255, 255, 255, 0.95);
 }
-
 @media(min-width:768px) {
 
 }
-
 .navbar .logo {
   width: 80px;
   height: 40px;
@@ -342,9 +368,6 @@ section header .lead {
 /* content */
 .content {
   max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 2rem 2rem 2rem;
-  text-align: center;
 }
 .content mark {
   color: #fff;
@@ -393,9 +416,6 @@ section header .lead {
   padding: 2rem;
   border-radius: 2px;
 }
-.modal-switcher .headline {
-  margin-bottom: 20px;
-}
 .modal-switcher .link-item {
   display: block;
   padding: 6px;
@@ -409,23 +429,47 @@ section header .lead {
 
 /* paper */
 .modal-paper {
-  position: relative;
   background: #fff;
   width: 100%;
-  height: 100%;
-  padding: 2rem;
+  min-height: 100%;
+  padding: 0;
 }
-.modal-paper .headline {
-  margin-bottom: 20px;
+
+.modal-paper .modal-paper-inner {
+  padding: 24px;
+  padding-top: 48px;
 }
+
+@media(min-width:992px) {
+
+}
+
+
+.modal-paper .modal-close {
+  position: absolute;
+  color: #333;
+  top: 6px;
+  left: 6px;
+  width: 48px;
+  height: 48px;
+  padding: 12px !important;
+}
+
 
 /* MFP Animation
 /* ----------------------------------------------- */
 .mfp-fullscreen .mfp-container {
   padding: 0;
+  margin: 0;
+}
+.mfp-fullscreen .mfp-container:before {
+  display: none;
 }
 .mfp-fullscreen .mfp-content {
+  width: 100%;
   height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 /* zoom in */
@@ -482,7 +526,7 @@ section header .lead {
   opacity: 0.8;
 }
 .mfp-move-horizontal.mfp-removing .mfp-with-anim {
-  transform: translateX(50px);
+  transform: translateX(-50px);
   opacity: 0;
 }
 .mfp-move-horizontal.mfp-removing.mfp-bg {

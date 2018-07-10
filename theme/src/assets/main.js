@@ -6,6 +6,7 @@
     showCloseBtn: false,
     preloader: false,
     removalDelay: 600,
+    fixedContentPos: true,
     callbacks: {
       beforeOpen: function() {
         this.st.mainClass = this.st.el.attr('data-effect');
@@ -14,14 +15,20 @@
   });
 
   $('.open-modal-detail').magnificPopup({
-    tLoading: '...',
     type: 'inline',
+    showCloseBtn: false,
     removalDelay: 600,
+    fixedContentPos: true,
     callbacks: {
       beforeOpen: function() {
         this.st.mainClass = this.st.el.attr('data-effect');
       }
     },
+  });
+
+  $('.modal-close').bind('click', function(e){
+    e.preventDefault();
+    $.magnificPopup.close();
   });
 
   var toggleAffix = function(affixElement, scrollElement, offset) {
