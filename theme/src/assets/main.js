@@ -1,7 +1,7 @@
 (function($) {
   "use strict";
 
-  $('.open-modal').magnificPopup({
+  $('.open-modal-language').magnificPopup({
     type: 'inline',
     showCloseBtn: false,
     preloader: false,
@@ -14,19 +14,69 @@
     },
   });
 
-  $('.open-modal-detail').magnificPopup({
-    type: 'inline',
-    alignTop: true,
-    overflowY: 'hidden',
-    showCloseBtn: false,
-    preloader: false,
-    removalDelay: 600,
-    fixedContentPos: true,
-    callbacks: {
-      beforeOpen: function() {
-        this.st.mainClass = this.st.el.attr('data-effect');
-      }
-    },
+  $('.open-modal-detail').click(function(e){
+    var curr_modal = null;
+    var curr_hammer = null;
+    var el = $(this);
+    var effect_type = el.data('effect');
+    console.log(el.find('[ref=galleryxxx]').html())
+    var inject_map = {
+      icon_style: el.find('[ref=icon]').attr('style'),
+      title: el.find('[ref=title]').html() || '',
+      subtitle: el.find('[ref=subtitle]').html() || '',
+      description: el.find('[ref=description]').html() || '',
+      content: el.find('[ref=content]').html() || '',
+      gallery: el.find('[ref=gallery]').html() || '',
+    };
+    var tmpl = $('#MODAL-TMPL-detail').html().trim();
+    for (var k in inject_map) {
+      var regex = new RegExp('%'+k+'%', 'ig');
+      tmpl = tmpl.replace(regex, inject_map[k].trim());
+    }
+
+    $.magnificPopup.open({
+      items: {
+        src: tmpl,
+        type: 'inline',
+      },
+      alignTop: true,
+      overflowY: 'hidden',
+      showCloseBtn: false,
+      preloader: false,
+      removalDelay: 600,
+      fixedContentPos: true,
+      callbacks: {
+        beforeOpen: function() {
+          this.st.mainClass = effect_type;
+        },
+        open: function() {
+          curr_modal = this.content;
+          curr_hammer = new Hammer(curr_modal.find('.modal-paper-body')[0]);
+          curr_hammer.on('swipeleft', function(e){
+            $.magnificPopup.close();
+          });
+          curr_modal.find('.modal-close').bind('click', function(e){
+            e.preventDefault();
+            $.magnificPopup.close();
+          });
+        },
+        beforeClose: function() {
+          if (curr_modal) {
+            curr_modal.find('.modal-close').unbind();
+          }
+          if (curr_hammer) {
+            curr_hammer.destroy();
+          }
+        }
+      },
+    });
+  });
+
+
+
+  // modal paper
+  $('.modal-paper').each(function(e){
+
   });
 
   $('.modal-close').bind('click', function(e){

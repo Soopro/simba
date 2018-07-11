@@ -10,77 +10,43 @@
       {% for item in services %}
       <div class="col-lg-3 col-md-6 text-center">
         <div class="p-3 active-item open-modal-detail"
-             data-mfp-src="#MODAL-{{page.slug}}-{{item.slug}}"
              data-effect="mfp-move-horizontal mfp-fullscreen">
           <figure class="w-50 py-4 m-auto">
             <img class="icon"
+                 ref="icon"
                  src="{{theme_url}}/assets/trans.png"
                  style="{{item.featured_img.src|bg_img}}"
                  alt="{{item.title}}" />
           </figure>
-          <h5 class="text-nowrap title">
+          <h5 class="text-nowrap title"
+              ref="title">
             {{item.title or '&nbsp;'}}
           </h5>
-          <p class="text-nowrap subtitle">
+          <p class="text-nowrap subtitle"
+             ref="subtitle">
             {{item.subtitle or '&nbsp;'}}
           </p>
-          <p class="text-clamp-3">
+          <p class="text-clamp-3"
+             ref="description">
             {{item.description}}
           </p>
-        </div>
-      </div>
-
-      <div id="MODAL-{{page.slug}}-{{item.slug}}"
-           class="mfp-hide mfp-with-anim modal-paper">
-        <button type="button" class="icon-btn modal-close">
-          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-        </button>
-        <div class="modal-paper-body">
-          <div class="modal-paper-content">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-lg">
-                  <article class="p-4">
-                    <figure class="mw-sm">
-                      <img class="thumbnail bg-secondary"
-                           src="{{theme_url}}/assets/trans.png"
-                           style="{{item.featured_img.src|bg_img}}"
-                           alt="{{item.title}}" />
-                    </figure>
-                    <header>
-                      <h3 class="display-5 text-uppercase">
-                        {{item.title or '&nbsp;'}}
-                      </h3>
-                      <h5 class="text-primary">
-                        {{item.subtitle or '&nbsp;'}}
-                      </h5>
-                    </header>
-                    <div class="caption py-4">
-                      {{item.description}}
-                    </div>
-                    <div class="py-2 content">
-                      {{item.content}}
-                    </div>
-                  </article>
-                </div>
-                <div class="col-lg">
-                  <div class="p-4 mw-xl">
-                    {% for pic in item.gallery %}
-                    <img src="{{pic.src}}" />
-                    {% endfor %}
-                  </div>
-                </div>
-
-              </div>
+          <div class="d-none">
+            <div ref="content">
+              {{item.content}}
+            </div>
+            <div ref="gallery">
+              {% for pic in item.gallery %}
+              <img src="{{pic.src}}" />
+              {% endfor %}
             </div>
           </div>
         </div>
       </div>
-
       {% endfor %}
     </div>
   </div>
 </section>
+
 {% elif not meta.is_front %}
 <script>window.location.replace('{{base_url}}/#{{meta.slug}}');</script>
 {% endif %}

@@ -27,12 +27,14 @@
   {% include page.template+'.html' ignore missing %}
 {% endfor %}
 
+{% include '_modal.html' %}
 {% include '_footer.html' %}
 
 <!-- js -->
 <script src="{{theme_url}}/assets/jquery.min.js"></script>
 <script src="{{theme_url}}/assets/jquery.easing.min.js"></script>
 <script src="{{theme_url}}/assets/jquery.magnific-popup.min.js"></script>
+<script src="{{theme_url}}/assets/hammer.min.js"></script>
 <script src="{{theme_url}}/assets/parallax.min.js"></script>
 <script src="{{theme_url}}/assets/bootstrap.min.js"></script>
 <script src="{{theme_url}}/assets/main.js"></script>
