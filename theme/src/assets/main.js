@@ -19,9 +19,9 @@
     var curr_hammer = null;
     var el = $(this);
     var effect_type = el.data('effect');
-    console.log(el.find('[ref=galleryxxx]').html())
     var inject_map = {
       icon_style: el.find('[ref=icon]').attr('style'),
+      icon_bg: el.find('[ref=icon]').data('icon-bg') || '',
       title: el.find('[ref=title]').html() || '',
       subtitle: el.find('[ref=subtitle]').html() || '',
       description: el.find('[ref=description]').html() || '',
@@ -51,14 +51,16 @@
         },
         open: function() {
           curr_modal = this.content;
-          curr_hammer = new Hammer(curr_modal.find('.modal-paper-body')[0]);
-          curr_hammer.on('swipeleft', function(e){
-            $.magnificPopup.close();
-          });
           curr_modal.find('.modal-close').bind('click', function(e){
             e.preventDefault();
             $.magnificPopup.close();
           });
+          if ($(window).width() <= 991) {
+            curr_hammer = new Hammer(curr_modal.find('.modal-paper-body')[0]);
+            curr_hammer.on('swipeleft', function(e){
+              $.magnificPopup.close();
+            });
+          }
         },
         beforeClose: function() {
           if (curr_modal) {
