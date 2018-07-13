@@ -8,7 +8,7 @@
     <div class="row">
       {% for item in page.series %}
       <div class="col-lg-3 col-md-6 text-center">
-        <a class="p-3 active-item">
+        <div class="p-3 active-item">
           <figure class="w-50 py-1 m-auto">
             <img src="{{theme_url}}/assets/trans.png"
                  class="rounded-circle thumbnail"
@@ -21,7 +21,7 @@
           <p class="text-clamp-3">
             {{item.caption}}
           </p>
-        </a>
+        </div>
       </div>
       {% endfor %}
     </div>

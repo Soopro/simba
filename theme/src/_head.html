@@ -3,7 +3,7 @@
   {{ site_meta.title|striptags }} | {{ meta.title|striptags }}
 </title>
 <meta name="description"
-      content="{{(site_meta.description or meta.description)|striptags}}">
+      content="{{(meta.description or site_meta.description)|striptags}}">
 <meta name="author"
       content="{{meta.author|striptags}}">
 

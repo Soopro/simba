@@ -1,14 +1,14 @@
 {% if g and page %}
 <section id="{{page.slug}}"
          class="segment">
-  <div class="container text-center">
+  <article class="container text-center">
     <header>
       <h2>{{page.title or _('Title')}}</h2>
     </header>
-    <div class="content">
+    <div class="content m-auto text-center">
       {{page.content}}
     </div>
-  </div>
+  </article>
 </section>
 {% elif not meta.is_front %}
 <script>window.location.replace('{{base_url}}/#{{meta.slug}}');</script>

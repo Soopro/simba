@@ -6,16 +6,15 @@
       <h4 class="lead">{{page.description}}</h4>
     </header>
     <div class="row">
-      {% set services = query('service', with_content=True).contents %}
-      {% for item in services %}
+      {% for item in page.series %}
       <div class="col-lg-3 col-md-6 text-center">
-        <div class="p-3 active-item open-modal-detail"
+        <div class="p-3 active-item {{'open-modal-detail' if item.extra}}"
              data-effect="mfp-move-horizontal mfp-fullscreen">
           <figure class="w-50 py-4 m-auto">
             <img class="icon"
                  ref="icon"
                  src="{{theme_url}}/assets/trans.png"
-                 style="{{item.featured_img.src|bg_img}}"
+                 style="{{item.src|bg_img}}"
                  alt="{{item.title}}"
                  data-icon-bg="bg-secondary" />
           </figure>
@@ -28,18 +27,11 @@
             {{item.subtitle or '&nbsp;'}}
           </p>
           <p class="text-clamp-3"
-             ref="description">
-            {{item.description}}
+             ref="caption">
+            {{item.caption}}
           </p>
-          <div class="d-none">
-            <div ref="content">
-              {{item.content}}
-            </div>
-            <div ref="gallery">
-              {% for pic in item.gallery %}
-              <img src="{{pic.src}}" />
-              {% endfor %}
-            </div>
+          <div ref="content">
+            {{item.extra}}
           </div>
         </div>
       </div>
