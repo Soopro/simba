@@ -19,15 +19,22 @@
     var curr_hammer = null;
     var el = $(this);
     var effect_type = el.data('effect');
+    var content = el.find('[ref=extra]');
+    var gallery = el.find('[ref=extra]').find('img').map(function(){
+      $(this).hide();
+      return '<img class="d-block" src="' + $(this).attr('src') + '" />'
+    }).get();
+
     var inject_map = {
       icon_style: el.find('[ref=icon]').attr('style'),
       icon_bg: el.find('[ref=icon]').data('icon-bg') || '',
       title: el.find('[ref=title]').html() || '',
       subtitle: el.find('[ref=subtitle]').html() || '',
-      description: el.find('[ref=description]').html() || '',
-      content: el.find('[ref=content]').html() || '',
-      gallery: el.find('[ref=gallery]').html() || '',
+      caption: el.find('[ref=caption]').html() || '',
+      content: content.html() || '',
+      gallery: gallery.join('') || '',
     };
+
     var tmpl = $('#MODAL-TMPL-detail').html().trim();
     for (var k in inject_map) {
       var regex = new RegExp('%'+k+'%', 'ig');
