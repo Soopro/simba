@@ -63,6 +63,10 @@ embed {
   max-width: 100%;
 }
 
+article .thumb-figure {
+  max-width: 120px;
+}
+
 .no-padding {
   padding: 0;
 }
@@ -129,22 +133,6 @@ embed {
   cursor: pointer;
 }
 
-
-.mw-xs {
-  max-width: 60px;
-}
-.mw-sm {
-  max-width: 120px;
-}
-.mw-md {
-  max-width: 240px;
-}
-.mw-lg {
-  max-width: 480px;
-}
-.mw-xl {
-  max-width: 720px;
-}
 
 /* typegraph */
 .title {
