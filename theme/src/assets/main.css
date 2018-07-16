@@ -376,22 +376,11 @@ section header .lead {
   color: #fff;
   background-color: #333;
 }
-
-.content ul,
-.content ol {
-  padding-left: 40px;
-}
-
 .content img,
 .content video,
 .content audio,
 .content embed {
   max-width: 100%;
-}
-.content h2,
-.content h3,
-.content h4 {
-  text-transform: uppercase;
 }
 
 

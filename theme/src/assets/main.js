@@ -19,11 +19,8 @@
     var curr_hammer = null;
     var el = $(this);
     var effect_type = el.data('effect');
-    var content = el.find('[ref=extra]');
-    var gallery = el.find('[ref=extra]').find('img').map(function(){
-      $(this).hide();
-      return '<img class="d-block" src="' + $(this).attr('src') + '" />'
-    }).get();
+    var content = el.find('[ref=extra]').clone();
+    content.find('[ref=gallery]').remove();
 
     var inject_map = {
       icon_style: el.find('[ref=icon]').attr('style'),
@@ -32,7 +29,7 @@
       subtitle: el.find('[ref=subtitle]').html() || '',
       caption: el.find('[ref=caption]').html() || '',
       content: content.html() || '',
-      gallery: gallery.join('') || '',
+      gallery: el.find('[ref=gallery]').html() || '',
     };
 
     var tmpl = $('#MODAL-TMPL-detail').html().trim();
