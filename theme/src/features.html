@@ -8,19 +8,27 @@
     <div class="row">
       {% for item in page.series %}
       <div class="col-lg-3 col-md-6 text-center">
-        <div class="p-3 active-item">
+        <div class="p-3 active-item {{'open-modal-detail' if item.extra}}"
+             data-effect="mfp-move-horizontal mfp-fullscreen">
           <figure class="w-50 py-1 m-auto">
-            <img src="{{theme_url}}/assets/trans.png"
-                 class="rounded-circle thumbnail"
+            <img class="rounded-circle thumbnail"
+                 ref="icon"
+                 src="{{theme_url}}/assets/trans.png"
                  style="{{item.src|bg_img}}"
                  alt="{{item.title}}" />
           </figure>
-          <h5 class="text-nowrap title">
+          <h5 class="text-nowrap title"
+              ref="title">
             {{item.title or '&nbsp;'}}
           </h5>
-          <p class="text-clamp-3">
+          <p class="text-clamp-3"
+             ref="caption">
             {{item.caption}}
           </p>
+          <div class="d-none"
+               ref="extra">
+            {{item.extra}}
+          </div>
         </div>
       </div>
       {% endfor %}
