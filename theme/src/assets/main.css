@@ -334,6 +334,16 @@ section header .lead {
   color: #fff;
   background-color: rgba(77, 107, 87, 0.7)!important;
 }
+.segment.bg-primary a:not(.btn),
+.segment.bg-secondary a:not(.btn) {
+  color: #fff !important;
+  text-decoration: underline;
+}
+.segment.bg-primary a:not(.btn):hover,
+.segment.bg-secondary a:not(.btn):hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
 
 
 /* hero */
