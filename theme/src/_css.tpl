@@ -1,12 +1,15 @@
-<!-- bootstrap -->
-<link ng-href="{{theme_url}}/styles/bootstrap.min.css"
+<!-- bootstrap css -->
+<link ng-href="{{theme_url}}/assets/bootstrap.min.css"
       rel="stylesheet">
-<!-- plugin -->
-<link ng-href="{{theme_url}}/styles/magnific-popup.css"
+<!-- plugin css -->
+<link ng-href="{{theme_url}}/assets/magnific-popup.css"
       rel="stylesheet">
-<!-- custom -->
-<link ng-href="{{theme_url}}/styles/creative.css"
+<!-- fonts css -->
+<link ng-href="{{theme_url}}/assets/fonts/fonts.css"
+      rel="stylesheet">
+<!-- theme css -->
+<link ng-href="{{theme_url}}/assets/main.css"
       rel="stylesheet">
 
-<!-- Custom styles -->
+<!-- custom styles -->
 <style sup-bind-html="theme_meta.styles"></style>

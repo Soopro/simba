@@ -4,67 +4,75 @@
 
 <div sup-gap="10"></div>
 
-<section id="{{meta.slug}}" class="segment-wrapper no-border">
-  <header class="container">
-    <h2 class="section-heading">
-      <span sup-widget-text
-            default="{{_('Title')}}"
-            ng-model="meta.title"></span>
-    </h2>
-    <hr class="divider">
-  </header>
+<section id="{{meta.slug}}" class="segment">
   <div class="container">
+    <header>
+      <h2>
+        <span sup-widget-text
+              default="{{_('Title')}}"
+              ng-model="meta.title"></span>
+      </h2>
+      <h4 class="lead">{{page.description}}</h4>
+    </header>
+
     <div class="row"
          sup-widget-series
          default="{{[
             {
               'title': _('Feature Title'),
               'caption': _('Click here to edit the feature.'),
-              'src': theme_url+'/styles/f1.png'
+              'src': theme_url+'/assets/f1.png'
             },
             {
               'title': _('Feature Title'),
               'caption': _('Click here to edit the feature.'),
-              'src': theme_url+'/styles/f2.png'
+              'src': theme_url+'/assets/f2.png'
             },
             {
               'title': _('Feature Title'),
               'caption': _('Click here to edit the feature.'),
-              'src': theme_url+'/styles/f3.png'
+              'src': theme_url+'/assets/f3.png'
             }
          ]}}"
          ng-model="meta.series">
 
-      <div class="col-md-3 col-sm-6 text-center"
+      <div class="col-lg-3 col-md-6 text-center"
            ng-repeat="item in meta.series">
-        <div class="feature-box"
+        <div class="p-3 active-item"
              series-item>
-          <figure>
-            <img ng-src="{{theme_url}}/styles/trans.png"
-                 class="img-responsive thumbnail-img"
-                 style="{{item.src|bg_img}}" />
+          <figure class="w-50 py-1 m-auto">
+            <img class="rounded-circle thumbnail"
+                 ref="icon"
+                 ng-src="{{g.trans_img}}"
+                 style="{{item.src|bg_img}}"
+                 alt="{{item.title}}" />
           </figure>
-          <h3 class="text-nowrap">
-            {{item.title || _('Item Title')}}
-          </h3>
-          <p class="text-muted text-clamp-3">
-            {{item.caption || _('Item Caption')}}
+          <h5 class="text-nowrap title"
+              ref="title">
+            {{item.title || '&nbsp;'}}
+          </h5>
+          <p class="text-clamp-3"
+             ref="caption">
+            {{item.caption}}
           </p>
         </div>
       </div>
 
-      <div class="col-md-3 col-sm-6 text-center">
-        <div class="feature-box"
+      <div class="col-lg-3 col-md-6 text-center"
+           ng-repeat="item in meta.series">
+        <div class="p-3 active-item"
              series-item-create>
-          <figure>
-            <img ng-src="{{theme_url}}/styles/trans.png"
-                 class="img-responsive thumbnail-img"
-                 style="{{g.add_img|bg_img}}" />
+          <figure class="w-50 py-1 m-auto">
+            <img class="rounded-circle thumbnail"
+                 ref="icon"
+                 ng-src="{{g.trans_img}}"
+                 style="{{theme_url+'/assets/add.png'|bg_img}}"
+                 alt="{{item.title}}" />
           </figure>
-          <h3 class="text-nowrap">
-            {{_('Create New Service')}}
-          </h3>
-          <p class="text-muted text-clamp-3">
+          <h5 class="text-nowrap title">
+            {{_('Create New Feature')}}
+          </h5>
+          <p class="text-clamp-3">
             {{_('Click here add a new feature.')}}
           </p>
         </div>
