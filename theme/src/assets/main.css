@@ -100,15 +100,21 @@ article .thumb-figure {
   border-radius: 0;
 }
 
+.bg-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.bg-fixed {
+  background-attachment: fixed;
+}
+
 .bg-primary {
   background-color: #bac5c8 !important;
 }
 .bg-secondary {
   background-color: #90ba90 !important;
 }
-.bg-fixed {
-  background-attachment: fixed;
-}
+
 
 
 .divider {
@@ -301,7 +307,12 @@ article .thumb-figure {
   text-align: center;
   color: #fff;
 }
-.footer p {
+.footer .certificate {
+  padding-bottom: 0.2rem;
+}
+.footer .certificate > * {
+  margin: 0;
+  padding: 0.1rem;
   display: inline-block;
 }
 

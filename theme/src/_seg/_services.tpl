@@ -1,27 +1,33 @@
-<section id="{{page.slug}}" class="segment-wrapper">
-
-  <header class="container">
-    <h2 class="section-heading"
-        sup-bind-html="page.title || _('Title')">
-    </h2>
-    <hr class="divider">
-  </header>
-
+<section id="{{page.slug}}" class="segment">
   <div class="container">
+    <header>
+      <h2>{{page.title || _('Title')}}</h2>
+      <h4 class="lead">{{page.description}}</h4>
+    </header>
     <div class="row">
 
-      <div class="col-md-3 col-sm-6 text-center"
+      <div class="col-lg-3 col-md-6 text-center"
            ng-repeat="item in page.series">
-        <div class="service-box">
-          <figure>
-            <img ng-src="{{theme_url}}/styles/trans.png"
-                 class="img-responsive thumbnail-img"
-                 style="{{item.src|bg_img}}" />
+        <div class="p-3 active-item"
+             data-effect="mfp-move-horizontal mfp-fullscreen">
+          <figure class="w-50 py-4 m-auto">
+            <img class="icon"
+                 ref="icon"
+                 ng-src="{{g.trans_img}}"
+                 style="{{item.src|bg_img}}"
+                 alt="{{item.title}}"
+                 data-icon-bg="bg-secondary" />
           </figure>
-          <h3 class="text-nowrap">
-            {{item.title}}
-          </h3>
-          <p class="text-muted text-clamp-2">
+          <h5 class="text-nowrap title"
+              ref="title">
+            {{item.title or '&nbsp;'}}
+          </h5>
+          <p class="text-nowrap subtitle"
+             ref="subtitle">
+            {{item.subtitle or '&nbsp;'}}
+          </p>
+          <p class="text-clamp-3"
+             ref="caption">
             {{item.caption}}
           </p>
         </div>
@@ -29,5 +35,4 @@
 
     </div>
   </div>
-
 </section>

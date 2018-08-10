@@ -4,31 +4,18 @@
 {% include '_header.tpl' %}
 
 <section id="{{meta.slug}}"
-         class="hero {{meta.hero.class}}"
-         style="{{meta.hero.style}}">
-  <div sup-widget-bg ng-model="meta.hero"></div>
-  <div class="header-content">
-    <div class="header-content-inner">
-      <div class="logo"
-           style="{{site_meta.logo|bg_img}}"
-           ng-if="site_meta.logo"></div>
-      <h1>
-        <span sup-widget-text
-              default="{{_('Title')}}"
-              ng-model="meta.title"></span>
-      </h1>
-      <hr class="divider">
-      <p class="lead">
-        <span sup-widget-text
-              default="{{_('Description text here')}}"
-              ng-model="meta.description"></span>
-      </p>
-      <a href="#"
-         class="btn btn-primary btn-xl"
-         sup-widget-link
-         ng-model="meta.entrance">
-         {{meta.entrance.name || _('Learn More')}}</a>
-    </div>
+         class="d-flex align-items-center justify-content-center
+                hero bg-cover bg-fixed {{meta.hero.class}}"
+         style="{{(meta.hero.src || g.hero)|bg_img}}">
+  <div>
+    <h1>{{meta.title || _('Title')}}</h1>
+    <h3 class="lead">
+      {{meta.description || _('Description text here')}}
+    </h3>
+    <a class="start-btn anim-fade-in-out nav-scroll"
+       href="#">
+      <svg width="48" heigth="48" viewBox="0 0 48 48"><path d="M14,24A10,10,0,1,1,24,34,10.0036,10.0036,0,0,1,14,24Zm10,6a6,6,0,1,0-6-6A6.0048,6.0048,0,0,0,24,30Z"/><path d="M19.41,40,24,44.58,28.59,40,30,41.41l-6,6-6-6Z"/></svg>
+    </a>
   </div>
 </section>
 
@@ -43,7 +30,7 @@
     <div ng-if="page.template == 'portfolio'"
          sup-ico-inset="top"
          segment>
-      {% include "_seg/_portfolio.tpl" %}
+      {% include "_seg/_page-extend.tpl" %}
     </div>
     <div ng-if="page.template == 'features'"
          sup-ico-inset="top"
@@ -55,10 +42,15 @@
          segment>
       {% include "_seg/_services.tpl" %}
     </div>
+    <div ng-if="page.template == 'team'"
+         sup-ico-inset="top"
+         segment>
+      {% include "_seg/_team.tpl" %}
+    </div>
   	<!-- #segments -->
   </div>
 
-  <section class="segment-wrapper">
+  <section class="segment">
     <div class="container">
       <div segment-create="major"></div>
     </div>
