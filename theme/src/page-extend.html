@@ -1,6 +1,6 @@
 {% if g and page %}
 <section id="{{page.slug}}"
-         class="segment {{page.bg.class or 'bg-secondary'}}"
+         class="segment {{page.bg.class}}"
          data-image-src="{{page.bg.src or g.extend_bg}}"
          data-parallax="scroll"
          data-position="center center">
@@ -8,8 +8,10 @@
     <header>
       <h4>{{page.title or _('Title')}}</h4>
     </header>
-    <div class="content m-auto text-center">
-      {{page.content}}
+    <div class="m-auto text-center">
+      <div class="content">
+        {{page.content}}
+      </div>
     </div>
   </div>
 </section>

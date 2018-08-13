@@ -2,7 +2,7 @@
 {% include '_css.tpl' %}
 {% include '_header.tpl' %}
 
-<div sup-gap="10"></div>
+<div class="editor-top"></div>
 
 <section id="{{meta.slug}}" class="segment">
   <div class="container">
@@ -12,7 +12,11 @@
               default="{{_('Title')}}"
               ng-model="meta.title"></span>
       </h2>
-      <h4 class="lead">{{page.description}}</h4>
+      <h4 class="lead">
+        <span sup-widget-text
+              default="{{_('Description text here')}}"
+              ng-model="meta.description"></span>
+      </h4>
     </header>
 
     <div class="row"
@@ -58,8 +62,7 @@
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6 text-center"
-           ng-repeat="item in meta.series">
+      <div class="col-lg-3 col-md-6 text-center">
         <div class="p-3 active-item"
              series-item-create>
           <figure class="w-50 py-1 m-auto">

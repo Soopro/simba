@@ -2,37 +2,29 @@
 {% include '_css.tpl' %}
 {% include '_header.tpl' %}
 
-<div sup-gap="10"></div>
+<div class="editor-top"></div>
 
 <section id="{{meta.slug}}"
-         class="segment-wrapper no-border {{meta.bg.class}}"
-         style="{{meta.bg.style}}">
+         class="segment bg-cover bg-fixed {{meta.bg.class}}"
+         style="{{(meta.hero.src || g.extend_bg)|bg_img}}">
   <div sup-widget-bg
        presets="[
-         {'key': 'palette-dark', 'label': _('Darkness')}
+         {'key': 'bg-secondary', 'label': _('Special')}
        ]"
        ng-model="meta.bg"></div>
-  <header class="contianer">
-    <h2 class="section-heading">
-      <span sup-widget-text
-            default="{{_('Title')}}"
-            ng-model="meta.title"></span>
-    </h2>
-    <hr class="divider">
-    <p class="caption text-center">
-      <span sup-widget-text
-            default="{{_('Description text here')}}"
-            ng-model="meta.description"></span>
-    </p>
-  </header>
   <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="content"
-             sup-angular-wysiwyg
-             default="{{_('$_CONTENT')}}"
-             ng-model="content"></div>
-      </div>
+    <header>
+      <h4>
+        <span sup-widget-text
+              default="{{_('Title')}}"
+              ng-model="meta.title"></span>
+      </h4>
+    </header>
+    <div class="m-auto text-center">
+      <div class="content"
+           sup-angular-wysiwyg
+           default="{{_('$_CONTENT')}}"
+           ng-model="content"></div>
     </div>
   </div>
 </section>

@@ -8,9 +8,15 @@
                 hero bg-cover bg-fixed {{meta.hero.class}}"
          style="{{(meta.hero.src || g.hero)|bg_img}}">
   <div>
-    <h1>{{meta.title || _('Title')}}</h1>
+    <h1>
+      <span sup-widget-text
+              default="{{_('Title')}}"
+              ng-model="meta.title"></span>
+    </h1>
     <h3 class="lead">
-      {{meta.description || _('Description text here')}}
+      <span sup-widget-text
+            default="{{_('Description text here')}}"
+            ng-model="meta.description"></span>
     </h3>
     <a class="start-btn anim-fade-in-out nav-scroll"
        href="#">
