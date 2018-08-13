@@ -49,28 +49,36 @@
 		"msgstr": "点击这里添加一个新服务。"
 	},
 	{
-		"msgid": "Works Title",
+		"msgid": "Member Team",
 		"msgstr": "作品标题"
 	},
 	{
-		"msgid": "Click here to edit the works.",
-		"msgstr": "点击这里编辑作品内容。"
+		"msgid": "Click here to edit the member.",
+		"msgstr": "点击这里编辑成员。"
 	},
 	{
-		"msgid": "Create New Works",
-		"msgstr": "添加新作品"
+		"msgid": "Create New Member",
+		"msgstr": "添加新成员"
 	},
 	{
-		"msgid": "Click here to add a new works.",
-		"msgstr": "点击这里添加一个新作品。"
+		"msgid": "Team Member",
+		"msgstr": "团队成员"
 	},
 	{
-		"msgid": "Darkness",
-		"msgstr": "深色"
+		"msgid": "Click here to add a new member.",
+		"msgstr": "点击这里添加一个新成员。"
 	},
 	{
-		"msgid": "Fixed",
-		"msgstr": "固定"
+		"msgid": "Light Bg",
+		"msgstr": "浅色背景"
+	},
+	{
+		"msgid": "Dark Bg",
+		"msgstr": "深色背景"
+	},
+	{
+		"msgid": "Primary Color background",
+		"msgstr": "原色背景"
 	},
 	{
 		"msgid": "Language",

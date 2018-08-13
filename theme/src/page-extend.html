@@ -1,7 +1,7 @@
 {% if g and page %}
 <section id="{{page.slug}}"
          class="segment {{page.bg.class or 'bg-secondary'}}"
-         data-image-src="{{page.bg.src or g.extend_bg}}"
+         data-image-src="{{page.bg.src or ''}}"
          data-parallax="scroll"
          data-position="center center">
   <div class="container">
