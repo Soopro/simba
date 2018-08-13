@@ -25,19 +25,19 @@
               'title': _('Service Title'),
               'subtitle': _('Free'),
               'caption': _('Click here to edit the service.'),
-              'src': theme_url+'/styles/s1.png'
+              'src': theme_url+'/assets/s1.png'
             },
             {
               'title': _('Service Title'),
               'subtitle': _('Free'),
               'caption': _('Click here to edit the service.'),
-              'src': theme_url+'/styles/s2.png'
+              'src': theme_url+'/assets/s2.png'
             },
             {
               'title': _('Service Title'),
               'subtitle': _('Free'),
               'caption': _('Click here to edit the service.'),
-              'src': theme_url+'/styles/s3.png'
+              'src': theme_url+'/assets/s3.png'
             }
          ]}}"
          ng-model="meta.series">

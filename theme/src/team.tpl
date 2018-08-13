@@ -31,19 +31,19 @@
               'title': _('Team Member'),
               'subtitle': _('Free'),
               'caption': _('Click here to edit the service.'),
-              'src': theme_url+'/styles/t1.png'
+              'src': theme_url+'/assets/t1.png'
             },
             {
               'title': _('Team Member'),
               'subtitle': _('Free'),
               'caption': _('Click here to edit the service.'),
-              'src': theme_url+'/styles/t2.png'
+              'src': theme_url+'/assets/t2.png'
             },
             {
               'title': _('Team Member'),
               'subtitle': _('Free'),
               'caption': _('Click here to edit the service.'),
-              'src': theme_url+'/styles/t3.png'
+              'src': theme_url+'/assets/t3.png'
             }
          ]}}"
          ng-model="meta.series">

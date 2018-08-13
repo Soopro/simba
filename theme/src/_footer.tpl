@@ -1,4 +1,4 @@
-<footer class="footer bg-cover"
+<footer class="footer bg-cover bg-fixed"
         style="{{(meta.hero.src || g.hero)|bg_img}}">
   <div class="container">
     <div class="p-4">
