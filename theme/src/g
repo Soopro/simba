@@ -4,4 +4,3 @@
 {% set trans_img = theme_url+"/assets/trans.png" %}
 {% set default_img = theme_url+"/assets/default.jpg" %}
 {% set hero = theme_url+"/assets/hero.jpg" %}
-{% set extend_bg = theme_url+"/assets/bg_extend.jpg" %}

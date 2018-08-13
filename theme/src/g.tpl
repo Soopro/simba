@@ -11,6 +11,3 @@
 
 <sup-set ng-model="g.hero"
          value="{{theme_url+'/styles/hero.jpg'}}"></sup-set>
-
-<sup-set ng-model="g.extend_bg"
-         value="{{theme_url+'/styles/bg_extend.jpg'}}"></sup-set>
