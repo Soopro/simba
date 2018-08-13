@@ -5,7 +5,9 @@
     <header>
       <h4>{{page.title || _('Title')}}</h4>
     </header>
-    <div class="content m-auto text-center"
-         sup-bind-html="page.content"></div>
+    <div class="m-auto text-center">
+      <div class="content"
+           sup-bind-html="page.content"></div>
+    </div>
   </div>
 </section>

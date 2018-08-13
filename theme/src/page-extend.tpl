@@ -5,11 +5,13 @@
 <div class="editor-top"></div>
 
 <section id="{{meta.slug}}"
-         class="segment bg-cover bg-fixed {{meta.bg.class}}"
+         class="segment bg-cover bg-fixed {{meta.bg.class || 'bg-secondary'}}"
          style="{{(meta.hero.src || g.extend_bg)|bg_img}}">
   <div sup-widget-bg
        presets="[
-         {'key': 'bg-secondary', 'label': _('Special')}
+          {'key': 'bg-primary', 'label': _('Primary')}
+          {'key': 'bg-light', 'label': _('Light')},
+          {'key': 'bg-dark', 'label': _('Dark')},
        ]"
        ng-model="meta.bg"></div>
   <div class="container">

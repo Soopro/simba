@@ -4,8 +4,10 @@
       <h2>{{page.title || _('Title')}}</h2>
       <h4 class="lead">{{page.description}}</h4>
     </header>
-    <div class="content text-center"
-         sup-bind-html="page.content">
+    <div class="text-center">
+      <div class="content"
+           sup-bind-html="page.content">
+      </div>
     </div>
     <div class="row">
 

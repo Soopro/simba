@@ -336,7 +336,12 @@ section header .lead {
   font-size: 1rem;
   font-weight: 400;
 }
-
+.segment.bg-light {
+  color: #fff;
+}
+.segment.bg-dark {
+  color: #333;
+}
 .segment.bg-primary {
   color: #fff;
   background-color: rgba(120, 144, 155, 0.7)!important;
@@ -345,9 +350,10 @@ section header .lead {
   color: #fff;
   background-color: rgba(77, 107, 87, 0.7)!important;
 }
+
 .segment.bg-primary a:not(.btn),
 .segment.bg-secondary a:not(.btn) {
-  color: #fff !important;
+  color: currentColor !important;
   text-decoration: underline;
 }
 .segment.bg-primary a:not(.btn):hover,

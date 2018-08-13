@@ -5,16 +5,18 @@
       <h2>{{page.title or _('Title')}}</h2>
       <h4 class="lead">{{page.description}}</h4>
     </header>
-    <div class="content text-center">
-      {{page.content}}
+    <div class="text-center">
+      <div class="content">
+        {{page.content}}
+      </div>
     </div>
     <div class="row">
       {% for item in page.series %}
       <div class="col-lg-3 col-md-6">
-        <div class="px-4">
-          <figure class="w-75 py-3">
-            <img src="{{g.trans_img}}"
-                 class="avatar"
+        <div class="p-3">
+          <figure class="w-75 pb-2">
+            <img class="avatar"
+                 src="{{g.trans_img}}"
                  style="{{item.src|bg_img}}"
                  alt="{{item.title}}" />
           </figure>
