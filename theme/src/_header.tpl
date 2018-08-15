@@ -29,6 +29,10 @@
              target="{{menu.target}}"
              href="#">{{menu.name}}</a>
         </li>
+        <li class="nav-item text-muted"
+            ng-if="!menu.primary.length">
+          {{_('No menu yet')}}
+        </li>
       </ul>
 
       <ul class="navbar-nav ml-auto"

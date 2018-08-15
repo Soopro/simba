@@ -1,12 +1,12 @@
 {
   "slug": "simba",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Redy",
   "license": "MIT",
-  "title": "SIMBA 2",
+  "title": "SIMBA",
   "type": "ws",
   "capability": 0,
-  "icon": "icon.jpg",
+  "icon": "icon.png",
   "poster": "poster.jpg",
   "previews": ["preview.jpg"],
 

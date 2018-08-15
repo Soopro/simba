@@ -23,28 +23,29 @@
          default="{{[
             {
               'title': _('Service Title'),
-              'subtitle': _('Free'),
+              'subtitle': _('Price here'),
               'caption': _('Click here to edit the service.'),
               'src': theme_url+'/assets/s1.png'
             },
             {
               'title': _('Service Title'),
-              'subtitle': _('Free'),
+              'subtitle': _('Price here'),
               'caption': _('Click here to edit the service.'),
               'src': theme_url+'/assets/s2.png'
             },
             {
               'title': _('Service Title'),
-              'subtitle': _('Free'),
+              'subtitle': _('Price here'),
               'caption': _('Click here to edit the service.'),
               'src': theme_url+'/assets/s3.png'
             }
          ]}}"
+         allow-fields="subtitle, extra"
          ng-model="meta.series">
 
       <div class="col-lg-3 col-md-6 text-center"
            ng-repeat="item in meta.series">
-        <div class="p-3 active-item"
+        <div class="p-3 active-item {{item.class}}"
              series-item>
           <figure class="w-50 py-4 m-auto">
             <img class="icon"
@@ -72,11 +73,10 @@
         <div class="p-3 active-item"
              series-item-create>
           <figure class="w-50 py-4 m-auto">
-            <img class="icon"
+            <img class="icon bg-light"
                  ref="icon"
                  ng-src="{{g.trans_img}}"
-                 style="{{theme_url+'/assets/add.png'|bg_img}}"
-                 alt="{{item.title}}" />
+                 style="{{theme_url+'/assets/add.png'|bg_img}}" />
           </figure>
           <h5 class="text-nowrap title"
               ref="title">
@@ -84,11 +84,11 @@
           </h5>
           <p class="text-nowrap subtitle"
              ref="subtitle">
-            {{_('Free')}}
+            {{_('Price here')}}
           </p>
           <p class="text-clamp-3"
              ref="caption">
-            {{_('Click here add a new service.')}}
+            {{_('Click here to add new one.')}}
           </p>
         </div>
       </div>

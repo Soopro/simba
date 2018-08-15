@@ -107,6 +107,9 @@ article .thumb-figure {
 .bg-fixed {
   background-attachment: fixed;
 }
+.bg-exclude-img {
+  background-image: none !important;
+}
 
 .bg-primary {
   background-color: #bac5c8 !important;
@@ -137,14 +140,14 @@ article .thumb-figure {
 }
 .btn-primary:not(:disabled):not(.disabled).active,
 .btn-primary:not(:disabled):not(.disabled):active,
-.show>.btn-primary.dropdown-toggle {
+.show > .btn-primary.dropdown-toggle {
   color: #fff;
   border-color: #5f7b87;
   background-color: #5f7b87;
 }
 .btn-primary:not(:disabled):not(.disabled).active:focus,
 .btn-primary:not(:disabled):not(.disabled):active:focus,
-.show>.btn-primary.dropdown-toggle:focus {
+.show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(120,144,155,.6);
 }
 .btn-primary:focus {
@@ -164,7 +167,7 @@ article .thumb-figure {
 }
 .btn-secondary:not(:disabled):not(.disabled).active,
 .btn-secondary:not(:disabled):not(.disabled):active,
-.show>.btn-secondary.dropdown-toggle {
+.show > .btn-secondary.dropdown-toggle {
   color: #fff;
   border-color: #3ca540;
   background-color: #3ca540;
@@ -306,6 +309,7 @@ article .thumb-figure {
   text-transform: uppercase;
   text-align: center;
   color: #fff;
+  background-image: url('hero.jpg');
 }
 .footer .certificate {
   padding-bottom: 0.2rem;
@@ -337,10 +341,10 @@ section header .lead {
   font-weight: 400;
 }
 .segment.bg-light {
-  color: #fff;
+  color: #333;
 }
 .segment.bg-dark {
-  color: #333;
+  color: #fff;
 }
 .segment.bg-primary {
   color: #fff;
@@ -373,6 +377,7 @@ section header .lead {
   min-height: 100%;
   text-align: center;
   text-transform: uppercase;
+  background-image: url('hero.jpg');
 }
 .hero h1 {
   font-size: 2rem;

@@ -38,11 +38,12 @@
               'src': theme_url+'/assets/f3.png'
             }
          ]}}"
+         allow-fields="extra"
          ng-model="meta.series">
 
       <div class="col-lg-3 col-md-6 text-center"
            ng-repeat="item in meta.series">
-        <div class="p-3 active-item"
+        <div class="p-3 active-item {{item.class}}"
              series-item>
           <figure class="w-50 py-1 m-auto">
             <img class="rounded-circle thumbnail"
@@ -69,14 +70,13 @@
             <img class="rounded-circle thumbnail"
                  ref="icon"
                  ng-src="{{g.trans_img}}"
-                 style="{{theme_url+'/assets/add.png'|bg_img}}"
-                 alt="{{item.title}}" />
+                 style="{{theme_url+'/assets/add.png'|bg_img}}"/>
           </figure>
           <h5 class="text-nowrap title">
             {{_('Create New Feature')}}
           </h5>
           <p class="text-clamp-3">
-            {{_('Click here add a new feature.')}}
+            {{_('Click here to add new one.')}}
           </p>
         </div>
       </div>

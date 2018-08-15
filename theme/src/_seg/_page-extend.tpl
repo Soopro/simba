@@ -1,6 +1,6 @@
 <section id="{{page.slug}}"
-         class="segment bg-cover bg-fixed {{page.bg.class or 'bg-secondary'}}"
-         style="{{(page.bg.src || '')|bg_img}}">
+         class="segment bg-cover bg-fixed {{page.bg.class || 'bg-secondary'}}"
+         style="{{page.bg.style}}">
   <div class="container">
     <header>
       <h4>{{page.title || _('Title')}}</h4>

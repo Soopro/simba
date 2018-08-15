@@ -1,5 +1,5 @@
 <footer class="footer bg-cover bg-fixed"
-        style="{{(meta.hero.src || g.hero)|bg_img}}">
+        style="{{meta.hero.style}}">
   <div class="container">
     <div class="p-4">
       <img class="logo"

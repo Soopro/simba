@@ -6,12 +6,12 @@
 
 <section id="{{meta.slug}}"
          class="segment bg-cover bg-fixed {{meta.bg.class || 'bg-secondary'}}"
-         style="{{(meta.hero.src || '')|bg_img}}">
+         style="{{meta.bg.style}}">
   <div sup-widget-bg
        presets="[
-          {'key': 'bg-primary', 'label': _('Primary Color Bg')}
-          {'key': 'bg-light', 'label': _('Light Bg')},
-          {'key': 'bg-dark', 'label': _('Dark Bg')},
+          {'key': 'bg-primary', 'label': _('Primary Color')},
+          {'key': 'bg-light', 'label': _('Light Color')},
+          {'key': 'bg-dark', 'label': _('Dark Color')},
        ]"
        ng-model="meta.bg"></div>
   <div class="container">

@@ -13,7 +13,7 @@
 
       <div class="col-lg-3 col-md-6"
            ng-repeat="item in page.series">
-        <div class="px-4">
+        <div class="p-3">
           <figure class="w-75 py-3">
             <img class="avatar"
                  ng-src="{{g.trans_img}}"

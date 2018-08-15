@@ -29,28 +29,32 @@
          default="{{[
             {
               'title': _('Team Member'),
-              'subtitle': _('Free'),
-              'caption': _('Click here to edit the service.'),
-              'src': theme_url+'/assets/t1.png'
+              'subtitle': _('Job Title'),
+              'caption': _('Click here to edit the member.'),
+              'src': theme_url+'/assets/t1.jpg',
+              'extra': '<ul><li>xxxxx xxx xxxxx</li><li>xxxxx xxxxxx xxxx</li></ul>'
             },
             {
               'title': _('Team Member'),
-              'subtitle': _('Free'),
-              'caption': _('Click here to edit the service.'),
-              'src': theme_url+'/assets/t2.png'
+              'subtitle': _('Job Title'),
+              'caption': _('Click here to edit the member.'),
+              'src': theme_url+'/assets/t2.jpg',
+              'extra': '<ul><li>xxxxx xxx xxxxx</li><li>xxxxx xxxxxx xxxx</li></ul>'
             },
             {
               'title': _('Team Member'),
-              'subtitle': _('Free'),
-              'caption': _('Click here to edit the service.'),
-              'src': theme_url+'/assets/t3.png'
+              'subtitle': _('Job Title'),
+              'caption': _('Click here to edit the member.'),
+              'src': theme_url+'/assets/t3.jpg',
+              'extra': '<ul><li>xxxxx xxx xxxxx</li><li>xxxxx xxxxxx xxxx</li></ul>'
             }
          ]}}"
+         allow-fields="subtitle, extra"
          ng-model="meta.series">
 
       <div class="col-lg-3 col-md-6"
            ng-repeat="item in meta.series">
-        <div class="px-4"
+        <div class="p-3"
              series-item>
           <figure class="w-75 py-3">
             <img class="avatar"
@@ -65,6 +69,23 @@
             {{item.subtitle || '&nbsp;'}}
           </p>
           <div sup-bind-html="item.extra"></div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="p-3"
+             series-item-create>
+          <figure class="w-75 py-3">
+            <img class="avatar"
+                 ng-src="{{g.trans_img}}"
+                 style="{{theme_url+'/assets/add.png'|bg_img}}" />
+          </figure>
+          <h5 class="text-nowrap title">
+            {{_('Create New Member')}}
+          </h5>
+          <p class="text-nowrap subtitle text-uppercase">
+            {{_('Click here to add new one.')}}
+          </p>
         </div>
       </div>
 

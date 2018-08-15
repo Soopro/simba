@@ -6,7 +6,14 @@
 <section id="{{meta.slug}}"
          class="d-flex align-items-center justify-content-center
                 hero bg-cover bg-fixed {{meta.hero.class}}"
-         style="{{(meta.hero.src || g.hero)|bg_img}}">
+         style="{{meta.hero.style}}">
+  <div sup-widget-bg
+       presets="[
+          {'key': 'bg-primary', 'label': _('Primary Color')},
+          {'key': 'bg-light', 'label': _('Light Color')},
+          {'key': 'bg-dark', 'label': _('Dark Color')},
+       ]"
+       ng-model="meta.hero"></div>
   <div>
     <h1>
       <span sup-widget-text
@@ -33,7 +40,7 @@
          segment>
       {% include "_seg/_page.tpl" %}
     </div>
-    <div ng-if="page.template == 'portfolio'"
+    <div ng-if="page.template == 'page-extend'"
          sup-ico-inset="top"
          segment>
       {% include "_seg/_page-extend.tpl" %}
