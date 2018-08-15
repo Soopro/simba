@@ -69,16 +69,12 @@
 		"msgstr": "团队成员"
 	},
 	{
-		"msgid": "Light Color",
-		"msgstr": "浅色"
+		"msgid": "Light Text",
+		"msgstr": "浅色文本"
 	},
 	{
-		"msgid": "Dark Color",
-		"msgstr": "深色"
-	},
-	{
-		"msgid": "Primary Color",
-		"msgstr": "原色"
+		"msgid": "Dark Text",
+		"msgstr": "深色文本"
 	},
 	{
 	  "msgid": "No menu yet",

@@ -1,5 +1,6 @@
 <section id="{{page.slug}}"
-         class="segment bg-cover bg-fixed {{page.bg.class || 'bg-secondary'}}"
+         class="segment extend {{page.bg.class}}
+                {{!page.bg.src && !page.bg.color ? 'default' : ''}}"
          style="{{page.bg.style}}">
   <div class="container">
     <header>

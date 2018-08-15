@@ -1,10 +1,11 @@
 {% if g and page %}
 <section id="{{page.slug}}"
-         class="segment bg-exclude-img {{page.bg.class or 'bg-secondary'}}"
+         class="segment extend {{page.bg.class}}
+         {{'default' if not page.bg.color and not page.bg.src}}"
          data-image-src="{{page.bg.src or ''}}"
          data-parallax="scroll"
          data-position="center center"
-         style="{{page.bg.style}}">
+         style="{{page.bg.style if not page.bg.src }}">
   <div class="container">
     <header>
       <h4>{{page.title or _('Title')}}</h4>

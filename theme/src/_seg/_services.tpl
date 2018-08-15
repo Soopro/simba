@@ -15,8 +15,7 @@
                  ref="icon"
                  ng-src="{{g.trans_img}}"
                  style="{{item.src|bg_img}}"
-                 alt="{{item.title}}"
-                 data-icon-bg="bg-secondary" />
+                 alt="{{item.title}}" />
           </figure>
           <h5 class="text-nowrap title"
               ref="title">

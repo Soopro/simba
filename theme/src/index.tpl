@@ -9,9 +9,8 @@
          style="{{meta.hero.style}}">
   <div sup-widget-bg
        presets="[
-          {'key': 'bg-primary', 'label': _('Primary Color')},
-          {'key': 'bg-light', 'label': _('Light Color')},
-          {'key': 'bg-dark', 'label': _('Dark Color')},
+          {'key': 'text-light', 'label': _('Light Text')},
+          {'key': 'text-dark', 'label': _('Dark Text')},
        ]"
        ng-model="meta.hero"></div>
   <div>
