@@ -8,8 +8,8 @@
     <div class="row">
       {% for item in page.series %}
       <div class="col-lg-3 col-md-6 text-center">
-        <div class="p-3 active-item
-                   {{item.class}} {{'open-modal-detail' if item.extra}}"
+        <div class="p-3 {{item.class}}
+                   {{'active-item open-modal-detail' if item.extra}}"
              data-effect="mfp-move-horizontal mfp-fullscreen">
           <figure class="w-50 py-1 m-auto">
             <img class="rounded-circle thumbnail"
@@ -26,9 +26,9 @@
              ref="caption">
             {{item.caption}}
           </p>
-          <div class="d-none"
-               ref="extra">
-            {{item.extra}}
+          <div class="d-none">
+            <div ref="extra">{{item.extra}}</div>
+            <div ref="poster"><img src="{{item.poster}}" /></div>
           </div>
         </div>
       </div>

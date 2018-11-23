@@ -40,7 +40,7 @@
               'src': theme_url+'/assets/s3.png'
             }
          ]}}"
-         allow-fields="subtitle, extra"
+         allow-fields="subtitle, poster, extra"
          ng-model="meta.series">
 
       <div class="col-lg-3 col-md-6 text-center"

@@ -38,12 +38,12 @@
               'src': theme_url+'/assets/f3.png'
             }
          ]}}"
-         allow-fields="extra"
+         allow-fields="poster, extra"
          ng-model="meta.series">
 
       <div class="col-lg-3 col-md-6 text-center"
            ng-repeat="item in meta.series">
-        <div class="p-3 active-item {{item.class}}"
+        <div class="p-3 {{item.class}}"
              series-item>
           <figure class="w-50 py-1 m-auto">
             <img class="rounded-circle thumbnail"

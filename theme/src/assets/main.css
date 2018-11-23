@@ -415,7 +415,8 @@ section header .lead {
 }
 
 .hero .start-btn:hover {
-  transform: scale(1.5);
+  transform: scale(1.2);
+  animation: none;
 }
 
 /* active items */
@@ -483,7 +484,7 @@ section header .lead {
 }
 
 .anim-fade-in-out {
-  animation: fadeInOut 2s infinite;
+  animation: fadeInOut 3s infinite;
 }
 
 /* Modal

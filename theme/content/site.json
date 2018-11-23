@@ -1,0 +1,76 @@
+{
+  "app_id":"pyco_app",
+  "slug":"pyco",
+  "locale": "en_US",
+  "content_types": {
+    "post": "Posts",
+    "page": "Pages",
+    "work": "Works",
+    "product": "Products"
+  },
+  "menus": {
+    "primary": [
+      {
+        "key": "what-we-do",
+        "meta": {},
+        "nodes": [],
+        "name": "What we do?",
+        "link": "/what-we-do"
+      },
+      {
+        "key": "services",
+        "meta": {},
+        "nodes": [],
+        "name": "Services",
+        "link": "/services"
+      },
+      {
+        "key": "how-to-work",
+        "meta": {},
+        "nodes": [],
+        "name": "How to work?",
+        "link": "/how-to-work"
+      },
+      {
+        "key": "features",
+        "meta": {},
+        "nodes": [],
+        "name": "Features",
+        "link": "/features"
+      },
+      {
+        "key": "about",
+        "meta": {},
+        "nodes": [],
+        "name": "About us",
+        "link": "/team"
+      },
+      {
+        "key": "contact",
+        "meta": {},
+        "nodes": [],
+        "name": "Contact",
+        "link": "/contact"
+      }
+    ]
+  },
+
+  "meta": {
+    "favicon": "",
+    "logo": "",
+    "contact": "redy",
+    "copyright": "2015 Made by Pyco.",
+    "description": "...",
+    "license": "MIT.",
+    "title": "Soopro",
+    "socials":[
+      {"key": "facebook", "name": "Facebook", "url": "#", "code": "facebook"},
+      {"key": "twitter", "name": "Twitter", "url": "#", "code": "twitter"}
+    ],
+    "languages": [
+       {"key": "zh_CN", "name":"汉语", "url":"http://....."},
+       {"key": "en_US", "name":"English", "url":"http://....."}
+    ]
+  }
+
+}
