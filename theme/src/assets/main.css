@@ -326,7 +326,7 @@ article .thumb-figure {
   color: #fff;
 }
 .footer .certificate {
-  padding-bottom: 0.2rem;
+  padding-bottom: 0.5rem;
 }
 .footer .certificate > * {
   margin: 0;
@@ -361,7 +361,8 @@ section header .lead {
 
 .segment.invert-color {
   color: rgba(255, 255, 255, 0.9);
-  background-color: rgba(120, 144, 155, 0.7);
+  background-color: #a1b1b8;
+  /*background-color: rgba(120, 144, 155, 0.7);*/
 }
 .segment.invert-color a:not(.btn) {
   color: currentColor !important;
