@@ -14,6 +14,7 @@
     },
   });
 
+
   $('.open-modal-detail').click(function(e){
     var curr_modal = null;
     var curr_hammer = null;
@@ -53,23 +54,33 @@
         },
         open: function() {
           curr_modal = this.content;
-          curr_modal.find('.modal-close').bind('click', function(e){
+          curr_modal.find('.modal-close').on('click', function(e){
             e.preventDefault();
             $.magnificPopup.close();
           });
           if ($(window).width() <= 991) {
-            curr_hammer = new Hammer(curr_modal.find('.modal-paper-body')[0]);
-            curr_hammer.on('swipeleft', function(e){
-              $.magnificPopup.close();
+            var start_point = NaN;
+            var touch_step = 120;
+            curr_modal.on("touchstart", function(e){
+              try {
+                start_point = e.touches[0].clientX;
+              } catch(err) {
+                console.error(err)
+              }
+            });
+            curr_modal.on("touchmove", function(e){
+              var touched = e.touches[0];
+              if (start_point - touched.clientX > touch_step) {
+                $.magnificPopup.close();
+                console.log(touched.clientX - start_point > touch_step);
+              }
             });
           }
         },
         beforeClose: function() {
           if (curr_modal) {
-            curr_modal.find('.modal-close').unbind();
-          }
-          if (curr_hammer) {
-            curr_hammer.destroy();
+            curr_modal.find('.modal-close').off();
+            curr_modal.off("touchmove");
           }
         }
       },
@@ -77,13 +88,12 @@
   });
 
 
-
   // modal paper
   $('.modal-paper').each(function(e){
 
   });
 
-  $('.modal-close').bind('click', function(e){
+  $('.modal-close').on('click', function(e){
     e.preventDefault();
     $.magnificPopup.close();
   });
@@ -117,7 +127,7 @@
     }
   });
 
-  $('.nav-link, .nav-scroll').bind('click', function(e) {
+  $('.nav-link, .nav-scroll').on('click', function(e) {
     e.preventDefault();
     var anchor = $(this);
     var scorll_target;
