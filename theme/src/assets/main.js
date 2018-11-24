@@ -69,10 +69,14 @@
               }
             });
             curr_modal.on("touchmove", function(e){
-              var touched = e.touches[0];
-              if (start_point - touched.clientX > touch_step) {
+              try {
+                var touched = e.touches[0].clientX;
+              } catch (err) {
+                console.error(err)
+                var touched = start_point;
+              }
+              if (start_point - touched > touch_step) {
                 $.magnificPopup.close();
-                console.log(touched.clientX - start_point > touch_step);
               }
             });
           }
