@@ -2,7 +2,9 @@
 Date: '2014-01-02'
 Priority: 0
 Status: 1
-Template: page-extend
+Template: page
+Bg:
+  class: 'invert-color'
 Title: Subscribe to Our WeChat Buzz
 */
 <p>

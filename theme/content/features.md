@@ -9,7 +9,8 @@ Series:
 - src: '[%uploads%]/ic_website.png'
   title: Website
   caption: Our templates are updated regularly so they don't break. templates are updated regularly so they don't break.
-  extra: <h5>Provide the following design services:</h5><ul><li>Logo design of brands and commodities;</li><li>Basic vision standard specification;</li><li>Graphic, Web and UI design;</li><li>TVC and original music.</li></ul><div ref="gallery"><img src="[%uploads%]/pic_visual_identity.jpg"/></div>
+  poster: '[%uploads%]/pic_visual_identity.jpg'
+  extra: <h5>Provide the following design services:</h5><ul><li>Logo design of brands and commodities;</li><li>Basic vision standard specification;</li><li>Graphic, Web and UI design;</li><li>TVC and original music.</li></ul>
 - src: '[%uploads%]/ic_wechat.png'
   title: WeChat buzz
   caption: You can use this theme as is, or you can make changes!
