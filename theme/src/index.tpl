@@ -5,13 +5,9 @@
 
 <section id="{{meta.slug}}"
          class="d-flex align-items-center justify-content-center
-                hero bg-cover bg-fixed {{meta.hero.class}}"
+                hero parallax-hero {{meta.hero.class}}"
          style="{{meta.hero.style}}">
   <div sup-widget-bg
-       presets="[
-          {'key': 'text-light', 'label': _('Light Text')},
-          {'key': 'text-dark', 'label': _('Dark Text')},
-       ]"
        ng-model="meta.hero"></div>
   <div>
     <h1>
@@ -38,11 +34,6 @@
          sup-ico-inset="top"
          segment>
       {% include "_seg/_page.tpl" %}
-    </div>
-    <div ng-if="page.template == 'page-extend'"
-         sup-ico-inset="top"
-         segment>
-      {% include "_seg/_page-extend.tpl" %}
     </div>
     <div ng-if="page.template == 'features'"
          sup-ico-inset="top"

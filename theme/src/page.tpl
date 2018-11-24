@@ -5,7 +5,16 @@
 <div class="editor-top"></div>
 
 <section id="{{meta.slug}}"
-         class="segment">
+         class="segment {{meta.bg.class}}"
+         data-image-src="{{meta.bg.src || ''}}"
+         data-parallax="scroll"
+         data-position="center center"
+         style="{{meta.bg.style}}">
+  <div sup-widget-bg
+       presets="[
+          {'key': 'invert-color', 'label': _('Invert Color')}
+       ]"
+       ng-model="meta.bg"></div>
   <article class="container text-center">
     <header>
       <h2>

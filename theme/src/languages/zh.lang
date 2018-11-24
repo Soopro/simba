@@ -69,12 +69,8 @@
 		"msgstr": "团队成员"
 	},
 	{
-		"msgid": "Light Text",
-		"msgstr": "浅色文本"
-	},
-	{
-		"msgid": "Dark Text",
-		"msgstr": "深色文本"
+		"msgid": "Invert Color",
+		"msgstr": "反转色"
 	},
 	{
 	  "msgid": "No menu yet",

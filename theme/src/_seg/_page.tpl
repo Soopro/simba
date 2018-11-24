@@ -1,5 +1,6 @@
 <section id="{{page.slug}}"
-         class="segment">
+         class="segment {{page.bg.class}}"
+         style="{{page.bg.style}}">
   <article class="container text-center">
     <header>
       <h2>{{page.title || _('Title')}}</h2>

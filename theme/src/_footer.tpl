@@ -1,4 +1,4 @@
-<footer class="footer bg-cover bg-fixed"
+<footer class="footer parallax-hero"
         style="{{meta.hero.style}}">
   <div class="container">
     <div class="p-4">

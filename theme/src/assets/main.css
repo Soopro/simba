@@ -100,7 +100,6 @@ article .thumb-figure {
   border-radius: 0;
 }
 
-
 .float-bg {
   width: 100%;
   height: 100%;
@@ -126,22 +125,15 @@ article .thumb-figure {
 .bg-fixed {
   background-attachment: fixed;
 }
-
-.bg-exclude-img {
-  background-image: none !important;
-}
 .bg-trans {
   background-color: transparent !important;
 }
-
 .bg-primary {
   background-color: #bac5c8 !important;
 }
 .bg-secondary {
   background-color: #90ba90 !important;
 }
-
-
 
 .divider {
   max-width: 50px;
@@ -332,7 +324,6 @@ article .thumb-figure {
   text-transform: uppercase;
   text-align: center;
   color: #fff;
-  background-image: url('hero.jpg');
 }
 .footer .certificate {
   padding-bottom: 0.2rem;
@@ -367,16 +358,16 @@ section header .lead {
 .segment {
   overflow: hidden;
 }
-.segment.default {
+
+.segment.invert-color {
   color: rgba(255, 255, 255, 0.9);
   background-color: rgba(120, 144, 155, 0.7);
 }
-
-.segment.extend a:not(.btn) {
+.segment.invert-color a:not(.btn) {
   color: currentColor !important;
   text-decoration: underline;
 }
-.segment.extend a:not(.btn):hover {
+.segment.invert-color a:not(.btn):hover {
   opacity: 0.7;
   text-decoration: none;
 }
@@ -392,7 +383,6 @@ section header .lead {
   min-height: 100%;
   text-align: center;
   text-transform: uppercase;
-  background-image: url('hero.jpg');
 }
 .hero h1 {
   font-size: 2rem;
@@ -630,7 +620,12 @@ section header .lead {
 .editor-top {
   height: 80px;
 }
-
+.parallax-hero {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url('hero.jpg');
+}
 
 /* Languages
 /* ----------------------------------------------- */

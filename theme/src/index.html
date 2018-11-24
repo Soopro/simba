@@ -8,10 +8,10 @@
 
 <section id="{{meta.slug}}"
          class="d-flex align-items-center justify-content-center
-                hero bg-exclude-img {{meta.hero.class}}"
+                hero {{meta.hero.class}}"
          data-image-src="{{meta.hero.src or g.hero}}"
          data-parallax="scroll"
-         style="{{meta.hero.style}}">
+         style="{{meta.hero.style if not meta.hero.src}}">
   <div>
     <h1>{{meta.title or _('Title')}}</h1>
     <h3 class="lead">

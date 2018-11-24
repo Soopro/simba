@@ -1,9 +1,9 @@
-<footer class="footer bg-exclude-img"
+<footer class="footer"
         data-image-src="{{meta.hero.src or g.hero}}"
         data-position-y="bottom"
         data-parallax="scroll"
         data-bleed="10"
-        style="{{meta.hero.style}}">
+        style="{{meta.hero.style if not meta.hero.src}}">
   <div class="container">
     <div class="p-4">
       {% if meta.logo.src or site_meta.logo %}

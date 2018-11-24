@@ -12,7 +12,6 @@
 
   "templates": [
     "^page",
-    "^page-extend",
     "^services",
     "^features",
     "^team",

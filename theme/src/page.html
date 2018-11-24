@@ -1,6 +1,10 @@
 {% if g and page %}
 <section id="{{page.slug}}"
-         class="segment">
+         class="segment {{page.bg.class}}"
+         data-image-src="{{page.bg.src or ''}}"
+         data-parallax="scroll"
+         data-position="center center"
+         style="{{page.bg.style if not page.bg.src }}">
   <article class="container text-center">
     <header>
       <h2>{{page.title or _('Title')}}</h2>
