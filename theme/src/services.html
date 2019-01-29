@@ -7,33 +7,25 @@
     </header>
     <div class="row">
       {% for item in page.series %}
-      <div class="col-lg-3 col-md-6 text-center">
-        <div class="p-3 {{item.class}}
-                   {{'active-item open-modal-detail' if item.extra}}"
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="p-3 card border-0 text-center {{item.class}}"
              data-effect="mfp-move-horizontal mfp-fullscreen">
-          <figure class="w-50 py-4 m-auto">
-            <img class="icon"
-                 ref="icon"
+          <figure class="m-auto">
+            <img class="avatar"
                  src="{{g.trans_img}}"
                  style="{{item.src|bg_img}}"
                  alt="{{item.title}}"
                  data-icon-bg="bg-secondary" />
           </figure>
-          <h5 class="text-nowrap title"
-              ref="title">
-            {{item.title or '&nbsp;'}}
-          </h5>
-          <p class="text-nowrap subtitle"
-             ref="subtitle">
-            {{item.subtitle or '&nbsp;'}}
-          </p>
-          <p class="text-clamp-3"
-             ref="caption">
-            {{item.caption}}
-          </p>
-          <div class="d-none">
-            <div ref="extra">{{item.extra}}</div>
-            <div ref="poster"><img src="{{item.poster}}" /></div>
+          <div class="card-body">
+            <h5 class="text-truncate card-title">
+              {{item.title or '&nbsp;'}}
+            </h5>
+            <p class="text-clamp-4 card-text">
+              {{item.caption}}
+            </p>
+            <a class="btn btn-sm btn-link text-secondary"
+               href="#" >{{_('Read More')}}</a>
           </div>
         </div>
       </div>

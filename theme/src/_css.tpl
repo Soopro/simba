@@ -1,15 +1,17 @@
-<!-- bootstrap css -->
-<link ng-href="{{theme_url}}/assets/bootstrap.min.css"
-      rel="stylesheet">
-<!-- plugin css -->
-<link ng-href="{{theme_url}}/assets/magnific-popup.css"
-      rel="stylesheet">
-<!-- fonts css -->
-<link ng-href="{{theme_url}}/assets/fonts/fonts.css"
-      rel="stylesheet">
-<!-- theme css -->
-<link ng-href="{{theme_url}}/assets/main.css"
-      rel="stylesheet">
+<!-- webfonts -->
+<link ng-href="{{res_url}}/font/roboto/roboto.css"
+      rel="stylesheet"
+      type="text/css">
 
-<!-- custom styles -->
+<!-- bootstrap -->
+<link ng-href="{{theme_url}}/assets/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css">
+
+<!-- styles -->
+<link ng-href="{{theme_url}}/assets/main.css"
+      rel="stylesheet"
+      type="text/css">
+
+<!-- custom -->
 <style sup-bind-html="theme_meta.styles"></style>

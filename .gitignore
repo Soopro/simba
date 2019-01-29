@@ -6,4 +6,5 @@ build
 release
 uploads
 pyco/
+node_modules/
 bower_components/

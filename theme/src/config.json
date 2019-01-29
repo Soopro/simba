@@ -9,15 +9,17 @@
   "icon": "icon.png",
   "poster": "poster.jpg",
   "previews": ["preview.jpg"],
-
+  "content_types": {
+    "post": {"title": "Posts", "templates": ["post"]}
+  },
   "templates": [
     "^page",
     "^services",
     "^features",
-    "^team",
+    "post",
     "index"
   ],
   "options":{
-      "sortby": "+date"
+      "sortby": "date"
   }
 }

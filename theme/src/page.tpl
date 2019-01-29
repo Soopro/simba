@@ -6,9 +6,6 @@
 
 <section id="{{meta.slug}}"
          class="segment {{meta.bg.class}}"
-         data-image-src="{{meta.bg.src || ''}}"
-         data-parallax="scroll"
-         data-position="center center"
          style="{{meta.bg.style}}">
   <div sup-widget-bg
        presets="[
