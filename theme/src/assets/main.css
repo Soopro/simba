@@ -425,6 +425,20 @@ section header .lead {
     font-weight: 400;
   }
 }
+.hero .entrance,
+.hero .entrance:link,
+.hero .entrance:visited {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: 1rem auto;
+  color: #6b9e56;
+}
+.hero .entrance:hover {
+  transform: scale(1.2);
+  animation: none;
+}
+
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .hero {
     height: 100%;
@@ -434,21 +448,6 @@ section header .lead {
     display: block;
     min-height: 0;
   }
-}
-
-.hero .start-btn,
-.hero .start-btn:link,
-.hero .start-btn:visited {
-  display: block;
-  width: 48px;
-  height: 48px;
-  margin: 1rem auto;
-  color: #50ae54;
-}
-
-.hero .start-btn:hover {
-  transform: scale(1.2);
-  animation: none;
 }
 
 /* card */
