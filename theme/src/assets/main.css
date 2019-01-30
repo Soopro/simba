@@ -55,13 +55,13 @@ blockquote {
 }
 
 mark {
-  background-color: #aec4c9;
+  background-color: rgba(55, 55, 55, 0.25);
 }
 ::selection {
-  background: #ccc;
+  background: rgba(107, 158, 86, 0.25);
 }
 ::-moz-selection {
-  background: #ccc;
+  background: rgba(107, 158, 86, 0.25);
 }
 
 a,
@@ -174,7 +174,7 @@ embed {
   font-size: 0.875rem;
 }
 .hl {
-  color: #78909b;
+  color: #6b9e56;
 }
 .tags {
   font-size: 0.875rem;
@@ -182,7 +182,7 @@ embed {
 }
 .tags .tag {
   font-weight: 400;
-  color: #78909b;
+  color: #6b9e56;
 }
 
 .text-clamp-2 {
@@ -333,8 +333,7 @@ embed {
 /* section */
 section {
   position: relative;
-  z-index: 9;
-  padding: 3rem 0;
+  padding: 6rem 0;
 }
 
 section header {
@@ -353,6 +352,13 @@ section header .lead {
 .segment {
   overflow: hidden;
   background-color: #fff;
+  border-bottom: 1px solid rgba(120, 144, 155, 0.2);
+}
+.segment.glassy {
+  background-color: rgba(120, 144, 155, 0.6);
+}
+.segment.glassy * {
+  color: #fff !important;
 }
 
 /* parallex */
@@ -365,7 +371,6 @@ section header .lead {
 }
 .parallax-bg {
   background-size: cover;
-  background-attachment: fixed;
   background-repeat: no-repeat;
 
   -moz-transform: translate3d(0,0,0);
@@ -406,31 +411,25 @@ section header .lead {
   align-items: center !important;
 }
 .hero h1 {
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-weight: 700;
   margin: 0;
 }
 .hero .lead {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 400;
 }
 @media (max-width: 991px) {
   .hero h1 {
     font-size: 2rem;
-    font-weight: 700;
-    margin: 0;
-  }
-  .hero .lead {
-    font-size: 1rem;
-    font-weight: 400;
   }
 }
 .hero .entrance,
 .hero .entrance:link,
 .hero .entrance:visited {
   display: block;
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   margin: 1rem auto;
   color: #6b9e56;
 }
@@ -483,10 +482,6 @@ section header .lead {
 .content {
   margin: 0 auto;
   max-width: 1080px;
-}
-.content mark {
-  color: #fff;
-  background-color: #333;
 }
 .content img,
 .content video,

@@ -3,12 +3,13 @@
 
   /* parallax */
   var runParallax = function (){
-    var height =  $(document).height();
-    var percent = Math.round($(document).scrollTop() / height * 1000) / 1000;
+    var win_h = $(window).height();
+    var win_scroll = $(window).scrollTop();
 
     $('.parallax-bg').each(function(){
+      var offset_percent = ($(this).offset().top - win_scroll) / win_h;
       $(this).css({
-        'background-position':'50% '+($(this).height() * percent)+'px'
+        'background-position':'50% '+(offset_percent * 100)+'%'
       });
     });
   }
