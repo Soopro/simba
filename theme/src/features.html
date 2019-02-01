@@ -1,41 +1,30 @@
 {% if g and page %}
-<section id="{{page.slug}}" class="segment">
-  <div class="container">
-    <header>
-      <h2>{{page.title or _('Title')}}</h2>
-      <h4 class="lead">{{page.description}}</h4>
-    </header>
-    <div class="row">
-      {% for item in page.series %}
-      <div class="col-lg-3 col-md-6 text-center">
-        <div class="p-3 {{item.class}}
-                   {{'active-item open-modal-detail' if item.extra}}"
-             data-effect="mfp-move-horizontal mfp-fullscreen">
-          <figure class="w-50 py-1 m-auto">
-            <img class="rounded-circle thumbnail"
-                 ref="icon"
-                 src="{{g.trans_img}}"
-                 style="{{item.src|bg_img}}"
-                 alt="{{item.title}}" />
-          </figure>
-          <h5 class="text-nowrap title"
-              ref="title">
-            {{item.title or '&nbsp;'}}
-          </h5>
-          <p class="text-clamp-3"
-             ref="caption">
-            {{item.caption}}
-          </p>
-          <div class="d-none">
-            <div ref="extra">{{item.extra}}</div>
-            <div ref="poster"><img src="{{item.poster}}" /></div>
-          </div>
-        </div>
+<div class="container">
+  <header>
+    <h2>{{page.title or _('Title')}}</h2>
+    <h4 class="lead">{{page.description}}</h4>
+  </header>
+  <div class="row">
+    {% for item in page.series %}
+    <div class="col-lg-3 col-md-6">
+      <div class="p-3 text-center {{item.class}}">
+        <figure class="w-50 py-1 m-auto">
+          <img class="rounded-circle thumbnail"
+               src="{{g.trans_img}}"
+               style="{{item.src|bg_img}}"
+               alt="{{item.title}}" />
+        </figure>
+        <h5 class="text-truncate title">
+          {{item.title or '&nbsp;'}}
+        </h5>
+        <p class="text-clamp-4">
+          {{item.caption or '&nbsp;'}}
+        </p>
       </div>
-      {% endfor %}
     </div>
+    {% endfor %}
   </div>
-</section>
+</div>
 {% elif not meta.is_front %}
 <script>window.location.replace('{{base_url}}/#{{meta.slug}}');</script>
 {% endif %}

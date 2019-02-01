@@ -9,7 +9,7 @@
       type="text/css">
 
 <!-- styles -->
-<link ng-href="{{theme_url}}/assets/main.css"
+<link href="{{theme_url}}/assets/main.css"
       rel="stylesheet"
       type="text/css">
 

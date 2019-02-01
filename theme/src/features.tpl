@@ -1,9 +1,5 @@
 {% import 'g.tpl' %}
 {% include '_css.tpl' %}
-{% include '_header.tpl' %}
-
-<div class="editor-top"></div>
-
 <section id="{{meta.slug}}" class="segment">
   <div class="container">
     <header>
@@ -38,49 +34,44 @@
               'src': theme_url+'/assets/f3.png'
             }
          ]}}"
-         allow-fields="poster, extra"
          ng-model="meta.series">
 
-      <div class="col-lg-3 col-md-6 text-center"
+      <div class="col-lg-3 col-md-6"
            ng-repeat="item in meta.series">
-        <div class="p-3 {{item.class}}"
+        <div class="p-3 text-center {{item.class}}"
              series-item>
           <figure class="w-50 py-1 m-auto">
             <img class="rounded-circle thumbnail"
-                 ref="icon"
                  ng-src="{{g.trans_img}}"
-                 style="{{item.src|bg_img}}"
-                 alt="{{item.title}}" />
+                 style="{{item.src|bg_img}}" />
           </figure>
-          <h5 class="text-nowrap title"
-              ref="title">
+          <h5 class="text-truncate title">
             {{item.title || '&nbsp;'}}
           </h5>
-          <p class="text-clamp-3"
-             ref="caption">
-            {{item.caption}}
+          <p class="text-clamp-4">
+            {{item.caption || '&nbsp;'}}
           </p>
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6 text-center">
-        <div class="p-3 active-item"
+      <div class="col-lg-3 col-md-6">
+        <div class="p-3 text-center"
              series-item-create>
           <figure class="w-50 py-1 m-auto">
             <img class="rounded-circle thumbnail"
-                 ref="icon"
                  ng-src="{{g.trans_img}}"
                  style="{{theme_url+'/assets/add.png'|bg_img}}"/>
           </figure>
-          <h5 class="text-nowrap title">
+          <h5 class="text-truncate title">
             {{_('Create New Feature')}}
           </h5>
-          <p class="text-clamp-3">
+          <p class="text-clamp-4">
             {{_('Click here to add new one.')}}
           </p>
         </div>
       </div>
 
     </div>
+
   </div>
 </section>

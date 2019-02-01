@@ -1,18 +1,16 @@
 {% import 'g.tpl' %}
 {% include '_css.tpl' %}
-{% include '_header.tpl' %}
-
-<div class="editor-top"></div>
 
 <section id="{{meta.slug}}"
          class="segment {{meta.bg.class}}"
          style="{{meta.bg.style}}">
   <div sup-widget-bg
        presets="[
-          {'key': 'invert-color', 'label': _('Invert Color')}
+          {'key': 'parallax-bg', 'label': _('Parallax')},
+          {'key': 'glassy', 'label': _('Glassy')},
        ]"
        ng-model="meta.bg"></div>
-  <article class="container text-center">
+  <div class="container">
     <header>
       <h2>
         <span sup-widget-text
@@ -31,5 +29,5 @@
            default="{{_('$_CONTENT')}}"
            ng-model="content"></div>
     </div>
-  </article>
+  </div>
 </section>

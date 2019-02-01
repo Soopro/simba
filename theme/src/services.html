@@ -1,38 +1,34 @@
 {% if g and page %}
-<section id="{{page.slug}}" class="segment">
-  <div class="container">
-    <header>
-      <h2>{{page.title or _('Title')}}</h2>
-      <h4 class="lead">{{page.description}}</h4>
-    </header>
-    <div class="row">
-      {% for item in page.series %}
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="p-3 card border-0 text-center {{item.class}}"
-             data-effect="mfp-move-horizontal mfp-fullscreen">
-          <figure class="m-auto">
-            <img class="avatar"
-                 src="{{g.trans_img}}"
-                 style="{{item.src|bg_img}}"
-                 alt="{{item.title}}"
-                 data-icon-bg="bg-secondary" />
-          </figure>
-          <div class="card-body">
-            <h5 class="text-truncate card-title">
-              {{item.title or '&nbsp;'}}
-            </h5>
-            <p class="text-clamp-4 card-text">
-              {{item.caption}}
-            </p>
-            <a class="btn btn-sm btn-link text-secondary"
-               href="#" >{{_('Read More')}}</a>
-          </div>
+<div class="container">
+  <header>
+    <h2>{{page.title or _('Title')}}</h2>
+    <h4 class="lead">{{page.description}}</h4>
+  </header>
+  <div class="row">
+    {% for item in page.series %}
+    <div class="col-lg-3 col-md-6 mb-3">
+      <div class="p-3 card border-0 text-center {{item.class}}">
+        <figure class="m-auto">
+          <img class="avatar"
+               src="{{g.trans_img}}"
+               style="{{item.src|bg_img}}"
+               alt="{{item.title}}"/>
+        </figure>
+        <div class="card-body">
+          <h5 class="text-truncate card-title">
+            {{item.title or '&nbsp;'}}
+          </h5>
+          <p class="text-clamp-4 card-text">
+            {{item.caption or '&nbsp;'}}
+          </p>
+          <a class="btn btn-sm btn-link text-secondary"
+             href="{{(item.link or '#')|url}}">{{_('Read More')}}</a>
         </div>
       </div>
-      {% endfor %}
     </div>
+    {% endfor %}
   </div>
-</section>
+</div>
 
 {% elif not meta.is_front %}
 <script>window.location.replace('{{base_url}}/#{{meta.slug}}');</script>

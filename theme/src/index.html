@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 <html lang="{{lang}}">
 {% include '_head.html' %}
-<body class="parallax-body-cover">
+<body class="parallax-body-cover"
+      style="{{meta.hero.style}}">
 
 {% include '_header.html' %}
 
 <section id="{{meta.slug}}"
-         class="hero {{meta.hero.class}}"
-         style="{{meta.hero.style}}">
+         class="hero {{meta.hero.class}}">
   <div class="pb-5">
     <h1>{{meta.title or _('Title')}}</h1>
     <h3 class="lead">
@@ -22,7 +22,11 @@
 </section>
 
 {% for page in segments() %}
-  {% include page.template+'.html' ignore missing %}
+  <section id="{{page.slug}}"
+           class="segment {{page.bg.class}}"
+           style="{{page.bg.style}}">
+    {% include page.template+'.html' ignore missing %}
+  </section>
 {% endfor %}
 
 {% include '_footer.html' %}

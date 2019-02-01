@@ -1,8 +1,5 @@
 {% import 'g.tpl' %}
 {% include '_css.tpl' %}
-{% include '_header.tpl' %}
-
-<div class="editor-top"></div>
 
 <section id="{{page.slug}}" class="segment">
   <div class="container">
@@ -40,56 +37,49 @@
               'src': theme_url+'/assets/s3.png'
             }
          ]}}"
-         allow-fields="subtitle, poster, extra"
+         allow-fields="link"
          ng-model="meta.series">
 
-      <div class="col-lg-3 col-md-6 text-center"
+      <div class="col-lg-3 col-md-6 mb-3"
            ng-repeat="item in meta.series">
-        <div class="p-3 active-item {{item.class}}"
+        <div class="p-3 card border-0 text-center {{item.class}}"
              series-item>
-          <figure class="w-50 py-4 m-auto">
-            <img class="icon"
-                 ref="icon"
+          <figure class="m-auto">
+            <img class="avatar"
                  ng-src="{{g.trans_img}}"
-                 style="{{item.src|bg_img}}"
-                 alt="{{item.title}}" />
+                 style="{{item.src|bg_img}}"/>
           </figure>
-          <h5 class="text-nowrap title"
-              ref="title">
-            {{item.title || '&nbsp;'}}
-          </h5>
-          <p class="text-nowrap subtitle"
-             ref="subtitle">
-            {{item.subtitle || '&nbsp;'}}
-          </p>
-          <p class="text-clamp-3"
-             ref="caption">
-            {{item.caption}}
-          </p>
+          <div class="card-body">
+            <h5 class="text-truncate card-title">
+              {{item.title || '&nbsp;'}}
+            </h5>
+            <p class="text-clamp-4 card-text">
+              {{item.caption || '&nbsp;'}}
+            </p>
+            <a class="btn btn-sm btn-link text-secondary"
+               href="#">{{_('Read More')}}</a>
+          </div>
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6 text-center">
-        <div class="p-3 active-item"
+      <div class="col-lg-3 col-md-6 mb-3">
+        <div class="p-3 card border-0 text-center"
              series-item-create>
-          <figure class="w-50 py-4 m-auto">
-            <img class="icon bg-light"
-                 ref="icon"
+          <figure class="m-auto">
+            <img class="avatar"
                  ng-src="{{g.trans_img}}"
                  style="{{theme_url+'/assets/add.png'|bg_img}}" />
           </figure>
-          <h5 class="text-nowrap title"
-              ref="title">
-            {{_('Create New Service')}}
-          </h5>
-          <p class="text-nowrap subtitle"
-             ref="subtitle">
-            {{_('Price here')}}
-          </p>
-          <p class="text-clamp-3"
-             ref="caption">
-            {{_('Click here to add new one.')}}
-          </p>
+          <div class="card-body">
+            <h5 class="text-truncate card-title">
+              {{_('Create New Service')}}
+            </h5>
+            <p class="text-clamp-4 card-text">
+              {{_('Click here to add new one.')}}
+            </p>
+            <a class="btn btn-sm btn-link text-secondary"
+               href="#">{{_('Create')}}</a>
+          </div>
         </div>
       </div>
 

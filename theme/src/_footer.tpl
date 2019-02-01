@@ -1,7 +1,6 @@
-<footer class="footer parallax-hero"
-        style="{{meta.hero.style}}">
+<footer class="footer">
   <div class="container">
-    <div class="p-4">
+    <div class="pt-4 pb-2">
       <img class="logo"
            ng-if="meta.logo.src || site_meta.logo"
            ng-src="{{meta.logo.src || site_meta.logo}}" />
