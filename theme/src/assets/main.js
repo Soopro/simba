@@ -145,6 +145,7 @@
     });
   }
 
+  /* links */
   $('a[href*="#"]').on('click', function(e) {
     scrollToSection(this.hash);
     // closes the responsive menu after clicked.
@@ -157,6 +158,25 @@
     $('.navbar-collapse').collapse('hide');
     return false;
   });
+
+  $('.card.trigger').on('click', function(e) {
+    if (e.target && e.target.tagName == 'A'){
+      return true;
+    } else {
+      var link = $(this).find('a').attr('href') || '';
+      if (link.indexOf('#') == 0) {
+        scrollToSection(link);
+      } else {
+        window.location.href = link;
+      }
+      return false;
+    }
+  });
+  // $('.card.trigger a').on('click', function(e) {
+  //   console.log(e)
+  //   e.stopPropagation();
+  //   return
+  // });
 
   /* init */
   toggleAffix();
