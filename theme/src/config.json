@@ -16,9 +16,13 @@
     "^page",
     "^services",
     "^features",
+    "^blog",
     "post",
     "index"
   ],
+  "reserves": {
+    "^blog": true
+  },
   "options":{
       "sortby": "date"
   }

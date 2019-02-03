@@ -1,0 +1,15 @@
+{% if g and page %}
+<div class="container">
+  <header>
+    <h2>{{page.title or _('Title')}}</h2>
+    <h4 class="lead">{{page.description}}</h4>
+  </header>
+  <div class="m-auto text-center">
+    <div class="content">
+      {{page.content}}
+    </div>
+  </div>
+</div>
+{% elif not meta.is_front %}
+<script>window.location.replace('{{base_url}}/#{{meta.slug}}');</script>
+{% endif %}
