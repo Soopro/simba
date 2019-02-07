@@ -146,7 +146,7 @@
   }
 
   /* links */
-  $('a[href*="#"]').on('click', function(e) {
+  $('a[href^="#"]').on('click', function(e) {
     scrollToSection(this.hash);
     // closes the responsive menu after clicked.
     $('.navbar-collapse').collapse('hide');

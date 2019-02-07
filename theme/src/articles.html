@@ -1,0 +1,43 @@
+{% if g and page %}
+  {% set posts = query('post', perpage=3).contents %}
+  {% if posts %}
+  <div class="container-fluid">
+    <div id="BLOG-CAROUSEL"
+         class="carousel text-carousel slide"
+         interval="12000">
+      <ol class="carousel-indicators">
+        {% for x in posts %}
+        <li class="{{'active' if loop.first}}"
+            data-target="#BLOG-CAROUSEL"
+            data-slide-to="{{loop.index0}}"></li>
+        {% endfor %}
+        <li class="more">
+          <a href="{{base_url}}/articles"
+             aria-label="_('More')"></a>
+        </li>
+      </ol>
+      <div class="carousel-inner">
+        {% for post in posts %}
+        <div class="carousel-item {{'active' if loop.first}}">
+          <header>
+            <h2 class="text-truncate">{{post.title or _('Title')}}</h2>
+            <h4 class="lead text-truncate">{{post.description}}</h4>
+          </header>
+          <div class="m-auto pb-1 text-center">
+            <p class="excerpt text-clamp-3">{{post.excerpt}}</p>
+            <a class="mt-2 btn btn-sm btn-link"
+               href="{{post.url}}">{{_('Read Detail')}}</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="container">
+    <p class="text-center text-muted">{{_('There is no post yet.')}}</p>
+  </div>
+  {% endif %}
+{% else %}
+  {% include '_articles.html' %}
+{% endif %}

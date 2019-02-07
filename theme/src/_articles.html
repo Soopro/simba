@@ -1,0 +1,116 @@
+{% import "g" as g with context %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+{% include "_head.html" %}
+<body>
+  <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg affix">
+      <div class="container-fluid">
+        <a class="navbar-brand"
+           href="{{base_url}}">
+          {{site_meta.title}}
+        </a>
+        <div>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link"
+                 href="{{base_url}}">
+                &larr; {{_('Back to Home')}}</svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  {% set category = categorize() %}
+  <div class="pt-5">
+    <div class="container p-5">
+      <header>
+        <h1>{{meta.title}}</h1>
+      </header>
+      <hr>
+      <div class="row">
+        <!-- col entries -->
+        <div class="col-md-8">
+          {% set booklet = query('post', paged=request.args.paged,
+                                         term=request.args.term) %}
+          {% for post in booklet.contents %}
+          <div class="py-2">
+            <header>
+              <h3>{{post.title or _('Title')}}</h3>
+              <h5 class="lead">{{post.date|date_formatted}}</h5>
+            </header>
+            {% if post.featured_img.src %}
+            <figure>
+              <img src="{{g.trans}}"
+                   style="{{post.featured_img.src|thumbnail|bg_img}}" />
+            </figure>
+            {% endif %}
+            <p class="excerpt text-clamp-4">{{post.excerpt}}</p>
+            <a class="mt-2 btn btn-sm btn-secondary"
+               href="{{post.url}}">{{_('Read Detail')}}</a>
+          </div>
+          <hr>
+          {% endfor %}
+          {% if booklet.total_pages > 1 %}
+          <nav aria-label="{{_('Pagination')}}">
+            <ul class="pagination">
+              <li class="page-item {{'disabled' if not booklet.has_prev}}">
+                <a class="page-link"
+                   href="{{ glue({'page':booklet.paged-1,
+                                  'term':request.args.term}) }}"
+                   aria-label="{{_('Previous')}}">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              {% for p in booklet.page_range %}
+              <li class="page-item {{'active' if p == booklet.paged}}">
+                <a class="page-link"
+                   href="{{glue({'page':p, 'term':request.args.term})}}">
+                 {{p}}
+                </a>
+              </li>
+              {% endfor %}
+              <li class="page-item {{'disabled' if not booklet.has_next}}">
+                <a class="page-link"
+                   href="{{ glue({'page':booklet.paged+1,
+                                  'term':request.args.term}) }}"
+                   aria-label="{{_('Next')}}">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          {% endif %}
+        </div>
+
+        <!-- col category -->
+        <div class="col-md-4">
+          <h6>{{_(category.name or 'Categories')}}</h6>
+          <div class="list-group">
+            <a class="list-group-item list-group-item-action
+                      {{'active' if not request.args.term}}"
+               href="{{base_url}}/articles">{{_('All')}}</a>
+            {% for term in category.terms %}
+            <a class="list-group-item list-group-item-action
+                      {{'active' if request.args.term == term.key}}"
+               href="{{glue({'term': term.key}, clarify=True)}}">
+              {{term.meta.name}}
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-primary">
+    {% include '_footer.html' %}
+  </div>
+
+  {{g.scripts}}
+
+</body>
+</html>

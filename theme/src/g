@@ -1,6 +1,14 @@
 {% set opts = theme_meta.options %}
 
-{% set favicon = theme_url+"/assets/favicon.png" %}
-{% set trans_img = theme_url+"/assets/trans.png" %}
 {% set default_img = theme_url+"/assets/default.jpg" %}
-{% set hero = theme_url+"/assets/hero.jpg" %}
+{% set favicon = theme_url+"/assets/favicon.png" %}
+{% set trans = theme_url+"/assets/trans.png" %}
+
+
+{% set scripts %}
+<script src="{{theme_url}}/assets/jquery.min.js"></script>
+<script src="{{theme_url}}/assets/jquery.easing.min.js"></script>
+<script src="{{theme_url}}/assets/jquery.magnific-popup.min.js"></script>
+<script src="{{theme_url}}/assets/bootstrap.min.js"></script>
+<script src="{{theme_url}}/assets/main.js"></script>
+{% endset %}

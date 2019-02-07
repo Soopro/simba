@@ -1,15 +1,57 @@
-{% if g and page %}
-<div class="container">
-  <header>
-    <h2>{{page.title or _('Title')}}</h2>
-    <h4 class="lead">{{page.description}}</h4>
+{% import "g" as g with context %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+{% include "_head.html" %}
+<body>
+  <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg affix">
+      <div class="container-fluid">
+        <a class="navbar-brand"
+           href="{{base_url}}">
+          {{site_meta.title}}
+        </a>
+        <div>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link"
+                 href="{{base_url}}">
+                &larr; {{_('Back to Home')}}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                 href="{{base_url}}/articles">
+                {{_('Get All Artciles')}}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </header>
-  <div class="m-auto text-center">
+
+  <article class="container p-5 mt-5">
+    <header>
+      <h2>{{meta.title or _('Title')}}</h2>
+      <h4 class="lead">{{meta.description}}</h4>
+    </header>
+    {% if meta.featured_img.src %}
+    <figure>
+      <img src="{{g.trans}}"
+           style="{{meta.featured_img.src|thumbnail|bg_img}}" />
+    </figure>
+    {% endif %}
+    <hr>
     <div class="content">
-      {{page.content}}
+      {{content}}
     </div>
+  </article>
+
+  <div class="bg-primary">
+    {% include '_footer.html' %}
   </div>
-</div>
-{% elif not meta.is_front %}
-<script>window.location.replace('{{base_url}}/#{{meta.slug}}');</script>
-{% endif %}
+
+  {{g.scripts}}
+
+</body>
+</html>

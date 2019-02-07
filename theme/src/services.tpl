@@ -46,7 +46,7 @@
              series-item>
           <figure class="m-auto">
             <img class="avatar"
-                 ng-src="{{g.trans_img}}"
+                 ng-src="{{g.trans}}"
                  style="{{item.src|bg_img}}"/>
           </figure>
           <div class="card-body">
@@ -67,7 +67,7 @@
              series-item-create>
           <figure class="m-auto">
             <img class="avatar"
-                 ng-src="{{g.trans_img}}"
+                 ng-src="{{g.trans}}"
                  style="{{theme_url+'/assets/add.png'|bg_img}}" />
           </figure>
           <div class="card-body">

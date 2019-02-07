@@ -72,16 +72,6 @@ button {
   transition: all 0.2s ease-in-out;
 }
 
-a,
-a:link,
-a:visited {
-  text-decoration: underline;
-}
-a:hover,
-a:focus {
-  text-decoration: none;
-}
-
 ul, ol {
   padding-left: 1em;
 }
@@ -309,6 +299,7 @@ embed {
   }
   .navbar .navbar-brand {
     width: 240px;
+    max-width: 50%;
   }
   .navbar .navbar-aside {
     width: auto;
@@ -335,7 +326,6 @@ section {
   position: relative;
   padding: 6rem 0;
 }
-
 section header {
   text-align: center;
   text-transform: uppercase;
@@ -349,6 +339,10 @@ section header .lead {
   font-size: 0.875rem;
   font-weight: 400;
 }
+
+.plat {
+  background-color: #fff;
+}
 .segment {
   overflow: hidden;
   background-color: #fff;
@@ -359,6 +353,41 @@ section header .lead {
 }
 .segment.glassy * {
   color: #fff !important;
+}
+
+/* carousel */
+.text-carousel .carousel-item header {
+  margin-bottom: 1rem;
+}
+.text-carousel .carousel-indicators {
+  bottom: -60px;
+}
+.text-carousel .carousel-indicators li {
+  position: relative;
+  padding: 1px;
+  background-color: #999;
+  border: 1px solid #999;
+}
+.text-carousel .carousel-indicators li:hover,
+.text-carousel .carousel-indicators li.active {
+  background-color: #6b9e56;
+  border: 1px solid #6b9e56;
+}
+.text-carousel .carousel-indicators .more {
+  background-color: transparent !important;
+  border: 1px solid #999;
+  text-indent: 0;
+}
+.text-carousel .carousel-indicators .more:hover {
+  border-color: #6b9e56;
+}
+.text-carousel .carousel-indicators .more a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* parallex */
@@ -397,6 +426,7 @@ section header .lead {
   padding: 0.1rem;
   display: inline-block;
 }
+
 
 /* hero */
 .hero {
@@ -481,10 +511,9 @@ section header .lead {
 }
 
 /* content */
-.excerpt,
-.content {
+.excerpt {
   margin: 0 auto;
-  max-width: 1080px;
+  max-width: 960px;
 }
 .content img,
 .content video,

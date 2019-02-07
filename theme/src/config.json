@@ -12,18 +12,23 @@
   "content_types": {
     "post": {"title": "Posts", "templates": ["post"]}
   },
+  "category": {
+    "name": "Categories",
+    "content_types": ["post"]
+  },
   "templates": [
     "^page",
     "^services",
     "^features",
-    "^blog",
+    "^articles",
     "post",
     "index"
   ],
   "reserves": {
-    "^blog": true
+    "^articles": true
   },
   "options":{
-      "sortby": "date"
+      "sortby": "date",
+      "perpage": 6
   }
 }

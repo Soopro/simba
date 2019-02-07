@@ -26,7 +26,7 @@
         <div class="p-3 text-center {{item.class}}">
           <figure class="w-50 py-1 m-auto">
             <img class="rounded-circle thumbnail"
-                 ng-src="{{g.trans_img}}"
+                 ng-src="{{g.trans}}"
                  style="{{item.src|bg_img}}"
                  alt="{{item.title}}" />
           </figure>
@@ -58,7 +58,7 @@
         <div class="p-3 card border-0 text-center {{item.class}}">
           <figure class="m-auto">
             <img class="avatar"
-                 src="{{g.trans_img}}"
+                 src="{{g.trans}}"
                  style="{{item.src|bg_img}}" />
           </figure>
           <div class="card-body">

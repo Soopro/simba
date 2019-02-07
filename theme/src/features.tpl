@@ -42,7 +42,7 @@
              series-item>
           <figure class="w-50 py-1 m-auto">
             <img class="rounded-circle thumbnail"
-                 ng-src="{{g.trans_img}}"
+                 ng-src="{{g.trans}}"
                  style="{{item.src|bg_img}}" />
           </figure>
           <h5 class="text-truncate title">
@@ -59,7 +59,7 @@
              series-item-create>
           <figure class="w-50 py-1 m-auto">
             <img class="rounded-circle thumbnail"
-                 ng-src="{{g.trans_img}}"
+                 ng-src="{{g.trans}}"
                  style="{{theme_url+'/assets/add.png'|bg_img}}"/>
           </figure>
           <h5 class="text-truncate title">
