@@ -4,7 +4,8 @@
   <div class="container-fluid">
     <div id="BLOG-CAROUSEL"
          class="carousel text-carousel slide"
-         interval="12000">
+         data-ride="carousel"
+         data-interval="6000">
       <ol class="carousel-indicators">
         {% for x in posts %}
         <li class="{{'active' if loop.first}}"
