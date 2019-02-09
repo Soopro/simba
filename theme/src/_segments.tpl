@@ -12,6 +12,45 @@
 </sup-template>
 
 
+<!-- articles -->
+<sup-template id="articles">
+  <div class="container"
+       sup-query='posts'
+       perpage='1'
+       ng-model="query.posts">
+    <div class="carousel text-carousel slide"
+         ng-if="query.posts.contents.length">
+      <ol class="carousel-indicators">
+        <li class="{{$first ? 'active' : ''}}"
+            ng-repeat="x in [1,2,3]"></li>
+        <li class="more">
+          <a href="#"
+             aria-label="_('More')"></a>
+        </li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active"
+             ng-repeat="post in query.posts.contents">
+          <header>
+            <h2 class="text-truncate">{{post.title || _('Title')}}</h2>
+            <h4 class="lead text-truncate">{{post.description}}</h4>
+          </header>
+          <div class="m-auto pb-1 text-center">
+            <p class="excerpt text-clamp-3">{{post.excerpt}}</p>
+            <a class="mt-2 btn btn-sm btn-link"
+               href="#">{{_('Read Detail')}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="text-center text-muted"
+       ng-if="!query.posts.contents.length">
+      {{_('There is no post yet.')}}
+    </p>
+  </div>
+</sup-template>
+
+
 <!-- features -->
 <sup-template id="features">
   <div class="container">
@@ -27,14 +66,13 @@
           <figure class="w-50 py-1 m-auto">
             <img class="rounded-circle thumbnail"
                  ng-src="{{g.trans}}"
-                 style="{{item.src|bg_img}}"
-                 alt="{{item.title}}" />
+                 style="{{item.src|bg_img}}" />
           </figure>
           <h5 class="text-truncate title">
-            {{item.title || '&nbsp;'}}
+            {{item.title || _('Feature Title')}}
           </h5>
           <p class="text-clamp-4">
-            {{item.caption || '&nbsp;'}}
+            {{item.caption || _('Description text here')}}
           </p>
         </div>
       </div>
@@ -55,7 +93,7 @@
     <div class="row">
       <div class="col-lg-3 col-md-6 mb-3"
            ng-repeat="item in page.series">
-        <div class="p-3 card border-0 text-center {{item.class}}">
+        <div class="p-3 card trigger border-0 text-center {{item.class}}">
           <figure class="m-auto">
             <img class="avatar"
                  src="{{g.trans}}"
@@ -63,10 +101,10 @@
           </figure>
           <div class="card-body">
             <h5 class="text-truncate card-title">
-              {{item.title || '&nbsp;'}}
+              {{item.title || _('Service Title')}}
             </h5>
-            <p class="text-clamp-4 card-text">>
-              {{item.caption || '&nbsp;'}}
+            <p class="text-clamp-4 card-text">
+              {{item.caption || _('Description text here')}}
             </p>
             <a class="btn btn-sm btn-link text-secondary"
                href="#">{{_('Read More')}}</a>
