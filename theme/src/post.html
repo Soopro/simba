@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="{{ lang }}">
 {% include "_head.html" %}
-<body>
+<body class="wrapper-body">
   <header class="fixed-top">
     <nav class="navbar navbar-expand-lg affix">
       <div class="container-fluid">
@@ -14,14 +14,9 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link"
-                 href="{{base_url}}">
-                &larr; {{_('Back to Home')}}
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"
                  href="{{base_url}}/articles">
-                {{_('Get All Artciles')}}
+                <svg width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"/></svg>
+                <span>{{_('Back to articles')}}</span>
               </a>
             </li>
           </ul>
@@ -30,26 +25,50 @@
     </nav>
   </header>
 
-  <article class="container p-5 mt-5">
-    <header>
-      <h2>{{meta.title or _('Title')}}</h2>
-      <h4 class="lead">{{meta.description}}</h4>
-    </header>
-    {% if meta.featured_img.src %}
-    <figure>
-      <img src="{{g.trans}}"
-           style="{{meta.featured_img.src|thumbnail|bg_img}}" />
-    </figure>
-    {% endif %}
-    <hr>
-    <div class="content">
-      {{content}}
-    </div>
-  </article>
+  <div class="wrapper">
+    <div class="container p-5">
+      <div class="row">
+        <!-- col article -->
+        <div class="col-md-7 mb-5">
+          <article>
+            <header>
+              <h2>{{meta.title or _('Title')}}</h2>
+              <h4 class="lead">{{meta.description}}</h4>
+            </header>
+            {% if meta.featured_img.src %}
+            <figure>
+              <img src="{{meta.featured_img.src}}" />
+            </figure>
+            {% endif %}
+            <hr>
+            <div class="content">
+              {{content}}
+            </div>
+          </article>
+        </div>
 
-  <div class="bg-primary">
-    {% include '_footer.html' %}
+        <!-- col aside -->
+        {% set category = categorize() %}
+        <div class="col-md-4 ml-auto">
+          <h6>{{_(category.name or 'Categories')}}</h6>
+          <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action
+                      {{'active' if not meta.terms}}"
+               href="{{base_url}}/articles">{{_('All')}}</a>
+            {% for term in category.terms %}
+            <a class="list-group-item list-group-item-action
+                      {{'active' if term.key in meta.terms }}"
+               href="{{glue({'term': term.key}, base_url+'/articles')}}">
+              {{term.meta.name}}
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  {% include '_footer.html' %}
 
   {{g.scripts}}
 

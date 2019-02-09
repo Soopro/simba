@@ -16,13 +16,13 @@
         </figure>
         <div class="card-body">
           <h5 class="text-truncate card-title">
-            {{item.title or '&nbsp;'}}
+            {{item.title or _('Service Title')}}
           </h5>
           <p class="text-clamp-4 card-text">
-            {{item.caption or '&nbsp;'}}
+            {{item.caption or _('Description text here')}}
           </p>
           <a class="btn btn-sm btn-link text-secondary"
-             href="{{(item.link or '#')|url}}">{{_('Read More')}}</a>
+             href="{{(item.link or '#')|url}}">{{_('Learn More')}}</a>
         </div>
       </div>
     </div>

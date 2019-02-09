@@ -5,8 +5,44 @@
 		"msgstr": "切换导航"
 	},
 	{
-		"msgid": "Button Title",
-		"msgstr": "按钮标题"
+		"msgid": "Pagination",
+		"msgstr": "翻页"
+	},
+	{
+		"msgid": "List Articles",
+		"msgstr": "文章列表"
+	},
+	{
+		"msgid": "Next Page",
+		"msgstr": "下一页"
+	},
+	{
+		"msgid": "Previous Page",
+		"msgstr": "上一页"
+	},
+	{
+		"msgid": "All",
+		"msgstr": "全部"
+	},
+	{
+		"msgid": "Read Detail",
+		"msgstr": "阅读详情"
+	},
+	{
+		"msgid": "Categories",
+		"msgstr": "分类"
+	},
+	{
+		"msgid": "There is no post yet.",
+		"msgstr": "还没有任何文章"
+	},
+	{
+		"msgid": "Back to home",
+		"msgstr": "返回首页"
+	},
+	{
+		"msgid": "Back to articles",
+		"msgstr": "返回文章列表"
 	},
 	{
 		"msgid": "Title",
@@ -41,32 +77,12 @@
 		"msgstr": "服务标题"
 	},
 	{
-		"msgid": "Price here",
-		"msgstr": "价格标签"
-	},
-	{
 		"msgid": "Click here to edit the service.",
 		"msgstr": "点击这里编辑服务内容。"
 	},
 	{
 		"msgid": "Create New Service",
 		"msgstr": "添加新服务"
-	},
-	{
-		"msgid": "Member Team",
-		"msgstr": "作品标题"
-	},
-	{
-		"msgid": "Click here to edit the member.",
-		"msgstr": "点击这里编辑成员。"
-	},
-	{
-		"msgid": "Create New Member",
-		"msgstr": "添加新成员"
-	},
-	{
-		"msgid": "Team Member",
-		"msgstr": "团队成员"
 	},
 	{
 		"msgid": "Invert Color",

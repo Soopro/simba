@@ -16,6 +16,7 @@ body {
 }
 
 body {
+  position: relative;
   color: #333;
   min-height: 640px;
 }
@@ -340,9 +341,6 @@ section header .lead {
   font-weight: 400;
 }
 
-.plat {
-  background-color: #fff;
-}
 .segment {
   overflow: hidden;
   background-color: #fff;
@@ -353,6 +351,25 @@ section header .lead {
 }
 .segment.glassy * {
   color: #fff !important;
+}
+
+/* wrapper */
+.wrapper {
+  min-height: 100%;
+  position: relative;
+  padding-top: 3rem;
+  padding-bottom: 120px;
+  box-sizing: border-box;
+}
+.wrapper + .footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: #6b9e56;
+}
+.wrapper-body {
+  height: auto;
+  min-height: 100%;
 }
 
 /* carousel */
@@ -425,6 +442,10 @@ section header .lead {
   margin: 0;
   padding: 0.1rem;
   display: inline-block;
+}
+.footer .logo {
+  max-width: 100px;
+  max-height: 50px;
 }
 
 

@@ -15,10 +15,10 @@
                alt="{{item.title}}" />
         </figure>
         <h5 class="text-truncate title">
-          {{item.title or '&nbsp;'}}
+          {{item.title or _('Feature Title')}}
         </h5>
         <p class="text-clamp-4">
-          {{item.caption or '&nbsp;'}}
+          {{item.caption or _('Description text here')}}
         </p>
       </div>
     </div>
