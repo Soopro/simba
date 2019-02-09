@@ -8,6 +8,7 @@
     <div class="m-auto text-center">
       <div class="content"
            sup-bind-html="page.content"></div>
+    </div>
   </div>
 </sup-template>
 
@@ -55,7 +56,7 @@
 <sup-template id="features">
   <div class="container">
     <header>
-      <h2>{{page.description || _('Title')}}</h2>
+      <h2>{{page.title || _('Title')}}</h2>
       <h4 class="lead">{{page.description}}</h4>
     </header>
 
@@ -96,7 +97,7 @@
         <div class="p-3 card trigger border-0 text-center {{item.class}}">
           <figure class="m-auto">
             <img class="avatar"
-                 src="{{g.trans}}"
+                 ng-src="{{g.trans}}"
                  style="{{item.src|bg_img}}" />
           </figure>
           <div class="card-body">

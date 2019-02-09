@@ -1,12 +1,17 @@
 {% import 'g.tpl' %}
 {% include '_css.tpl' %}
-
+<style>
+  body {
+    height: auto;
+    min-height: 100%;
+  }
+</style>
 <div class="wrapper">
   <div class="container p-5">
     <header>
       <h1>
         <span sup-widget-text
-              default="{{_('Title')}}"
+              default="{{_('Articles')}}"
               ng-model="meta.title"></span>
       </h1>
     </header>
@@ -23,14 +28,21 @@
             <h5 class="lead">{{post.date|date_formatted}}</h5>
           </header>
           <figure ng-if="post.featured_img.src">
-            <img src="{{post.featured_img.src}}" />
+            <img ng-src="{{post.featured_img.src}}" />
           </figure>
           <p class="excerpt text-clamp-4">{{post.excerpt}}</p>
           <a class="mt-2 btn btn-sm btn-secondary"
              href="{{post.url}}">{{_('Read Detail')}}</a>
         </div>
+        <div class="py-2"
+             ng-if="!query.booklet.contents.length">
+          <p class="text-center text-muted">
+            {{_('There is no post yet.')}}
+          </p>
+        </div>
         <hr>
-        <nav aria-label="{{_('Pagination')}}">
+        <nav aria-label="{{_('Pagination')}}"
+             ng-if="booklet.total_pages > 1">
           <ul class="pagination">
             <li class="page-item disabled">
               <a class="page-link"
@@ -78,3 +90,5 @@
     </div>
   </div>
 </div>
+
+{% include '_footer.tpl' %}

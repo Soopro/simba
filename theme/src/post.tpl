@@ -1,6 +1,11 @@
 {% import 'g.tpl' %}
 {% include '_css.tpl' %}
-
+<style>
+  body {
+    height: auto;
+    min-height: 100%;
+  }
+</style>
 <div class="wrapper">
   <div class="container p-5">
     <div class="row">
@@ -18,8 +23,9 @@
                   ng-model="meta.description"></span>
           </h4>
         </header>
-        <figure>
-          <img src="{{meta.featured_img.src}}" />
+        <figure sup-widget-media
+                ng-model="meta.featured_img">
+          <img ng-src="{{meta.featured_img.src || g.default_img}}" />
         </figure>
         <div class="m-auto text-center">
           <div class="content"
@@ -50,3 +56,5 @@
     </div>
   </div>
 </div>
+
+{% include '_footer.html' %}

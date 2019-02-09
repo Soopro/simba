@@ -28,7 +28,7 @@
   <div class="wrapper">
     <div class="container p-5">
       <header>
-        <h1>{{meta.title}}</h1>
+        <h1>{{meta.title or _('Artilces')}}</h1>
       </header>
       <hr>
       <div class="row">
@@ -53,6 +53,13 @@
           </div>
           <hr>
           {% endfor %}
+          {% if not booklet.contents %}
+          <div class="py-2">
+            <p class="text-center text-muted">
+              {{_('There is no post yet.')}}
+            </p>
+          </div>
+          {% endif %}
           {% if booklet.total_pages > 1 %}
           <nav aria-label="{{_('Pagination')}}">
             <ul class="pagination">

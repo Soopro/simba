@@ -2,34 +2,34 @@
 <!DOCTYPE html>
 <html lang="{{lang}}">
 {% include '_head.html' %}
-<body class="parallax-body-cover"
+<body class="parallax-major"
       style="{{meta.hero.style}}">
 
-{% include '_header.html' %}
+  {% include '_header.html' %}
 
-<section id="{{meta.slug}}"
-         class="hero {{meta.hero.class}}">
-  <div class="pb-5">
-    <h1>{{meta.title or _('Title')}}</h1>
-    <h3 class="lead">
-      {{meta.description or _('Description text here')}}
-    </h3>
-    <a class="entrance anim-fade-in-out"
-       href="#">
-      <svg width="48" heigth="48" viewBox="0 0 48 48"><path d="M14,24A10,10,0,1,1,24,34,10.0036,10.0036,0,0,1,14,24Zm10,6a6,6,0,1,0-6-6A6.0048,6.0048,0,0,0,24,30Z"/><path d="M19.41,40,24,44.58,28.59,40,30,41.41l-6,6-6-6Z"/></svg>
-    </a>
-  </div>
-</section>
+  <section id="{{meta.slug}}"
+           class="hero {{meta.hero.class}}">
+    <div class="pb-5">
+      <h1>{{meta.title or _('Title')}}</h1>
+      <h3 class="lead">
+        {{meta.description or _('Description text here')}}
+      </h3>
+      <a class="entrance anim-fade-in-out"
+         href="#">
+        <svg width="48" heigth="48" viewBox="0 0 48 48"><path d="M14,24A10,10,0,1,1,24,34,10.0036,10.0036,0,0,1,14,24Zm10,6a6,6,0,1,0-6-6A6.0048,6.0048,0,0,0,24,30Z"/><path d="M19.41,40,24,44.58,28.59,40,30,41.41l-6,6-6-6Z"/></svg>
+      </a>
+    </div>
+  </section>
 
-{% for page in segments() %}
-<section id="{{page.slug}}"
-         class="segment {{page.bg.class}}"
-         style="{{page.bg.style}}">
-  {% include page.template+'.html' ignore missing %}
-</section>
-{% endfor %}
+  {% for page in segments() %}
+  <section id="{{page.slug}}"
+           class="segment {{page.bg.class}}"
+           style="{{page.bg.style}}">
+    {% include page.template+'.html' ignore missing %}
+  </section>
+  {% endfor %}
 
-{% include '_footer.html' %}
+  {% include '_footer.html' %}
 
 {{g.scripts}}
 

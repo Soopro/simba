@@ -29,6 +29,10 @@
 		"msgstr": "阅读详情"
 	},
 	{
+		"msgid": "Articles",
+		"msgstr": "文章"
+	},
+	{
 		"msgid": "Categories",
 		"msgstr": "分类"
 	},
@@ -85,12 +89,12 @@
 		"msgstr": "添加新服务"
 	},
 	{
-		"msgid": "Invert Color",
-		"msgstr": "反转色"
+		"msgid": "Parallax",
+		"msgstr": "视差"
 	},
 	{
-	  "msgid": "No menu yet",
-	  "msgstr": "没有菜单"
+		"msgid": "Glassy",
+		"msgstr": "通透"
 	},
 	{
 		"msgid": "Language",
