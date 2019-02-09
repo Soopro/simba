@@ -27,6 +27,14 @@
       <div class="content"
            sup-angular-wysiwyg
            default="{{_('$_CONTENT')}}"
+           presets="[
+           {'name':_('2 Columns'),
+            'type':'column',
+            'code':'<div class=row>
+              <div class=col-sm><p>'+g.dummytxt+'</p></div>
+              <div class=col-sm><p>'+g.dummytxt+'</p></div>
+              </div>'}
+           ]"
            ng-model="content"></div>
     </div>
   </div>
