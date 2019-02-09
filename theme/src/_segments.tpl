@@ -15,7 +15,7 @@
 <!-- articles -->
 <sup-template id="articles">
   <div class="container"
-       sup-query='posts'
+       sup-query='post'
        perpage='1'
        ng-model="query.posts">
     <div class="carousel text-carousel slide"

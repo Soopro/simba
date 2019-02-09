@@ -30,7 +30,9 @@
   {% include '_segments.tpl' %}
 
   <div sup-widget-segments ng-model="segments">
-    <section id="{{page.slug}}" class="segment"
+    <section id="{{page.slug}}"
+             class="segment {{page.bg.class}}"
+             style="{{page.bg.style}}"
              ng-repeat="page in segments"
              sup-load-template="page.template"
              import-with-context="{'g':g, 'page':page}"

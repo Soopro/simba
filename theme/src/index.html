@@ -22,11 +22,11 @@
 </section>
 
 {% for page in segments() %}
-  <section id="{{page.slug}}"
-           class="segment {{page.bg.class}}"
-           style="{{page.bg.style}}">
-    {% include page.template+'.html' ignore missing %}
-  </section>
+<section id="{{page.slug}}"
+         class="segment {{page.bg.class}}"
+         style="{{page.bg.style}}">
+  {% include page.template+'.html' ignore missing %}
+</section>
 {% endfor %}
 
 {% include '_footer.html' %}
