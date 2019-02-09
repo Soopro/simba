@@ -1,6 +1,6 @@
 <!-- Header -->
 <header class="fixed-top">
-  <nav class="navbar navbar-expand-lg"
+  <nav class="navbar navbar-expand-lg affix"
        toggle-affix>
     <div class="container-fluid">
       <a class="navbar-brand"

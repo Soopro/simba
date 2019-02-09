@@ -66,7 +66,7 @@
 	},
 	{
 		"msgid": "Click here to edit the feature.",
-		"msgstr": "点击这里编辑特点内容。"
+		"msgstr": "点击这里编辑特点内容"
 	},
 	{
 		"msgid": "Create New Feature",
@@ -74,7 +74,7 @@
 	},
 	{
 		"msgid": "Click here to add new one.",
-		"msgstr": "点击这里添加一个新的。"
+		"msgstr": "点击这里添加一个新的"
 	},
 	{
 		"msgid": "Service Title",
@@ -82,11 +82,15 @@
 	},
 	{
 		"msgid": "Click here to edit the service.",
-		"msgstr": "点击这里编辑服务内容。"
+		"msgstr": "点击这里编辑服务内容"
 	},
 	{
 		"msgid": "Create New Service",
 		"msgstr": "添加新服务"
+	},
+	{
+		"msgid": "Create New Artcile",
+		"msgstr": "添加新文章"
 	},
 	{
 		"msgid": "Parallax",

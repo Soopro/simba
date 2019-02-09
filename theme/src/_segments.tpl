@@ -108,7 +108,7 @@
               {{item.caption || _('Description text here')}}
             </p>
             <a class="btn btn-sm btn-link text-secondary"
-               href="#">{{_('Read More')}}</a>
+               href="#">{{_('Learn More')}}</a>
           </div>
         </div>
       </div>

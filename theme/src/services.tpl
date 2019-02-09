@@ -43,6 +43,7 @@
       <div class="col-lg-3 col-md-6 mb-3"
            ng-repeat="item in meta.series">
         <div class="p-3 card border-0 text-center {{item.class}}"
+             outline-inside
              series-item>
           <figure class="m-auto">
             <img class="avatar"
@@ -57,13 +58,14 @@
               {{item.caption || '&nbsp;'}}
             </p>
             <a class="btn btn-sm btn-link text-secondary"
-               href="#">{{_('Read More')}}</a>
+               href="#">{{_('Learn More')}}</a>
           </div>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 mb-3">
         <div class="p-3 card border-0 text-center"
+             outline-inside
              series-item-create>
           <figure class="m-auto">
             <img class="avatar"
