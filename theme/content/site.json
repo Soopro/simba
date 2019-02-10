@@ -54,7 +54,28 @@
       }
     ]
   },
-
+  "categories": {
+    "name":"Categories",
+    "content_types": ["post"],
+    "terms": [
+      {
+        "key":"food",
+        "meta":{"name":"Food"}
+      },
+      {
+        "key":"book",
+        "meta":{"name":"Book"}
+      },
+      {
+        "key":"drink",
+        "meta":{"name":"Drink"}
+      },
+      {
+        "key":"coffee",
+        "meta":{"name":"Coffee"}
+      }
+    ]
+  },
   "meta": {
     "favicon": "",
     "logo": "",

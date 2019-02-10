@@ -1,6 +1,6 @@
 /*
 Date: '2012-06-01'
-Priority: 0
+Priority: 40
 Status: 1
 Template: features
 Title: Features

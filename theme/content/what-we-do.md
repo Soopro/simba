@@ -1,10 +1,13 @@
 /*
 Date: '2011-01-01'
-Priority: 0
+Priority: 10
 Status: 1
 Template: page
 Title: What we do?
 Description: Helping online marketing for new brands
+Bg:
+  class: 'glassy'
+  style: 'background-image:url(https://images.pexels.com/photos/825904/pexels-photo-825904.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)'
 */
 <div class="row text-left">
   <div class="col-sm">
