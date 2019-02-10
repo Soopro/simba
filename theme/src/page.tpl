@@ -31,8 +31,8 @@
            {'name':_('2 Columns'),
             'type':'column',
             'code':'<div class=row>
-              <div class=col-sm><p>'+g.dummytxt+'</p></div>
-              <div class=col-sm><p>'+g.dummytxt+'</p></div>
+              <div class=col-sm><p>'+_('$_CONTENT')+'</p></div>
+              <div class=col-sm><p>'+_('$_CONTENT')+'</p></div>
               </div>'}
            ]"
            ng-model="content"></div>
