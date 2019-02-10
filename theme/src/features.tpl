@@ -60,7 +60,7 @@
           <figure class="w-50 py-1 m-auto">
             <img class="rounded-circle thumbnail"
                  ng-src="{{g.trans}}"
-                 style="{{theme_url+'/assets/add.png'|bg_img}}"/>
+                 style="{{theme_url+'/assets/add_feature.png'|bg_img}}"/>
           </figure>
           <h5 class="text-truncate title">
             {{_('Create New Feature')}}

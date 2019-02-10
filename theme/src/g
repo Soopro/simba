@@ -1,6 +1,5 @@
 {% set opts = theme_meta.options %}
 
-{% set default_img = theme_url+"/assets/default.jpg" %}
 {% set favicon = theme_url+"/assets/favicon.png" %}
 {% set trans = theme_url+"/assets/trans.png" %}
 

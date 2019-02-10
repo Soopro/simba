@@ -347,10 +347,18 @@ section header .lead {
   border-bottom: 1px solid rgba(120, 144, 155, 0.2);
 }
 .segment.glassy {
+  background-image: none !important;
   background-color: rgba(120, 144, 155, 0.6);
 }
 .segment.glassy * {
-  color: #fff !important;
+  color: #fff;
+}
+.segment.glassy a {
+  text-decoration: underline;
+}
+.segment.glassy a:hover {
+  color: #6b9e56;
+  text-decoration: none;
 }
 
 /* wrapper */

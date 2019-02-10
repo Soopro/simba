@@ -70,7 +70,7 @@
           <figure class="m-auto">
             <img class="avatar"
                  ng-src="{{g.trans}}"
-                 style="{{theme_url+'/assets/add.png'|bg_img}}" />
+                 style="{{theme_url+'/assets/add_service.png'|bg_img}}" />
           </figure>
           <div class="card-body">
             <h5 class="text-truncate card-title">

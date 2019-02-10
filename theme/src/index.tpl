@@ -8,7 +8,7 @@
          class="hero {{meta.hero.class}}">
   <div sup-widget-bg
        ng-model="meta.hero"></div>
-  <div class="pb-5">
+  <div>
     <h1>
       <span sup-widget-text
               default="{{_('Title')}}"
