@@ -161,10 +161,13 @@
 
   $('.card.trigger').on('click', function(e) {
     if (e.target && e.target.tagName == 'A'){
-      return true;
+      return false;
     } else {
-      var link = $(this).find('a').attr('href') || '';
-      if (link.indexOf('#') == 0) {
+      var link = $(this).find('a').attr('href');
+      if (!link) {
+        return false;
+      }
+      else if (link.indexOf('#') == 0) {
         scrollToSection(link);
       } else {
         window.location.href = link;
@@ -172,11 +175,7 @@
       return false;
     }
   });
-  // $('.card.trigger a').on('click', function(e) {
-  //   console.log(e)
-  //   e.stopPropagation();
-  //   return
-  // });
+
 
   /* init */
   toggleAffix();

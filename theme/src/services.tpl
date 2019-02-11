@@ -58,6 +58,7 @@
               {{item.caption || '&nbsp;'}}
             </p>
             <a class="btn btn-sm btn-link text-secondary"
+               ng-if="item.link"
                href="#">{{_('Learn More')}}</a>
           </div>
         </div>

@@ -21,8 +21,10 @@
           <p class="text-clamp-4 card-text">
             {{item.caption or _('Description text here')}}
           </p>
+          {% if item.link %}
           <a class="btn btn-sm btn-link text-secondary"
-             href="{{(item.link or '#')|url}}">{{_('Learn More')}}</a>
+             href="{{item.link|url}}">{{_('Learn More')}}</a>
+          {% endif %}
         </div>
       </div>
     </div>
