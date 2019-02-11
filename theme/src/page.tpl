@@ -33,7 +33,7 @@
             'code':'<div class=&quot;row text-left&quot;>
               <div class=&quot;col-sm&quot;><p>'+_('$_CONTENT')+'</p></div>
               <div class=&quot;col-sm&quot;><p>'+_('$_CONTENT')+'</p></div>
-              </div>'}
+              </div><div>&nbsp;</div>'}
            ]"
            ng-model="content"></div>
     </div>
