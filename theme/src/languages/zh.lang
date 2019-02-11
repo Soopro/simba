@@ -109,6 +109,10 @@
 		"msgstr": "通透"
 	},
 	{
+		"msgid": "Hide Description Text",
+		"msgstr": "隐藏说明文字"
+	},
+	{
 		"msgid": "Language",
 		"msgstr": "语言"
 	},

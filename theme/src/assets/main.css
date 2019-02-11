@@ -239,7 +239,7 @@ embed {
 
 .navbar .nav-item.active,
 .navbar .nav-item.active .nav-link {
-  color: #6b9e56 !important;
+  color: #eee !important;
 }
 .navbar .nav-link {
   color: #eee;
@@ -265,6 +265,10 @@ embed {
 .navbar.affix .navbar-aside,
 .navbar.affix .navbar-toggler {
   color: #333;
+}
+.navbar.affix .nav-item.active,
+.navbar.affix .nav-item.active .nav-link {
+  color: #6b9e56 !important;
 }
 
 .navbar .navbar-brand {
@@ -697,11 +701,23 @@ section header .lead {
   opacity: 0;
 }
 
+
 /* Edtior
 /* ----------------------------------------------- */
-.editor-top {
-  height: 80px;
+.sup-editor-canvas .page-attrs {
+  position: absolute !important;
+  max-width: 32px;
+  max-height: 72px;
+  min-width: 32px;
+  min-height: 72px;
+  padding: 0;
+  margin: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  background: transparent;
 }
+
 
 /* Languages
 /* ----------------------------------------------- */

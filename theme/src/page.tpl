@@ -4,6 +4,16 @@
 <section id="{{meta.slug}}"
          class="segment {{meta.bg.class}}"
          style="{{meta.bg.style}}">
+  <div class="page-attrs">
+    <div sup-widget-attrs
+         ng-model="meta.attrs"
+         structure="[
+           {'key': 'hide_description',
+            'label': _('Hide Description Text'),
+            'value': false,
+            'type': 'switch'},
+         ]"></div>
+  </div>
   <div sup-widget-bg
        presets="[
           {'key': 'parallax-bg', 'label': _('Parallax')},
@@ -17,7 +27,8 @@
               default="{{_('Title')}}"
               ng-model="meta.title"></span>
       </h2>
-      <h4 class="lead">
+      <h4 class="lead"
+          ng-show="!meta.attrs.hide_description">
         <span sup-widget-text
               default="{{_('Description text here')}}"
               ng-model="meta.description"></span>

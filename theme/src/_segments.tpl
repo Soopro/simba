@@ -3,7 +3,10 @@
   <div class="container">
     <header>
       <h2>{{page.title || _('Title')}}</h2>
-      <h4 class="lead">{{page.description}}</h4>
+      <h4 class="lead"
+          ng-show="!page.attrs.hide_description">
+        {{page.description}}
+      </h4>
     </header>
     <div class="m-auto text-center">
       <div class="content"
