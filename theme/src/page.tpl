@@ -39,6 +39,12 @@
            sup-angular-wysiwyg
            default="{{_('$_CONTENT')}}"
            presets="[
+           {'name':_('Single Column'),
+            'type':'column',
+            'code':'<div class=&quot;single-column&quot;>
+              <p>'+_('$_CONTENT')+'</p>
+              <p>'+_('$_CONTENT')+'</p>
+              </div><div>&nbsp;</div>'},
            {'name':_('2 Columns'),
             'type':'column',
             'code':'<div class=&quot;row text-left&quot;>

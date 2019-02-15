@@ -357,10 +357,10 @@ section header .lead {
 .segment.glassy * {
   color: #fff;
 }
-.segment.glassy a {
+.segment.glassy a:not(.btn) {
   text-decoration: underline;
 }
-.segment.glassy a:hover {
+.segment.glassy a:not(.btn):hover {
   color: #6b9e56;
   text-decoration: none;
 }
@@ -552,6 +552,10 @@ section header .lead {
 .content audio,
 .content embed {
   max-width: 100%;
+}
+.single-column {
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 
