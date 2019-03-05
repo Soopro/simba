@@ -2,7 +2,7 @@
 <div class="container">
   <header>
     <h2>{{page.title or _('Title')}}</h2>
-    {% if not meta.attrs.hide_description %}
+    {% if not page.attrs.hide_description %}
     <h4 class="lead">{{page.description}}</h4>
     {% endif %}
   </header>

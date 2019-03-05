@@ -723,16 +723,6 @@ section header .lead {
 }
 
 
-/* Languages
-/* ----------------------------------------------- */
-html[lang^="zh"],
-html[lang^="zh"] body {
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial,
-               "PingFang SC", "Hiragino Sans GB",
-               "Source Han Sans CN", "Source Han Sans SC",
-               "Microsoft YaHei", "STXihei", "STHeiti", "SimHei",
-               sans-serif;
-}
 /* Font Family
 /* ----------------------------------------------- */
 html,
@@ -745,7 +735,6 @@ html[lang^="zh"],
 html[lang^="zh"] body {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial,
                'Source Han Sans CN', 'Source Han Sans SC',
-               'Hiragino Sans GB', 'PingFang SC',
-               'Microsoft YaHei', 'STHeiti', 'SimHei',
+               'Hiragino Sans GB', 'PingFang SC', 'STHeiti', 'SimHei',
                sans-serif;
 }
