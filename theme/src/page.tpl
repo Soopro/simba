@@ -7,6 +7,7 @@
   <div class="page-attrs">
     <div sup-widget-attrs
          ng-model="meta.attrs"
+         outline-none
          structure="[
            {'key': 'hide_description',
             'label': _('Hide Description Text'),

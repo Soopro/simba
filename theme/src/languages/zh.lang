@@ -69,6 +69,10 @@
 		"msgstr": "2 内容栏"
 	},
 	{
+		"msgid": "Single Column",
+		"msgstr": "单列内容栏"
+	},
+	{
 		"msgid": "Feature Title",
 		"msgstr": "特点标题"
 	},

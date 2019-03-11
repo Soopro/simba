@@ -1,6 +1,6 @@
 {
   "slug": "simba",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "author": "Redy",
   "license": "MIT",
   "title": "SIMBA",
@@ -24,9 +24,6 @@
     "post",
     "index"
   ],
-  "reserves": {
-    "^articles": true
-  },
   "options":{
       "sortby": "date",
       "perpage": 6
