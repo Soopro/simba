@@ -53,6 +53,14 @@
               <div class=&quot;col-sm&quot;><p>'+_('$_CONTENT')+'</p></div>
               </div><div>&nbsp;</div>'}
            ]"
+           text-styles="[
+             {'class': 'text-primary', 'name': _('Primary Text'),
+              'colorize': '#78909b'},
+             {'class': 'text-secondary', 'name': _('Secondary Text'),
+              'colorize': '#6b9e56'},
+             {'class': 'text-danger', 'name': _('Danger Text'),
+              'colorize': '#ff4136'}
+           ]"
            ng-model="content"></div>
     </div>
   </div>
