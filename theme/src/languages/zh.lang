@@ -117,8 +117,20 @@
 		"msgstr": "隐藏说明文字"
 	},
 	{
-		"msgid": "Language",
+		"msgid": "Languages",
 		"msgstr": "语言"
+	},
+	{
+		"msgid": "Primary Text",
+		"msgstr": "主要文本"
+	},
+	{
+		"msgid": "Secondary Text",
+		"msgstr": "次要文本"
+	},
+	{
+		"msgid": "Danger Text",
+		"msgstr": "警告文本"
 	},
 	{
 		"msgid": "$_CONTENT",
